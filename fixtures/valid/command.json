@@ -1,0 +1,10 @@
+{
+  "api_version": 1,
+  "command_id": "cmd-step",
+  "project_id": "project-j0",
+  "expected_revision": "0",
+  "run_id": "run-42-0",
+  "command": {
+    "type": "simulation.step"
+  }
+}

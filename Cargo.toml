@@ -1,0 +1,39 @@
+[workspace]
+resolver = "3"
+members = ["crates/*", "apps/*"]
+default-members = ["crates/sns-cli"]
+
+[workspace.package]
+version = "0.1.0"
+edition = "2024"
+rust-version = "1.95"
+license = "MIT"
+repository = "https://github.com/Kevin-FR/sinesi"
+
+[workspace.dependencies]
+sns-model = { path = "crates/sns-model" }
+sns-engine = { path = "crates/sns-engine" }
+sns-project = { path = "crates/sns-project" }
+sns-html = { path = "crates/sns-html" }
+sns-ui-egui = { path = "crates/sns-ui-egui" }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+sha2 = "0.10"
+base64 = "0.22"
+tempfile = "3"
+egui = { version = "=0.37.0", default-features = false, features = ["default_fonts", "monochrome_emoji_fonts"] }
+eframe = { version = "=0.37.0", default-features = false, features = ["wgpu", "accesskit", "clipboard", "x11", "wayland"] }
+egui_extras = { version = "=0.37.0", default-features = false }
+egui_kittest = { version = "=0.37.0", default-features = false }
+image = { version = "0.25", default-features = false, features = ["png"] }
+
+[workspace.lints.rust]
+unsafe_code = "forbid"
+
+[workspace.lints.clippy]
+dbg_macro = "deny"
+todo = "deny"
+
+[profile.dev.package."*"]
+opt-level = 2

@@ -1,0 +1,102 @@
+{
+  "SIM": {
+    "title": "Simulation et moteur",
+    "component": "engine"
+  },
+  "TOP": {
+    "title": "Édition de topologie",
+    "component": "topology"
+  },
+  "EQU": {
+    "title": "Équipements et interfaces",
+    "component": "devices"
+  },
+  "L2": {
+    "title": "Ethernet et ARP",
+    "component": "link"
+  },
+  "IP4": {
+    "title": "IPv4 et ICMP",
+    "component": "ipv4"
+  },
+  "ROUT": {
+    "title": "Routage",
+    "component": "routing"
+  },
+  "TCP": {
+    "title": "Transport TCP simulé",
+    "component": "transport"
+  },
+  "UDP": {
+    "title": "Transport UDP simulé",
+    "component": "transport"
+  },
+  "OS": {
+    "title": "Bureau et logiciels simulés",
+    "component": "applications"
+  },
+  "FS": {
+    "title": "Fichiers et outils locaux",
+    "component": "filesystem"
+  },
+  "CLI": {
+    "title": "Terminal simulé",
+    "component": "terminal"
+  },
+  "DHCP": {
+    "title": "Configuration automatique",
+    "component": "dhcp"
+  },
+  "DNS": {
+    "title": "Résolution de noms",
+    "component": "dns"
+  },
+  "WEB": {
+    "title": "Web simulé",
+    "component": "web"
+  },
+  "NAT": {
+    "title": "Traduction d’adresses",
+    "component": "nat"
+  },
+  "FW": {
+    "title": "Pare-feu pédagogique",
+    "component": "firewall"
+  },
+  "MAIL": {
+    "title": "Messagerie simulée",
+    "component": "mail"
+  },
+  "P2P": {
+    "title": "Échange pair à pair",
+    "component": "p2p"
+  },
+  "OBS": {
+    "title": "Observation et pédagogie",
+    "component": "observation"
+  },
+  "DOC": {
+    "title": "Annotations et rapports",
+    "component": "reporting"
+  },
+  "EXT": {
+    "title": "Logiciels personnalisés et pont réel",
+    "component": "extensions"
+  },
+  "PROJ": {
+    "title": "Projets et compatibilité",
+    "component": "projects"
+  },
+  "CFG": {
+    "title": "Préférences, aide et distribution",
+    "component": "platform"
+  },
+  "NFR": {
+    "title": "Qualité et contraintes transversales",
+    "component": "quality"
+  },
+  "ADV": {
+    "title": "Évolutions hors parité",
+    "component": "future"
+  }
+}

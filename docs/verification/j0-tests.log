@@ -1,0 +1,127 @@
+    Blocking waiting for file lock on artifact directory
+   Compiling sns-model v0.1.0 (/Users/kevin/Web/SNS/crates/sns-model)
+   Compiling sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+   Compiling sns-project v0.1.0 (/Users/kevin/Web/SNS/crates/sns-project)
+   Compiling sns-html v0.1.0 (/Users/kevin/Web/SNS/crates/sns-html)
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+   Compiling sns-cli v0.1.0 (/Users/kevin/Web/SNS/crates/sns-cli)
+   Compiling sns-desktop v0.1.0 (/Users/kevin/Web/SNS/apps/sns-desktop)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 18.08s
+     Running unittests src/main.rs (target/debug/deps/sinesi-e0f80f6968839ac1)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/runner.rs (target/debug/deps/runner-53d79d24c5abc90a)
+
+running 1 test
+test independent_processes_emit_identical_traces_and_honor_bounds ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.25s
+
+     Running unittests src/main.rs (target/debug/deps/sns_desktop-c06b7398bf191cca)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_engine-e898ac175fba39ad)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/determinism.rs (target/debug/deps/determinism-30f3a42b48132a49)
+
+running 7 tests
+test quota_and_time_overflow_fail_without_consuming_an_event_or_randomness ... ok
+test rejected_stale_and_duplicate_commands_are_atomic_and_stop_cancels_pending_work ... ok
+test delivery_priority_precedes_simultaneous_dispatch_and_fifo_breaks_ties ... ok
+test prototype_http_get_image_and_post_are_scheduled_messages ... ok
+test stable_order_is_independent_of_project_container_order ... ok
+test stepping_and_bounded_execution_match_uninterrupted_execution ... ok
+test fresh_executions_are_byte_identical_with_seeded_jitter ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_html-0ff8be30672080b9)
+
+running 3 tests
+test tests::encoded_external_urls_do_not_bypass_the_policy ... ok
+test tests::parses_image_link_and_post_form_without_any_loader ... ok
+test tests::rejects_external_resources_scripts_and_malformed_content ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_model-76b4219d961e4696)
+
+running 2 tests
+test tests::paths_cannot_escape_into_host_resources ... ok
+test tests::decimal_is_exact_and_canonical ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_project-8a6356f19fc76146)
+
+running 3 tests
+test tests::untrusted_documents_are_rejected_before_use ... ok
+test tests::project_roundtrip_and_failed_replacement_preserve_original ... ok
+test tests::migration_preserves_exact_source_and_refuses_unrecognized_versions ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running tests/contracts.rs (target/debug/deps/contracts-32909198fcde336e)
+
+running 3 tests
+test schemas_reject_unknown_properties_versions_and_invalid_counters ... ok
+test semantic_reference_checks_complement_the_structural_schema ... ok
+test neutral_schemas_accept_actual_serialized_contracts ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_ui_egui-073d406d75699a36)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/workbench.rs (target/debug/deps/workbench-7ce0fc1c09329280)
+
+running 4 tests
+test canvas_has_a_keyboard_reachable_equipment_selection ... ok
+test controls_drive_the_real_engine_and_restart_clears_state ... ok
+test native_browser_gets_page_image_link_and_post_via_engine ... ok
+test large_trace_uses_the_virtualized_table ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.63s
+
+   Doc-tests sns_engine
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_html
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_model
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_project
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_ui_egui
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s

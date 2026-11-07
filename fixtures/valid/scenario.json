@@ -1,0 +1,131 @@
+{
+  "scenario_schema_version": 1,
+  "project": {
+    "schema_version": 1,
+    "semantic_profile": "sns-educational-v1",
+    "project_id": "project-j0",
+    "name": "Sinesi — atelier J0",
+    "devices": [
+      {
+        "id": "client",
+        "kind": "workstation",
+        "label": "Poste élève",
+        "interfaces": [
+          {
+            "id": "if-client",
+            "mac": "02:00:00:00:00:01",
+            "medium": "ethernet",
+            "ipv4": {
+              "mode": "static",
+              "address": "192.168.1.1",
+              "prefix_length": 24
+            }
+          }
+        ],
+        "network": {
+          "default_gateway": null,
+          "dns_server": null
+        },
+        "applications": [],
+        "files": []
+      },
+      {
+        "id": "server",
+        "kind": "workstation",
+        "label": "Serveur prototype",
+        "interfaces": [
+          {
+            "id": "if-server",
+            "mac": "02:00:00:00:00:02",
+            "medium": "ethernet",
+            "ipv4": {
+              "mode": "static",
+              "address": "192.168.1.2",
+              "prefix_length": 24
+            }
+          }
+        ],
+        "network": {
+          "default_gateway": null,
+          "dns_server": null
+        },
+        "applications": [],
+        "files": []
+      }
+    ],
+    "links": [
+      {
+        "id": "link-demo",
+        "endpoints": [
+          "if-client",
+          "if-server"
+        ],
+        "latency_us": "1000",
+        "jitter_us": "250"
+      }
+    ],
+    "layout": {
+      "devices": [
+        {
+          "device_id": "client",
+          "x": 160,
+          "y": 200
+        },
+        {
+          "device_id": "server",
+          "x": 560,
+          "y": 200
+        }
+      ]
+    },
+    "annotations": [],
+    "resources": [],
+    "extensions": []
+  },
+  "seed": "42",
+  "actions": [
+    {
+      "at_us": "0",
+      "source": "client",
+      "target": "server",
+      "message": {
+        "kind": "signal",
+        "text": "Bonjour Sinesi"
+      }
+    },
+    {
+      "at_us": "5000",
+      "source": "client",
+      "target": "server",
+      "message": {
+        "kind": "http_request",
+        "method": "GET",
+        "path": "/",
+        "fields": {}
+      }
+    }
+  ],
+  "prototype_servers": [
+    {
+      "device_id": "server",
+      "post_echo_path": "/echo",
+      "get_routes": [
+        {
+          "path": "/",
+          "media_type": "text/html",
+          "body_base64": "PGgxPkJpZW52ZW51ZSBkYW5zIFNpbmVzaTwvaDE+PHA+Q2V0dGUgcGFnZSB2aWVudCBkdSBzZXJ2ZXVyIHNpbXVsw6kuPC9wPjxpbWcgc3JjPSIvbG9nby5wbmciIGFsdD0iSWPDtG5lIHLDqXNlYXUgU2luZXNpIj48cD48YSBocmVmPSIvZGV0YWlscyI+Vm9pciBsZXMgZMOpdGFpbHM8L2E+PC9wPjxmb3JtIG1ldGhvZD0icG9zdCIgYWN0aW9uPSIvZWNobyI+PGxhYmVsPk1lc3NhZ2U8aW5wdXQgdHlwZT0idGV4dCIgbmFtZT0ibWVzc2FnZSIgdmFsdWU9IkJvbmpvdXIiPjwvbGFiZWw+PGJ1dHRvbj5FbnZveWVyIGF1IHNlcnZldXI8L2J1dHRvbj48L2Zvcm0+"
+        },
+        {
+          "path": "/details",
+          "media_type": "text/html",
+          "body_base64": "PGgyPkTDqXRhaWxzPC9oMj48cD7DiWNoYW5nZSBhcHBsaWNhdGlmIGR1IHByb3RvdHlwZSBKMCwgc2FucyBwaWxlIFRDUC9JUC48L3A+PGEgaHJlZj0iLyI+UmV0b3VyPC9hPg=="
+        },
+        {
+          "path": "/logo.png",
+          "media_type": "image/png",
+          "body_base64": "iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGklEQVR4nGMQOjj9PyWYYdSAUQNGDRguBgAARuxpH4sbRj0AAAAASUVORK5CYII="
+        }
+      ]
+    }
+  ]
+}

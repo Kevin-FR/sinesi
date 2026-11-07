@@ -1,0 +1,82 @@
+{
+  "schema_version": 99,
+  "semantic_profile": "sns-educational-v1",
+  "project_id": "project-j0",
+  "name": "Sinesi — atelier J0",
+  "devices": [
+    {
+      "id": "client",
+      "kind": "workstation",
+      "label": "Poste élève",
+      "interfaces": [
+        {
+          "id": "if-client",
+          "mac": "02:00:00:00:00:01",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.1.1",
+            "prefix_length": 24
+          }
+        }
+      ],
+      "network": {
+        "default_gateway": null,
+        "dns_server": null
+      },
+      "applications": [],
+      "files": []
+    },
+    {
+      "id": "server",
+      "kind": "workstation",
+      "label": "Serveur prototype",
+      "interfaces": [
+        {
+          "id": "if-server",
+          "mac": "02:00:00:00:00:02",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.1.2",
+            "prefix_length": 24
+          }
+        }
+      ],
+      "network": {
+        "default_gateway": null,
+        "dns_server": null
+      },
+      "applications": [],
+      "files": []
+    }
+  ],
+  "links": [
+    {
+      "id": "link-demo",
+      "endpoints": [
+        "if-client",
+        "if-server"
+      ],
+      "latency_us": "1000",
+      "jitter_us": "250"
+    }
+  ],
+  "layout": {
+    "devices": [
+      {
+        "device_id": "client",
+        "x": 160,
+        "y": 200
+      },
+      {
+        "device_id": "server",
+        "x": 560,
+        "y": 200
+      }
+    ]
+  },
+  "annotations": [],
+  "resources": [],
+  "extensions": []
+}

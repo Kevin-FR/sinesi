@@ -1,0 +1,7 @@
+/target/
+/_archive/
+.DS_Store
+**/__pycache__/
+/artifacts/
+**/tests/snapshots/**/*.diff.png
+**/tests/snapshots/**/*.new.png

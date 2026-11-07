@@ -1,0 +1,562 @@
+{
+  "examples": [
+    {
+      "path": "_archive/filius-master/beispiele/Internet_Complete_with_e-Mail_Webserver_Intranet_Portforwarding_Firewall_DHCP_EN.fls",
+      "entries": [
+        "projekt/anwendungen/EigeneAnwendungen.txt",
+        "projekt/konfiguration.xml"
+      ],
+      "configuration": "projekt/konfiguration.xml",
+      "classes": {
+        "filius.gui.netzwerksicht.GUIDocuItem": 14,
+        "filius.gui.netzwerksicht.GUIKabelItem": 26,
+        "filius.gui.netzwerksicht.GUIKnotenItem": 25,
+        "filius.gui.netzwerksicht.JSidebarButton": 25,
+        "filius.hardware.Kabel": 26,
+        "filius.hardware.NetzwerkInterface": 15,
+        "filius.hardware.Port": 26,
+        "filius.hardware.knoten.Gateway": 2,
+        "filius.hardware.knoten.Notebook": 7,
+        "filius.hardware.knoten.Rechner": 6,
+        "filius.hardware.knoten.Switch": 3,
+        "filius.hardware.knoten.Vermittlungsrechner": 7,
+        "filius.software.dns.DNSServer": 2,
+        "filius.software.email.EmailAnwendung": 4,
+        "filius.software.email.EmailKonto": 3,
+        "filius.software.email.EmailServer": 2,
+        "filius.software.firewall.FirewallRule": 29,
+        "filius.software.lokal.Terminal": 9,
+        "filius.software.lokal.TextEditor": 3,
+        "filius.software.system.Datei": 13,
+        "filius.software.www.WebBrowser": 5,
+        "filius.software.www.WebServer": 2
+      },
+      "executable_payloads": []
+    },
+    {
+      "path": "_archive/filius-master/beispiele/Internet_Komplett_mit_eMail_Webserver_Intranet_Portforwarding_Firewall_DHCP_DE.fls",
+      "entries": [
+        "projekt/anwendungen/EigeneAnwendungen.txt",
+        "projekt/konfiguration.xml"
+      ],
+      "configuration": "projekt/konfiguration.xml",
+      "classes": {
+        "filius.gui.netzwerksicht.GUIDocuItem": 12,
+        "filius.gui.netzwerksicht.GUIKabelItem": 26,
+        "filius.gui.netzwerksicht.GUIKnotenItem": 25,
+        "filius.gui.netzwerksicht.JSidebarButton": 25,
+        "filius.hardware.Kabel": 26,
+        "filius.hardware.NetzwerkInterface": 15,
+        "filius.hardware.Port": 26,
+        "filius.hardware.knoten.Gateway": 2,
+        "filius.hardware.knoten.Notebook": 7,
+        "filius.hardware.knoten.Rechner": 6,
+        "filius.hardware.knoten.Switch": 3,
+        "filius.hardware.knoten.Vermittlungsrechner": 7,
+        "filius.software.dns.DNSServer": 2,
+        "filius.software.email.AddressEntry": 6,
+        "filius.software.email.Email": 6,
+        "filius.software.email.EmailAnwendung": 4,
+        "filius.software.email.EmailKonto": 3,
+        "filius.software.email.EmailServer": 2,
+        "filius.software.firewall.FirewallRule": 29,
+        "filius.software.lokal.Terminal": 8,
+        "filius.software.lokal.TextEditor": 3,
+        "filius.software.system.Datei": 12,
+        "filius.software.www.WebBrowser": 5,
+        "filius.software.www.WebServer": 2
+      },
+      "executable_payloads": []
+    },
+    {
+      "path": "_archive/filius-master/beispiele/Public_and_Private_Networks_2_EN.fls",
+      "entries": [
+        "projekt/anwendungen/EigeneAnwendungen.txt",
+        "projekt/konfiguration.xml"
+      ],
+      "configuration": "projekt/konfiguration.xml",
+      "classes": {
+        "filius.gui.netzwerksicht.GUIDocuItem": 12,
+        "filius.gui.netzwerksicht.GUIKabelItem": 6,
+        "filius.gui.netzwerksicht.GUIKnotenItem": 7,
+        "filius.gui.netzwerksicht.JSidebarButton": 7,
+        "filius.hardware.Kabel": 6,
+        "filius.hardware.NetzwerkInterface": 2,
+        "filius.hardware.Port": 6,
+        "filius.hardware.knoten.Gateway": 1,
+        "filius.hardware.knoten.Notebook": 2,
+        "filius.hardware.knoten.Rechner": 2,
+        "filius.hardware.knoten.Switch": 1,
+        "filius.hardware.knoten.Vermittlungsrechner": 1,
+        "filius.software.dns.DNSServer": 1,
+        "filius.software.lokal.Terminal": 2,
+        "filius.software.system.Datei": 3,
+        "filius.software.www.WebBrowser": 2,
+        "filius.software.www.WebServer": 1
+      },
+      "executable_payloads": []
+    },
+    {
+      "path": "_archive/filius-master/beispiele/anwendung_komplett.fls",
+      "entries": [
+        "projekt/anwendungen/EigeneAnwendungen.txt",
+        "projekt/anwendungen/filius/software/clientserver/Accumulator.class",
+        "projekt/anwendungen/filius/software/clientserver/AccumulatorMitarbeiter.class",
+        "projekt/anwendungen/filius/software/clientserver/AccumulatorMitarbeiter.java",
+        "projekt/anwendungen/filius/software/clientserver/Accumulator.java",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationAccumulatorWindow.java",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationAccumulatorWindow$1.class",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationAccumulatorWindow.class",
+        "projekt/konfiguration.xml"
+      ],
+      "configuration": "projekt/konfiguration.xml",
+      "classes": {
+        "filius.gui.netzwerksicht.GUIKabelItem": 3,
+        "filius.gui.netzwerksicht.GUIKnotenItem": 4,
+        "filius.gui.netzwerksicht.JSidebarButton": 4,
+        "filius.hardware.Kabel": 3,
+        "filius.hardware.Port": 3,
+        "filius.hardware.knoten.Notebook": 2,
+        "filius.hardware.knoten.Rechner": 1,
+        "filius.hardware.knoten.Switch": 1,
+        "filius.software.clientserver.Accumulator": 1,
+        "filius.software.clientserver.ClientBaustein": 2
+      },
+      "executable_payloads": [
+        "projekt/anwendungen/filius/software/clientserver/Accumulator.class",
+        "projekt/anwendungen/filius/software/clientserver/AccumulatorMitarbeiter.class",
+        "projekt/anwendungen/filius/software/clientserver/AccumulatorMitarbeiter.java",
+        "projekt/anwendungen/filius/software/clientserver/Accumulator.java",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationAccumulatorWindow.java",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationAccumulatorWindow$1.class",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationAccumulatorWindow.class"
+      ]
+    },
+    {
+      "path": "_archive/filius-master/beispiele/dhcp_test_scenario.fls",
+      "entries": [
+        "projekt/anwendungen/EigeneAnwendungen.txt",
+        "projekt/anwendungen/filius/software/clientserver/MeinServer.class",
+        "projekt/anwendungen/filius/software/clientserver/MeinServer.java",
+        "projekt/anwendungen/filius/software/clientserver/MeinServerMitarbeiter.class",
+        "projekt/anwendungen/filius/software/clientserver/MeinServerMitarbeiter.java",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationMeinServerWindow$1.class",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationMeinServerWindow.class",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationMeinServerWindow.java",
+        "projekt/konfiguration.xml"
+      ],
+      "configuration": "projekt/konfiguration.xml",
+      "classes": {
+        "filius.gui.netzwerksicht.GUIKabelItem": 5,
+        "filius.gui.netzwerksicht.GUIKnotenItem": 7,
+        "filius.gui.netzwerksicht.JSidebarButton": 7,
+        "filius.hardware.Kabel": 5,
+        "filius.hardware.Port": 5,
+        "filius.hardware.knoten.Gateway": 1,
+        "filius.hardware.knoten.Notebook": 3,
+        "filius.hardware.knoten.Rechner": 2,
+        "filius.hardware.knoten.Switch": 1
+      },
+      "executable_payloads": [
+        "projekt/anwendungen/filius/software/clientserver/MeinServer.class",
+        "projekt/anwendungen/filius/software/clientserver/MeinServer.java",
+        "projekt/anwendungen/filius/software/clientserver/MeinServerMitarbeiter.class",
+        "projekt/anwendungen/filius/software/clientserver/MeinServerMitarbeiter.java",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationMeinServerWindow$1.class",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationMeinServerWindow.class",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationMeinServerWindow.java"
+      ]
+    },
+    {
+      "path": "_archive/filius-master/beispiele/dns_server.fls",
+      "entries": [
+        "projekt/anwendungen/EigeneAnwendungen.txt",
+        "projekt/konfiguration.xml"
+      ],
+      "configuration": "projekt/konfiguration.xml",
+      "classes": {
+        "filius.gui.netzwerksicht.GUIKabelItem": 7,
+        "filius.gui.netzwerksicht.GUIKnotenItem": 8,
+        "filius.gui.netzwerksicht.JSidebarButton": 8,
+        "filius.hardware.Kabel": 7,
+        "filius.hardware.Port": 7,
+        "filius.hardware.knoten.Notebook": 1,
+        "filius.hardware.knoten.Rechner": 5,
+        "filius.hardware.knoten.Switch": 2,
+        "filius.software.dns.DNSServer": 4,
+        "filius.software.system.Datei": 6,
+        "filius.software.www.WebBrowser": 1,
+        "filius.software.www.WebServer": 1
+      },
+      "executable_payloads": []
+    },
+    {
+      "path": "_archive/filius-master/beispiele/einfaches_rechnernetz_komplett.fls",
+      "entries": [
+        "projekt/anwendungen/EigeneAnwendungen.txt",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationMeinServerWindow$1.class",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationMeinServerWindow.class",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationMeinServerWindow.java",
+        "projekt/anwendungen/filius/software/clientserver/MeinServer.class",
+        "projekt/anwendungen/filius/software/clientserver/MeinServer.java",
+        "projekt/anwendungen/filius/software/clientserver/MeinServerMitarbeiter.class",
+        "projekt/anwendungen/filius/software/clientserver/MeinServerMitarbeiter.java",
+        "projekt/konfiguration.xml"
+      ],
+      "configuration": "projekt/konfiguration.xml",
+      "classes": {
+        "filius.gui.netzwerksicht.GUIKabelItem": 11,
+        "filius.gui.netzwerksicht.GUIKnotenItem": 12,
+        "filius.gui.netzwerksicht.JSidebarButton": 12,
+        "filius.hardware.Kabel": 11,
+        "filius.hardware.Port": 11,
+        "filius.hardware.knoten.Notebook": 4,
+        "filius.hardware.knoten.Rechner": 5,
+        "filius.hardware.knoten.Switch": 3,
+        "filius.software.dns.DNSServer": 1,
+        "filius.software.lokal.FileExplorer": 1,
+        "filius.software.lokal.ImageViewer": 1,
+        "filius.software.lokal.Terminal": 1,
+        "filius.software.lokal.TextEditor": 1,
+        "filius.software.system.Datei": 6,
+        "filius.software.www.WebBrowser": 1,
+        "filius.software.www.WebServer": 1
+      },
+      "executable_payloads": [
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationMeinServerWindow$1.class",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationMeinServerWindow.class",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationMeinServerWindow.java",
+        "projekt/anwendungen/filius/software/clientserver/MeinServer.class",
+        "projekt/anwendungen/filius/software/clientserver/MeinServer.java",
+        "projekt/anwendungen/filius/software/clientserver/MeinServerMitarbeiter.class",
+        "projekt/anwendungen/filius/software/clientserver/MeinServerMitarbeiter.java"
+      ]
+    },
+    {
+      "path": "_archive/filius-master/beispiele/email_komplett.fls",
+      "entries": [
+        "projekt/anwendungen/EigeneAnwendungen.txt",
+        "projekt/konfiguration.xml"
+      ],
+      "configuration": "projekt/konfiguration.xml",
+      "classes": {
+        "filius.gui.netzwerksicht.GUIKabelItem": 8,
+        "filius.gui.netzwerksicht.GUIKnotenItem": 9,
+        "filius.gui.netzwerksicht.JSidebarButton": 9,
+        "filius.hardware.Kabel": 8,
+        "filius.hardware.Port": 8,
+        "filius.hardware.knoten.Notebook": 4,
+        "filius.hardware.knoten.Rechner": 4,
+        "filius.hardware.knoten.Switch": 1,
+        "filius.software.dns.DNSServer": 1,
+        "filius.software.email.EmailAnwendung": 4,
+        "filius.software.email.EmailKonto": 13,
+        "filius.software.email.EmailServer": 2,
+        "filius.software.system.Datei": 9,
+        "filius.software.www.WebBrowser": 4,
+        "filius.software.www.WebServer": 1
+      },
+      "executable_payloads": []
+    },
+    {
+      "path": "_archive/filius-master/beispiele/internetwork_komplett.fls",
+      "entries": [
+        "projekt/anwendungen/EigeneAnwendungen.txt",
+        "projekt/konfiguration.xml"
+      ],
+      "configuration": "projekt/konfiguration.xml",
+      "classes": {
+        "filius.gui.netzwerksicht.GUIKabelItem": 13,
+        "filius.gui.netzwerksicht.GUIKnotenItem": 14,
+        "filius.gui.netzwerksicht.JSidebarButton": 14,
+        "filius.hardware.Kabel": 13,
+        "filius.hardware.NetzwerkInterface": 4,
+        "filius.hardware.Port": 13,
+        "filius.hardware.knoten.Notebook": 4,
+        "filius.hardware.knoten.Rechner": 3,
+        "filius.hardware.knoten.Switch": 4,
+        "filius.hardware.knoten.Vermittlungsrechner": 3,
+        "filius.software.dns.DNSServer": 1,
+        "filius.software.lokal.Terminal": 1,
+        "filius.software.lokal.TextEditor": 1,
+        "filius.software.system.Datei": 5,
+        "filius.software.www.WebBrowser": 2,
+        "filius.software.www.WebServer": 2
+      },
+      "executable_payloads": []
+    },
+    {
+      "path": "_archive/filius-master/beispiele/man-in-the-middle.fls",
+      "entries": [
+        "projekt/anwendungen/EigeneAnwendungen.txt",
+        "projekt/konfiguration.xml"
+      ],
+      "configuration": "projekt/konfiguration.xml",
+      "classes": {
+        "filius.gui.netzwerksicht.GUIDocuItem": 3,
+        "filius.gui.netzwerksicht.GUIKabelItem": 6,
+        "filius.gui.netzwerksicht.GUIKnotenItem": 7,
+        "filius.gui.netzwerksicht.JSidebarButton": 7,
+        "filius.hardware.Kabel": 6,
+        "filius.hardware.Port": 6,
+        "filius.hardware.knoten.Notebook": 3,
+        "filius.hardware.knoten.Rechner": 3,
+        "filius.hardware.knoten.Switch": 1,
+        "filius.software.dns.DNSServer": 2,
+        "filius.software.email.AddressEntry": 6,
+        "filius.software.email.Email": 15,
+        "filius.software.email.EmailAnwendung": 2,
+        "filius.software.email.EmailKonto": 2,
+        "filius.software.email.EmailServer": 3,
+        "filius.software.lokal.FileExplorer": 1,
+        "filius.software.lokal.Terminal": 1,
+        "filius.software.system.Datei": 8,
+        "filius.software.www.WebBrowser": 3
+      },
+      "executable_payloads": []
+    },
+    {
+      "path": "_archive/filius-master/beispiele/modem_beispiel.fls",
+      "entries": [
+        "projekt/anwendungen/EigeneAnwendungen.txt",
+        "projekt/konfiguration.xml"
+      ],
+      "configuration": "projekt/konfiguration.xml",
+      "classes": {
+        "filius.gui.netzwerksicht.GUIKabelItem": 2,
+        "filius.gui.netzwerksicht.GUIKnotenItem": 4,
+        "filius.gui.netzwerksicht.JSidebarButton": 4,
+        "filius.hardware.Kabel": 2,
+        "filius.hardware.Port": 2,
+        "filius.hardware.knoten.Modem": 2,
+        "filius.hardware.knoten.Notebook": 1,
+        "filius.hardware.knoten.Rechner": 1,
+        "filius.software.clientserver.ClientBaustein": 1,
+        "filius.software.clientserver.ServerBaustein": 1,
+        "filius.software.lokal.Terminal": 2,
+        "filius.software.system.Datei": 2,
+        "filius.software.www.WebBrowser": 1,
+        "filius.software.www.WebServer": 1
+      },
+      "executable_payloads": []
+    },
+    {
+      "path": "_archive/filius-master/beispiele/multicast_server.fls",
+      "entries": [
+        "projekt/anwendungen/EigeneAnwendungen.txt",
+        "projekt/anwendungen/filius/software/clientserver/Broadcast.java",
+        "projekt/anwendungen/filius/software/clientserver/BroadcastMitarbeiter.java",
+        "projekt/anwendungen/filius/software/clientserver/Broadcast.class",
+        "projekt/anwendungen/filius/software/clientserver/BroadcastMitarbeiter.class",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationBroadcastWindow.java",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationBroadcastWindow$1.class",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationBroadcastWindow.class",
+        "projekt/konfiguration.xml"
+      ],
+      "configuration": "projekt/konfiguration.xml",
+      "classes": {
+        "filius.gui.netzwerksicht.GUIKabelItem": 3,
+        "filius.gui.netzwerksicht.GUIKnotenItem": 4,
+        "filius.gui.netzwerksicht.JSidebarButton": 4,
+        "filius.hardware.Kabel": 3,
+        "filius.hardware.Port": 3,
+        "filius.hardware.knoten.Notebook": 2,
+        "filius.hardware.knoten.Rechner": 1,
+        "filius.hardware.knoten.Switch": 1,
+        "filius.software.clientserver.Broadcast": 1,
+        "filius.software.clientserver.ClientBaustein": 2,
+        "filius.software.clientserver.ServerBaustein": 1,
+        "filius.software.dateiaustausch.PeerToPeerAnwendung": 1,
+        "filius.software.lokal.Terminal": 1,
+        "filius.software.system.Datei": 1
+      },
+      "executable_payloads": [
+        "projekt/anwendungen/filius/software/clientserver/Broadcast.java",
+        "projekt/anwendungen/filius/software/clientserver/BroadcastMitarbeiter.java",
+        "projekt/anwendungen/filius/software/clientserver/Broadcast.class",
+        "projekt/anwendungen/filius/software/clientserver/BroadcastMitarbeiter.class",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationBroadcastWindow.java",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationBroadcastWindow$1.class",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationBroadcastWindow.class"
+      ]
+    },
+    {
+      "path": "_archive/filius-master/beispiele/nat.fls",
+      "entries": [
+        "projekt/anwendungen/EigeneAnwendungen.txt",
+        "projekt/konfiguration.xml"
+      ],
+      "configuration": "projekt/konfiguration.xml",
+      "classes": {
+        "filius.gui.netzwerksicht.GUIKabelItem": 3,
+        "filius.gui.netzwerksicht.GUIKnotenItem": 4,
+        "filius.gui.netzwerksicht.JSidebarButton": 4,
+        "filius.hardware.Kabel": 3,
+        "filius.hardware.Port": 3,
+        "filius.hardware.knoten.Gateway": 1,
+        "filius.hardware.knoten.Notebook": 1,
+        "filius.hardware.knoten.Rechner": 1,
+        "filius.hardware.knoten.Switch": 1,
+        "filius.software.lokal.Terminal": 2,
+        "filius.software.system.Datei": 2,
+        "filius.software.www.WebBrowser": 2,
+        "filius.software.www.WebServer": 1
+      },
+      "executable_payloads": []
+    },
+    {
+      "path": "_archive/filius-master/beispiele/nat_with_mapped_port.fls",
+      "entries": [
+        "projekt/anwendungen/EigeneAnwendungen.txt",
+        "projekt/konfiguration.xml"
+      ],
+      "configuration": "projekt/konfiguration.xml",
+      "classes": {
+        "filius.gui.netzwerksicht.GUIDocuItem": 9,
+        "filius.gui.netzwerksicht.GUIKabelItem": 14,
+        "filius.gui.netzwerksicht.GUIKnotenItem": 15,
+        "filius.gui.netzwerksicht.JSidebarButton": 15,
+        "filius.hardware.Kabel": 14,
+        "filius.hardware.NetzwerkInterface": 4,
+        "filius.hardware.Port": 14,
+        "filius.hardware.knoten.Gateway": 2,
+        "filius.hardware.knoten.Notebook": 3,
+        "filius.hardware.knoten.Rechner": 3,
+        "filius.hardware.knoten.Switch": 4,
+        "filius.hardware.knoten.Vermittlungsrechner": 3,
+        "filius.software.clientserver.ClientBaustein": 2,
+        "filius.software.clientserver.ServerBaustein": 2,
+        "filius.software.dns.DNSServer": 1,
+        "filius.software.lokal.FileExplorer": 1,
+        "filius.software.lokal.Terminal": 3,
+        "filius.software.lokal.TextEditor": 2,
+        "filius.software.system.Datei": 7,
+        "filius.software.www.WebBrowser": 2,
+        "filius.software.www.WebServer": 3
+      },
+      "executable_payloads": []
+    },
+    {
+      "path": "_archive/filius-master/beispiele/private_and_public_network.fls",
+      "entries": [
+        "projekt/anwendungen/EigeneAnwendungen.txt",
+        "projekt/konfiguration.xml"
+      ],
+      "configuration": "projekt/konfiguration.xml",
+      "classes": {
+        "filius.gui.netzwerksicht.GUIDocuItem": 7,
+        "filius.gui.netzwerksicht.GUIKabelItem": 5,
+        "filius.gui.netzwerksicht.GUIKnotenItem": 6,
+        "filius.gui.netzwerksicht.JSidebarButton": 6,
+        "filius.hardware.Kabel": 5,
+        "filius.hardware.Port": 5,
+        "filius.hardware.knoten.Gateway": 1,
+        "filius.hardware.knoten.Notebook": 2,
+        "filius.hardware.knoten.Rechner": 1,
+        "filius.hardware.knoten.Switch": 2,
+        "filius.software.dns.DNSServer": 1,
+        "filius.software.lokal.Terminal": 1,
+        "filius.software.system.Datei": 5,
+        "filius.software.www.WebBrowser": 2,
+        "filius.software.www.WebServer": 2
+      },
+      "executable_payloads": []
+    },
+    {
+      "path": "_archive/filius-master/beispiele/private_und_public_networks_mit_provider_DE.fls",
+      "entries": [
+        "projekt/anwendungen/EigeneAnwendungen.txt",
+        "projekt/konfiguration.xml"
+      ],
+      "configuration": "projekt/konfiguration.xml",
+      "classes": {
+        "filius.gui.netzwerksicht.GUIDocuItem": 10,
+        "filius.gui.netzwerksicht.GUIKabelItem": 9,
+        "filius.gui.netzwerksicht.GUIKnotenItem": 10,
+        "filius.gui.netzwerksicht.JSidebarButton": 10,
+        "filius.hardware.Kabel": 9,
+        "filius.hardware.NetzwerkInterface": 4,
+        "filius.hardware.Port": 9,
+        "filius.hardware.knoten.Gateway": 1,
+        "filius.hardware.knoten.Notebook": 2,
+        "filius.hardware.knoten.Rechner": 3,
+        "filius.hardware.knoten.Switch": 2,
+        "filius.hardware.knoten.Vermittlungsrechner": 2,
+        "filius.software.dns.DNSServer": 2,
+        "filius.software.lokal.Terminal": 2,
+        "filius.software.lokal.TextEditor": 2,
+        "filius.software.system.Datei": 8,
+        "filius.software.www.WebBrowser": 2,
+        "filius.software.www.WebServer": 2
+      },
+      "executable_payloads": []
+    },
+    {
+      "path": "_archive/filius-master/beispiele/webserver.fls",
+      "entries": [
+        "projekt/anwendungen/EigeneAnwendungen.txt",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationMeinServerWindow$1.class",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationMeinServerWindow.class",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationMeinServerWindow.java",
+        "projekt/anwendungen/filius/software/clientserver/MeinServer.class",
+        "projekt/anwendungen/filius/software/clientserver/MeinServer.java",
+        "projekt/anwendungen/filius/software/clientserver/MeinServerMitarbeiter.class",
+        "projekt/anwendungen/filius/software/clientserver/MeinServerMitarbeiter.java",
+        "projekt/konfiguration.xml"
+      ],
+      "configuration": "projekt/konfiguration.xml",
+      "classes": {
+        "filius.gui.netzwerksicht.GUIKabelItem": 2,
+        "filius.gui.netzwerksicht.GUIKnotenItem": 3,
+        "filius.gui.netzwerksicht.JSidebarButton": 3,
+        "filius.hardware.Kabel": 2,
+        "filius.hardware.Port": 2,
+        "filius.hardware.knoten.Notebook": 1,
+        "filius.hardware.knoten.Rechner": 1,
+        "filius.hardware.knoten.Switch": 1,
+        "filius.software.lokal.FileExplorer": 1,
+        "filius.software.lokal.ImageViewer": 1,
+        "filius.software.lokal.Terminal": 1,
+        "filius.software.lokal.TextEditor": 1,
+        "filius.software.system.Datei": 5,
+        "filius.software.www.WebBrowser": 1,
+        "filius.software.www.WebServer": 1
+      },
+      "executable_payloads": [
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationMeinServerWindow$1.class",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationMeinServerWindow.class",
+        "projekt/anwendungen/filius/gui/anwendungssicht/GUIApplicationMeinServerWindow.java",
+        "projekt/anwendungen/filius/software/clientserver/MeinServer.class",
+        "projekt/anwendungen/filius/software/clientserver/MeinServer.java",
+        "projekt/anwendungen/filius/software/clientserver/MeinServerMitarbeiter.class",
+        "projekt/anwendungen/filius/software/clientserver/MeinServerMitarbeiter.java"
+      ]
+    },
+    {
+      "path": "_archive/filius-master/beispiele/zwei_rechnernetze_komplett.fls",
+      "entries": [
+        "projekt/konfiguration.xml",
+        "projekt/anwendungen/EigeneAnwendungen.txt"
+      ],
+      "configuration": "projekt/konfiguration.xml",
+      "classes": {
+        "filius.gui.netzwerksicht.GUIKabelItem": 5,
+        "filius.gui.netzwerksicht.GUIKnotenItem": 6,
+        "filius.gui.netzwerksicht.JSidebarButton": 6,
+        "filius.hardware.Kabel": 5,
+        "filius.hardware.NetzwerkInterface": 1,
+        "filius.hardware.Port": 5,
+        "filius.hardware.knoten.Notebook": 2,
+        "filius.hardware.knoten.Rechner": 1,
+        "filius.hardware.knoten.Switch": 2,
+        "filius.hardware.knoten.Vermittlungsrechner": 1,
+        "filius.software.dns.DNSServer": 1,
+        "filius.software.lokal.FileExplorer": 1,
+        "filius.software.system.Datei": 8,
+        "filius.software.www.WebBrowser": 2,
+        "filius.software.www.WebServer": 2
+      },
+      "executable_payloads": []
+    }
+  ]
+}

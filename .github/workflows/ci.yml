@@ -1,0 +1,32 @@
+name: Sinesi J0
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  workspace:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Linux native dependencies
+        if: runner.os == 'Linux'
+        run: sudo apt-get update && sudo apt-get install -y libxkbcommon-dev libwayland-dev libx11-dev libxi-dev libxcursor-dev libxrandr-dev
+      - name: Toolchain
+        run: rustup show
+      - name: Format
+        run: cargo fmt --all --check
+      - name: Lint
+        run: cargo clippy --workspace --all-targets --locked -- -D warnings
+      - name: Tests and headless UI interactions
+        run: cargo test --workspace --locked
+      - name: Architecture boundaries
+        run: python3 scripts/check_layers.py
+      - name: Documentation and tracking
+        run: |
+          python3 scripts/docs.py check
+          python3 scripts/test_docs.py

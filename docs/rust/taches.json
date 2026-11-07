@@ -1,0 +1,1185 @@
+{
+  "schema_version": 1,
+  "tasks": [
+    {
+      "id": "RS-ENGINE-J0",
+      "title": "Moteur et cycle de simulation — J0",
+      "milestone": "J0",
+      "status": "verified",
+      "size": "L",
+      "features": [
+        "F-SIM-005"
+      ],
+      "depends_on": [],
+      "planned_paths": [
+        "crates/sns-engine"
+      ],
+      "approach": "File BinaryHeap avec Reverse; temps entier, ordre total, moteur synchrone à propriétaire unique; aucune minuterie système dans les protocoles.",
+      "verification": [
+        {
+          "recipe": "J0-foundations",
+          "command": "cargo test --workspace --locked; cargo test -p sns-ui-egui --features ui-snapshots --test workbench --locked; python3 scripts/check_layers.py; python3 scripts/test_docs.py",
+          "result": "pass",
+          "environment": "macOS arm64, rustc 1.95.0, upstream egui/eframe 0.37.0",
+          "revision": "sha256:04434bdfcfdfb38c27e3cb257e3194c9dcaa5e2cf0823633cb155be6918d22f0",
+          "artifacts": [
+            "docs/verification/J0.md",
+            "docs/verification/j0-code-manifest.json",
+            "docs/verification/j0-tests.log",
+            "docs/verification/j0-gpu-tests.log"
+          ]
+        }
+      ],
+      "actual_paths": [
+        "Cargo.toml",
+        "rust-toolchain.toml",
+        "crates/sns-model",
+        "crates/sns-engine",
+        "fixtures/valid/trace.jsonl",
+        "docs/decisions/D-001-ordonnancement.md"
+      ]
+    },
+    {
+      "id": "RS-PROJECTS-J0",
+      "title": "Projets et import Filius — J0",
+      "milestone": "J0",
+      "status": "verified",
+      "size": "L",
+      "features": [
+        "F-PROJ-004"
+      ],
+      "depends_on": [
+        "RS-ENGINE-J0"
+      ],
+      "planned_paths": [
+        "crates/sns-project",
+        "crates/sns-filius-import"
+      ],
+      "approach": "DTO Serde pour format neutre JSON/ZIP; XML .fls interprété comme données en liste autorisée; aucune exécution de JavaBeans ou de bytecode.",
+      "verification": [
+        {
+          "recipe": "J0-foundations",
+          "command": "cargo test --workspace --locked; cargo test -p sns-ui-egui --features ui-snapshots --test workbench --locked; python3 scripts/check_layers.py; python3 scripts/test_docs.py",
+          "result": "pass",
+          "environment": "macOS arm64, rustc 1.95.0, upstream egui/eframe 0.37.0",
+          "revision": "sha256:04434bdfcfdfb38c27e3cb257e3194c9dcaa5e2cf0823633cb155be6918d22f0",
+          "artifacts": [
+            "docs/verification/J0.md",
+            "docs/verification/j0-code-manifest.json",
+            "docs/verification/j0-tests.log",
+            "docs/verification/j0-gpu-tests.log"
+          ]
+        }
+      ],
+      "actual_paths": [
+        "crates/sns-project",
+        "contracts",
+        "fixtures",
+        "docs/decisions/D-004-format-j0.md"
+      ]
+    },
+    {
+      "id": "RS-QUALITY-J0",
+      "title": "Contrats, qualité et outillage — J0",
+      "milestone": "J0",
+      "status": "in_progress",
+      "size": "M",
+      "features": [
+        "F-NFR-001",
+        "F-NFR-002",
+        "F-NFR-003",
+        "F-NFR-006",
+        "F-NFR-008",
+        "F-NFR-009"
+      ],
+      "depends_on": [],
+      "planned_paths": [
+        "contracts",
+        "fixtures",
+        "crates/sns-cli",
+        "docs/decisions",
+        "crates/sns-ui-egui",
+        "apps/sns-desktop",
+        "crates/sns-html"
+      ],
+      "approach": "Schémas neutres, runner et moteur sans UI; prototype egui/eframe 0.37 canevas/table/focus, graphe upstream/forks et HTML pédagogique natif lien/image/POST sans sorties réelles; documenter D-002/D-003 et révisions candidates sans prétendre les recettes produit acquises.",
+      "verification": [],
+      "actual_paths": [
+        "crates/sns-cli",
+        "crates/sns-html",
+        "crates/sns-ui-egui",
+        "apps/sns-desktop",
+        "contracts",
+        "scripts/check_layers.py",
+        "scripts/test_docs.py",
+        ".github/workflows/ci.yml",
+        "LICENSE",
+        "docs/rust/decisions",
+        "docs/verification/J0.md"
+      ]
+    },
+    {
+      "id": "RS-DEVICES-J1",
+      "title": "Équipements et configuration — J1",
+      "milestone": "J1",
+      "status": "not_started",
+      "size": "M",
+      "features": [
+        "F-EQU-001",
+        "F-EQU-002",
+        "F-EQU-006"
+      ],
+      "depends_on": [
+        "RS-TOPOLOGY-J1"
+      ],
+      "planned_paths": [
+        "crates/sns-model",
+        "crates/sns-devices"
+      ],
+      "approach": "Identifiants typés, arènes indexées, interfaces explicites; états de configuration distincts de l’état courant.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-ENGINE-J1",
+      "title": "Moteur et cycle de simulation — J1",
+      "milestone": "J1",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-SIM-001",
+        "F-SIM-002",
+        "F-SIM-003",
+        "F-SIM-004",
+        "F-SIM-006"
+      ],
+      "depends_on": [],
+      "planned_paths": [
+        "crates/sns-engine"
+      ],
+      "approach": "File BinaryHeap avec Reverse; temps entier, ordre total, moteur synchrone à propriétaire unique; aucune minuterie système dans les protocoles.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-IPV4-J1",
+      "title": "IPv4 et ICMP — J1",
+      "milestone": "J1",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-IP4-001",
+        "F-IP4-002",
+        "F-IP4-004"
+      ],
+      "depends_on": [
+        "RS-LINK-J1"
+      ],
+      "planned_paths": [
+        "crates/sns-protocols/src/ipv4"
+      ],
+      "approach": "Adresses numériques typées, masques validés, next-hop explicite, erreurs structurées et corrélation des sondes.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-LINK-J1",
+      "title": "Ethernet, switch et ARP — J1",
+      "milestone": "J1",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-L2-001",
+        "F-L2-002",
+        "F-L2-003",
+        "F-L2-004",
+        "F-L2-005"
+      ],
+      "depends_on": [
+        "RS-DEVICES-J1"
+      ],
+      "planned_paths": [
+        "crates/sns-protocols/src/link"
+      ],
+      "approach": "Machines à états événementielles; clones de données de trace immuables; timers virtuels pour les caches.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-PROJECTS-J1",
+      "title": "Projets et import Filius — J1",
+      "milestone": "J1",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-PROJ-001",
+        "F-PROJ-002"
+      ],
+      "depends_on": [
+        "RS-TOPOLOGY-J1"
+      ],
+      "planned_paths": [
+        "crates/sns-project",
+        "crates/sns-filius-import"
+      ],
+      "approach": "DTO Serde pour format neutre JSON/ZIP; XML .fls interprété comme données en liste autorisée; aucune exécution de JavaBeans ou de bytecode.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-QUALITY-J1",
+      "title": "Contrats, qualité et outillage — J1",
+      "milestone": "J1",
+      "status": "not_started",
+      "size": "M",
+      "features": [
+        "F-NFR-004",
+        "F-NFR-005"
+      ],
+      "depends_on": [],
+      "planned_paths": [
+        "contracts",
+        "fixtures",
+        "crates/sns-cli",
+        "docs/decisions",
+        "crates/sns-ui-egui/tests"
+      ],
+      "approach": "Mesures de capacité/réactivité et tests egui_kittest des interactions, rôles accessibles, labels, focus et zoom; essais natifs distincts pour clavier/IME/DPI; aucun sleep réel dans les protocoles.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-TOPOLOGY-J1",
+      "title": "Éditeur de réseau — J1",
+      "milestone": "J1",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-TOP-001",
+        "F-TOP-002",
+        "F-TOP-003",
+        "F-TOP-004",
+        "F-TOP-006",
+        "F-TOP-007",
+        "F-TOP-008",
+        "F-TOP-010"
+      ],
+      "depends_on": [
+        "RS-ENGINE-J0"
+      ],
+      "planned_paths": [
+        "crates/sns-model",
+        "crates/sns-ui-egui/src/topology"
+      ],
+      "approach": "Commandes métier validées côté cœur; canevas natif sns-ui-egui avec Painter egui, transformations monde/écran, sélection stable et historique réversible; tests egui_kittest.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-APPLICATIONS-J2",
+      "title": "Bureau et services génériques — J2",
+      "milestone": "J2",
+      "status": "not_started",
+      "size": "M",
+      "features": [
+        "F-OS-001",
+        "F-OS-002",
+        "F-OS-003",
+        "F-OS-005",
+        "F-OS-006"
+      ],
+      "depends_on": [
+        "RS-DEVICES-J1",
+        "RS-TRANSPORT-J2"
+      ],
+      "planned_paths": [
+        "crates/sns-apps",
+        "crates/sns-ui-egui/src/hosts"
+      ],
+      "approach": "Registre AppId et événements applicatifs; séparer installation, service actif et vue egui; panneaux par hôte dans sns-ui-egui avec API de socket simulée.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-FILESYSTEM-J2",
+      "title": "Fichiers virtuels et outils — J2",
+      "milestone": "J2",
+      "status": "not_started",
+      "size": "M",
+      "features": [
+        "F-FS-001",
+        "F-FS-002",
+        "F-FS-003",
+        "F-FS-004",
+        "F-FS-005"
+      ],
+      "depends_on": [
+        "RS-DEVICES-J1"
+      ],
+      "planned_paths": [
+        "crates/sns-vfs",
+        "crates/sns-ui-egui/src/files"
+      ],
+      "approach": "Chemins virtuels normalisés et contenu binaire; vues egui indépendantes des imports hôte; dialogues natifs rfd via adaptateur sans bloquer eframe.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-OBSERVATION-J2",
+      "title": "Traces et visualisation — J2",
+      "milestone": "J2",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-OBS-001",
+        "F-OBS-002",
+        "F-OBS-003",
+        "F-OBS-004",
+        "F-OBS-005",
+        "F-OBS-010"
+      ],
+      "depends_on": [
+        "RS-IPV4-J1",
+        "RS-LINK-J1"
+      ],
+      "planned_paths": [
+        "crates/sns-trace",
+        "crates/sns-ui-egui/src/trace"
+      ],
+      "approach": "Événements append-only bornés, projections paginées vers sns-ui-egui; tables egui_extras à colonnes redimensionnables, inspection native et tests egui_kittest; export texte/JSONL/CSV.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-TERMINAL-J2",
+      "title": "Terminal pédagogique — J2",
+      "milestone": "J2",
+      "status": "not_started",
+      "size": "M",
+      "features": [
+        "F-CLI-001",
+        "F-CLI-002",
+        "F-CLI-003",
+        "F-CLI-004",
+        "F-CLI-005",
+        "F-CLI-006",
+        "F-CLI-007",
+        "F-CLI-008",
+        "F-CLI-009",
+        "F-CLI-011",
+        "F-CLI-012",
+        "F-CLI-014",
+        "F-CLI-016",
+        "F-CLI-018",
+        "F-CLI-020",
+        "F-CLI-021"
+      ],
+      "depends_on": [
+        "RS-FILESYSTEM-J2",
+        "RS-TRANSPORT-J2"
+      ],
+      "planned_paths": [
+        "crates/sns-apps/src/terminal",
+        "crates/sns-ui-egui/src/terminal"
+      ],
+      "approach": "Parseur de commandes à liste autorisée et alias explicites; vue egui à jobs annulables via commandes; historique/focus et presse-papiers de l’intégration native; aucun shell OS.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-TRANSPORT-J2",
+      "title": "TCP et UDP simulés — J2",
+      "milestone": "J2",
+      "status": "not_started",
+      "size": "XL",
+      "features": [
+        "F-TCP-001",
+        "F-TCP-002",
+        "F-TCP-003",
+        "F-TCP-004",
+        "F-TCP-005",
+        "F-UDP-001",
+        "F-UDP-002"
+      ],
+      "depends_on": [
+        "RS-IPV4-J1"
+      ],
+      "planned_paths": [
+        "crates/sns-protocols/src/transport"
+      ],
+      "approach": "Machines à états TCP et datagrammes UDP propres au simulateur; sockets simulées, allocation de ports, retransmissions virtuelles.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-DEVICES-J3",
+      "title": "Équipements et configuration — J3",
+      "milestone": "J3",
+      "status": "not_started",
+      "size": "M",
+      "features": [
+        "F-EQU-003"
+      ],
+      "depends_on": [
+        "RS-TOPOLOGY-J1"
+      ],
+      "planned_paths": [
+        "crates/sns-model",
+        "crates/sns-devices"
+      ],
+      "approach": "Identifiants typés, arènes indexées, interfaces explicites; états de configuration distincts de l’état courant.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-IPV4-J3",
+      "title": "IPv4 et ICMP — J3",
+      "milestone": "J3",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-IP4-003",
+        "F-IP4-005"
+      ],
+      "depends_on": [
+        "RS-LINK-J1"
+      ],
+      "planned_paths": [
+        "crates/sns-protocols/src/ipv4"
+      ],
+      "approach": "Adresses numériques typées, masques validés, next-hop explicite, erreurs structurées et corrélation des sondes.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-LINK-J3",
+      "title": "Ethernet, switch et ARP — J3",
+      "milestone": "J3",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-L2-006"
+      ],
+      "depends_on": [
+        "RS-DEVICES-J1"
+      ],
+      "planned_paths": [
+        "crates/sns-protocols/src/link"
+      ],
+      "approach": "Machines à états événementielles; clones de données de trace immuables; timers virtuels pour les caches.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-OBSERVATION-J3",
+      "title": "Traces et visualisation — J3",
+      "milestone": "J3",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-OBS-009"
+      ],
+      "depends_on": [
+        "RS-IPV4-J1",
+        "RS-LINK-J1"
+      ],
+      "planned_paths": [
+        "crates/sns-trace",
+        "crates/sns-ui-egui/src/trace"
+      ],
+      "approach": "Événements append-only bornés, projections paginées vers sns-ui-egui; tables egui_extras à colonnes redimensionnables, inspection native et tests egui_kittest; export texte/JSONL/CSV.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-ROUTING-J3",
+      "title": "Routage statique et dynamique — J3",
+      "milestone": "J3",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-ROUT-001",
+        "F-ROUT-002",
+        "F-ROUT-003",
+        "F-ROUT-004",
+        "F-ROUT-005"
+      ],
+      "depends_on": [
+        "RS-DEVICES-J3",
+        "RS-IPV4-J3"
+      ],
+      "planned_paths": [
+        "crates/sns-protocols/src/routing"
+      ],
+      "approach": "Tables distinctes calculées/statiques/RIP; choix explicables; ordre stable de départage et délais virtuels.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-TERMINAL-J3",
+      "title": "Terminal pédagogique — J3",
+      "milestone": "J3",
+      "status": "not_started",
+      "size": "M",
+      "features": [
+        "F-CLI-010",
+        "F-CLI-015",
+        "F-CLI-017"
+      ],
+      "depends_on": [
+        "RS-FILESYSTEM-J2",
+        "RS-TRANSPORT-J2"
+      ],
+      "planned_paths": [
+        "crates/sns-apps/src/terminal",
+        "crates/sns-ui-egui/src/terminal"
+      ],
+      "approach": "Parseur de commandes à liste autorisée et alias explicites; vue egui à jobs annulables via commandes; historique/focus et presse-papiers de l’intégration native; aucun shell OS.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-TOPOLOGY-J3",
+      "title": "Éditeur de réseau — J3",
+      "milestone": "J3",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-TOP-005"
+      ],
+      "depends_on": [
+        "RS-ENGINE-J0"
+      ],
+      "planned_paths": [
+        "crates/sns-model",
+        "crates/sns-ui-egui/src/topology"
+      ],
+      "approach": "Commandes métier validées côté cœur; canevas natif sns-ui-egui avec Painter egui, transformations monde/écran, sélection stable et historique réversible; tests egui_kittest.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-APPLICATIONS-J4",
+      "title": "Bureau et services génériques — J4",
+      "milestone": "J4",
+      "status": "not_started",
+      "size": "M",
+      "features": [
+        "F-OS-004"
+      ],
+      "depends_on": [
+        "RS-DEVICES-J1",
+        "RS-TRANSPORT-J2"
+      ],
+      "planned_paths": [
+        "crates/sns-apps",
+        "crates/sns-ui-egui/src/hosts"
+      ],
+      "approach": "Registre AppId et événements applicatifs; séparer installation, service actif et vue egui; panneaux par hôte dans sns-ui-egui avec API de socket simulée.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-DHCP-J4",
+      "title": "DHCP et link-local — J4",
+      "milestone": "J4",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-DHCP-001",
+        "F-DHCP-002",
+        "F-DHCP-003",
+        "F-DHCP-004",
+        "F-DHCP-005",
+        "F-DHCP-006"
+      ],
+      "depends_on": [
+        "RS-APPLICATIONS-J2",
+        "RS-TRANSPORT-J2"
+      ],
+      "planned_paths": [
+        "crates/sns-apps/src/dhcp"
+      ],
+      "approach": "États explicites client/serveur; tables d’offres/réservations/attributions et horloge virtuelle; conflits résolus via ARP simulé.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-DNS-J4",
+      "title": "DNS pédagogique — J4",
+      "milestone": "J4",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-DNS-001",
+        "F-DNS-002",
+        "F-DNS-003",
+        "F-DNS-004",
+        "F-DNS-005",
+        "F-DNS-006"
+      ],
+      "depends_on": [
+        "RS-APPLICATIONS-J2",
+        "RS-ENGINE-J0",
+        "RS-TRANSPORT-J2"
+      ],
+      "planned_paths": [
+        "crates/sns-apps/src/dns"
+      ],
+      "approach": "Enregistrements A/MX/NS typés; caches par nœud et deadlines virtuelles; délégations bornées pour éviter les cycles.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-TERMINAL-J4",
+      "title": "Terminal pédagogique — J4",
+      "milestone": "J4",
+      "status": "not_started",
+      "size": "M",
+      "features": [
+        "F-CLI-013"
+      ],
+      "depends_on": [
+        "RS-FILESYSTEM-J2",
+        "RS-TRANSPORT-J2"
+      ],
+      "planned_paths": [
+        "crates/sns-apps/src/terminal",
+        "crates/sns-ui-egui/src/terminal"
+      ],
+      "approach": "Parseur de commandes à liste autorisée et alias explicites; vue egui à jobs annulables via commandes; historique/focus et presse-papiers de l’intégration native; aucun shell OS.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-WEB-J4",
+      "title": "Serveur et navigateur simulés — J4",
+      "milestone": "J4",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-WEB-001",
+        "F-WEB-002",
+        "F-WEB-003",
+        "F-WEB-004",
+        "F-WEB-005",
+        "F-WEB-006"
+      ],
+      "depends_on": [
+        "RS-DNS-J4",
+        "RS-FILESYSTEM-J2",
+        "RS-TRANSPORT-J2"
+      ],
+      "planned_paths": [
+        "crates/sns-apps/src/http",
+        "crates/sns-ui-egui/src/browser",
+        "crates/sns-html"
+      ],
+      "approach": "HTTP pédagogique sur TCP simulé; document HTML borné sans I/O dans sns-html et vue egui pour texte, liens, images et formulaires; toutes les ressources et actions GET/POST passent par le moteur.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-DEVICES-J5",
+      "title": "Équipements et configuration — J5",
+      "milestone": "J5",
+      "status": "not_started",
+      "size": "M",
+      "features": [
+        "F-EQU-004"
+      ],
+      "depends_on": [
+        "RS-TOPOLOGY-J1"
+      ],
+      "planned_paths": [
+        "crates/sns-model",
+        "crates/sns-devices"
+      ],
+      "approach": "Identifiants typés, arènes indexées, interfaces explicites; états de configuration distincts de l’état courant.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-FIREWALL-J5",
+      "title": "Filtrage pédagogique — J5",
+      "milestone": "J5",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-FW-001",
+        "F-FW-002",
+        "F-FW-003",
+        "F-FW-004",
+        "F-FW-005",
+        "F-FW-006",
+        "F-FW-007"
+      ],
+      "depends_on": [
+        "RS-ROUTING-J3",
+        "RS-TRANSPORT-J2",
+        "RS-WEB-J5"
+      ],
+      "planned_paths": [
+        "crates/sns-protocols/src/firewall"
+      ],
+      "approach": "Règles typées ordonnées, politique par défaut et modes historiques explicites; un résultat de décision détaillé par paquet.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-NAT-J5",
+      "title": "NAT et routeur domestique — J5",
+      "milestone": "J5",
+      "status": "not_started",
+      "size": "XL",
+      "features": [
+        "F-NAT-001",
+        "F-NAT-002",
+        "F-NAT-003",
+        "F-NAT-004",
+        "F-NAT-005",
+        "F-NAT-006"
+      ],
+      "depends_on": [
+        "RS-DEVICES-J5",
+        "RS-DHCP-J4",
+        "RS-ROUTING-J3",
+        "RS-TRANSPORT-J2"
+      ],
+      "planned_paths": [
+        "crates/sns-protocols/src/nat"
+      ],
+      "approach": "Clés de mapping explicites, IPv4/ports/ICMP; politique d’ordre NAT/filtrage figée par fixtures; tables consultables.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-OBSERVATION-J5",
+      "title": "Traces et visualisation — J5",
+      "milestone": "J5",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-OBS-007"
+      ],
+      "depends_on": [
+        "RS-LINK-J1",
+        "RS-NAT-J5"
+      ],
+      "planned_paths": [
+        "crates/sns-trace",
+        "crates/sns-ui-egui/src/trace"
+      ],
+      "approach": "Événements append-only bornés, projections paginées vers sns-ui-egui; tables egui_extras à colonnes redimensionnables, inspection native et tests egui_kittest; export texte/JSONL/CSV.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-ROUTING-J5",
+      "title": "Routage statique et dynamique — J5",
+      "milestone": "J5",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-ROUT-006"
+      ],
+      "depends_on": [
+        "RS-DEVICES-J3",
+        "RS-IPV4-J3"
+      ],
+      "planned_paths": [
+        "crates/sns-protocols/src/routing"
+      ],
+      "approach": "Tables distinctes calculées/statiques/RIP; choix explicables; ordre stable de départage et délais virtuels.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-WEB-J5",
+      "title": "Serveur et navigateur simulés — J5",
+      "milestone": "J5",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-WEB-007"
+      ],
+      "depends_on": [
+        "RS-DNS-J4",
+        "RS-FILESYSTEM-J2",
+        "RS-TRANSPORT-J2"
+      ],
+      "planned_paths": [
+        "crates/sns-apps/src/http",
+        "crates/sns-ui-egui/src/browser",
+        "crates/sns-html"
+      ],
+      "approach": "HTTP pédagogique sur TCP simulé; document HTML borné sans I/O dans sns-html et vue egui pour texte, liens, images et formulaires; toutes les ressources et actions GET/POST passent par le moteur.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-DEVICES-J6",
+      "title": "Équipements et configuration — J6",
+      "milestone": "J6",
+      "status": "not_started",
+      "size": "M",
+      "features": [
+        "F-EQU-005",
+        "F-EQU-007"
+      ],
+      "depends_on": [
+        "RS-TOPOLOGY-J1"
+      ],
+      "planned_paths": [
+        "crates/sns-model",
+        "crates/sns-devices"
+      ],
+      "approach": "Identifiants typés, arènes indexées, interfaces explicites; états de configuration distincts de l’état courant.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-EXTENSIONS-J6",
+      "title": "Extensions et modem — J6",
+      "milestone": "J6",
+      "status": "not_started",
+      "size": "XL",
+      "features": [
+        "F-EXT-005"
+      ],
+      "depends_on": [
+        "RS-DEVICES-J6",
+        "RS-LINK-J1"
+      ],
+      "planned_paths": [
+        "crates/sns-bridge",
+        "crates/sns-extension-host",
+        "crates/sns-ui-egui/src/extensions"
+      ],
+      "approach": "J6: pont réel Tokio séparé et entrées enregistrées; J8: contrat versionné, adaptateur Wasmtime à prototyper, quotas et capacités minimales.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-MAIL-J6",
+      "title": "SMTP, POP3 et client mail — J6",
+      "milestone": "J6",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-MAIL-001",
+        "F-MAIL-002",
+        "F-MAIL-003",
+        "F-MAIL-004",
+        "F-MAIL-005",
+        "F-MAIL-006",
+        "F-MAIL-007",
+        "F-MAIL-008"
+      ],
+      "depends_on": [
+        "RS-APPLICATIONS-J2",
+        "RS-DNS-J4",
+        "RS-TRANSPORT-J2"
+      ],
+      "planned_paths": [
+        "crates/sns-apps/src/mail",
+        "crates/sns-ui-egui/src/mail"
+      ],
+      "approach": "Sessions protocolaires événementielles; boîtes virtuelles, comptes pédagogiques et relais MX; aucune connexion mail réelle.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-P2P-J6",
+      "title": "Gnutella pédagogique — J6",
+      "milestone": "J6",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-P2P-001",
+        "F-P2P-002",
+        "F-P2P-003",
+        "F-P2P-004",
+        "F-P2P-005"
+      ],
+      "depends_on": [
+        "RS-FILESYSTEM-J2",
+        "RS-TRANSPORT-J2"
+      ],
+      "planned_paths": [
+        "crates/sns-apps/src/p2p",
+        "crates/sns-ui-egui/src/p2p"
+      ],
+      "approach": "Messages typés Ping/Pong/Query/QueryHit, identifiants et TTL; transferts dans le VFS avec quotas et annulation.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-DEVICES-J7",
+      "title": "Équipements et configuration — J7",
+      "milestone": "J7",
+      "status": "not_started",
+      "size": "M",
+      "features": [
+        "F-EQU-008"
+      ],
+      "depends_on": [
+        "RS-TOPOLOGY-J1"
+      ],
+      "planned_paths": [
+        "crates/sns-model",
+        "crates/sns-devices"
+      ],
+      "approach": "Identifiants typés, arènes indexées, interfaces explicites; états de configuration distincts de l’état courant.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-ENGINE-J7",
+      "title": "Moteur et cycle de simulation — J7",
+      "milestone": "J7",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-SIM-007",
+        "F-SIM-008"
+      ],
+      "depends_on": [],
+      "planned_paths": [
+        "crates/sns-engine"
+      ],
+      "approach": "File BinaryHeap avec Reverse; temps entier, ordre total, moteur synchrone à propriétaire unique; aucune minuterie système dans les protocoles.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-OBSERVATION-J7",
+      "title": "Traces et visualisation — J7",
+      "milestone": "J7",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-OBS-006",
+        "F-OBS-008"
+      ],
+      "depends_on": [
+        "RS-IPV4-J1",
+        "RS-LINK-J1"
+      ],
+      "planned_paths": [
+        "crates/sns-trace",
+        "crates/sns-ui-egui/src/trace"
+      ],
+      "approach": "Événements append-only bornés, projections paginées vers sns-ui-egui; tables egui_extras à colonnes redimensionnables, inspection native et tests egui_kittest; export texte/JSONL/CSV.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-PLATFORM-J7",
+      "title": "Intégration desktop et préférences — J7",
+      "milestone": "J7",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-CFG-001",
+        "F-CFG-002",
+        "F-CFG-003",
+        "F-CFG-004",
+        "F-CFG-005",
+        "F-CFG-006",
+        "F-CFG-007",
+        "F-CFG-008"
+      ],
+      "depends_on": [
+        "RS-PROJECTS-J1"
+      ],
+      "planned_paths": [
+        "apps/sns-desktop",
+        "crates/sns-settings"
+      ],
+      "approach": "Application native sns-desktop avec eframe/egui 0.37 et backend wgpu; rfd et presse-papiers via services dédiés; évaluation craft-ui/craft-window et forks cohérents; profils, langues et packaging trois OS. craft-update reste une option distincte.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-PROJECTS-J7",
+      "title": "Projets et import Filius — J7",
+      "milestone": "J7",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-PROJ-003",
+        "F-PROJ-005",
+        "F-PROJ-006"
+      ],
+      "depends_on": [
+        "RS-TOPOLOGY-J1"
+      ],
+      "planned_paths": [
+        "crates/sns-project",
+        "crates/sns-filius-import"
+      ],
+      "approach": "DTO Serde pour format neutre JSON/ZIP; XML .fls interprété comme données en liste autorisée; aucune exécution de JavaBeans ou de bytecode.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-QUALITY-J7",
+      "title": "Contrats, qualité et outillage — J7",
+      "milestone": "J7",
+      "status": "not_started",
+      "size": "M",
+      "features": [
+        "F-NFR-007"
+      ],
+      "depends_on": [],
+      "planned_paths": [
+        "contracts",
+        "fixtures",
+        "crates/sns-cli",
+        "docs/decisions",
+        "crates/sns-ui-egui/tests"
+      ],
+      "approach": "Matrice Windows/Linux/macOS, parcours clavier et langues; snapshots egui_kittest avec wgpu/snapshot et polices de production; essais réels dialogues, presse-papiers et multi-écran; inspection visuelle PNG/PDF.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-REPORTING-J7",
+      "title": "Documentation et exports — J7",
+      "milestone": "J7",
+      "status": "not_started",
+      "size": "M",
+      "features": [
+        "F-DOC-001",
+        "F-DOC-002",
+        "F-DOC-003",
+        "F-DOC-004"
+      ],
+      "depends_on": [
+        "RS-OBSERVATION-J2",
+        "RS-TOPOLOGY-J1"
+      ],
+      "planned_paths": [
+        "crates/sns-report",
+        "crates/sns-ui-egui/src/annotations",
+        "crates/sns-render",
+        "crates/sns-fonts"
+      ],
+      "approach": "Scène d’export indépendante des widgets; tiny-skia 0.12 pour PNG, évaluation craft-pdf/Krilla pour PDF; pagination SNS et chaîne de glyphes explicite si nécessaire; validation visuelle et quotas.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-TERMINAL-J7",
+      "title": "Terminal pédagogique — J7",
+      "milestone": "J7",
+      "status": "not_started",
+      "size": "M",
+      "features": [
+        "F-CLI-019"
+      ],
+      "depends_on": [
+        "RS-FILESYSTEM-J2",
+        "RS-TRANSPORT-J2"
+      ],
+      "planned_paths": [
+        "crates/sns-apps/src/terminal",
+        "crates/sns-ui-egui/src/terminal"
+      ],
+      "approach": "Parseur de commandes à liste autorisée et alias explicites; vue egui à jobs annulables via commandes; historique/focus et presse-papiers de l’intégration native; aucun shell OS.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-TOPOLOGY-J7",
+      "title": "Éditeur de réseau — J7",
+      "milestone": "J7",
+      "status": "not_started",
+      "size": "L",
+      "features": [
+        "F-TOP-009"
+      ],
+      "depends_on": [
+        "RS-ENGINE-J0"
+      ],
+      "planned_paths": [
+        "crates/sns-model",
+        "crates/sns-ui-egui/src/topology"
+      ],
+      "approach": "Commandes métier validées côté cœur; canevas natif sns-ui-egui avec Painter egui, transformations monde/écran, sélection stable et historique réversible; tests egui_kittest.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-EXTENSIONS-J8",
+      "title": "Extensions et modem — J8",
+      "milestone": "J8",
+      "status": "not_started",
+      "size": "XL",
+      "features": [
+        "F-EXT-001",
+        "F-EXT-002",
+        "F-EXT-003",
+        "F-EXT-004",
+        "F-EXT-006"
+      ],
+      "depends_on": [
+        "RS-APPLICATIONS-J2"
+      ],
+      "planned_paths": [
+        "crates/sns-bridge",
+        "crates/sns-extension-host",
+        "crates/sns-ui-egui/src/extensions"
+      ],
+      "approach": "J6: pont réel Tokio séparé et entrées enregistrées; J8: contrat versionné, adaptateur Wasmtime à prototyper, quotas et capacités minimales.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-FUTURE-J9",
+      "title": "Études optionnelles — J9",
+      "milestone": "J9",
+      "status": "deferred",
+      "size": "XL",
+      "features": [
+        "F-ADV-001",
+        "F-ADV-002",
+        "F-ADV-003",
+        "F-ADV-004",
+        "F-ADV-005",
+        "F-ADV-006"
+      ],
+      "depends_on": [],
+      "planned_paths": [
+        "docs/decisions"
+      ],
+      "approach": "Maintenir ces lots différés; écrire une décision et des contrats avant d’ajouter dépendances ou implémentation.",
+      "verification": [],
+      "actual_paths": []
+    },
+    {
+      "id": "RS-REPORTING-J9",
+      "title": "Documentation et exports — J9",
+      "milestone": "J9",
+      "status": "deferred",
+      "size": "M",
+      "features": [
+        "F-DOC-005"
+      ],
+      "depends_on": [
+        "RS-OBSERVATION-J2",
+        "RS-TOPOLOGY-J1"
+      ],
+      "planned_paths": [
+        "crates/sns-report",
+        "crates/sns-ui-egui/src/annotations",
+        "crates/sns-render",
+        "crates/sns-fonts"
+      ],
+      "approach": "Scène d’export indépendante des widgets; tiny-skia 0.12 pour PNG, évaluation craft-pdf/Krilla pour PDF; pagination SNS et chaîne de glyphes explicite si nécessaire; validation visuelle et quotas.",
+      "verification": [],
+      "actual_paths": []
+    }
+  ]
+}

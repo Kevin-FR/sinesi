@@ -1,0 +1,4594 @@
+{
+  "schema_version": 1,
+  "reference": "Filius 2.14.0 — archive locale",
+  "date": "2026-11-07",
+  "status_vocabulary": [
+    "not_started",
+    "in_progress",
+    "implemented",
+    "verified",
+    "blocked",
+    "deferred"
+  ],
+  "features": [
+    {
+      "id": "F-SIM-001",
+      "domain": "SIM",
+      "title": "Conception, simulation et documentation",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Offrir trois espaces de travail avec transitions explicites et cohérentes.",
+      "acceptance": [
+        "Construire un réseau, lancer une simulation, annoter puis revenir en conception sans perdre le projet."
+      ],
+      "component": "engine",
+      "milestone": "J1",
+      "depends_on": [],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/GUIMainMenu.java",
+          "line": 444,
+          "anchor": "public synchronized void selectMode",
+          "snippet": "public synchronized void selectMode(int mode) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-SIM-002",
+      "domain": "SIM",
+      "title": "Démarrage et arrêt propres",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Démarrer tous les équipements et arrêter services, sockets et traitements transitoires à la sortie de simulation.",
+      "acceptance": [
+        "Après dix cycles conception/simulation, aucun paquet ancien ni port occupé ne subsiste."
+      ],
+      "component": "engine",
+      "milestone": "J1",
+      "depends_on": [],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/GUIMainMenu.java",
+          "line": 507,
+          "anchor": "private void stopSimulation",
+          "snippet": "private void stopSimulation() {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-SIM-003",
+      "domain": "SIM",
+      "title": "Vitesse des échanges",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Régler la vitesse visible sans changer le résultat logique du scénario.",
+      "acceptance": [
+        "La même séquence de commandes produit les mêmes livraisons aux vitesses minimale et maximale."
+      ],
+      "component": "engine",
+      "milestone": "J1",
+      "depends_on": [],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/GUIMainMenu.java",
+          "line": 254,
+          "anchor": "private void updateLatency",
+          "snippet": "private void updateLatency() {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-SIM-004",
+      "domain": "SIM",
+      "title": "Pertes manuelles de paquets",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Permettre de provoquer des pertes et de consulter les unités abandonnées.",
+      "acceptance": [
+        "Maintenir la commande de perte fait échouer un transfert; son relâchement rétablit les livraisons."
+      ],
+      "component": "engine",
+      "milestone": "J1",
+      "depends_on": [],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/anwendungssicht/SimulationControl.java",
+          "line": 60,
+          "anchor": "JButton dropButton",
+          "snippet": "JButton dropButton = new JButton(messages.getString(\"simulation_control_drop_packets\"));"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-SIM-005",
+      "domain": "SIM",
+      "title": "Horloge virtuelle déterministe",
+      "origin": "modernisation",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Ordonnancer les événements par temps virtuel, priorité et séquence stable; injecter la graine aléatoire.",
+      "acceptance": [
+        "Deux exécutions isolées avec mêmes versions, graine et entrées donnent des traces canoniques identiques."
+      ],
+      "component": "engine",
+      "milestone": "J0",
+      "depends_on": [],
+      "status": "verified",
+      "evidence": [],
+      "verification": [
+        {
+          "recipe": "J0-foundations",
+          "command": "cargo test --workspace --locked; cargo test -p sns-ui-egui --features ui-snapshots --test workbench --locked; python3 scripts/check_layers.py; python3 scripts/test_docs.py",
+          "result": "pass",
+          "environment": "macOS arm64, rustc 1.95.0, upstream egui/eframe 0.37.0",
+          "revision": "sha256:04434bdfcfdfb38c27e3cb257e3194c9dcaa5e2cf0823633cb155be6918d22f0",
+          "artifacts": [
+            "docs/verification/J0.md",
+            "docs/verification/j0-code-manifest.json",
+            "docs/verification/j0-tests.log",
+            "docs/verification/j0-gpu-tests.log"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F-SIM-006",
+      "domain": "SIM",
+      "title": "Pause et pas à pas",
+      "origin": "modernisation",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Suspendre la simulation et avancer exactement un événement ou jusqu’à une borne virtuelle.",
+      "acceptance": [
+        "En pause, aucune minuterie de protocole ne progresse; un pas consomme exactement un événement."
+      ],
+      "component": "engine",
+      "milestone": "J1",
+      "depends_on": [],
+      "status": "not_started",
+      "evidence": [],
+      "verification": []
+    },
+    {
+      "id": "F-SIM-007",
+      "domain": "SIM",
+      "title": "Rejeu et points de reprise",
+      "origin": "modernisation",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Enregistrer commandes, entrées externes et état complet nécessaire à une reprise.",
+      "acceptance": [
+        "Une reprise depuis un checkpoint retrouve la même trace suffixe, y compris les expirations."
+      ],
+      "component": "engine",
+      "milestone": "J7",
+      "depends_on": [],
+      "status": "not_started",
+      "evidence": [],
+      "verification": []
+    },
+    {
+      "id": "F-SIM-008",
+      "domain": "SIM",
+      "title": "Pannes paramétrées",
+      "origin": "modernisation",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Configurer délai et pertes par liaison avec une graine reproductible.",
+      "acceptance": [
+        "Une perte de 100 % bloque une liaison seule; 0 % la rétablit; un rejeu reproduit les pertes."
+      ],
+      "component": "engine",
+      "milestone": "J7",
+      "depends_on": [],
+      "status": "not_started",
+      "evidence": [],
+      "verification": []
+    },
+    {
+      "id": "F-TOP-001",
+      "domain": "TOP",
+      "title": "Palette et glisser-déposer",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Créer les équipements depuis une palette et les disposer sur le canevas.",
+      "acceptance": [
+        "Chaque type disponible peut être ajouté et déplacé; sa position persiste."
+      ],
+      "component": "topology",
+      "milestone": "J1",
+      "depends_on": [
+        "F-SIM-005"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/GUIEvents.java",
+          "line": 232,
+          "anchor": "public void mausPressedDesignMode",
+          "snippet": "public void mausPressedDesignMode(MouseEvent e) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-TOP-002",
+      "domain": "TOP",
+      "title": "Sélection multiple et déplacement",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Sélectionner un ou plusieurs nœuds et déplacer le groupe avec ses liaisons.",
+      "acceptance": [
+        "Un rectangle sélectionne plusieurs nœuds; déplacer le groupe conserve les extrémités connectées."
+      ],
+      "component": "topology",
+      "milestone": "J1",
+      "depends_on": [
+        "F-SIM-005"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/GUIEvents.java",
+          "line": 147,
+          "anchor": "public void mausDragged",
+          "snippet": "public void mausDragged(MouseEvent e) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-TOP-003",
+      "domain": "TOP",
+      "title": "Suppression des équipements et câbles",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Supprimer une sélection, un câble ou toutes les connexions d’un équipement sans référence orpheline.",
+      "acceptance": [
+        "Supprimer un routeur retire ses câbles et préserve les autres nœuds."
+      ],
+      "component": "topology",
+      "milestone": "J1",
+      "depends_on": [
+        "F-SIM-005"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/GUIEvents.java",
+          "line": 720,
+          "anchor": "public void itemLoeschen",
+          "snippet": "public void itemLoeschen(JSidebarButton loeschlabel, GUIKnotenItem loeschitem) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-TOP-004",
+      "domain": "TOP",
+      "title": "Câblage interactif et contraintes",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Prévisualiser une liaison et vérifier extrémités, ports libres, types et doublons.",
+      "acceptance": [
+        "Une liaison valide occupe deux ports; une liaison impossible est rejetée avec une explication."
+      ],
+      "component": "topology",
+      "milestone": "J1",
+      "depends_on": [
+        "F-SIM-005"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/GUIEvents.java",
+          "line": 469,
+          "anchor": "public Kabel createConnection",
+          "snippet": "public Kabel createConnection(GUIKnotenItem component1, GUIKnotenItem component2) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-TOP-005",
+      "domain": "TOP",
+      "title": "Choix et réaffectation des interfaces",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Afficher les connexions d’un routeur et réaffecter leurs interfaces.",
+      "acceptance": [
+        "Échanger deux ports actualise les associations sans modifier les autres liens."
+      ],
+      "component": "topology",
+      "milestone": "J3",
+      "depends_on": [
+        "F-SIM-005"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JConnectionsDialog.java",
+          "line": 591,
+          "anchor": "private void swapConnection",
+          "snippet": "private void swapConnection(Port port1, Port port2) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-TOP-006",
+      "domain": "TOP",
+      "title": "Inspecteur et noms affichés",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Éditer les propriétés; choisir nom libre, adresse IP ou MAC comme libellé d’un hôte.",
+      "acceptance": [
+        "Changer le libellé ne change pas l’identité du nœud ni les échanges."
+      ],
+      "component": "topology",
+      "milestone": "J1",
+      "depends_on": [
+        "F-SIM-005"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/hardware/knoten/Host.java",
+          "line": 70,
+          "anchor": "public String holeAnzeigeName",
+          "snippet": "public String holeAnzeigeName() {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-TOP-007",
+      "domain": "TOP",
+      "title": "Annuler et rétablir",
+      "origin": "modernisation",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Journaliser les commandes d’édition réversibles et offrir annuler/rétablir.",
+      "acceptance": [
+        "Supprimer puis annuler un groupe restaure ses paramètres, positions et liaisons."
+      ],
+      "component": "topology",
+      "milestone": "J1",
+      "depends_on": [
+        "F-SIM-005"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "verification": []
+    },
+    {
+      "id": "F-TOP-008",
+      "domain": "TOP",
+      "title": "Navigation moderne",
+      "origin": "modernisation",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Offrir zoom, déplacement du canevas, cadrage du réseau et navigation clavier.",
+      "acceptance": [
+        "Après zoom et cadrage, toutes les extrémités restent sélectionnables; le clavier atteint l’inspecteur."
+      ],
+      "component": "topology",
+      "milestone": "J1",
+      "depends_on": [
+        "F-SIM-005"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "verification": []
+    },
+    {
+      "id": "F-TOP-009",
+      "domain": "TOP",
+      "title": "Dupliquer et aligner",
+      "origin": "modernisation",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Dupliquer une sélection avec identités uniques et offrir des outils d’alignement.",
+      "acceptance": [
+        "Deux copies possèdent des identifiants et MAC distincts; leurs adresses IP conflictuelles sont signalées."
+      ],
+      "component": "topology",
+      "milestone": "J7",
+      "depends_on": [
+        "F-SIM-005"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "verification": []
+    },
+    {
+      "id": "F-EQU-001",
+      "domain": "EQU",
+      "title": "Ordinateur et portable",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Fournir deux représentations d’hôtes avec pile réseau et catalogue de logiciels.",
+      "acceptance": [
+        "Un ordinateur et un portable exécutent le même test ping avec des identités distinctes."
+      ],
+      "component": "devices",
+      "milestone": "J1",
+      "depends_on": [
+        "F-TOP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/netzwerksicht/GUIDesignSidebar.java",
+          "line": 108,
+          "anchor": "addHardwareComponent(RECHNER",
+          "snippet": "addHardwareComponent(RECHNER + mode.suffix(), Rechner.TYPE);"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-EQU-002",
+      "domain": "EQU",
+      "title": "Commutateur Ethernet",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Fournir un commutateur multiport reliant les hôtes du même LAN.",
+      "acceptance": [
+        "Trois hôtes connectés au switch échangent sur le même sous-réseau."
+      ],
+      "component": "devices",
+      "milestone": "J1",
+      "depends_on": [
+        "F-TOP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/netzwerksicht/GUIDesignSidebar.java",
+          "line": 110,
+          "anchor": "addHardwareComponent(SWITCH",
+          "snippet": "addHardwareComponent(SWITCH + mode.suffix(), Switch.TYPE);"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-EQU-003",
+      "domain": "EQU",
+      "title": "Routeur multi-interface",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Fournir un routeur avec nombre d’interfaces configurable, minimum deux.",
+      "acceptance": [
+        "Deux sous-réseaux distincts sont routés par des interfaces configurées séparément."
+      ],
+      "component": "devices",
+      "milestone": "J3",
+      "depends_on": [
+        "F-TOP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/netzwerksicht/GUIDesignSidebar.java",
+          "line": 114,
+          "anchor": "addHardwareComponent(VERMITTLUNGSRECHNER",
+          "snippet": "addHardwareComponent(VERMITTLUNGSRECHNER + mode.suffix(), Vermittlungsrechner.TYPE);"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-EQU-004",
+      "domain": "EQU",
+      "title": "Routeur domestique LAN/WAN",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Fournir un équipement distinct à deux interfaces LAN/WAN et services associés.",
+      "acceptance": [
+        "Les ports LAN et WAN restent identifiables au câblage et après sauvegarde."
+      ],
+      "component": "devices",
+      "milestone": "J5",
+      "depends_on": [
+        "F-TOP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/netzwerksicht/GUIDesignSidebar.java",
+          "line": 112,
+          "anchor": "addHardwareComponent(GATEWAY",
+          "snippet": "addHardwareComponent(GATEWAY + mode.suffix(), Gateway.TYPE);"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-EQU-005",
+      "domain": "EQU",
+      "title": "Modem entre instances",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Fournir un pont explicite entre réseaux simulés sur deux instances réelles.",
+      "acceptance": [
+        "Deux instances reliées par leurs modems échangent des trames; déconnecter le pont arrête les échanges."
+      ],
+      "component": "devices",
+      "milestone": "J6",
+      "depends_on": [
+        "F-TOP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/netzwerksicht/GUIDesignSidebar.java",
+          "line": 115,
+          "anchor": "addHardwareComponent(MODEM",
+          "snippet": "addHardwareComponent(MODEM + mode.suffix(), Modem.TYPE);"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-EQU-006",
+      "domain": "EQU",
+      "title": "Paramétrage IPv4 par interface",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Configurer IPv4, masque, passerelle et DNS; afficher et valider les MAC et paramètres effectifs.",
+      "acceptance": [
+        "Un masque invalide est refusé; les paramètres valides sont visibles depuis l’hôte."
+      ],
+      "component": "devices",
+      "milestone": "J1",
+      "depends_on": [
+        "F-TOP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JHostKonfiguration.java",
+          "line": 105,
+          "anchor": "private void aenderungenAnnehmen",
+          "snippet": "private void aenderungenAnnehmen() {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-EQU-007",
+      "domain": "EQU",
+      "title": "Wi-Fi pédagogique par SSID",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Associer un hôte à un switch/point d’accès par SSID, avec choix LAN/Wi-Fi.",
+      "acceptance": [
+        "Changer le SSID du point d’accès retire les associations concernées; choisir le nouveau SSID les recrée."
+      ],
+      "component": "devices",
+      "milestone": "J6",
+      "depends_on": [
+        "F-TOP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JHostKonfiguration.java",
+          "line": 564,
+          "anchor": "private void updateWifiConnection",
+          "snippet": "private void updateWifiConnection() {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-EQU-008",
+      "domain": "EQU",
+      "title": "Apparence nuage du switch",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Permettre une représentation nuage du switch sans changer sa sémantique.",
+      "acceptance": [
+        "Le changement d’icône conserve ports et table MAC."
+      ],
+      "component": "devices",
+      "milestone": "J7",
+      "depends_on": [
+        "F-TOP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JSwitchKonfiguration.java",
+          "line": 100,
+          "anchor": "public void changeAppearance",
+          "snippet": "public void changeAppearance() {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-L2-001",
+      "domain": "L2",
+      "title": "Trames Ethernet et diffusion",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Encapsuler les paquets avec MAC source/destination et distinguer unicast et broadcast.",
+      "acceptance": [
+        "Un broadcast ARP atteint tous les ports pertinents; un unicast reste adressé à sa destination."
+      ],
+      "component": "link",
+      "milestone": "J1",
+      "depends_on": [
+        "F-EQU-002",
+        "F-EQU-006"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/netzzugangsschicht/Ethernet.java",
+          "line": 46,
+          "anchor": "public class Ethernet",
+          "snippet": "public class Ethernet extends Protokoll {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-L2-002",
+      "domain": "L2",
+      "title": "Apprentissage et transfert du switch",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Apprendre les MAC sources; transférer sur le port connu et inonder les destinations inconnues.",
+      "acceptance": [
+        "Après un échange initial, le trafic unicast connu ne ressort pas sur les ports inutiles."
+      ],
+      "component": "link",
+      "milestone": "J1",
+      "depends_on": [
+        "F-EQU-002",
+        "F-EQU-006"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/netzzugangsschicht/SwitchPortBeobachter.java",
+          "line": 42,
+          "anchor": "public class SwitchPortBeobachter",
+          "snippet": "public class SwitchPortBeobachter extends ProtokollThread<EthernetFrame> {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-L2-003",
+      "domain": "L2",
+      "title": "Vieillissement et purge de table MAC",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Configurer la rétention, afficher les mises à jour et vider la SAT.",
+      "acceptance": [
+        "Une entrée expire à la durée choisie; une purge vide immédiatement la table."
+      ],
+      "component": "link",
+      "milestone": "J1",
+      "depends_on": [
+        "F-EQU-002",
+        "F-EQU-006"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/system/SwitchFirmware.java",
+          "line": 240,
+          "anchor": "public void checkSAT",
+          "snippet": "public void checkSAT() {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-L2-004",
+      "domain": "L2",
+      "title": "Prévention pédagogique des boucles",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Borner les circulations et signaler les trames répétées comme dans la protection simplifiée de Filius.",
+      "acceptance": [
+        "Une boucle de switches ne fait pas croître indéfiniment la file; l’abandon est expliqué."
+      ],
+      "component": "link",
+      "milestone": "J1",
+      "depends_on": [
+        "F-EQU-002",
+        "F-EQU-006"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/system/SwitchFirmware.java",
+          "line": 97,
+          "anchor": "private LinkedList<EthernetFrame> durchgelaufeneFrames",
+          "snippet": "private LinkedList<EthernetFrame> durchgelaufeneFrames = new LinkedList<EthernetFrame>();"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-L2-005",
+      "domain": "L2",
+      "title": "Résolution et cache ARP",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Résoudre une IPv4 locale en MAC par requête/réponse et maintenir un cache consultable/purgeable.",
+      "acceptance": [
+        "Une première communication déclenche ARP; la seconde réutilise le cache; sa purge déclenche une nouvelle résolution."
+      ],
+      "component": "link",
+      "milestone": "J1",
+      "depends_on": [
+        "F-EQU-002",
+        "F-EQU-006"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/vermittlungsschicht/ARP.java",
+          "line": 46,
+          "anchor": "public class ARP",
+          "snippet": "public class ARP extends VermittlungsProtokoll {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-L2-006",
+      "domain": "L2",
+      "title": "ARP explicite et conflits",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Permettre l’émission pédagogique de réponses ARP avec IP source choisie dans la simulation.",
+      "acceptance": [
+        "Une réponse ARP injectée modifie le cache simulé et apparaît dans la trace sans paquet sur le réseau réel."
+      ],
+      "component": "link",
+      "milestone": "J3",
+      "depends_on": [
+        "F-EQU-002",
+        "F-EQU-006"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java",
+          "line": 909,
+          "anchor": "public String arpsend",
+          "snippet": "public String arpsend(String[] args) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-IP4-001",
+      "domain": "IP4",
+      "title": "Adressage et sous-réseaux",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Calculer réseau et broadcast, valider IPv4 et masques contigus, et choisir le prochain saut.",
+      "acceptance": [
+        "192.168.10.2/24 calcule le réseau .0 et le broadcast .255; un hôte hors réseau passe par la passerelle."
+      ],
+      "component": "ipv4",
+      "milestone": "J1",
+      "depends_on": [
+        "F-L2-005"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/vermittlungsschicht/IP.java",
+          "line": 53,
+          "anchor": "public class IP",
+          "snippet": "public class IP extends VermittlungsProtokoll implements I18n {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-IP4-002",
+      "domain": "IP4",
+      "title": "Boucle locale et livraison locale",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Traiter le loopback et la destination propre sans émission externe.",
+      "acceptance": [
+        "Un ping de 127.0.0.1 et de l’adresse propre réussit sans câble."
+      ],
+      "component": "ipv4",
+      "milestone": "J1",
+      "depends_on": [
+        "F-L2-005"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/vermittlungsschicht/IP.java",
+          "line": 217,
+          "anchor": "sendeUnicastLokal",
+          "snippet": "private void sendeUnicastLokal(IpPaket paket, String ziel, NetzwerkInterface useNic) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-IP4-003",
+      "domain": "IP4",
+      "title": "Transfert IPv4 et TTL",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Décrémenter le TTL à chaque routeur et arrêter une boucle à expiration.",
+      "acceptance": [
+        "Un paquet TTL=1 traversant un routeur produit un abandon et une réponse ICMP explicite."
+      ],
+      "component": "ipv4",
+      "milestone": "J3",
+      "depends_on": [
+        "F-L2-005"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/vermittlungsschicht/IP.java",
+          "line": 282,
+          "anchor": "public void weiterleitenPaket",
+          "snippet": "public void weiterleitenPaket(IpPaket paket) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-IP4-004",
+      "domain": "IP4",
+      "title": "ICMP echo et erreurs",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Simuler echo request/reply, time exceeded et destinations inaccessibles du sous-ensemble Filius.",
+      "acceptance": [
+        "Une cible joignable répond; une route manquante et un TTL expiré produisent des résultats distincts."
+      ],
+      "component": "ipv4",
+      "milestone": "J1",
+      "depends_on": [
+        "F-L2-005"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/vermittlungsschicht/ICMP.java",
+          "line": 47,
+          "anchor": "public class ICMP",
+          "snippet": "public class ICMP extends VermittlungsProtokoll implements I18n {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-IP4-005",
+      "domain": "IP4",
+      "title": "Broadcast IP et ping de diffusion",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Autoriser les diffusions prévues, avec activation explicite pour ping broadcast.",
+      "acceptance": [
+        "Sans option de diffusion, ping refuse la destination broadcast; avec activation, plusieurs hôtes peuvent répondre."
+      ],
+      "component": "ipv4",
+      "milestone": "J3",
+      "depends_on": [
+        "F-L2-005"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java",
+          "line": 775,
+          "anchor": "public String ping",
+          "snippet": "public String ping(String[] args) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-ROUT-001",
+      "domain": "ROUT",
+      "title": "Routes directes et par défaut",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Construire les routes des interfaces locales, du loopback et de la passerelle par défaut.",
+      "acceptance": [
+        "La table distingue les entrées calculées des entrées manuelles."
+      ],
+      "component": "routing",
+      "milestone": "J3",
+      "depends_on": [
+        "F-EQU-003",
+        "F-IP4-003"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/vermittlungsschicht/Weiterleitungstabelle.java",
+          "line": 45,
+          "anchor": "public class Weiterleitungstabelle",
+          "snippet": "public class Weiterleitungstabelle implements I18n {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-ROUT-002",
+      "domain": "ROUT",
+      "title": "Routes statiques",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Ajouter, éditer et supprimer destination, masque, passerelle et interface de sortie.",
+      "acceptance": [
+        "Une route plus spécifique l’emporte sur la route par défaut et sa suppression rétablit le chemin précédent."
+      ],
+      "component": "routing",
+      "milestone": "J3",
+      "depends_on": [
+        "F-EQU-003",
+        "F-IP4-003"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/vermittlungsschicht/Weiterleitungstabelle.java",
+          "line": 282,
+          "anchor": "public Route determineRouteFromStaticRoutingTable",
+          "snippet": "public Route determineRouteFromStaticRoutingTable(String targetIPAddress) throws RouteNotFoundException {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-ROUT-003",
+      "domain": "ROUT",
+      "title": "Activation du transfert sur hôte",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Permettre à un hôte de transférer les paquets quand l’option est activée.",
+      "acceptance": [
+        "Le même paquet est livré avec transfert actif et bloqué lorsque l’option est désactivée."
+      ],
+      "component": "routing",
+      "milestone": "J3",
+      "depends_on": [
+        "F-EQU-003",
+        "F-IP4-003"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JHostKonfiguration.java",
+          "line": 120,
+          "anchor": "bs.setIpForwardingEnabled",
+          "snippet": "bs.setIpForwardingEnabled(ipForwarding.isSelected());"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-ROUT-004",
+      "domain": "ROUT",
+      "title": "Routage dynamique RIP pédagogique",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Activer le routage automatique avec annonces, métrique en sauts et table de routes.",
+      "acceptance": [
+        "Trois routeurs apprennent une route non directement connectée; le chemin retenu est inspectable."
+      ],
+      "component": "routing",
+      "milestone": "J3",
+      "depends_on": [
+        "F-EQU-003",
+        "F-IP4-003"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/rip/RIPBeacon.java",
+          "line": 53,
+          "anchor": "public void announce",
+          "snippet": "public void announce() {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-ROUT-005",
+      "domain": "ROUT",
+      "title": "Expiration et routes inaccessibles RIP",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Rafraîchir les routes et représenter l’infini à 16 sauts selon le modèle Filius.",
+      "acceptance": [
+        "Une annonce absente finit par rendre sa route inutilisable; le délai est exprimé en temps virtuel."
+      ],
+      "component": "routing",
+      "milestone": "J3",
+      "depends_on": [
+        "F-EQU-003",
+        "F-IP4-003"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/rip/RIPTable.java",
+          "line": 42,
+          "anchor": "public static final int INFINITY",
+          "snippet": "public static final int INFINITY = 16;"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-ROUT-006",
+      "domain": "ROUT",
+      "title": "Consultation locale et web des routes",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Exposer les tables de transfert et de routage dynamique depuis l’UI et l’administration web simulée.",
+      "acceptance": [
+        "Une même route est visible depuis l’inspecteur et la page web du routeur."
+      ],
+      "component": "routing",
+      "milestone": "J5",
+      "depends_on": [
+        "F-EQU-003",
+        "F-IP4-003"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/vermittlungsschicht/VermittlungWeb.java",
+          "line": 60,
+          "anchor": "createForwardingTablePage",
+          "snippet": "html = createForwardingTablePage(bs.getWeiterleitungstabelle());"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-TCP-001",
+      "domain": "TCP",
+      "title": "Sockets clients et serveurs",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Ouvrir, écouter, accepter, connecter et lier une socket à une interface simulée.",
+      "acceptance": [
+        "Un serveur accepte deux clients; chaque connexion est identifiée séparément."
+      ],
+      "component": "transport",
+      "milestone": "J2",
+      "depends_on": [
+        "F-IP4-004"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/transportschicht/TCPSocket.java",
+          "line": 139,
+          "anchor": "public class TCPSocket",
+          "snippet": "public class TCPSocket extends Socket implements Runnable {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-TCP-002",
+      "domain": "TCP",
+      "title": "Établissement TCP",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Modéliser SYN, SYN/ACK, ACK et les transitions d’état visibles.",
+      "acceptance": [
+        "Une connexion affiche le handshake dans le bon ordre; une cible muette finit en timeout."
+      ],
+      "component": "transport",
+      "milestone": "J2",
+      "depends_on": [
+        "F-IP4-004"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/transportschicht/TCPSocket.java",
+          "line": 143,
+          "anchor": "protected static final int CLOSED",
+          "snippet": "protected static final int CLOSED = 1, LISTEN = 2, SYN_RCVD = 3, SYN_SENT = 4, ESTABLISHED = 5, CLOSE_WAIT = 6,"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-TCP-003",
+      "domain": "TCP",
+      "title": "Segmentation, ACK et retransmissions",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Segmenter le contenu, suivre séquence et acquittements et borner les réessais.",
+      "acceptance": [
+        "La perte d’un segment déclenche un réessai; le destinataire reçoit le contenu une seule fois."
+      ],
+      "component": "transport",
+      "milestone": "J2",
+      "depends_on": [
+        "F-IP4-004"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/transportschicht/TCPSocket.java",
+          "line": 443,
+          "anchor": "senden",
+          "snippet": "public synchronized void senden(String nachricht) throws VerbindungsException, TimeOutException {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-TCP-004",
+      "domain": "TCP",
+      "title": "Fermeture et libération",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Modéliser FIN/ACK et fermeture forcée, puis libérer toutes les ressources.",
+      "acceptance": [
+        "Arrêter un serveur permet immédiatement sa réinstallation sur le même port."
+      ],
+      "component": "transport",
+      "milestone": "J2",
+      "depends_on": [
+        "F-IP4-004"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/transportschicht/TCPSocket.java",
+          "line": 655,
+          "anchor": "public void schliessen",
+          "snippet": "public void schliessen() {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-TCP-005",
+      "domain": "TCP",
+      "title": "Allocation et conflits de ports",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Réserver les ports, détecter les collisions et utiliser la plage éphémère 49152–65535.",
+      "acceptance": [
+        "Deux écoutes concurrentes du même endpoint sont refusées; un port libéré est réutilisable."
+      ],
+      "component": "transport",
+      "milestone": "J2",
+      "depends_on": [
+        "F-IP4-004"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/transportschicht/TransportProtokoll.java",
+          "line": 44,
+          "anchor": "public abstract class TransportProtokoll",
+          "snippet": "public abstract class TransportProtokoll extends Protokoll implements I18n, Runnable {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-UDP-001",
+      "domain": "UDP",
+      "title": "Datagrammes et sockets UDP",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Envoyer et recevoir des datagrammes sans connexion fiable.",
+      "acceptance": [
+        "Une perte UDP ne provoque pas de retransmission automatique de transport."
+      ],
+      "component": "transport",
+      "milestone": "J2",
+      "depends_on": [
+        "F-IP4-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/transportschicht/UDPSocket.java",
+          "line": 42,
+          "anchor": "public class UDPSocket",
+          "snippet": "public class UDPSocket extends Socket {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-UDP-002",
+      "domain": "UDP",
+      "title": "Diffusion et association de port",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Supporter l’émission broadcast et l’écoute par port/interface.",
+      "acceptance": [
+        "Un datagramme broadcast DHCP atteint les serveurs du LAN et pas un autre LAN sans mécanisme dédié."
+      ],
+      "component": "transport",
+      "milestone": "J2",
+      "depends_on": [
+        "F-IP4-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/transportschicht/UDPSocket.java",
+          "line": 174,
+          "anchor": "sendeBroadcast",
+          "snippet": "public synchronized void sendeBroadcast(String nachricht) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-OS-001",
+      "domain": "OS",
+      "title": "Bureau par hôte",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Ouvrir un espace propre à chaque hôte avec applications et état réseau.",
+      "acceptance": [
+        "Deux bureaux affichent leurs configurations et fichiers indépendamment."
+      ],
+      "component": "applications",
+      "milestone": "J2",
+      "depends_on": [
+        "F-EQU-001",
+        "F-TCP-001",
+        "F-UDP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIDesktopPanel.java",
+          "line": 64,
+          "anchor": "public class GUIDesktopPanel",
+          "snippet": "public class GUIDesktopPanel extends JPanel implements I18n, Observer {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-OS-002",
+      "domain": "OS",
+      "title": "Installer et désinstaller les 13 logiciels",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Proposer terminal, explorateur, éditeur, images, pare-feu, DNS, serveur/client génériques, serveur/navigateur web, serveur/client mail et P2P.",
+      "acceptance": [
+        "Chaque logiciel apparaît au catalogue; l’installation et la désinstallation modifient la liste de l’hôte."
+      ],
+      "component": "applications",
+      "milestone": "J2",
+      "depends_on": [
+        "F-EQU-001",
+        "F-TCP-001",
+        "F-UDP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/resources/config/Desktop_fr_FR.txt",
+          "line": 1,
+          "anchor": "Ligne de commande",
+          "snippet": "Ligne de commande;filius.software.lokal.Terminal;filius.gui.anwendungssicht.GUIApplicationTerminalWindow;gfx/desktop/icon_terminal.png"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-OS-003",
+      "domain": "OS",
+      "title": "Cycle de vie distinct des fenêtres",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Distinguer fenêtre visible, application installée et service actif; rendre les commandes démarrer/arrêter explicites.",
+      "acceptance": [
+        "Fermer la vue d’un serveur ne coupe pas son écoute; arrêter ou désinstaller le serveur la libère."
+      ],
+      "component": "applications",
+      "milestone": "J2",
+      "depends_on": [
+        "F-EQU-001",
+        "F-TCP-001",
+        "F-UDP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationWindow.java",
+          "line": 66,
+          "anchor": "GUIApplicationWindow",
+          "snippet": "public GUIApplicationWindow(GUIDesktopPanel desktop) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-OS-004",
+      "domain": "OS",
+      "title": "Informations réseau effectives",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Afficher IP, MAC, masque, passerelle, DNS et résultat DHCP actualisés.",
+      "acceptance": [
+        "Après une attribution DHCP, le panneau reflète immédiatement la nouvelle adresse."
+      ],
+      "component": "applications",
+      "milestone": "J4",
+      "depends_on": [
+        "F-EQU-001",
+        "F-TCP-001",
+        "F-UDP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/anwendungssicht/NetworkInfoPanel.java",
+          "line": 58,
+          "anchor": "public class NetworkInfoPanel",
+          "snippet": "public class NetworkInfoPanel extends JPanel implements I18n {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-OS-005",
+      "domain": "OS",
+      "title": "Client générique TCP",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Configurer cible IP/nom et port, connecter, envoyer du texte et consulter les réponses.",
+      "acceptance": [
+        "Le client reçoit exactement le texte envoyé à un serveur echo."
+      ],
+      "component": "applications",
+      "milestone": "J2",
+      "depends_on": [
+        "F-EQU-001",
+        "F-TCP-001",
+        "F-UDP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/clientserver/ClientBaustein.java",
+          "line": 76,
+          "anchor": "public class ClientBaustein",
+          "snippet": "public class ClientBaustein extends ClientAnwendung implements I18n {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-OS-006",
+      "domain": "OS",
+      "title": "Serveur générique echo",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Démarrer un serveur texte à port configurable avec journal des connexions/messages.",
+      "acceptance": [
+        "Deux clients reçoivent chacun leur message; arrêter le serveur ferme ses sessions."
+      ],
+      "component": "applications",
+      "milestone": "J2",
+      "depends_on": [
+        "F-EQU-001",
+        "F-TCP-001",
+        "F-UDP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/clientserver/ServerBausteinMitarbeiter.java",
+          "line": 62,
+          "anchor": "protected void verarbeiteNachricht",
+          "snippet": "protected void verarbeiteNachricht(String nachricht) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-FS-001",
+      "domain": "FS",
+      "title": "Système de fichiers par hôte",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Fournir une arborescence isolée avec fichiers texte et binaires.",
+      "acceptance": [
+        "Créer un fichier sur A ne le crée pas sur B; son contenu persiste dans le projet."
+      ],
+      "component": "filesystem",
+      "milestone": "J2",
+      "depends_on": [
+        "F-EQU-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/system/Dateisystem.java",
+          "line": 54,
+          "anchor": "public class Dateisystem",
+          "snippet": "public class Dateisystem implements Serializable {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-FS-002",
+      "domain": "FS",
+      "title": "Explorateur de fichiers",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Naviguer, créer des dossiers, copier, renommer, supprimer et ouvrir avec l’application adaptée.",
+      "acceptance": [
+        "Un fichier texte copié puis renommé s’ouvre dans l’éditeur avec son contenu intact."
+      ],
+      "component": "filesystem",
+      "milestone": "J2",
+      "depends_on": [
+        "F-EQU-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationFileExplorerWindow.java",
+          "line": 75,
+          "anchor": "public class GUIApplicationFileExplorerWindow",
+          "snippet": "public class GUIApplicationFileExplorerWindow extends GUIApplicationWindow {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-FS-003",
+      "domain": "FS",
+      "title": "Importer un fichier réel",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Importer explicitement un fichier choisi vers le système de fichiers simulé.",
+      "acceptance": [
+        "Un fichier image sélectionné est copié dans le bon hôte sans exposer le reste du disque."
+      ],
+      "component": "filesystem",
+      "milestone": "J2",
+      "depends_on": [
+        "F-EQU-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/lokal/FileImporter.java",
+          "line": 80,
+          "anchor": "public String addFile",
+          "snippet": "public String addFile(String pfadname, String dateiname, DefaultMutableTreeNode ordner, String neuerName) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-FS-004",
+      "domain": "FS",
+      "title": "Éditeur de texte",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Créer, ouvrir, modifier, enregistrer et enregistrer sous un fichier texte virtuel.",
+      "acceptance": [
+        "Modifier index.html change le contenu servi après enregistrement."
+      ],
+      "component": "filesystem",
+      "milestone": "J2",
+      "depends_on": [
+        "F-EQU-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationTextEditorWindow.java",
+          "line": 140,
+          "anchor": "speichern",
+          "snippet": "public void speichern() {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-FS-005",
+      "domain": "FS",
+      "title": "Afficheur d’images",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Ouvrir les formats image utiles dans les fichiers virtuels.",
+      "acceptance": [
+        "Une image importée s’affiche sans altérer son contenu binaire."
+      ],
+      "component": "filesystem",
+      "milestone": "J2",
+      "depends_on": [
+        "F-EQU-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationImageViewerWindow.java",
+          "line": 47,
+          "anchor": "public class GUIApplicationImageViewerWindow",
+          "snippet": "public class GUIApplicationImageViewerWindow extends GUIApplicationWindow {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CLI-001",
+      "domain": "CLI",
+      "title": "Aide et erreurs de commande",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Lister les commandes et leur syntaxe, refuser les commandes/arguments inconnus.",
+      "acceptance": [
+        "help ping affiche sa syntaxe et une commande inconnue ne déclenche aucune action."
+      ],
+      "component": "terminal",
+      "milestone": "J2",
+      "depends_on": [
+        "F-FS-001",
+        "F-TCP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java",
+          "line": 631,
+          "anchor": "public String help(",
+          "snippet": "public String help(String[] args) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CLI-002",
+      "domain": "CLI",
+      "title": "Navigation des fichiers",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Offrir cd et pwd avec chemins absolus et relatifs.",
+      "acceptance": [
+        "cd vers un dossier puis pwd affiche son chemin; un dossier absent laisse le répertoire courant inchangé."
+      ],
+      "component": "terminal",
+      "milestone": "J2",
+      "depends_on": [
+        "F-FS-001",
+        "F-TCP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java",
+          "line": 486,
+          "anchor": "public String cd(",
+          "snippet": "public String cd(String[] args) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CLI-003",
+      "domain": "CLI",
+      "title": "Lister les fichiers",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Offrir dir et ls sur le dossier courant.",
+      "acceptance": [
+        "dir et ls donnent les mêmes fichiers et dossiers."
+      ],
+      "component": "terminal",
+      "milestone": "J2",
+      "depends_on": [
+        "F-FS-001",
+        "F-TCP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java",
+          "line": 344,
+          "anchor": "public String dir(",
+          "snippet": "public String dir(String[] args) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CLI-004",
+      "domain": "CLI",
+      "title": "Créer fichiers et dossiers",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Offrir touch et mkdir dans le système de fichiers virtuel.",
+      "acceptance": [
+        "touch crée un fichier vide et mkdir un répertoire; une collision produit une erreur claire."
+      ],
+      "component": "terminal",
+      "milestone": "J2",
+      "depends_on": [
+        "F-FS-001",
+        "F-TCP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java",
+          "line": 410,
+          "anchor": "public String touch(",
+          "snippet": "public String touch(String[] args) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CLI-005",
+      "domain": "CLI",
+      "title": "Lire le texte",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Offrir cat et type pour lire un fichier texte.",
+      "acceptance": [
+        "Les deux alias affichent le même contenu et signalent un fichier absent."
+      ],
+      "component": "terminal",
+      "milestone": "J2",
+      "depends_on": [
+        "F-FS-001",
+        "F-TCP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java",
+          "line": 649,
+          "anchor": "public String cat(",
+          "snippet": "public String cat(String[] args) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CLI-006",
+      "domain": "CLI",
+      "title": "Copier les fichiers",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Offrir copy et cp.",
+      "acceptance": [
+        "La copie conserve le contenu et laisse le fichier source intact."
+      ],
+      "component": "terminal",
+      "milestone": "J2",
+      "depends_on": [
+        "F-FS-001",
+        "F-TCP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java",
+          "line": 255,
+          "anchor": "public String copy(",
+          "snippet": "public String copy(String[] args) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CLI-007",
+      "domain": "CLI",
+      "title": "Déplacer et renommer",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Offrir move et mv avec validation de la destination.",
+      "acceptance": [
+        "Après un déplacement réussi, seul le chemin destination contient le fichier."
+      ],
+      "component": "terminal",
+      "milestone": "J2",
+      "depends_on": [
+        "F-FS-001",
+        "F-TCP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java",
+          "line": 152,
+          "anchor": "public String move(",
+          "snippet": "public String move(String[] args) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CLI-008",
+      "domain": "CLI",
+      "title": "Supprimer fichiers et dossiers",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Offrir del et rm avec refus des opérations invalides.",
+      "acceptance": [
+        "Supprimer une cible existante la retire de l’arborescence sans toucher ses voisins."
+      ],
+      "component": "terminal",
+      "milestone": "J2",
+      "depends_on": [
+        "F-FS-001",
+        "F-TCP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java",
+          "line": 185,
+          "anchor": "public String del(",
+          "snippet": "public String del(String[] args) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CLI-009",
+      "domain": "CLI",
+      "title": "Configuration IP",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Afficher la configuration IP effective de l’hôte.",
+      "acceptance": [
+        "ipconfig correspond à l’inspecteur, y compris après DHCP."
+      ],
+      "component": "terminal",
+      "milestone": "J2",
+      "depends_on": [
+        "F-FS-001",
+        "F-TCP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java",
+          "line": 279,
+          "anchor": "public String ipconfig(",
+          "snippet": "public String ipconfig(String[] args) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CLI-010",
+      "domain": "CLI",
+      "title": "Table de routage",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Afficher les routes; ne pas assimiler cette commande à un shell système complet.",
+      "acceptance": [
+        "route montre réseau, masque, passerelle et interface des entrées effectives."
+      ],
+      "component": "terminal",
+      "milestone": "J3",
+      "depends_on": [
+        "F-FS-001",
+        "F-TCP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java",
+          "line": 302,
+          "anchor": "public String route(",
+          "snippet": "public String route(String[] args) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CLI-011",
+      "domain": "CLI",
+      "title": "Connexions actives",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Afficher endpoints et états TCP ainsi que les sockets UDP.",
+      "acceptance": [
+        "Une écoute affiche LISTEN; une connexion affiche les deux endpoints et son état."
+      ],
+      "component": "terminal",
+      "milestone": "J2",
+      "depends_on": [
+        "F-FS-001",
+        "F-TCP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java",
+          "line": 532,
+          "anchor": "public String netstat(",
+          "snippet": "public String netstat(String[] args) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CLI-012",
+      "domain": "CLI",
+      "title": "Cache ARP",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Offrir arp, arp -a IP, arp -d IP et arp -d.",
+      "acceptance": [
+        "La purge ciblée retire une entrée et la purge globale retire toutes les entrées."
+      ],
+      "component": "terminal",
+      "milestone": "J2",
+      "depends_on": [
+        "F-FS-001",
+        "F-TCP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java",
+          "line": 665,
+          "anchor": "public String arp(",
+          "snippet": "public String arp(String[] args) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CLI-013",
+      "domain": "CLI",
+      "title": "Résolution DNS",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Offrir host et nslookup avec réponses, serveur interrogé et erreurs DNS.",
+      "acceptance": [
+        "host résout A et MX; nslookup expose le résultat A ou un timeout explicite."
+      ],
+      "component": "terminal",
+      "milestone": "J4",
+      "depends_on": [
+        "F-FS-001",
+        "F-TCP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java",
+          "line": 699,
+          "anchor": "public String host(",
+          "snippet": "public String host(String[] args) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CLI-014",
+      "domain": "CLI",
+      "title": "Ping",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Offrir ping IP/nom, répétitions configurables, statistiques, interruption et diffusion explicite.",
+      "acceptance": [
+        "Un ping normal émet quatre requêtes par défaut; une perte est comptée dans les statistiques."
+      ],
+      "component": "terminal",
+      "milestone": "J2",
+      "depends_on": [
+        "F-FS-001",
+        "F-TCP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java",
+          "line": 775,
+          "anchor": "public String ping(",
+          "snippet": "public String ping(String[] args) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CLI-015",
+      "domain": "CLI",
+      "title": "Traceroute",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Offrir traceroute par sondes ICMP à TTL croissant.",
+      "acceptance": [
+        "Le premier saut utilise TTL=1 et les routeurs intermédiaires apparaissent dans l’ordre."
+      ],
+      "component": "terminal",
+      "milestone": "J3",
+      "depends_on": [
+        "F-FS-001",
+        "F-TCP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java",
+          "line": 935,
+          "anchor": "public String traceroute(",
+          "snippet": "public String traceroute(String[] args) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CLI-016",
+      "domain": "CLI",
+      "title": "Capture textuelle",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Afficher en continu les échanges observés sur l’hôte jusqu’à interruption.",
+      "acceptance": [
+        "tcpdump voit un nouvel échange puis s’arrête à la commande d’interruption sans arrêter l’hôte."
+      ],
+      "component": "terminal",
+      "milestone": "J2",
+      "depends_on": [
+        "F-FS-001",
+        "F-TCP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java",
+          "line": 874,
+          "anchor": "public String tcpdump(",
+          "snippet": "public String tcpdump(String[] args) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CLI-017",
+      "domain": "CLI",
+      "title": "Réponse ARP manuelle",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Exposer arpsend IP-source IP-cible pour les exercices ARP simulés.",
+      "acceptance": [
+        "La trace contient les adresses demandées et aucun socket réel n’est utilisé."
+      ],
+      "component": "terminal",
+      "milestone": "J3",
+      "depends_on": [
+        "F-FS-001",
+        "F-TCP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java",
+          "line": 909,
+          "anchor": "public String arpsend(",
+          "snippet": "public String arpsend(String[] args) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CLI-018",
+      "domain": "CLI",
+      "title": "Historique et interruption",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Rappeler les commandes au clavier et interrompre une opération longue.",
+      "acceptance": [
+        "Flèche haute rappelle la commande précédente; Ctrl+C arrête ping ou tcpdump sans bloquer la saisie."
+      ],
+      "component": "terminal",
+      "milestone": "J2",
+      "depends_on": [
+        "F-FS-001",
+        "F-TCP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationTerminalWindow.java",
+          "line": 87,
+          "anchor": "private ArrayList<String> commandHistory",
+          "snippet": "private ArrayList<String> commandHistory = new ArrayList<String>();"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CLI-019",
+      "domain": "CLI",
+      "title": "Commande interne test",
+      "origin": "filius",
+      "baseline": "internal",
+      "requirement": "Recenser le helper historique qui écrit test.txt; le réserver au diagnostic, hors interface pédagogique.",
+      "acceptance": [
+        "Le diagnostic est documenté et ne figure pas dans la liste des commandes élèves."
+      ],
+      "component": "terminal",
+      "milestone": "J7",
+      "depends_on": [
+        "F-FS-001",
+        "F-TCP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java",
+          "line": 616,
+          "anchor": "public String test(",
+          "snippet": "public String test(String[] args) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-DHCP-001",
+      "domain": "DHCP",
+      "title": "Serveur et plage DHCP",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Activer le serveur sur un hôte ou le LAN de la passerelle et configurer sa plage.",
+      "acceptance": [
+        "Deux clients obtiennent deux adresses libres dans la plage; son épuisement est signalé."
+      ],
+      "component": "dhcp",
+      "milestone": "J4",
+      "depends_on": [
+        "F-UDP-002",
+        "F-OS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/dhcp/DHCPServer.java",
+          "line": 53,
+          "anchor": "public class DHCPServer",
+          "snippet": "public class DHCPServer extends UDPServerAnwendung {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-DHCP-002",
+      "domain": "DHCP",
+      "title": "Configuration DNS et passerelle distribuée",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Distribuer masque, DNS et passerelle, depuis les réglages du serveur ou une surcharge explicite.",
+      "acceptance": [
+        "Un client applique exactement les paramètres choisis."
+      ],
+      "component": "dhcp",
+      "milestone": "J4",
+      "depends_on": [
+        "F-UDP-002",
+        "F-OS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/dhcp/DHCPServer.java",
+          "line": 70,
+          "anchor": "private boolean useDhcpSettings",
+          "snippet": "private boolean useDhcpSettings = false;"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-DHCP-003",
+      "domain": "DHCP",
+      "title": "Réservations MAC/IP",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Configurer des attributions statiques dans le serveur DHCP.",
+      "acceptance": [
+        "Une MAC réservée reçoit son IPv4 réservée et les autres clients ne la reçoivent pas."
+      ],
+      "component": "dhcp",
+      "milestone": "J4",
+      "depends_on": [
+        "F-UDP-002",
+        "F-OS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/dhcp/DHCPServer.java",
+          "line": 406,
+          "anchor": "public void addStaticAssignment",
+          "snippet": "public void addStaticAssignment(String mac, String ip) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-DHCP-004",
+      "domain": "DHCP",
+      "title": "Dialogue client et conflits",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Modéliser discover, offer, request, ack/nack, decline et détection ARP des adresses déjà occupées.",
+      "acceptance": [
+        "Un client refuse une offre en conflit et aboutit à une adresse libre ou à une erreur bornée."
+      ],
+      "component": "dhcp",
+      "milestone": "J4",
+      "depends_on": [
+        "F-UDP-002",
+        "F-OS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/dhcp/DHCPClient.java",
+          "line": 51,
+          "anchor": "public class DHCPClient",
+          "snippet": "public class DHCPClient extends ClientAnwendung {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-DHCP-005",
+      "domain": "DHCP",
+      "title": "Durées d’attribution",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Gérer offres temporaires, attributions expirables et adresses refusées selon le modèle documenté.",
+      "acceptance": [
+        "Une attribution expirée redevient disponible; toutes les durées sont pilotées par l’horloge virtuelle."
+      ],
+      "component": "dhcp",
+      "milestone": "J4",
+      "depends_on": [
+        "F-UDP-002",
+        "F-OS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/dhcp/DHCPServer.java",
+          "line": 58,
+          "anchor": "private static final long DEFAULT_LEASE_TIME_MILLIS",
+          "snippet": "private static final long DEFAULT_LEASE_TIME_MILLIS = 24 * 60 * 60 * 1000;"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-DHCP-006",
+      "domain": "DHCP",
+      "title": "Repli link-local",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Après échecs DHCP bornés, choisir et vérifier une adresse link-local.",
+      "acceptance": [
+        "Sans serveur, l’hôte obtient une adresse 169.254/16 non conflictuelle; l’échec final reste explicite."
+      ],
+      "component": "dhcp",
+      "milestone": "J4",
+      "depends_on": [
+        "F-UDP-002",
+        "F-OS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/dhcp/DHCPClient.java",
+          "line": 63,
+          "anchor": "public static final String LINK_LOCAL_ADDRESS_PREFIX",
+          "snippet": "public static final String LINK_LOCAL_ADDRESS_PREFIX = \"169.254.1.\";"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-DNS-001",
+      "domain": "DNS",
+      "title": "Serveur DNS et enregistrements A",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Démarrer/arrêter un serveur et gérer les associations nom/IPv4.",
+      "acceptance": [
+        "Créer puis supprimer un A change la réponse des nouvelles requêtes après purge/expiration du cache."
+      ],
+      "component": "dns",
+      "milestone": "J4",
+      "depends_on": [
+        "F-UDP-001",
+        "F-OS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/dns/DNSServer.java",
+          "line": 44,
+          "anchor": "public class DNSServer",
+          "snippet": "public class DNSServer extends UDPServerAnwendung {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-DNS-002",
+      "domain": "DNS",
+      "title": "MX et NS",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Éditer et valider les enregistrements mail et serveurs de noms.",
+      "acceptance": [
+        "Un MX désigne un nom et son A permet la livraison inter-domaines; un NS délègue la zone."
+      ],
+      "component": "dns",
+      "milestone": "J4",
+      "depends_on": [
+        "F-UDP-001",
+        "F-OS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/dns/ResourceRecord.java",
+          "line": 61,
+          "anchor": "public static final String ADDRESS",
+          "snippet": "public static final String ADDRESS = \"A\", MAIL_EXCHANGE = \"MX\", NAME_SERVER = \"NS\";"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-DNS-003",
+      "domain": "DNS",
+      "title": "Résolution hiérarchique et récursion",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Résoudre via serveurs de noms, délégations et choix récursif du modèle Filius.",
+      "acceptance": [
+        "Une requête traverse un NS parent puis le serveur cible et retourne la réponse."
+      ],
+      "component": "dns",
+      "milestone": "J4",
+      "depends_on": [
+        "F-UDP-001",
+        "F-OS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/dns/Resolver.java",
+          "line": 74,
+          "anchor": "public class Resolver",
+          "snippet": "public class Resolver extends ClientAnwendung {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-DNS-004",
+      "domain": "DNS",
+      "title": "Enregistrements persistants et champ TTL",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Persister les enregistrements avec leur champ TTL et synchroniser les éditions/suppressions entre vue et stockage.",
+      "acceptance": [
+        "Après sauvegarde/réouverture, le champ TTL est conservé; un enregistrement supprimé ne réapparaît pas lors d’une nouvelle édition."
+      ],
+      "component": "dns",
+      "milestone": "J4",
+      "depends_on": [
+        "F-UDP-001",
+        "F-OS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/dns/ResourceRecord.java",
+          "line": 79,
+          "anchor": "private int ttl",
+          "snippet": "private int ttl = 3600;"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-DNS-005",
+      "domain": "DNS",
+      "title": "Noms canoniques et erreurs",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Normaliser casse et point final et exposer absence de réponse, absence de nom et timeout.",
+      "acceptance": [
+        "Example.test et example.test. sont équivalents; un serveur absent produit un timeout borné."
+      ],
+      "component": "dns",
+      "milestone": "J4",
+      "depends_on": [
+        "F-UDP-001",
+        "F-OS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/dns/ResourceRecord.java",
+          "line": 168,
+          "anchor": "public void setDomainname",
+          "snippet": "public void setDomainname(String domainname) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-WEB-001",
+      "domain": "WEB",
+      "title": "Serveur HTTP et racine web",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Activer un serveur à port configurable et servir les fichiers de son espace virtuel.",
+      "acceptance": [
+        "Un navigateur récupère index.html du serveur et obtient 404 pour une ressource absente."
+      ],
+      "component": "web",
+      "milestone": "J4",
+      "depends_on": [
+        "F-TCP-003",
+        "F-FS-004",
+        "F-DNS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/www/WebServer.java",
+          "line": 54,
+          "anchor": "public class WebServer",
+          "snippet": "public class WebServer extends TCPServerAnwendung {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-WEB-002",
+      "domain": "WEB",
+      "title": "Messages HTTP GET et POST",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Modéliser requêtes, en-têtes, corps, encodage des chemins et réponses utiles.",
+      "acceptance": [
+        "Un formulaire POST est traité par une page dynamique; une méthode non prise en charge produit 501."
+      ],
+      "component": "web",
+      "milestone": "J4",
+      "depends_on": [
+        "F-TCP-003",
+        "F-FS-004",
+        "F-DNS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/www/WebServerMitarbeiter.java",
+          "line": 123,
+          "anchor": "protected void verarbeiteNachricht",
+          "snippet": "protected void verarbeiteNachricht(String nachricht) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-WEB-003",
+      "domain": "WEB",
+      "title": "Hôtes virtuels",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Associer plusieurs noms de domaine à des racines distinctes sur un serveur.",
+      "acceptance": [
+        "Deux noms résolus vers la même IP servent deux pages différentes."
+      ],
+      "component": "web",
+      "milestone": "J4",
+      "depends_on": [
+        "F-TCP-003",
+        "F-FS-004",
+        "F-DNS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/www/WebServer.java",
+          "line": 221,
+          "anchor": "public void changeVHostTable",
+          "snippet": "public void changeVHostTable(int row, int col, String val) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-WEB-004",
+      "domain": "WEB",
+      "title": "Images et types de contenu",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Servir texte/HTML et images PNG, BMP, GIF, JPG avec types adaptés.",
+      "acceptance": [
+        "Une page HTML contenant une image provoque une requête distincte et affiche l’image."
+      ],
+      "component": "web",
+      "milestone": "J4",
+      "depends_on": [
+        "F-TCP-003",
+        "F-FS-004",
+        "F-DNS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/www/WebServerMitarbeiter.java",
+          "line": 100,
+          "anchor": "HTTPNachricht.IMAGE_PNG",
+          "snippet": "antwort.setContentType(HTTPNachricht.IMAGE_PNG);"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-WEB-005",
+      "domain": "WEB",
+      "title": "Navigateur pédagogique",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Offrir URL, liens et formulaires dans un rendu contrôlé alimenté par la pile simulée.",
+      "acceptance": [
+        "Un clic de lien génère HTTP dans la trace et n’interroge pas le réseau réel."
+      ],
+      "component": "web",
+      "milestone": "J4",
+      "depends_on": [
+        "F-TCP-003",
+        "F-FS-004",
+        "F-DNS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationWebBrowserWindow.java",
+          "line": 206,
+          "anchor": "private void abrufenWebseite",
+          "snippet": "private void abrufenWebseite(URL url, String postDaten) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-WEB-006",
+      "domain": "WEB",
+      "title": "Ressources et cache isolés",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Isoler les ressources et caches du navigateur par hôte et session.",
+      "acceptance": [
+        "Deux hôtes servant des images homonymes ne partagent pas le cache."
+      ],
+      "component": "web",
+      "milestone": "J4",
+      "depends_on": [
+        "F-TCP-003",
+        "F-FS-004",
+        "F-DNS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/www/WebBrowser.java",
+          "line": 83,
+          "anchor": "clearImageCache",
+          "snippet": "clearImageCache();"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-WEB-007",
+      "domain": "WEB",
+      "title": "Pages dynamiques d’administration",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Brancher les pages internes de configuration et de journaux sur le serveur simulé.",
+      "acceptance": [
+        "Une modification depuis le formulaire du routeur change la même configuration que son inspecteur."
+      ],
+      "component": "web",
+      "milestone": "J5",
+      "depends_on": [
+        "F-TCP-003",
+        "F-FS-004",
+        "F-DNS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/www/WebServerPlugIn.java",
+          "line": 44,
+          "anchor": "public abstract class WebServerPlugIn",
+          "snippet": "public abstract class WebServerPlugIn {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-NAT-001",
+      "domain": "NAT",
+      "title": "Traduction dynamique sortante",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Traduire les connexions LAN vers l’adresse WAN et restaurer les réponses.",
+      "acceptance": [
+        "Deux hôtes LAN ouvrent des connexions vers le même serveur WAN; chaque réponse revient au bon hôte."
+      ],
+      "component": "nat",
+      "milestone": "J5",
+      "depends_on": [
+        "F-EQU-004",
+        "F-ROUT-002",
+        "F-TCP-003",
+        "F-UDP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/nat/NatGateway.java",
+          "line": 38,
+          "anchor": "public class NatGateway",
+          "snippet": "public class NatGateway extends Firewall implements I18n {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-NAT-002",
+      "domain": "NAT",
+      "title": "Ports externes mappés",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Réallouer les ports externes lorsque plusieurs sessions ont les mêmes ports locaux.",
+      "acceptance": [
+        "Deux sessions en collision obtiennent des mappings distincts et restent fonctionnelles."
+      ],
+      "component": "nat",
+      "milestone": "J5",
+      "depends_on": [
+        "F-EQU-004",
+        "F-ROUT-002",
+        "F-TCP-003",
+        "F-UDP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/nat/NetworkAddressTranslationTable.java",
+          "line": 38,
+          "anchor": "public class NetworkAddressTranslationTable",
+          "snippet": "public class NetworkAddressTranslationTable {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-NAT-003",
+      "domain": "NAT",
+      "title": "Redirection statique de ports",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Configurer port externe, adresse/port interne et protocole TCP/UDP.",
+      "acceptance": [
+        "Un client WAN atteint un service LAN avec un port externe différent du port interne."
+      ],
+      "component": "nat",
+      "milestone": "J5",
+      "depends_on": [
+        "F-EQU-004",
+        "F-ROUT-002",
+        "F-TCP-003",
+        "F-UDP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JPortForwardingDialog.java",
+          "line": 49,
+          "anchor": "public class JPortForwardingDialog",
+          "snippet": "public class JPortForwardingDialog extends JDialog implements I18n {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-NAT-004",
+      "domain": "NAT",
+      "title": "ICMP et traceroute à travers NAT",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Traduire les identifiants ICMP, les réponses et les erreurs encapsulées nécessaires.",
+      "acceptance": [
+        "Ping et traceroute depuis deux hôtes LAN traversent NAT sans confondre les réponses."
+      ],
+      "component": "nat",
+      "milestone": "J5",
+      "depends_on": [
+        "F-EQU-004",
+        "F-ROUT-002",
+        "F-TCP-003",
+        "F-UDP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/nat/NatGatewayWANThread.java",
+          "line": 41,
+          "anchor": "public class NatGatewayWANThread",
+          "snippet": "public class NatGatewayWANThread extends FirewallThread implements I18n {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-NAT-005",
+      "domain": "NAT",
+      "title": "Consultation, purge et expiration",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Afficher endpoints, ports/identifiants, protocole, nature et durée des entrées NAT.",
+      "acceptance": [
+        "Une session apparaît dans la table; purge et expiration retirent son mapping."
+      ],
+      "component": "nat",
+      "milestone": "J5",
+      "depends_on": [
+        "F-EQU-004",
+        "F-ROUT-002",
+        "F-TCP-003",
+        "F-UDP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/system/GatewayFirmware.java",
+          "line": 353,
+          "anchor": "public void checkNAT",
+          "snippet": "public void checkNAT() {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-NAT-006",
+      "domain": "NAT",
+      "title": "DHCP sur WAN et serveur côté LAN",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Configurer indépendamment acquisition WAN et distribution LAN.",
+      "acceptance": [
+        "Une passerelle reçoit son WAN par DHCP tout en attribuant une configuration différente sur son LAN."
+      ],
+      "component": "nat",
+      "milestone": "J5",
+      "depends_on": [
+        "F-NAT-001",
+        "F-DHCP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JGatewayConfiguration.java",
+          "line": 70,
+          "anchor": "public class JGatewayConfiguration",
+          "snippet": "public class JGatewayConfiguration extends JKonfiguration implements I18n {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-FW-001",
+      "domain": "FW",
+      "title": "Pare-feu sur hôte et routeur",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Activer/désactiver un filtrage sur les équipements concernés.",
+      "acceptance": [
+        "Le même flux réussit pare-feu désactivé et suit les règles après activation."
+      ],
+      "component": "firewall",
+      "milestone": "J5",
+      "depends_on": [
+        "F-ROUT-002",
+        "F-TCP-003",
+        "F-UDP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/firewall/Firewall.java",
+          "line": 63,
+          "anchor": "public class Firewall",
+          "snippet": "public class Firewall extends Anwendung implements I18n {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-FW-002",
+      "domain": "FW",
+      "title": "Règles ordonnées et politique par défaut",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Ajouter, modifier, supprimer et réordonner des règles ACCEPT/DROP avec politique de repli.",
+      "acceptance": [
+        "Deux règles contradictoires suivent la première correspondance; une absence de règle suit la politique."
+      ],
+      "component": "firewall",
+      "milestone": "J5",
+      "depends_on": [
+        "F-ROUT-002",
+        "F-TCP-003",
+        "F-UDP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/firewall/Firewall.java",
+          "line": 156,
+          "anchor": "public boolean moveUp",
+          "snippet": "public boolean moveUp(int idx) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-FW-003",
+      "domain": "FW",
+      "title": "Sélection IP, masque, port et protocole",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Filtrer source/destination, réseaux, port destination et TCP/UDP.",
+      "acceptance": [
+        "Une règle ciblée bloque un service sans bloquer un autre port."
+      ],
+      "component": "firewall",
+      "milestone": "J5",
+      "depends_on": [
+        "F-ROUT-002",
+        "F-TCP-003",
+        "F-UDP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/firewall/FirewallRule.java",
+          "line": 36,
+          "anchor": "public class FirewallRule",
+          "snippet": "public class FirewallRule {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-FW-004",
+      "domain": "FW",
+      "title": "Mode SYN et filtrage UDP",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Exposer le filtrage TCP limité aux SYN et le traitement des réponses UDP de Filius, sans promettre un suivi de connexion complet.",
+      "acceptance": [
+        "Un test distingue filtrage SYN seul et filtrage de tous les segments; le chemin retour UDP est couvert."
+      ],
+      "component": "firewall",
+      "milestone": "J5",
+      "depends_on": [
+        "F-ROUT-002",
+        "F-TCP-003",
+        "F-UDP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/firewall/Firewall.java",
+          "line": 72,
+          "anchor": "private boolean filterSYNSegmentsOnly",
+          "snippet": "private boolean filterSYNSegmentsOnly = true;"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-FW-005",
+      "domain": "FW",
+      "title": "Politique ICMP",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Autoriser ou bloquer ICMP avec une commande visible.",
+      "acceptance": [
+        "Bloquer ICMP fait échouer ping tout en laissant un HTTP autorisé fonctionner."
+      ],
+      "component": "firewall",
+      "milestone": "J5",
+      "depends_on": [
+        "F-ROUT-002",
+        "F-TCP-003",
+        "F-UDP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/firewall/Firewall.java",
+          "line": 71,
+          "anchor": "private boolean dropICMP",
+          "snippet": "private boolean dropICMP = false;"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-FW-006",
+      "domain": "FW",
+      "title": "Journal du filtrage",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Consigner acceptations/refus utiles et numéro de règle appliquée.",
+      "acceptance": [
+        "Un refus est corrélé au paquet et à la règle responsable."
+      ],
+      "component": "firewall",
+      "milestone": "J5",
+      "depends_on": [
+        "F-ROUT-002",
+        "F-TCP-003",
+        "F-UDP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/firewall/Firewall.java",
+          "line": 207,
+          "anchor": "private void notifyRuleApplication",
+          "snippet": "private void notifyRuleApplication(int i, FirewallRule firewallRule) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-FW-007",
+      "domain": "FW",
+      "title": "Administration web du routeur",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Configurer règles, activation et journal depuis les pages web simulées.",
+      "acceptance": [
+        "Un formulaire change la règle et le journal web reflète son application."
+      ],
+      "component": "firewall",
+      "milestone": "J5",
+      "depends_on": [
+        "F-FW-002",
+        "F-WEB-007"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/firewall/FirewallWebKonfig.java",
+          "line": 41,
+          "anchor": "public class FirewallWebKonfig",
+          "snippet": "public class FirewallWebKonfig extends WebServerPlugIn implements I18n {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-MAIL-001",
+      "domain": "MAIL",
+      "title": "Serveur SMTP et POP3",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Configurer domaine et ports; activer les services et afficher leur activité.",
+      "acceptance": [
+        "Un client envoie via SMTP puis récupère le message via POP3; la trace distingue les sessions."
+      ],
+      "component": "mail",
+      "milestone": "J6",
+      "depends_on": [
+        "F-TCP-003",
+        "F-DNS-002",
+        "F-OS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/email/EmailServer.java",
+          "line": 56,
+          "anchor": "public class EmailServer",
+          "snippet": "public class EmailServer extends Anwendung implements I18n {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-MAIL-002",
+      "domain": "MAIL",
+      "title": "Comptes et boîtes aux lettres",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Créer, valider, supprimer et persister les comptes et identifiants pédagogiques.",
+      "acceptance": [
+        "Un compte existant se connecte et un compte supprimé est rejeté."
+      ],
+      "component": "mail",
+      "milestone": "J6",
+      "depends_on": [
+        "F-TCP-003",
+        "F-DNS-002",
+        "F-OS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/email/EmailServer.java",
+          "line": 162,
+          "anchor": "public boolean benutzerHinzufuegen",
+          "snippet": "public boolean benutzerHinzufuegen(String benutzername, String passwort, String nachname, String vorname)"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-MAIL-003",
+      "domain": "MAIL",
+      "title": "Livraison locale et inter-domaines",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Livrer localement ou relayer vers un autre domaine via MX puis A.",
+      "acceptance": [
+        "Un message entre deux domaines traverse le serveur distant et arrive dans la bonne boîte."
+      ],
+      "component": "mail",
+      "milestone": "J6",
+      "depends_on": [
+        "F-TCP-003",
+        "F-DNS-002",
+        "F-OS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/email/EmailServer.java",
+          "line": 466,
+          "anchor": "public void emailWeiterleiten",
+          "snippet": "public void emailWeiterleiten(Email email, String absender, String rcpt) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-MAIL-004",
+      "domain": "MAIL",
+      "title": "Destinataire inconnu",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Signaler les destinataires non résolus ou inexistants par le comportement d’erreur documenté.",
+      "acceptance": [
+        "Un envoi à un utilisateur absent produit un retour explicite et aucune livraison silencieuse."
+      ],
+      "component": "mail",
+      "milestone": "J6",
+      "depends_on": [
+        "F-TCP-003",
+        "F-DNS-002",
+        "F-OS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/email/EmailServer.java",
+          "line": 497,
+          "anchor": "public void sendUnknownReceiverResponse",
+          "snippet": "public void sendUnknownReceiverResponse(Email email, String sender, List<String> unknownRecipients) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-MAIL-005",
+      "domain": "MAIL",
+      "title": "Client et configuration du compte",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Configurer identité, SMTP/POP3, ports et identifiants sur l’hôte.",
+      "acceptance": [
+        "Deux clients peuvent utiliser des comptes indépendants sans échanger leurs réglages."
+      ],
+      "component": "mail",
+      "milestone": "J6",
+      "depends_on": [
+        "F-TCP-003",
+        "F-DNS-002",
+        "F-OS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationEmailAnwendungWindow.java",
+          "line": 586,
+          "anchor": "private void kontoVerwalten",
+          "snippet": "private void kontoVerwalten() {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-MAIL-006",
+      "domain": "MAIL",
+      "title": "Rédiger, envoyer et répondre",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Gérer expéditeur, destinataires, copie/CCI, sujet et corps textuel selon le modèle Email.",
+      "acceptance": [
+        "Une réponse reprend le destinataire et le sujet; les champs To/CC/BCC sont conservés sans exposer BCC aux autres destinataires."
+      ],
+      "component": "mail",
+      "milestone": "J6",
+      "depends_on": [
+        "F-TCP-003",
+        "F-DNS-002",
+        "F-OS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/email/Email.java",
+          "line": 41,
+          "anchor": "public class Email",
+          "snippet": "public class Email implements Serializable {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-MAIL-007",
+      "domain": "MAIL",
+      "title": "Réception, dossiers et suppression",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Récupérer les messages, consulter reçus/envoyés, supprimer et persister leur contenu.",
+      "acceptance": [
+        "Un message envoyé apparaît dans Envoyés et après récupération dans Réception; sa suppression persiste."
+      ],
+      "component": "mail",
+      "milestone": "J6",
+      "depends_on": [
+        "F-TCP-003",
+        "F-DNS-002",
+        "F-OS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/email/EmailAnwendung.java",
+          "line": 211,
+          "anchor": "public void removeReceivedMail",
+          "snippet": "public void removeReceivedMail(int index) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-MAIL-008",
+      "domain": "MAIL",
+      "title": "Carnet de contacts interne",
+      "origin": "filius",
+      "baseline": "internal",
+      "requirement": "Préserver les capacités de gestion de contacts exposées par le modèle; ne pas supposer une UI complète.",
+      "acceptance": [
+        "Un contact ajouté peut être enregistré, relu et supprimé par l’API applicative."
+      ],
+      "component": "mail",
+      "milestone": "J6",
+      "depends_on": [
+        "F-TCP-003",
+        "F-DNS-002",
+        "F-OS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/email/EmailAnwendung.java",
+          "line": 119,
+          "anchor": "public boolean kontaktHinzufuegen",
+          "snippet": "public boolean kontaktHinzufuegen(String name, String vorname, String strasse, int hausnr, int plz, String wohnort,"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-P2P-001",
+      "domain": "P2P",
+      "title": "Adhésion au réseau",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Configurer le pair d’entrée et le nombre maximal de participants, rejoindre et afficher les voisins connus.",
+      "acceptance": [
+        "Trois pairs connectés apparaissent dans les vues de réseau; une limite de participants configurée est respectée."
+      ],
+      "component": "p2p",
+      "milestone": "J6",
+      "depends_on": [
+        "F-TCP-003",
+        "F-FS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/dateiaustausch/PeerToPeerAnwendung.java",
+          "line": 276,
+          "anchor": "public void beitretenNetzwerk",
+          "snippet": "public void beitretenNetzwerk(String teilnehmerIP) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-P2P-002",
+      "domain": "P2P",
+      "title": "Découverte Gnutella simplifiée",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Simuler Ping/Pong, identifiant, TTL et prévention des doublons de messages.",
+      "acceptance": [
+        "Un message en boucle ne circule pas indéfiniment et les pairs découverts sont listés."
+      ],
+      "component": "p2p",
+      "milestone": "J6",
+      "depends_on": [
+        "F-TCP-003",
+        "F-FS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/dateiaustausch/PeerToPeerPaket.java",
+          "line": 38,
+          "anchor": "public class PeerToPeerPaket",
+          "snippet": "public class PeerToPeerPaket {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-P2P-003",
+      "domain": "P2P",
+      "title": "Partage et recherche de fichiers",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Publier les fichiers du répertoire partagé et propager Query/QueryHit.",
+      "acceptance": [
+        "Une recherche sur un nom partagé par un pair distant retourne une source et son fichier."
+      ],
+      "component": "p2p",
+      "milestone": "J6",
+      "depends_on": [
+        "F-TCP-003",
+        "F-FS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/dateiaustausch/PeerToPeerAnwendung.java",
+          "line": 328,
+          "anchor": "public void sucheDatei",
+          "snippet": "public void sucheDatei(String datei) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-P2P-004",
+      "domain": "P2P",
+      "title": "Téléchargement",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Transférer un résultat vers les fichiers de l’hôte demandeur.",
+      "acceptance": [
+        "Le fichier téléchargé a le même contenu que le fichier partagé."
+      ],
+      "component": "p2p",
+      "milestone": "J6",
+      "depends_on": [
+        "F-TCP-003",
+        "F-FS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/dateiaustausch/PeerToPeerAnwendung.java",
+          "line": 304,
+          "anchor": "public void herunterladenDatei",
+          "snippet": "public void herunterladenDatei(int ergebnisIndex) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-P2P-005",
+      "domain": "P2P",
+      "title": "Annulation et remise à zéro",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Annuler une recherche, vider les résultats et réinitialiser les connexions du réseau P2P.",
+      "acceptance": [
+        "Annuler arrête la collecte de nouveaux résultats et permet une nouvelle recherche."
+      ],
+      "component": "p2p",
+      "milestone": "J6",
+      "depends_on": [
+        "F-TCP-003",
+        "F-FS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/dateiaustausch/PeerToPeerAnwendung.java",
+          "line": 343,
+          "anchor": "public void abbrechenSuche",
+          "snippet": "public void abbrechenSuche() {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-OBS-001",
+      "domain": "OBS",
+      "title": "Historique par interface",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Enregistrer envoi/réception avec numéro, temps, interface, direction et protocole.",
+      "acceptance": [
+        "Un échange entre deux hôtes est inspectable depuis chaque interface et garde un identifiant de corrélation."
+      ],
+      "component": "observation",
+      "milestone": "J2",
+      "depends_on": [
+        "F-L2-001",
+        "F-IP4-004"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/rahmenprogramm/nachrichten/Lauscher.java",
+          "line": 55,
+          "anchor": "public class Lauscher",
+          "snippet": "public class Lauscher implements I18n {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-OBS-002",
+      "domain": "OBS",
+      "title": "Vue agrégée et vue par couches",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Offrir une vue synthétique et une vue détaillée des quatre couches pédagogiques.",
+      "acceptance": [
+        "La même communication est lisible dans les deux vues sans divergence de contenu."
+      ],
+      "component": "observation",
+      "milestone": "J2",
+      "depends_on": [
+        "F-L2-001",
+        "F-IP4-004"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/nachrichtensicht/AggregatedExchangePanel.java",
+          "line": 64,
+          "anchor": "public class AggregatedExchangePanel",
+          "snippet": "public class AggregatedExchangePanel extends JTabbedPane implements AggregatedExchangeComponent, I18n, Observer {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-OBS-003",
+      "domain": "OBS",
+      "title": "Inspection des unités de données",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Afficher en-têtes, adresses, ports, flags, TTL, identifiants ICMP et contenu utile.",
+      "acceptance": [
+        "Cliquer sur une trame affiche ses valeurs historiques même après une traduction NAT."
+      ],
+      "component": "observation",
+      "milestone": "J2",
+      "depends_on": [
+        "F-L2-001",
+        "F-IP4-004"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/nachrichtensicht/MessageDetailsTable.java",
+          "line": 29,
+          "anchor": "public class MessageDetailsTable",
+          "snippet": "public class MessageDetailsTable extends MessageDetails implements I18n {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-OBS-004",
+      "domain": "OBS",
+      "title": "Filtres de couches, suivi et purge",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Choisir les couches visibles, activer le défilement automatique et vider le journal.",
+      "acceptance": [
+        "Masquer une couche change la vue sans supprimer les événements; purger est une action distincte."
+      ],
+      "component": "observation",
+      "milestone": "J2",
+      "depends_on": [
+        "F-L2-001",
+        "F-IP4-004"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/nachrichtensicht/LayeredMessageTable.java",
+          "line": 172,
+          "anchor": "private void initKontextMenue",
+          "snippet": "private void initKontextMenue() {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-OBS-005",
+      "domain": "OBS",
+      "title": "Animation d’activité des liens",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Mettre en évidence les liens traversés pendant les échanges.",
+      "acceptance": [
+        "Le chemin d’un ping s’illumine à vitesse lente et les couleurs se réinitialisent à l’arrêt."
+      ],
+      "component": "observation",
+      "milestone": "J2",
+      "depends_on": [
+        "F-L2-001",
+        "F-IP4-004"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JCablePanel.java",
+          "line": 219,
+          "anchor": "resetColor",
+          "snippet": "private void resetColor() {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-OBS-006",
+      "domain": "OBS",
+      "title": "Parcours entre couches local et global",
+      "origin": "filius",
+      "baseline": "experimental",
+      "requirement": "Visualiser encapsulation/décapsulation et trajet entre équipements.",
+      "acceptance": [
+        "Une sélection de message peut animer son parcours local puis global et montrer les quatre couches."
+      ],
+      "component": "observation",
+      "milestone": "J7",
+      "depends_on": [
+        "F-L2-001",
+        "F-IP4-004"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/schichtensicht/LayerPathDialog.java",
+          "line": 18,
+          "anchor": "public class LayerPathDialog",
+          "snippet": "public class LayerPathDialog extends JDialog implements I18n {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-OBS-007",
+      "domain": "OBS",
+      "title": "Inspection SAT et NAT",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Fournir des vues actualisées des tables MAC et NAT.",
+      "acceptance": [
+        "Une nouvelle communication actualise les tables sans rouvrir le panneau."
+      ],
+      "component": "observation",
+      "milestone": "J5",
+      "depends_on": [
+        "F-L2-003",
+        "F-NAT-005"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/anwendungssicht/NatViewer.java",
+          "line": 49,
+          "anchor": "public class NatViewer",
+          "snippet": "public class NatViewer extends JDialog implements I18n, PropertyChangeListener {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-OBS-008",
+      "domain": "OBS",
+      "title": "Recherche et export de traces",
+      "origin": "modernisation",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Filtrer par équipement, temps, protocole, adresse et corrélation; exporter JSONL et CSV.",
+      "acceptance": [
+        "Une sélection exportée contient exactement les événements filtrés et leurs identifiants stables."
+      ],
+      "component": "observation",
+      "milestone": "J7",
+      "depends_on": [
+        "F-L2-001",
+        "F-IP4-004"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "verification": []
+    },
+    {
+      "id": "F-OBS-009",
+      "domain": "OBS",
+      "title": "Explication des décisions",
+      "origin": "modernisation",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Relier chaque transfert/refus à sa route, règle, résolution ou expiration.",
+      "acceptance": [
+        "Cliquer un paquet abandonné affiche une cause structurée et l’équipement responsable."
+      ],
+      "component": "observation",
+      "milestone": "J3",
+      "depends_on": [
+        "F-L2-001",
+        "F-IP4-004"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "verification": []
+    },
+    {
+      "id": "F-DOC-001",
+      "domain": "DOC",
+      "title": "Zones de texte",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Créer, éditer, déplacer et redimensionner des annotations.",
+      "acceptance": [
+        "Une annotation conserve son texte et ses dimensions après réouverture du projet."
+      ],
+      "component": "reporting",
+      "milestone": "J7",
+      "depends_on": [
+        "F-TOP-001",
+        "F-OBS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JDocuElement.java",
+          "line": 68,
+          "anchor": "public class JDocuElement",
+          "snippet": "public class JDocuElement extends JPanel implements I18n {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-DOC-002",
+      "domain": "DOC",
+      "title": "Rectangles et styles",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Créer des zones structurelles; régler couleurs, taille et style des textes.",
+      "acceptance": [
+        "Une zone colorée reste derrière les équipements; les styles persistent."
+      ],
+      "component": "reporting",
+      "milestone": "J7",
+      "depends_on": [
+        "F-TOP-001",
+        "F-OBS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JDocuElement.java",
+          "line": 68,
+          "anchor": "public class JDocuElement",
+          "snippet": "public class JDocuElement extends JPanel implements I18n {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-DOC-003",
+      "domain": "DOC",
+      "title": "Export PNG du réseau",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Exporter une image cadrée du réseau et des annotations avec fond transparent.",
+      "acceptance": [
+        "L’export inclut tous les nœuds et annotations sans les panneaux de l’interface."
+      ],
+      "component": "reporting",
+      "milestone": "J7",
+      "depends_on": [
+        "F-TOP-001",
+        "F-OBS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/GUIContainer.java",
+          "line": 472,
+          "anchor": "public void exportAsImage",
+          "snippet": "public void exportAsImage() {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-DOC-004",
+      "domain": "DOC",
+      "title": "Rapport PDF",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Exporter schéma, configuration, interfaces, logiciels, DNS, routes et échanges par MAC.",
+      "acceptance": [
+        "Un rapport d’un scénario avec DNS et routeur contient ces sections et les paquets émis/reçus."
+      ],
+      "component": "reporting",
+      "milestone": "J7",
+      "depends_on": [
+        "F-TOP-001",
+        "F-OBS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/documentation/ReportGenerator.java",
+          "line": 97,
+          "anchor": "public void generateReport",
+          "snippet": "public void generateReport(String pdfFilepath) throws DocumentException, IOException {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-DOC-005",
+      "domain": "DOC",
+      "title": "Export SVG historique retiré",
+      "origin": "filius",
+      "baseline": "removed",
+      "requirement": "Tracer l’ancien export SVG comme fonction retirée de l’interface; une réintroduction est optionnelle.",
+      "acceptance": [
+        "La matrice distingue export SVG retiré et export PNG actif sans annoncer SVG livré."
+      ],
+      "component": "reporting",
+      "milestone": "J9",
+      "depends_on": [
+        "F-TOP-001",
+        "F-OBS-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/Changelog.md",
+          "line": 149,
+          "anchor": "Remove svg export",
+          "snippet": "* Remove svg export"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-EXT-001",
+      "domain": "EXT",
+      "title": "Assistant de création de logiciels",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Créer un logiciel client/serveur depuis des modèles et des métadonnées.",
+      "acceptance": [
+        "Un exemple echo personnalisé apparaît dans le catalogue de logiciels."
+      ],
+      "component": "extensions",
+      "milestone": "J8",
+      "depends_on": [
+        "F-OS-005",
+        "F-OS-006"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/quelltextsicht/FrameSoftwareWizard.java",
+          "line": 47,
+          "anchor": "public class FrameSoftwareWizard",
+          "snippet": "public class FrameSoftwareWizard extends JDialog implements I18n {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-EXT-002",
+      "domain": "EXT",
+      "title": "Édition, compilation et diagnostics",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Éditer plusieurs sources, lancer la construction et afficher les erreurs localisées.",
+      "acceptance": [
+        "Une erreur de source est reliée au fichier et à la ligne; une version correcte peut être installée."
+      ],
+      "component": "extensions",
+      "milestone": "J8",
+      "depends_on": [
+        "F-OS-005",
+        "F-OS-006"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/quelltextsicht/PanelCompiler.java",
+          "line": 162,
+          "anchor": "private boolean kompilieren",
+          "snippet": "private boolean kompilieren(String[] quelltextDateien) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-EXT-003",
+      "domain": "EXT",
+      "title": "Gestion et emballage des extensions",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Créer, réouvrir, supprimer et embarquer les extensions avec le scénario sans exécution automatique à l’import.",
+      "acceptance": [
+        "Un scénario exporté référence son extension; à l’ouverture, son activation requiert une action explicite."
+      ],
+      "component": "extensions",
+      "milestone": "J8",
+      "depends_on": [
+        "F-OS-005",
+        "F-OS-006"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/quelltextsicht/PanelVerwaltung.java",
+          "line": 65,
+          "anchor": "public class PanelVerwaltung",
+          "snippet": "public class PanelVerwaltung extends JPanel implements I18n {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-EXT-004",
+      "domain": "EXT",
+      "title": "API des applications et pages web",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Exposer sockets simulées, fichiers virtuels, événements et pages dynamiques via un contrat versionné.",
+      "acceptance": [
+        "Une extension ne peut accéder qu’aux capacités déclarées et fonctionne dans un scénario headless."
+      ],
+      "component": "extensions",
+      "milestone": "J8",
+      "depends_on": [
+        "F-OS-005",
+        "F-OS-006"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/www/WebServerPlugIn.java",
+          "line": 44,
+          "anchor": "public abstract class WebServerPlugIn",
+          "snippet": "public abstract class WebServerPlugIn {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-EXT-005",
+      "domain": "EXT",
+      "title": "Modem client/serveur",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Configurer endpoint réel et port, attendre une connexion, connecter et déconnecter un tunnel de trames.",
+      "acceptance": [
+        "Une paire d’instances transmet un ping simulé; interrompre le tunnel produit un état déconnecté clair."
+      ],
+      "component": "extensions",
+      "milestone": "J6",
+      "depends_on": [
+        "F-EQU-005",
+        "F-L2-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/software/system/ModemFirmware.java",
+          "line": 108,
+          "anchor": "public synchronized void starteServer",
+          "snippet": "public synchronized void starteServer() {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-EXT-006",
+      "domain": "EXT",
+      "title": "Isolation et quotas des extensions",
+      "origin": "modernisation",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Exécuter les extensions dans une frontière isolée avec limites mémoire/instructions et sans accès hôte implicite.",
+      "acceptance": [
+        "Une boucle infinie est interrompue par quota; ni fichiers réels ni réseau réel ne sont accessibles sans capacité dédiée."
+      ],
+      "component": "extensions",
+      "milestone": "J8",
+      "depends_on": [
+        "F-OS-005",
+        "F-OS-006"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "verification": []
+    },
+    {
+      "id": "F-PROJ-001",
+      "domain": "PROJ",
+      "title": "Nouveau, ouvrir et enregistrer",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Gérer un projet complet avec nom de fichier et protection des modifications.",
+      "acceptance": [
+        "Après enregistrer/rouvrir, topologie, paramètres, logiciels, fichiers et annotations sont équivalents."
+      ],
+      "component": "projects",
+      "milestone": "J1",
+      "depends_on": [
+        "F-TOP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/rahmenprogramm/SzenarioVerwaltung.java",
+          "line": 108,
+          "anchor": "public boolean speichern",
+          "snippet": "public boolean speichern(String datei, List<GUIKnotenItem> hardwareItems, List<GUIKabelItem> kabelItems,"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-PROJ-002",
+      "domain": "PROJ",
+      "title": "Contenu du scénario Filius",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Inventorier le ZIP .fls, sa configuration XML et ses fichiers/extensions embarqués.",
+      "acceptance": [
+        "Les 18 exemples peuvent être analysés en lecture seule et leurs classes inconnues sont signalées."
+      ],
+      "component": "projects",
+      "milestone": "J1",
+      "depends_on": [
+        "F-TOP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/rahmenprogramm/SzenarioVerwaltung.java",
+          "line": 108,
+          "anchor": "public boolean speichern",
+          "snippet": "public boolean speichern(String datei, List<GUIKnotenItem> hardwareItems, List<GUIKabelItem> kabelItems,"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-PROJ-003",
+      "domain": "PROJ",
+      "title": "Préférences et session restaurée",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Séparer préférences utilisateur et projet et proposer une récupération de la dernière session.",
+      "acceptance": [
+        "Un redémarrage restitue les réglages et la dernière session sans écraser un fichier projet explicite."
+      ],
+      "component": "projects",
+      "milestone": "J7",
+      "depends_on": [
+        "F-TOP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/Main.java",
+          "line": 67,
+          "anchor": "public class Main",
+          "snippet": "public class Main implements I18n {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-PROJ-004",
+      "domain": "PROJ",
+      "title": "Format de projet portable et versionné",
+      "origin": "modernisation",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Définir un schéma neutre avec migrations explicites et sauvegarde atomique.",
+      "acceptance": [
+        "Un projet migré conserve une copie source; un échec d’écriture ne détruit pas la dernière sauvegarde."
+      ],
+      "component": "projects",
+      "milestone": "J0",
+      "depends_on": [
+        "F-SIM-005"
+      ],
+      "status": "verified",
+      "evidence": [],
+      "verification": [
+        {
+          "recipe": "J0-foundations",
+          "command": "cargo test --workspace --locked; cargo test -p sns-ui-egui --features ui-snapshots --test workbench --locked; python3 scripts/check_layers.py; python3 scripts/test_docs.py",
+          "result": "pass",
+          "environment": "macOS arm64, rustc 1.95.0, upstream egui/eframe 0.37.0",
+          "revision": "sha256:04434bdfcfdfb38c27e3cb257e3194c9dcaa5e2cf0823633cb155be6918d22f0",
+          "artifacts": [
+            "docs/verification/J0.md",
+            "docs/verification/j0-code-manifest.json",
+            "docs/verification/j0-tests.log",
+            "docs/verification/j0-gpu-tests.log"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F-PROJ-005",
+      "domain": "PROJ",
+      "title": "Import .fls avec rapport de couverture",
+      "origin": "modernisation",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Convertir les données Filius connues sans exécuter XML, bytecode ou sources embarquées.",
+      "acceptance": [
+        "Chaque exemple produit un rapport listant champs convertis, pertes et extensions non exécutées."
+      ],
+      "component": "projects",
+      "milestone": "J7",
+      "depends_on": [
+        "F-TOP-001"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "verification": []
+    },
+    {
+      "id": "F-PROJ-006",
+      "domain": "PROJ",
+      "title": "Autosauvegarde et récupération",
+      "origin": "modernisation",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Conserver une récupération atomique distincte du fichier utilisateur.",
+      "acceptance": [
+        "Une fermeture forcée permet de récupérer les dernières modifications en gardant la version enregistrée."
+      ],
+      "component": "projects",
+      "milestone": "J7",
+      "depends_on": [
+        "F-TOP-001"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "verification": []
+    },
+    {
+      "id": "F-CFG-001",
+      "domain": "CFG",
+      "title": "Français, anglais et allemand",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Localiser l’interface et l’aide et persister la langue préférée.",
+      "acceptance": [
+        "Chaque écran essentiel possède des libellés FR/EN/DE; un projet reste identique après changement de langue."
+      ],
+      "component": "platform",
+      "milestone": "J7",
+      "depends_on": [
+        "F-PROJ-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/LanguageSelectionDialog.java",
+          "line": 95,
+          "anchor": "private void initializeText",
+          "snippet": "private void initializeText(Locale locale) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CFG-002",
+      "domain": "CFG",
+      "title": "Aide contextuelle et informations",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Fournir une aide par mode, exemples pédagogiques, version et crédits.",
+      "acceptance": [
+        "L’aide pertinente s’ouvre depuis chaque mode; la version de format et la version du produit sont consultables."
+      ],
+      "component": "platform",
+      "milestone": "J7",
+      "depends_on": [
+        "F-PROJ-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/HelpPanel.java",
+          "line": 47,
+          "anchor": "public class HelpPanel",
+          "snippet": "public class HelpPanel extends ControlPanel implements I18n {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CFG-003",
+      "domain": "CFG",
+      "title": "Icônes et préférences d’affichage",
+      "origin": "filius",
+      "baseline": "experimental",
+      "requirement": "Préserver le choix de jeux d’icônes et améliorer dimensions, police et disposition des fenêtres.",
+      "acceptance": [
+        "Une police agrandie reste lisible et la préférence persiste sans changement de réseau."
+      ],
+      "component": "platform",
+      "milestone": "J7",
+      "depends_on": [
+        "F-PROJ-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/LanguageSelectionDialog.java",
+          "line": 83,
+          "anchor": "private void initializeSettings",
+          "snippet": "private void initializeSettings() {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CFG-004",
+      "domain": "CFG",
+      "title": "Configuration globale et priorités",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Documenter priorité des valeurs CLI, profil utilisateur et configuration administrateur; gérer les fichiers invalides.",
+      "acceptance": [
+        "Une valeur invalide est diagnostiquée et remplacée par une valeur sûre sans empêcher le lancement."
+      ],
+      "component": "platform",
+      "milestone": "J7",
+      "depends_on": [
+        "F-PROJ-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/rahmenprogramm/Information.java",
+          "line": 617,
+          "anchor": "public void loadIni",
+          "snippet": "public void loadIni() throws IOException {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CFG-005",
+      "domain": "CFG",
+      "title": "Options de démarrage",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Préserver les intentions de h/v/w/l/r/n/s et le chemin de projet en argument, avec interface moderne documentée.",
+      "acceptance": [
+        "L’aide liste les options; ouvrir un fichier en argument charge le bon projet; les logs vont au chemin annoncé."
+      ],
+      "component": "platform",
+      "milestone": "J7",
+      "depends_on": [
+        "F-PROJ-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/rahmenprogramm/FiliusArgs.java",
+          "line": 28,
+          "anchor": "options.addOption",
+          "snippet": "options.addOption(\"h\", false, \"Show usage info and exit\");"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CFG-006",
+      "domain": "CFG",
+      "title": "Journaux de diagnostic",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Séparer journal technique, trace réseau et données pédagogiques; permettre un export de diagnostic.",
+      "acceptance": [
+        "Le journal situe une erreur sans inclure par défaut les mots de passe et contenus mail."
+      ],
+      "component": "platform",
+      "milestone": "J7",
+      "depends_on": [
+        "F-PROJ-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/rahmenprogramm/TeeOutputStream.java",
+          "line": 39,
+          "anchor": "public class TeeOutputStream",
+          "snippet": "public class TeeOutputStream extends OutputStream {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CFG-007",
+      "domain": "CFG",
+      "title": "Installation et association des fichiers",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Distribuer une application desktop autonome et associer le format projet sur les plateformes ciblées.",
+      "acceptance": [
+        "Un utilisateur ouvre un projet depuis le gestionnaire de fichiers et désinstalle sans supprimer ses projets."
+      ],
+      "component": "platform",
+      "milestone": "J7",
+      "depends_on": [
+        "F-PROJ-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/Readme.md",
+          "line": 23,
+          "anchor": "## Installation",
+          "snippet": "## Installation"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CFG-008",
+      "domain": "CFG",
+      "title": "Scénarios et exercices fournis",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Recréer les exemples de connexion directe, LAN, routage, DHCP, DNS, web, mail, NAT, pare-feu, ARP, P2P et modem.",
+      "acceptance": [
+        "Chaque famille possède un exemple documenté et une recette reproductible."
+      ],
+      "component": "platform",
+      "milestone": "J7",
+      "depends_on": [
+        "F-PROJ-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/info/Introduction_Filius.md",
+          "line": 349,
+          "anchor": "## Exercises: Design and Simulate Networks",
+          "snippet": "## Exercises: Design and Simulate Networks"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-NFR-001",
+      "domain": "NFR",
+      "title": "Simulation hors ligne",
+      "origin": "modernisation",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Exécuter tous les réseaux simulés sans accès Internet ni privilèges système.",
+      "acceptance": [
+        "Les recettes LAN, DNS et HTTP réussissent réseau réel coupé; aucun port réel n’est ouvert."
+      ],
+      "component": "quality",
+      "milestone": "J0",
+      "depends_on": [],
+      "status": "in_progress",
+      "evidence": [],
+      "verification": []
+    },
+    {
+      "id": "F-NFR-002",
+      "domain": "NFR",
+      "title": "Contrats indépendants du langage",
+      "origin": "modernisation",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Versionner données, commandes, événements et erreurs sans types propres à une implémentation.",
+      "acceptance": [
+        "Deux adaptateurs consomment les mêmes fixtures sans traduction de classes métier."
+      ],
+      "component": "quality",
+      "milestone": "J0",
+      "depends_on": [],
+      "status": "verified",
+      "evidence": [],
+      "verification": [
+        {
+          "recipe": "J0-foundations",
+          "command": "cargo test --workspace --locked; cargo test -p sns-ui-egui --features ui-snapshots --test workbench --locked; python3 scripts/check_layers.py; python3 scripts/test_docs.py",
+          "result": "pass",
+          "environment": "macOS arm64, rustc 1.95.0, upstream egui/eframe 0.37.0",
+          "revision": "sha256:04434bdfcfdfb38c27e3cb257e3194c9dcaa5e2cf0823633cb155be6918d22f0",
+          "artifacts": [
+            "docs/verification/J0.md",
+            "docs/verification/j0-code-manifest.json",
+            "docs/verification/j0-tests.log",
+            "docs/verification/j0-gpu-tests.log"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F-NFR-003",
+      "domain": "NFR",
+      "title": "Exécution sans interface graphique",
+      "origin": "modernisation",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Exécuter scénarios et assertions par une entrée automatisable.",
+      "acceptance": [
+        "Un scénario peut être lancé avec graine et borne virtuelle et produire un code de sortie et une trace."
+      ],
+      "component": "quality",
+      "milestone": "J0",
+      "depends_on": [],
+      "status": "verified",
+      "evidence": [],
+      "verification": [
+        {
+          "recipe": "J0-foundations",
+          "command": "cargo test --workspace --locked; cargo test -p sns-ui-egui --features ui-snapshots --test workbench --locked; python3 scripts/check_layers.py; python3 scripts/test_docs.py",
+          "result": "pass",
+          "environment": "macOS arm64, rustc 1.95.0, upstream egui/eframe 0.37.0",
+          "revision": "sha256:04434bdfcfdfb38c27e3cb257e3194c9dcaa5e2cf0823633cb155be6918d22f0",
+          "artifacts": [
+            "docs/verification/J0.md",
+            "docs/verification/j0-code-manifest.json",
+            "docs/verification/j0-tests.log",
+            "docs/verification/j0-gpu-tests.log"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F-NFR-004",
+      "domain": "NFR",
+      "title": "Limites et réactivité",
+      "origin": "modernisation",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Borner files, traces, tailles de projet et traitements; mesurer les coûts du moteur et de l’UI.",
+      "acceptance": [
+        "Le benchmark de référence publie machine, charge, latence UI et mémoire; dépasser une limite produit une erreur lisible."
+      ],
+      "component": "quality",
+      "milestone": "J1",
+      "depends_on": [],
+      "status": "not_started",
+      "evidence": [],
+      "verification": []
+    },
+    {
+      "id": "F-NFR-005",
+      "domain": "NFR",
+      "title": "Accessibilité",
+      "origin": "modernisation",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Prévoir clavier, focus visible, contrastes, zoom texte et alternative aux seules couleurs.",
+      "acceptance": [
+        "Le parcours créer/configurer/relier/lancer/inspecter s’effectue au clavier; les états restent compréhensibles sans couleur."
+      ],
+      "component": "quality",
+      "milestone": "J1",
+      "depends_on": [],
+      "status": "not_started",
+      "evidence": [],
+      "verification": []
+    },
+    {
+      "id": "F-NFR-006",
+      "domain": "NFR",
+      "title": "Import et rendu maîtrisés",
+      "origin": "modernisation",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Limiter archives, chemins, XML et HTML; séparer contenu simulé et accès hôte.",
+      "acceptance": [
+        "Des archives à chemins sortants, XML à entités externes et pages tentant une requête réelle sont rejetées."
+      ],
+      "component": "quality",
+      "milestone": "J0",
+      "depends_on": [],
+      "status": "in_progress",
+      "evidence": [],
+      "verification": []
+    },
+    {
+      "id": "F-NFR-007",
+      "domain": "NFR",
+      "title": "Plateformes desktop",
+      "origin": "modernisation",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Cibler Windows, Linux et macOS avec recettes de packaging et de rendu par plateforme.",
+      "acceptance": [
+        "Le parcours réseau minimal et la sauvegarde fonctionnent sur les trois systèmes via une matrice de validation."
+      ],
+      "component": "quality",
+      "milestone": "J7",
+      "depends_on": [],
+      "status": "not_started",
+      "evidence": [],
+      "verification": []
+    },
+    {
+      "id": "F-NFR-008",
+      "domain": "NFR",
+      "title": "Traçabilité des changements",
+      "origin": "modernisation",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Relier exigences, tâches d’implémentation, preuves de recette et décisions.",
+      "acceptance": [
+        "Aucune exigence ne peut passer à verified sans preuve reproductible ni tâche associée."
+      ],
+      "component": "quality",
+      "milestone": "J0",
+      "depends_on": [],
+      "status": "verified",
+      "evidence": [],
+      "verification": [
+        {
+          "recipe": "J0-foundations",
+          "command": "cargo test --workspace --locked; cargo test -p sns-ui-egui --features ui-snapshots --test workbench --locked; python3 scripts/check_layers.py; python3 scripts/test_docs.py",
+          "result": "pass",
+          "environment": "macOS arm64, rustc 1.95.0, upstream egui/eframe 0.37.0",
+          "revision": "sha256:04434bdfcfdfb38c27e3cb257e3194c9dcaa5e2cf0823633cb155be6918d22f0",
+          "artifacts": [
+            "docs/verification/J0.md",
+            "docs/verification/j0-code-manifest.json",
+            "docs/verification/j0-tests.log",
+            "docs/verification/j0-gpu-tests.log"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F-NFR-009",
+      "domain": "NFR",
+      "title": "Provenance et licences",
+      "origin": "modernisation",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Conserver provenance des références et des actifs, et décider explicitement la politique de réutilisation.",
+      "acceptance": [
+        "Une décision documente les éléments repris et leurs notices avant toute redistribution."
+      ],
+      "component": "quality",
+      "milestone": "J0",
+      "depends_on": [],
+      "status": "verified",
+      "evidence": [],
+      "verification": [
+        {
+          "recipe": "J0-foundations",
+          "command": "cargo test --workspace --locked; cargo test -p sns-ui-egui --features ui-snapshots --test workbench --locked; python3 scripts/check_layers.py; python3 scripts/test_docs.py",
+          "result": "pass",
+          "environment": "macOS arm64, rustc 1.95.0, upstream egui/eframe 0.37.0",
+          "revision": "sha256:04434bdfcfdfb38c27e3cb257e3194c9dcaa5e2cf0823633cb155be6918d22f0",
+          "artifacts": [
+            "docs/verification/J0.md",
+            "docs/verification/j0-code-manifest.json",
+            "docs/verification/j0-tests.log",
+            "docs/verification/j0-gpu-tests.log"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "F-ADV-001",
+      "domain": "ADV",
+      "title": "IPv6",
+      "origin": "extension_optionnelle",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Étendre le modèle aux adresses IPv6, NDP et ICMPv6 dans un lot distinct.",
+      "acceptance": [
+        "Un LAN double pile résout ses voisins et échange des pings IPv6."
+      ],
+      "component": "future",
+      "milestone": "J9",
+      "depends_on": [],
+      "status": "not_started",
+      "evidence": [],
+      "verification": []
+    },
+    {
+      "id": "F-ADV-002",
+      "domain": "ADV",
+      "title": "VLAN et prévention normalisée des boucles",
+      "origin": "extension_optionnelle",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Ajouter VLAN, trunks et protocole de prévention des boucles avec contrats propres.",
+      "acceptance": [
+        "Deux VLAN restent isolés et une boucle est traitée par le protocole retenu."
+      ],
+      "component": "future",
+      "milestone": "J9",
+      "depends_on": [],
+      "status": "not_started",
+      "evidence": [],
+      "verification": []
+    },
+    {
+      "id": "F-ADV-003",
+      "domain": "ADV",
+      "title": "Protocoles et sécurité avancés",
+      "origin": "extension_optionnelle",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Étudier TLS, DNS supplémentaires, routage avancé et suivi de connexion réel.",
+      "acceptance": [
+        "Chaque protocole ajouté possède sa matrice de conformité et un scénario pédagogique dédié."
+      ],
+      "component": "future",
+      "milestone": "J9",
+      "depends_on": [],
+      "status": "not_started",
+      "evidence": [],
+      "verification": []
+    },
+    {
+      "id": "F-ADV-004",
+      "domain": "ADV",
+      "title": "Exercices évaluables",
+      "origin": "extension_optionnelle",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Décrire objectifs, états attendus, feedback et corrections exportables.",
+      "acceptance": [
+        "Un exercice valide automatiquement une panne DNS réparée et explique un échec."
+      ],
+      "component": "future",
+      "milestone": "J9",
+      "depends_on": [],
+      "status": "not_started",
+      "evidence": [],
+      "verification": []
+    },
+    {
+      "id": "F-ADV-005",
+      "domain": "ADV",
+      "title": "Collaboration synchronisée",
+      "origin": "extension_optionnelle",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Étudier l’édition partagée et les sessions de simulation synchronisées.",
+      "acceptance": [
+        "Deux éditeurs convergent sur le même projet avec conflits explicités."
+      ],
+      "component": "future",
+      "milestone": "J9",
+      "depends_on": [],
+      "status": "not_started",
+      "evidence": [],
+      "verification": []
+    },
+    {
+      "id": "F-ADV-006",
+      "domain": "ADV",
+      "title": "Exécution dans le navigateur",
+      "origin": "extension_optionnelle",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Étudier un adaptateur web du moteur et ses restrictions.",
+      "acceptance": [
+        "Un scénario de référence donne la même trace que l’adaptateur desktop."
+      ],
+      "component": "future",
+      "milestone": "J9",
+      "depends_on": [],
+      "status": "not_started",
+      "evidence": [],
+      "verification": []
+    },
+    {
+      "id": "F-CLI-020",
+      "domain": "CLI",
+      "title": "Fermer le terminal",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Offrir exit pour fermer sa fenêtre sans désinstaller le terminal.",
+      "acceptance": [
+        "exit ferme la vue; rouvrir le terminal conserve les fichiers de l’hôte."
+      ],
+      "component": "terminal",
+      "milestone": "J2",
+      "depends_on": [
+        "F-FS-001",
+        "F-TCP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationTerminalWindow.java",
+          "line": 204,
+          "anchor": "if (enteredCommand.equals(\"exit\"))",
+          "snippet": "if (enteredCommand.equals(\"exit\")) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-CLI-021",
+      "domain": "CLI",
+      "title": "Effacer l’affichage",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Offrir reset et cls pour effacer l’écran et réafficher l’accueil sans réinitialiser le réseau.",
+      "acceptance": [
+        "Après cls, la configuration IP et les services actifs sont inchangés."
+      ],
+      "component": "terminal",
+      "milestone": "J2",
+      "depends_on": [
+        "F-FS-001",
+        "F-TCP-001"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationTerminalWindow.java",
+          "line": 206,
+          "anchor": "enteredCommand.equals(\"reset\")",
+          "snippet": "} else if (enteredCommand.equals(\"reset\") || enteredCommand.equals(\"cls\")) {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-OBS-010",
+      "domain": "OBS",
+      "title": "Export texte de la vue agrégée",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Exporter le tableau des échanges agrégés en texte UTF-8.",
+      "acceptance": [
+        "Le fichier texte contient les colonnes et les lignes de la vue choisie."
+      ],
+      "component": "observation",
+      "milestone": "J2",
+      "depends_on": [
+        "F-L2-001",
+        "F-IP4-004"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/nachrichtensicht/AggregatedMessageTable.java",
+          "line": 371,
+          "anchor": "public synchronized void writeToStream",
+          "snippet": "public synchronized void writeToStream(OutputStream outputStream) throws IOException {"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-TOP-010",
+      "domain": "TOP",
+      "title": "Raccourcis de travail",
+      "origin": "filius",
+      "baseline": "present",
+      "requirement": "Fournir les raccourcis nouveau/ouvrir/enregistrer, changement de mode, vitesse, aide et outil câble.",
+      "acceptance": [
+        "Les raccourcis documentés déclenchent les mêmes commandes que les boutons et respectent le contexte de saisie."
+      ],
+      "component": "topology",
+      "milestone": "J1",
+      "depends_on": [
+        "F-SIM-005"
+      ],
+      "status": "not_started",
+      "evidence": [
+        {
+          "path": "_archive/filius-master/src/main/java/filius/gui/JMainFrame.java",
+          "line": 139,
+          "anchor": "case 78: // N (new)",
+          "snippet": "case 78: // N (new)"
+        }
+      ],
+      "verification": []
+    },
+    {
+      "id": "F-DNS-006",
+      "domain": "DNS",
+      "title": "Cache de résolution à expiration TTL",
+      "origin": "modernisation",
+      "baseline": "absent_du_referentiel",
+      "requirement": "Ajouter un véritable cache de résolution par nœud avec expiration en temps virtuel et purge explicite.",
+      "acceptance": [
+        "Une réponse est réutilisée avant son TTL puis interrogée de nouveau après expiration; les hôtes ne partagent pas leurs caches."
+      ],
+      "component": "dns",
+      "milestone": "J4",
+      "depends_on": [
+        "F-DNS-001",
+        "F-SIM-005"
+      ],
+      "status": "not_started",
+      "evidence": [],
+      "verification": []
+    }
+  ]
+}
