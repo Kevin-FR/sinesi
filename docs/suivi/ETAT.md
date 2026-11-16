@@ -3,8 +3,9 @@
 ## Situation courante — 16 novembre 2026
 
 **J1 à J6 sont qualifiés localement. J7 reste ouvert. La refonte élève (J8, RS-UX-J8)
-est terminée : F-UX-001 à F-UX-006 et F-ADV-004 sont vérifiées sur macOS (harnais,
-captures et fenêtre native), Debian 12 arm64 et Windows x64 sous CrossOver (harnais).** FR EN ES IT PT DE et les vues Icônes/Schéma sont conservés.
+est terminée : F-UX-001 à F-UX-006 et F-ADV-004 sont vérifiées sur macOS et Linux
+(harnais et fenêtre native) et sur Windows x64 sous CrossOver (harnais; la fenêtre ne
+rend pas dans cette émulation graphique).** FR EN ES IT PT DE et les vues Icônes/Schéma sont conservés.
 
 | Registre de référence | État |
 | --- | --- |

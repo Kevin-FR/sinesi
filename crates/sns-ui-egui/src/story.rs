@@ -83,7 +83,11 @@ pub fn step(
                 Tone::Go,
                 "story_forwarded",
                 vec![("next_hop", text(event, "next_hop").to_owned())],
-                format!("{} → {}", text(event, "incoming"), text(event, "interface")),
+                format!(
+                    "{} -> {}",
+                    text(event, "incoming"),
+                    text(event, "interface")
+                ),
             ),
             "icmp.echo.received" => (
                 Tone::Go,
@@ -185,7 +189,7 @@ fn ports(event: &TraceEvent) -> String {
                 .join(", ")
         })
         .unwrap_or_default();
-    format!("{} → {egress}", text(event, "ingress"))
+    format!("{} -> {egress}", text(event, "ingress"))
 }
 
 /// The most recent narrated steps, oldest first; scans backwards so a long trace stays cheap.

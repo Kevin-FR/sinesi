@@ -1,0 +1,6 @@
+thread 'main' (216) panicked at /usr/local/cargo/registry/src/index.crates.io-1949cf8c6b5b557f/wgpu-30.0.1/src/backend/wgpu_core.rs:1414:26:
+wgpu error: Validation Error
+Caused by:
+    Internal error in ShaderStages(FRAGMENT) shader: FXC D3DCompile error (Non implémenté. (0x80004001)): egui:27:14: E5017: Aborting due to not yet implemented feature: Shader model 5.1+ resource array.
+egui:28:52: E5000: Failed to evaluate constant expression.
+egui:28:52: E5008: Array size is not a positive integer constant.

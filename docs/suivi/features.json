@@ -8712,6 +8712,18 @@
             "docs/verification/j8-linux-debian-arm64-tests.log",
             "docs/verification/j8-windows-crossover-tests.log"
           ]
+        },
+        {
+          "recipe": "Recette native Linux X11 — parcours élève complet",
+          "command": "Debian 12 arm64 : cargo build -p sns-desktop; Xvfb :99 + openbox; WGPU_BACKEND=vulkan (lavapipe) target/debug/sns-desktop; pilotage xdotool",
+          "result": "pass",
+          "environment": "Debian 12.14 arm64 (Docker rust:1.95-bookworm), X11 Xvfb, Mesa lavapipe",
+          "revision": "4ae8a0e",
+          "artifacts": [
+            "docs/verification/J8-TROIS-OS.md",
+            "docs/verification/j8-native-linux-mission.png",
+            "docs/verification/j8-native-linux-expert.png"
+          ]
         }
       ]
     },
@@ -9077,6 +9089,18 @@
             "docs/verification/j8-linux-debian-arm64-tests.log",
             "docs/verification/j8-windows-crossover-tests.log"
           ]
+        },
+        {
+          "recipe": "Recette native Linux X11 — parcours élève complet",
+          "command": "Debian 12 arm64 : cargo build -p sns-desktop; Xvfb :99 + openbox; WGPU_BACKEND=vulkan (lavapipe) target/debug/sns-desktop; pilotage xdotool",
+          "result": "pass",
+          "environment": "Debian 12.14 arm64 (Docker rust:1.95-bookworm), X11 Xvfb, Mesa lavapipe",
+          "revision": "4ae8a0e",
+          "artifacts": [
+            "docs/verification/J8-TROIS-OS.md",
+            "docs/verification/j8-native-linux-mission.png",
+            "docs/verification/j8-native-linux-expert.png"
+          ]
         }
       ]
     },
@@ -9134,6 +9158,18 @@
             "docs/verification/j8-linux-debian-arm64-tests.log",
             "docs/verification/j8-windows-crossover-tests.log"
           ]
+        },
+        {
+          "recipe": "Recette native Linux X11 — parcours élève complet",
+          "command": "Debian 12 arm64 : cargo build -p sns-desktop; Xvfb :99 + openbox; WGPU_BACKEND=vulkan (lavapipe) target/debug/sns-desktop; pilotage xdotool",
+          "result": "pass",
+          "environment": "Debian 12.14 arm64 (Docker rust:1.95-bookworm), X11 Xvfb, Mesa lavapipe",
+          "revision": "4ae8a0e",
+          "artifacts": [
+            "docs/verification/J8-TROIS-OS.md",
+            "docs/verification/j8-native-linux-mission.png",
+            "docs/verification/j8-native-linux-expert.png"
+          ]
         }
       ]
     },
@@ -9185,6 +9221,18 @@
             "docs/verification/J8-TROIS-OS.md",
             "docs/verification/j8-linux-debian-arm64-tests.log",
             "docs/verification/j8-windows-crossover-tests.log"
+          ]
+        },
+        {
+          "recipe": "Recette native Linux X11 — parcours élève complet",
+          "command": "Debian 12 arm64 : cargo build -p sns-desktop; Xvfb :99 + openbox; WGPU_BACKEND=vulkan (lavapipe) target/debug/sns-desktop; pilotage xdotool",
+          "result": "pass",
+          "environment": "Debian 12.14 arm64 (Docker rust:1.95-bookworm), X11 Xvfb, Mesa lavapipe",
+          "revision": "4ae8a0e",
+          "artifacts": [
+            "docs/verification/J8-TROIS-OS.md",
+            "docs/verification/j8-native-linux-mission.png",
+            "docs/verification/j8-native-linux-expert.png"
           ]
         }
       ]
@@ -9239,6 +9287,18 @@
             "docs/verification/j8-linux-debian-arm64-tests.log",
             "docs/verification/j8-windows-crossover-tests.log"
           ]
+        },
+        {
+          "recipe": "Recette native Linux X11 — parcours élève complet",
+          "command": "Debian 12 arm64 : cargo build -p sns-desktop; Xvfb :99 + openbox; WGPU_BACKEND=vulkan (lavapipe) target/debug/sns-desktop; pilotage xdotool",
+          "result": "pass",
+          "environment": "Debian 12.14 arm64 (Docker rust:1.95-bookworm), X11 Xvfb, Mesa lavapipe",
+          "revision": "4ae8a0e",
+          "artifacts": [
+            "docs/verification/J8-TROIS-OS.md",
+            "docs/verification/j8-native-linux-mission.png",
+            "docs/verification/j8-native-linux-expert.png"
+          ]
         }
       ]
     },
@@ -9292,6 +9352,18 @@
             "docs/verification/j8-linux-debian-arm64-tests.log",
             "docs/verification/j8-windows-crossover-tests.log"
           ]
+        },
+        {
+          "recipe": "Recette native Linux X11 — parcours élève complet",
+          "command": "Debian 12 arm64 : cargo build -p sns-desktop; Xvfb :99 + openbox; WGPU_BACKEND=vulkan (lavapipe) target/debug/sns-desktop; pilotage xdotool",
+          "result": "pass",
+          "environment": "Debian 12.14 arm64 (Docker rust:1.95-bookworm), X11 Xvfb, Mesa lavapipe",
+          "revision": "4ae8a0e",
+          "artifacts": [
+            "docs/verification/J8-TROIS-OS.md",
+            "docs/verification/j8-native-linux-mission.png",
+            "docs/verification/j8-native-linux-expert.png"
+          ]
         }
       ]
     },
@@ -9344,6 +9416,18 @@
             "docs/verification/J8-TROIS-OS.md",
             "docs/verification/j8-linux-debian-arm64-tests.log",
             "docs/verification/j8-windows-crossover-tests.log"
+          ]
+        },
+        {
+          "recipe": "Recette native Linux X11 — parcours élève complet",
+          "command": "Debian 12 arm64 : cargo build -p sns-desktop; Xvfb :99 + openbox; WGPU_BACKEND=vulkan (lavapipe) target/debug/sns-desktop; pilotage xdotool",
+          "result": "pass",
+          "environment": "Debian 12.14 arm64 (Docker rust:1.95-bookworm), X11 Xvfb, Mesa lavapipe",
+          "revision": "4ae8a0e",
+          "artifacts": [
+            "docs/verification/J8-TROIS-OS.md",
+            "docs/verification/j8-native-linux-mission.png",
+            "docs/verification/j8-native-linux-expert.png"
           ]
         }
       ]
