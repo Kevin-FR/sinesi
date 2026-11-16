@@ -1,0 +1,36 @@
++ cargo test -p sns-cli --test runner filius_import_cli --locked --offline
+   Compiling sns-i18n v0.1.0 (/Users/kevin/Web/SNS/crates/sns-i18n)
+   Compiling sns-filius-import v0.1.0 (/Users/kevin/Web/SNS/crates/sns-filius-import)
+   Compiling sns-project v0.1.0 (/Users/kevin/Web/SNS/crates/sns-project)
+   Compiling sns-apps v0.1.0 (/Users/kevin/Web/SNS/crates/sns-apps)
+   Compiling sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+   Compiling sns-report v0.1.0 (/Users/kevin/Web/SNS/crates/sns-report)
+   Compiling sns-cli v0.1.0 (/Users/kevin/Web/SNS/crates/sns-cli)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.72s
+     Running tests/runner.rs (target/debug/deps/runner-f7e4ffe4b39a6163)
+
+running 1 test
+test filius_import_cli_emits_report_and_keeps_source_unchanged ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 4 filtered out; finished in 0.57s
+
++ cargo test -p sns-ui-egui --test lan j7_background_import --locked --offline
+   Compiling sns-filius-import v0.1.0 (/Users/kevin/Web/SNS/crates/sns-filius-import)
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 10.48s
+     Running tests/lan.rs (target/debug/deps/lan-37fec6bba389d50d)
+
+running 1 test
+test j7_background_import_preserves_six_languages_views_and_previous_project_on_failure ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.43s
+
++ cargo test -p sns-ui-egui --test lan j7_runtime_restore_export_replay --locked --offline
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.12s
+     Running tests/lan.rs (target/debug/deps/lan-37fec6bba389d50d)
+
+running 1 test
+test j7_runtime_restore_export_replay_preserves_languages_views_and_failed_load ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.31s
+

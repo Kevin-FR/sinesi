@@ -1,0 +1,11 @@
+   Compiling sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+   Compiling sns-bridge v0.1.0 (/Users/kevin/Web/SNS/crates/sns-bridge)
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.34s
+     Running tests/lan.rs (target/debug/deps/lan-8deb750f1cb89b0a)
+
+running 1 test
+test j7_runtime_restore_export_replay_preserves_languages_views_and_failed_load ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 28 filtered out; finished in 0.33s
+

@@ -1,0 +1,24 @@
+{
+  "settings_version": 2,
+  "language": "fr",
+  "display": {
+    "scale_percent": 150,
+    "font": "noto_sans",
+    "representation": "diagram",
+    "layout": "inspector_left",
+    "palette_width": 220,
+    "inspector_width": 320,
+    "window_width": 1440,
+    "window_height": 960,
+    "application_scale_percent": 110,
+    "center_application_windows": true,
+    "windows": {
+      "terminal": {
+        "x": 120,
+        "y": 180,
+        "width": 700,
+        "height": 500
+      }
+    }
+  }
+}

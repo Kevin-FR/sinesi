@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-07",
+  "platform": "macOS arm64",
+  "result": "pass",
+  "binary_sha256": "c8c5e584612fc24cbdca274e87b14fd7b837f55022836e9bf649f2f967288b56",
+  "fixture": "fixtures/valid/routed.json",
+  "command": "traceroute 192.168.30.2",
+  "speed": 100,
+  "hops": [
+    {
+      "ttl": 1,
+      "source": "192.168.10.1",
+      "rtt_us": "4000"
+    },
+    {
+      "ttl": 2,
+      "source": "192.168.20.2",
+      "rtt_us": "6000"
+    },
+    {
+      "ttl": 3,
+      "source": "192.168.30.2",
+      "rtt_us": "8000"
+    }
+  ],
+  "final_message": "Traceroute terminé.",
+  "classroom_fixture": "fixtures/valid/classroom.json",
+  "classroom_diagram": "Observed native rendering of server/router/switch/printer/workstations/laptop/tablet and Ethernet links.",
+  "scope_note": "Native traceroute and classroom rendering on the identified binary. Final role-label/layout and command-validation changes are checked by the final workspace/GPU suites. No Windows/Linux native check."
+}

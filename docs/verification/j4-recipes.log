@@ -1,0 +1,19 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.07s
+     Running tests/services.rs (target/debug/deps/services-44a6d861ec5d12cd)
+
+running 12 tests
+test r_dhcp_two_clients_reservation_effective_settings_and_document ... ok
+test dhcp_expiry_releases_and_reacquires_virtual_lease ... ok
+test dhcp_nack_unoffered_address_and_expiration_of_refused_entries ... ok
+test dhcp_conflict_decline_pool_exhaustion_and_link_local ... ok
+test link_local_conflicts_have_a_bounded_final_failure ... ok
+test dns_and_http_cross_routed_networks_with_dhcp_options_inherited ... ok
+test dns_ttl_cache_is_per_host_and_delete_survives_reload ... ok
+test dns_mx_nodata_timeout_and_explicit_purge ... ok
+test same_named_images_from_two_origins_and_navigation_are_isolated ... ok
+test dns_parent_delegation_recursive_and_iterative_queries_and_bounded_loop ... ok
+test r_web_offline_dns_http_images_forms_virtual_hosts_and_isolation ... ok
+test http_methods_encoded_paths_segmented_body_and_stop_with_pending_queries ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.20s
+

@@ -1,4 +1,6 @@
 //! Bounded JSON persistence. .fls execution and historical class loading are never used.
+pub mod destination;
+pub mod session;
 use sns_model::{Diagnostic, Project, Scenario};
 use std::{
     fs::{self, File},
@@ -6,7 +8,8 @@ use std::{
     path::{Path, PathBuf},
 };
 
-pub const MAX_DOCUMENT_BYTES: u64 = 8 * 1_024 * 1_024;
+pub const MAX_DOCUMENT_BYTES: u64 = sns_model::MAX_PROJECT_DOCUMENT_BYTES as u64;
+pub const MAX_RUNTIME_DOCUMENT_BYTES: u64 = 64 * 1_024 * 1_024;
 
 #[derive(Debug, thiserror::Error)]
 pub enum Error {
@@ -37,13 +40,26 @@ fn limit(bytes: &[u8]) -> Result<(), Error> {
     Ok(())
 }
 pub fn read_bounded(path: &Path) -> Result<Vec<u8>, Error> {
+    read_with_limit(path, MAX_DOCUMENT_BYTES)
+}
+/// Explicit runtime documents have a separate finite quota; project files keep their original limit.
+pub fn read_runtime_document(path: &Path) -> Result<Vec<u8>, Error> {
+    read_with_limit(path, MAX_RUNTIME_DOCUMENT_BYTES)
+}
+fn read_with_limit(path: &Path, maximum: u64) -> Result<Vec<u8>, Error> {
+    if !fs::metadata(path)?.is_file() {
+        return Err(Diagnostic::new("resource.limit_exceeded", "regular_file_required").into());
+    }
     let file = File::open(path)?;
-    if file.metadata()?.len() > MAX_DOCUMENT_BYTES {
+    let metadata = file.metadata()?;
+    if !metadata.is_file() || metadata.len() > maximum {
         return Err(Diagnostic::new("resource.limit_exceeded", path.display().to_string()).into());
     }
     let mut bytes = Vec::new();
-    file.take(MAX_DOCUMENT_BYTES + 1).read_to_end(&mut bytes)?;
-    limit(&bytes)?;
+    file.take(maximum + 1).read_to_end(&mut bytes)?;
+    if bytes.len() as u64 > maximum {
+        return Err(Diagnostic::new("resource.limit_exceeded", "document").into());
+    }
     Ok(bytes)
 }
 pub fn load_project(path: &Path) -> Result<Project, Error> {
@@ -56,6 +72,16 @@ pub fn load_scenario(path: &Path) -> Result<Scenario, Error> {
 /// Same-volume temporary file + fsync + atomic replacement. No partial target is exposed.
 pub fn atomic_write(path: &Path, bytes: &[u8]) -> Result<(), Error> {
     limit(bytes)?;
+    write_atomic(path, bytes)
+}
+/// Atomic explicit runtime export, bounded independently of projects.
+pub fn atomic_write_runtime(path: &Path, bytes: &[u8]) -> Result<(), Error> {
+    if bytes.len() as u64 > MAX_RUNTIME_DOCUMENT_BYTES {
+        return Err(Diagnostic::new("resource.limit_exceeded", "runtime_document").into());
+    }
+    write_atomic(path, bytes)
+}
+fn write_atomic(path: &Path, bytes: &[u8]) -> Result<(), Error> {
     let parent = path
         .parent()
         .filter(|p| !p.as_os_str().is_empty())

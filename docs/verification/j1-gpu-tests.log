@@ -1,0 +1,26 @@
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.02s
+     Running tests/lan.rs (target/debug/deps/lan-9b3d1e0325a96b36)
+
+running 7 tests
+test palette_delete_and_undo_drive_transactional_editor ... ok
+test inspector_rename_preserves_ids_and_shortcuts_respect_text_entry ... ok
+test documentation_and_unsaved_replacement_preserve_project_until_decision ... ok
+test palette_drag_drop_and_rectangle_group_move_keep_cables_attached ... ok
+test keyboard_equipment_ping_pause_step_and_modes_preserve_project ... ok
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+test rendered_lan_editor_reference ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.29s
+
+     Running tests/workbench.rs (target/debug/deps/workbench-fcaee00f27f13dde)
+
+running 5 tests
+test canvas_has_a_keyboard_reachable_equipment_selection ... ok
+test controls_drive_the_real_engine_and_restart_clears_state ... ok
+test native_browser_gets_page_image_link_and_post_via_engine ... ok
+test rendered_workbench_reference ... ok
+test large_trace_uses_the_virtualized_table ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.64s
+

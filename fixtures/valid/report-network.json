@@ -1,0 +1,334 @@
+{
+  "schema_version": 9,
+  "semantic_profile": "sns-educational-documentation-v1",
+  "project_id": "project-lan",
+  "name": "École des réseaux - Grüße, acción, città, ação",
+  "devices": [
+    {
+      "id": "a",
+      "kind": "workstation",
+      "label": "A",
+      "interfaces": [
+        {
+          "id": "a-p0",
+          "mac": "02:01:00:00:00:01",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "dhcp"
+          }
+        }
+      ],
+      "network": {
+        "default_gateway": "192.168.10.1",
+        "dns_server": null
+      },
+      "applications": [
+        {
+          "id": "a-terminal",
+          "kind": "terminal",
+          "config": {}
+        },
+        {
+          "id": "report-mail",
+          "kind": "mail_client",
+          "config": {},
+          "service": {
+            "service": "mail_client",
+            "settings": {
+              "address": "alice@alpha.test",
+              "display_name": "Alice",
+              "smtp_server": "192.168.1.3",
+              "smtp_port": 25,
+              "pop3_server": "192.168.1.3",
+              "pop3_port": 110,
+              "username": "alice",
+              "password": "secret-password-sentinel"
+            }
+          }
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": "r1",
+      "kind": "router",
+      "label": "R1",
+      "interfaces": [
+        {
+          "id": "r1-p0",
+          "mac": "02:01:00:00:00:02",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.10.1",
+            "prefix_length": 24
+          }
+        },
+        {
+          "id": "r1-p1",
+          "mac": "02:01:00:00:00:03",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.20.1",
+            "prefix_length": 24
+          }
+        }
+      ],
+      "network": {
+        "default_gateway": null,
+        "dns_server": null,
+        "routes": [
+          {
+            "network": "192.168.30.0",
+            "prefix": 24,
+            "gateway": "192.168.20.2",
+            "interface": "r1-p1"
+          }
+        ],
+        "dhcp_server": {
+          "interface": "r1-p0",
+          "pool_start": "192.168.10.20",
+          "pool_end": "192.168.10.50",
+          "prefix_length": 24,
+          "gateway": "192.168.10.1",
+          "dns": "192.168.30.2",
+          "use_host_options": false,
+          "reservations": {},
+          "lease_us": "60000000"
+        }
+      },
+      "applications": [
+        {
+          "id": "r1-terminal",
+          "kind": "terminal",
+          "config": {}
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": "r2",
+      "kind": "router",
+      "label": "R2",
+      "interfaces": [
+        {
+          "id": "r2-p0",
+          "mac": "02:01:00:00:00:04",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.20.2",
+            "prefix_length": 24
+          }
+        },
+        {
+          "id": "r2-p1",
+          "mac": "02:01:00:00:00:05",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.30.1",
+            "prefix_length": 24
+          }
+        }
+      ],
+      "network": {
+        "default_gateway": null,
+        "dns_server": null,
+        "routes": [
+          {
+            "network": "192.168.10.0",
+            "prefix": 24,
+            "gateway": "192.168.20.1",
+            "interface": "r2-p0"
+          }
+        ]
+      },
+      "applications": [
+        {
+          "id": "r2-terminal",
+          "kind": "terminal",
+          "config": {}
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": "b",
+      "kind": "notebook",
+      "label": "B",
+      "interfaces": [
+        {
+          "id": "b-p0",
+          "mac": "02:01:00:00:00:06",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.30.2",
+            "prefix_length": 24
+          }
+        }
+      ],
+      "network": {
+        "default_gateway": "192.168.30.1",
+        "dns_server": "192.168.30.2"
+      },
+      "applications": [
+        {
+          "id": "b-terminal",
+          "kind": "terminal",
+          "config": {}
+        },
+        {
+          "id": "report-dns",
+          "kind": "dns_server",
+          "config": {},
+          "service": {
+            "service": "dns",
+            "settings": {
+              "records": [
+                {
+                  "name": "ecole.test",
+                  "record_type": "A",
+                  "value": "192.168.30.2",
+                  "ttl_seconds": 300,
+                  "priority": 0
+                }
+              ],
+              "recursive": true
+            }
+          }
+        }
+      ],
+      "files": []
+    }
+  ],
+  "links": [
+    {
+      "id": "link-0",
+      "endpoints": [
+        "a-p0",
+        "r1-p0"
+      ],
+      "latency_us": "1000",
+      "jitter_us": "0"
+    },
+    {
+      "id": "link-1",
+      "endpoints": [
+        "r1-p1",
+        "r2-p0"
+      ],
+      "latency_us": "1000",
+      "jitter_us": "0"
+    },
+    {
+      "id": "link-2",
+      "endpoints": [
+        "r2-p1",
+        "b-p0"
+      ],
+      "latency_us": "1000",
+      "jitter_us": "0"
+    }
+  ],
+  "layout": {
+    "devices": [
+      {
+        "device_id": "a",
+        "x": 100,
+        "y": 150
+      },
+      {
+        "device_id": "r1",
+        "x": 270,
+        "y": 250
+      },
+      {
+        "device_id": "r2",
+        "x": 440,
+        "y": 150
+      },
+      {
+        "device_id": "b",
+        "x": 610,
+        "y": 250
+      }
+    ]
+  },
+  "annotations": [
+    {
+      "id": "report-note",
+      "text": "DHCP, DNS et routage\nObserver ARP et ICMP",
+      "x": 20.0,
+      "y": 390.0,
+      "style": {
+        "kind": "text",
+        "width": 430,
+        "height": 90,
+        "font_size": 15,
+        "font": "monospace",
+        "italic": true,
+        "underline": true,
+        "text_color": [
+          20,
+          60,
+          90,
+          255
+        ],
+        "fill_color": [
+          255,
+          245,
+          190,
+          240
+        ],
+        "border_color": [
+          90,
+          110,
+          130,
+          255
+        ],
+        "border_width": 1
+      }
+    },
+    {
+      "id": "report-note-bold",
+      "text": "Bilan : ARP - IPv4 - ICMP",
+      "x": 470.0,
+      "y": 390.0,
+      "style": {
+        "kind": "text",
+        "width": 430,
+        "height": 90,
+        "font_size": 15,
+        "font": "monospace",
+        "italic": false,
+        "underline": true,
+        "text_color": [
+          20,
+          60,
+          90,
+          255
+        ],
+        "fill_color": [
+          255,
+          245,
+          190,
+          240
+        ],
+        "border_color": [
+          90,
+          110,
+          130,
+          255
+        ],
+        "border_width": 1,
+        "bold": true
+      }
+    }
+  ],
+  "resources": [],
+  "extensions": [],
+  "lan": {}
+}

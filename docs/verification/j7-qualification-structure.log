@@ -1,0 +1,10 @@
+$ UPDATE_SNAPSHOTS=force CARGO=<probe> <old xtask> ui
++ cargo test -p sns-ui-egui --features ui-snapshots --test png --test report --test help --test preferences --test configuration --locked --offline
+UPDATE_SNAPSHOTS=force
+xtask: cargo failed: exit status: 1
+$ UPDATE_SNAPSHOTS=force CARGO=<probe> <new xtask> ui
++ cargo test -p sns-ui-egui --features ui-snapshots --test png --test report --test help --test preferences --test configuration --locked --offline
+UPDATE_SNAPSHOTS=absent
+$ cargo metadata --format-version 1 --all-features --locked --offline (before and after)
+521 resolved packages, identical edges, features, members, default member and lockfile
+519 PNG files checked before and after the forced-mode UI test, identical paths and digests

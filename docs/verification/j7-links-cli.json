@@ -1,0 +1,68 @@
+{
+  "commands": [
+    {
+      "command": [
+        "target/debug/sinesi",
+        "run",
+        "fixtures/valid/link-conditions-scenario.json",
+        "--until-us",
+        "5000000",
+        "--checkpoint",
+        "docs/verification/j7-links-cli-checkpoint.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"pending_events\":34,\"processed_events\":23,\"termination\":\"time_bound\",\"time_us\":\"4001000\",\"trace_sha256\":\"72e036eded531a400d935e14df1a640d8673fa13cfe56fd3bf7bc7e53d9fed6b\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "target/debug/sinesi",
+        "run",
+        "fixtures/valid/link-conditions-scenario.json",
+        "--until-us",
+        "50000000",
+        "--recording",
+        "docs/verification/j7-links-cli-recording.json",
+        "--trace",
+        "docs/verification/j7-links-cli-full.jsonl"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"pending_events\":4,\"processed_events\":144,\"termination\":\"time_bound\",\"time_us\":\"48001000\",\"trace_sha256\":\"24df46be736d5b10ff09451514822badbde6f00398ffbc34b343736f5ef55600\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "target/debug/sinesi",
+        "resume",
+        "docs/verification/j7-links-cli-checkpoint.json",
+        "--until-us",
+        "50000000",
+        "--trace",
+        "docs/verification/j7-links-cli-resumed.jsonl"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"pending_events\":4,\"processed_events\":121,\"termination\":\"time_bound\",\"time_us\":\"48001000\",\"trace_sha256\":\"24df46be736d5b10ff09451514822badbde6f00398ffbc34b343736f5ef55600\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "target/debug/sinesi",
+        "replay",
+        "docs/verification/j7-links-cli-recording.json",
+        "--trace",
+        "docs/verification/j7-links-cli-replayed.jsonl"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"pending_events\":4,\"replayed\":true,\"time_us\":\"48001000\",\"trace_sha256\":\"24df46be736d5b10ff09451514822badbde6f00398ffbc34b343736f5ef55600\"}\n",
+      "stderr": ""
+    }
+  ],
+  "trace_sha256": "24df46be736d5b10ff09451514822badbde6f00398ffbc34b343736f5ef55600",
+  "events": 388,
+  "replies_by_device": {
+    "host-c": 16,
+    "host-a": 2
+  },
+  "configured_loss_drops": 14,
+  "all_traces_equal": true
+}

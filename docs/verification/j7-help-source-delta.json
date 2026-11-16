@@ -1,0 +1,29 @@
+{
+  "format_version": 1,
+  "base_archive": "docs/verification/j7-import-source-bundle.tar.gz",
+  "base_sha256": "74ae256df66043ad27083e394bcf5bd8096192eb861cce836723d99fab0546ee",
+  "delta_archive": "docs/verification/j7-help-source-delta.tar.gz",
+  "delta_sha256": "9fec92fe944a5ef466a550b735a6f473e9854f34d5d66b53e094d8a169d804ac",
+  "delta_bytes": 27137348,
+  "source_revision": "73ca4e8b9d3f973181bd9df48caa71958fa364c41ed0dae170d639332befd48e",
+  "source_files": 663,
+  "delta_files": 593,
+  "deleted_paths": [
+    "crates/sns-ui-egui/src/controller.rs",
+    "crates/sns-ui-egui/src/desktop.rs",
+    "crates/sns-ui-egui/src/import_ui.rs",
+    "crates/sns-ui-egui/src/lan.rs",
+    "crates/sns-ui-egui/src/lan_worker.rs",
+    "crates/sns-ui-egui/src/mail_ui.rs",
+    "crates/sns-ui-egui/src/p2p_ui.rs",
+    "crates/sns-ui-egui/src/routing_ui.rs",
+    "crates/sns-ui-egui/src/security_ui.rs",
+    "crates/sns-ui-egui/src/services_ui.rs"
+  ],
+  "external_metadata_and_check_log": [
+    "docs/verification/j7-help-docs.log",
+    "docs/verification/j7-help-source-delta.json"
+  ],
+  "reconstruction": "Verify archive hashes; extract the base into an empty directory and overlay the delta, then remove deleted_paths. Run scripts/check_manifest.py check docs/verification/j7-help-code-manifest.json. Supply external archives/metadata/check logs for documentation checks; reference tests and --require-reference additionally require the read-only Filius archive, which is not redistributed.",
+  "overlay_verified_without_extraction": true
+}

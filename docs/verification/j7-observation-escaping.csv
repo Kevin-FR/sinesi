@@ -1,0 +1,2 @@
+run_id,event_id,event_schema_version,sequence,time_us,type,device_id,caused_by,correlation_id,payload_json
+"run-42-0","evt-1","4","1","0","application.command","host-b","","obs-0-0","{""application"":""dns"",""command"":{""application"":""dns"",""operation"":""start_server"",""port"":80},""note"":""élève, \""réseau\""\r\n日本語""}"

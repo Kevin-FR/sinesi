@@ -1,0 +1,111 @@
++ cargo test --release -p sns-ui-egui --test lan enlarged_keyboard_only_project_roundtrip --locked --offline
+   Compiling serde_core v1.0.229
+   Compiling num-traits v0.2.19
+   Compiling syn v3.0.9
+   Compiling hashbrown v0.17.1
+   Compiling zerocopy v0.8.63
+   Compiling emath v0.37.0
+   Compiling objc2-foundation v0.3.2
+   Compiling winnow v1.0.5
+   Compiling raw-window-handle v0.6.2
+   Compiling toml_parser v1.1.5+spec-1.1.0
+   Compiling ecolor v0.37.0
+   Compiling indexmap v2.14.2
+   Compiling accesskit_consumer v0.39.2
+   Compiling kittest v0.5.0
+   Compiling zip v9.4.1
+   Compiling synstructure v0.14.0
+   Compiling float-cmp v0.9.0
+   Compiling euclid v0.22.14
+   Compiling strict-num v0.1.1
+   Compiling moxcms v0.8.1
+   Compiling objc2-app-kit v0.3.2
+   Compiling bytemuck_derive v1.12.1
+   Compiling thiserror-impl v2.0.21
+   Compiling serde_derive v1.0.229
+   Compiling zerofrom-derive v0.1.8
+   Compiling yoke-derive v0.8.4
+   Compiling guillotiere v0.7.0
+   Compiling serde_json v1.0.154
+   Compiling enum-map-derive v1.0.1
+   Compiling serde_spanned v1.1.3
+   Compiling zerofrom v0.1.8
+   Compiling bytemuck v1.25.2
+   Compiling toml_datetime v1.1.3+spec-1.1.0
+   Compiling yoke v0.8.4
+   Compiling thiserror v2.0.21
+   Compiling enum-map v3.1.0
+   Compiling toml v1.2.1+spec-1.1.0
+   Compiling font-types v0.12.7
+   Compiling color v0.3.3
+   Compiling font-types v0.11.3
+   Compiling tiny-skia-path v0.11.4
+   Compiling read-fonts v0.41.0
+   Compiling read-fonts v0.39.2
+   Compiling peniko v0.6.1
+   Compiling ahash v0.8.12
+   Compiling vello_common v0.2.0
+   Compiling tiny-skia v0.11.4
+   Compiling serde v1.0.229
+   Compiling usvg v0.45.1
+   Compiling rgb v0.8.53
+   Compiling sns-model v0.1.0 (/Users/kevin/Web/SNS/crates/sns-model)
+   Compiling sns-i18n v0.1.0 (/Users/kevin/Web/SNS/crates/sns-i18n)
+   Compiling vello_cpu v0.2.0
+   Compiling tiny-skia-path v0.12.0
+   Compiling resvg v0.45.1
+   Compiling image v0.25.10
+   Compiling rfd v0.17.2
+   Compiling sns-vfs v0.1.0 (/Users/kevin/Web/SNS/crates/sns-vfs)
+   Compiling sns-protocols v0.1.0 (/Users/kevin/Web/SNS/crates/sns-protocols)
+   Compiling skrifa v0.44.0
+   Compiling harfrust v0.12.0
+   Compiling sns-html v0.1.0 (/Users/kevin/Web/SNS/crates/sns-html)
+   Compiling skrifa v0.42.1
+   Compiling sns-apps v0.1.0 (/Users/kevin/Web/SNS/crates/sns-apps)
+   Compiling write-fonts v0.48.1
+   Compiling sns-topology v0.1.0 (/Users/kevin/Web/SNS/crates/sns-topology)
+   Compiling sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+   Compiling epaint v0.37.0
+   Compiling subsetter v0.2.6
+   Compiling egui v0.37.0
+   Compiling sns-fonts v0.1.0 (/Users/kevin/Web/SNS/crates/sns-fonts)
+   Compiling sns-render v0.1.0 (/Users/kevin/Web/SNS/crates/sns-render)
+   Compiling krilla v0.8.2
+   Compiling sns-project v0.1.0 (/Users/kevin/Web/SNS/crates/sns-project)
+   Compiling sns-bridge v0.1.0 (/Users/kevin/Web/SNS/crates/sns-bridge)
+   Compiling sns-trace v0.1.0 (/Users/kevin/Web/SNS/crates/sns-trace)
+   Compiling sns-settings v0.1.0 (/Users/kevin/Web/SNS/crates/sns-settings)
+   Compiling egui_extras v0.37.0
+   Compiling sns-filius-import v0.1.0 (/Users/kevin/Web/SNS/crates/sns-filius-import)
+   Compiling sns-report v0.1.0 (/Users/kevin/Web/SNS/crates/sns-report)
+   Compiling egui_kittest v0.37.0
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+    Finished `release` profile [optimized] target(s) in 1m 06s
+     Running tests/lan.rs (target/release/deps/lan-5601ec127142e542)
+
+running 1 test
+test enlarged_keyboard_only_project_roundtrip_and_ping_match_in_all_views ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 33 filtered out; finished in 1.47s
+
++ cargo clippy -p sns-ui-egui --test lan --locked --offline -- -D warnings
+    Checking sns-model v0.1.0 (/Users/kevin/Web/SNS/crates/sns-model)
+    Checking sns-i18n v0.1.0 (/Users/kevin/Web/SNS/crates/sns-i18n)
+    Checking egui_kittest v0.37.0
+    Checking sns-vfs v0.1.0 (/Users/kevin/Web/SNS/crates/sns-vfs)
+    Checking sns-html v0.1.0 (/Users/kevin/Web/SNS/crates/sns-html)
+    Checking sns-protocols v0.1.0 (/Users/kevin/Web/SNS/crates/sns-protocols)
+    Checking sns-topology v0.1.0 (/Users/kevin/Web/SNS/crates/sns-topology)
+    Checking sns-project v0.1.0 (/Users/kevin/Web/SNS/crates/sns-project)
+    Checking sns-filius-import v0.1.0 (/Users/kevin/Web/SNS/crates/sns-filius-import)
+    Checking sns-settings v0.1.0 (/Users/kevin/Web/SNS/crates/sns-settings)
+    Checking sns-render v0.1.0 (/Users/kevin/Web/SNS/crates/sns-render)
+    Checking sns-apps v0.1.0 (/Users/kevin/Web/SNS/crates/sns-apps)
+    Checking sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+    Checking sns-bridge v0.1.0 (/Users/kevin/Web/SNS/crates/sns-bridge)
+    Checking sns-trace v0.1.0 (/Users/kevin/Web/SNS/crates/sns-trace)
+    Checking sns-report v0.1.0 (/Users/kevin/Web/SNS/crates/sns-report)
+    Checking sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 15.79s
++ ruby YAML workflow parse

@@ -1,0 +1,3 @@
+c5d4d37f2085eda1a798b75b1279b4f164cfa6935bfd5f6e6b8b292b80110202  artifacts/packages/j7-native/Sinesi-0.1.0-macos-arm64.zip
+74b3b6cf4f91fe6893a941fb1af73143823ed8eb579ce964d9ab4b5a3ee5d7da  artifacts/packages/j7-native/sinesi_0.1.0_amd64.deb
+b586f5ef5d695e3146737a741465d82386b7884823ef8a5499473aafbf883768  artifacts/packages/j7-native/sinesi_0.1.0_arm64.deb

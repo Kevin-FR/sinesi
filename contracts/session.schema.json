@@ -1,0 +1,1987 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sinesi.dev/contracts/session.schema.json",
+  "title": "Sinesi recovery session v1",
+  "type": "object",
+  "properties": {
+    "session_version": {
+      "const": 1
+    },
+    "session_id": {
+      "type": "string",
+      "pattern": "^session-[A-Za-z0-9-]{0,92}$"
+    },
+    "saved_at_unix_ms": {
+      "$ref": "#/$defs/decimal"
+    },
+    "revision": {
+      "$ref": "#/$defs/decimal"
+    },
+    "origin_display": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "string",
+          "maxLength": 4096
+        }
+      ],
+      "description": "Display only; never use as an I/O destination."
+    },
+    "project": {
+      "$ref": "#/$defs/project"
+    },
+    "view": {
+      "$ref": "#/$defs/session_view"
+    },
+    "edit_state": {
+      "anyOf": [
+        {
+          "type": "null"
+        },
+        {
+          "$ref": "#/$defs/editing_state"
+        }
+      ]
+    }
+  },
+  "required": [
+    "session_version",
+    "session_id",
+    "saved_at_unix_ms",
+    "revision",
+    "origin_display",
+    "project",
+    "view"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "annotation": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "text": {
+          "type": "string",
+          "maxLength": 65536
+        },
+        "x": {
+          "type": "number",
+          "minimum": -1000000,
+          "maximum": 1000000
+        },
+        "y": {
+          "type": "number",
+          "minimum": -1000000,
+          "maximum": 1000000
+        },
+        "style": {
+          "$ref": "#/$defs/annotationStyle"
+        }
+      },
+      "required": [
+        "id",
+        "text",
+        "x",
+        "y"
+      ],
+      "additionalProperties": false
+    },
+    "app": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "kind": {
+          "type": "string",
+          "maxLength": 4096
+        },
+        "config": {
+          "$ref": "#/$defs/map"
+        },
+        "service": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/service_config"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "data": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/application_data"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "config"
+      ],
+      "additionalProperties": false
+    },
+    "application_data": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "application": {
+              "const": "mail_server"
+            },
+            "data": {
+              "$ref": "#/$defs/mail_server_data"
+            }
+          },
+          "required": [
+            "application",
+            "data"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "application": {
+              "const": "mail_client"
+            },
+            "data": {
+              "$ref": "#/$defs/mail_client_data"
+            }
+          },
+          "required": [
+            "application",
+            "data"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "contact": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "maxLength": 256
+        },
+        "first_name": {
+          "type": "string",
+          "maxLength": 256
+        },
+        "last_name": {
+          "type": "string",
+          "maxLength": 256
+        },
+        "street": {
+          "type": "string",
+          "maxLength": 256
+        },
+        "house_number": {
+          "type": "string",
+          "maxLength": 256
+        },
+        "postal_code": {
+          "type": "string",
+          "maxLength": 256
+        },
+        "city": {
+          "type": "string",
+          "maxLength": 256
+        },
+        "email": {
+          "type": "string",
+          "maxLength": 256
+        },
+        "phone": {
+          "type": "string",
+          "maxLength": 256
+        }
+      },
+      "required": [
+        "id",
+        "first_name",
+        "last_name",
+        "street",
+        "house_number",
+        "postal_code",
+        "city",
+        "email",
+        "phone"
+      ],
+      "additionalProperties": false
+    },
+    "decimal": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]{0,18}|1[0-7][0-9]{18}|18[0-3][0-9]{17}|184[0-3][0-9]{16}|1844[0-5][0-9]{15}|18446[0-6][0-9]{14}|184467[0-3][0-9]{13}|1844674[0-3][0-9]{12}|184467440[0-6][0-9]{10}|1844674407[0-2][0-9]{9}|18446744073[0-6][0-9]{8}|1844674407370[0-8][0-9]{6}|18446744073709[0-4][0-9]{5}|184467440737095[0-4][0-9]{4}|18446744073709550[0-9]{3}|18446744073709551[0-5][0-9]{2}|1844674407370955160[0-9]{1}|1844674407370955161[0-4][0-9]{0}|18446744073709551615)$"
+    },
+    "device": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "kind": {
+          "enum": [
+            "workstation",
+            "notebook",
+            "switch",
+            "router",
+            "gateway",
+            "modem"
+          ]
+        },
+        "label": {
+          "type": "string",
+          "maxLength": 4096
+        },
+        "interfaces": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/interface"
+          },
+          "maxItems": 128
+        },
+        "network": {
+          "$ref": "#/$defs/network"
+        },
+        "applications": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/app"
+          },
+          "maxItems": 1024
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/file"
+          },
+          "maxItems": 4096
+        }
+      },
+      "required": [
+        "id",
+        "kind",
+        "label",
+        "interfaces",
+        "network",
+        "applications",
+        "files"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "router"
+              }
+            },
+            "required": [
+              "kind"
+            ]
+          },
+          "then": {
+            "properties": {
+              "interfaces": {
+                "minItems": 2,
+                "maxItems": 32
+              }
+            }
+          }
+        }
+      ]
+    },
+    "dhcp_config": {
+      "type": "object",
+      "properties": {
+        "interface": {
+          "$ref": "#/$defs/id"
+        },
+        "pool_start": {
+          "type": "string",
+          "format": "ipv4"
+        },
+        "pool_end": {
+          "type": "string",
+          "format": "ipv4"
+        },
+        "prefix_length": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 30
+        },
+        "gateway": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "ipv4"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "dns": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "ipv4"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "use_host_options": {
+          "type": "boolean"
+        },
+        "reservations": {
+          "type": "object",
+          "maxProperties": 256,
+          "additionalProperties": {
+            "type": "string",
+            "format": "ipv4"
+          }
+        },
+        "lease_us": {
+          "$ref": "#/$defs/decimal"
+        }
+      },
+      "required": [
+        "interface",
+        "pool_start",
+        "pool_end",
+        "prefix_length",
+        "lease_us"
+      ],
+      "additionalProperties": false
+    },
+    "dns_config": {
+      "type": "object",
+      "properties": {
+        "records": {
+          "type": "array",
+          "maxItems": 256,
+          "items": {
+            "$ref": "#/$defs/dns_record"
+          }
+        },
+        "recursive": {
+          "type": "boolean"
+        },
+        "upstream": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "ipv4"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "records"
+      ],
+      "additionalProperties": false
+    },
+    "dns_record": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "maxLength": 254
+        },
+        "record_type": {
+          "enum": [
+            "A",
+            "MX",
+            "NS"
+          ]
+        },
+        "value": {
+          "type": "string",
+          "maxLength": 254
+        },
+        "ttl_seconds": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 604800
+        },
+        "priority": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        }
+      },
+      "required": [
+        "name",
+        "record_type",
+        "value",
+        "ttl_seconds"
+      ],
+      "additionalProperties": false
+    },
+    "endpoint": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "format": "ipv4"
+        },
+        "port": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        }
+      },
+      "required": [
+        "address",
+        "port"
+      ],
+      "additionalProperties": false
+    },
+    "extension": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "api_version": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 4294967295
+        },
+        "resource_id": {
+          "$ref": "#/$defs/id"
+        },
+        "enabled": {
+          "const": false
+        }
+      },
+      "required": [
+        "id",
+        "api_version",
+        "resource_id",
+        "enabled"
+      ],
+      "additionalProperties": false
+    },
+    "file": {
+      "type": "object",
+      "properties": {
+        "path": {
+          "type": "string",
+          "maxLength": 4096
+        },
+        "media_type": {
+          "type": "string",
+          "maxLength": 4096
+        },
+        "data_base64": {
+          "type": "string",
+          "maxLength": 2097152
+        }
+      },
+      "required": [
+        "path",
+        "media_type",
+        "data_base64"
+      ],
+      "additionalProperties": false
+    },
+    "firewall": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "default_policy": {
+          "enum": [
+            "accept",
+            "drop"
+          ]
+        },
+        "syn_only": {
+          "type": "boolean"
+        },
+        "filter_udp": {
+          "type": "boolean"
+        },
+        "drop_icmp": {
+          "type": "boolean"
+        },
+        "rules": {
+          "type": "array",
+          "maxItems": 128,
+          "items": {
+            "$ref": "#/$defs/firewall_rule"
+          }
+        }
+      },
+      "required": [
+        "enabled",
+        "default_policy",
+        "syn_only",
+        "filter_udp",
+        "drop_icmp",
+        "rules"
+      ],
+      "additionalProperties": false
+    },
+    "firewall_rule": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "$ref": "#/$defs/ip_match"
+        },
+        "destination": {
+          "$ref": "#/$defs/ip_match"
+        },
+        "protocol": {
+          "enum": [
+            "any",
+            "tcp",
+            "udp"
+          ]
+        },
+        "destination_port": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 65535
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "action": {
+          "enum": [
+            "accept",
+            "drop"
+          ]
+        }
+      },
+      "required": [
+        "source",
+        "destination",
+        "protocol",
+        "destination_port",
+        "action"
+      ],
+      "additionalProperties": false
+    },
+    "forward": {
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "enum": [
+            "tcp",
+            "udp"
+          ]
+        },
+        "external_port": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "internal_address": {
+          "type": "string",
+          "format": "ipv4"
+        },
+        "internal_port": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        }
+      },
+      "required": [
+        "protocol",
+        "external_port",
+        "internal_address",
+        "internal_port"
+      ],
+      "additionalProperties": false
+    },
+    "gateway": {
+      "type": "object",
+      "properties": {
+        "lan": {
+          "$ref": "#/$defs/id"
+        },
+        "wan": {
+          "$ref": "#/$defs/id"
+        },
+        "nat_enabled": {
+          "type": "boolean"
+        },
+        "port_start": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "port_end": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "idle_timeout_us": {
+          "$ref": "#/$defs/decimal"
+        },
+        "forwards": {
+          "type": "array",
+          "maxItems": 128,
+          "items": {
+            "$ref": "#/$defs/forward"
+          }
+        }
+      },
+      "required": [
+        "lan",
+        "wan",
+        "nat_enabled",
+        "port_start",
+        "port_end",
+        "idle_timeout_us",
+        "forwards"
+      ],
+      "additionalProperties": false
+    },
+    "http_config": {
+      "type": "object",
+      "properties": {
+        "port": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "root": {
+          "type": "string",
+          "maxLength": 4096
+        },
+        "virtual_hosts": {
+          "type": "object",
+          "maxProperties": 64,
+          "additionalProperties": {
+            "type": "string",
+            "maxLength": 4096
+          }
+        },
+        "form_path": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 4096
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "administration": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "port",
+        "root"
+      ],
+      "additionalProperties": false
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]{1,128}$"
+    },
+    "interface": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "mac": {
+          "type": "string",
+          "pattern": "^([0-9a-fA-F]{2}:){5}[0-9a-fA-F]{2}$"
+        },
+        "medium": {
+          "enum": [
+            "ethernet",
+            "wireless"
+          ]
+        },
+        "ipv4": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "$ref": "#/$defs/ipv4"
+            }
+          ]
+        }
+      },
+      "required": [
+        "id",
+        "mac",
+        "medium",
+        "ipv4"
+      ],
+      "additionalProperties": false
+    },
+    "ip_match": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "match": {
+              "const": "any"
+            }
+          },
+          "required": [
+            "match"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "match": {
+              "const": "local_network"
+            }
+          },
+          "required": [
+            "match"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "match": {
+              "const": "subnet"
+            },
+            "network": {
+              "type": "string",
+              "format": "ipv4"
+            },
+            "prefix": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 32
+            }
+          },
+          "required": [
+            "match",
+            "network",
+            "prefix"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "ipv4": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "const": "static"
+            },
+            "address": {
+              "type": "string",
+              "format": "ipv4"
+            },
+            "prefix_length": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 32
+            }
+          },
+          "required": [
+            "mode",
+            "address",
+            "prefix_length"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "mode": {
+              "const": "dhcp"
+            }
+          },
+          "required": [
+            "mode"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "link": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "endpoints": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "minItems": 2,
+          "maxItems": 2
+        },
+        "latency_us": {
+          "$ref": "#/$defs/decimal"
+        },
+        "jitter_us": {
+          "$ref": "#/$defs/decimal"
+        }
+      },
+      "required": [
+        "id",
+        "endpoints",
+        "latency_us",
+        "jitter_us"
+      ],
+      "additionalProperties": false
+    },
+    "mail_account": {
+      "type": "object",
+      "properties": {
+        "username": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "password": {
+          "type": "string",
+          "maxLength": 128
+        },
+        "first_name": {
+          "type": "string",
+          "maxLength": 256
+        },
+        "last_name": {
+          "type": "string",
+          "maxLength": 256
+        }
+      },
+      "required": [
+        "username",
+        "password",
+        "first_name",
+        "last_name"
+      ],
+      "additionalProperties": false
+    },
+    "mail_client": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "maxLength": 320
+        },
+        "display_name": {
+          "type": "string",
+          "maxLength": 256
+        },
+        "smtp_server": {
+          "type": "string",
+          "maxLength": 253
+        },
+        "smtp_port": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "pop3_server": {
+          "type": "string",
+          "maxLength": 253
+        },
+        "pop3_port": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "username": {
+          "type": "string",
+          "maxLength": 64
+        },
+        "password": {
+          "type": "string",
+          "maxLength": 128
+        }
+      },
+      "required": [
+        "address",
+        "display_name",
+        "smtp_server",
+        "smtp_port",
+        "pop3_server",
+        "pop3_port",
+        "username",
+        "password"
+      ],
+      "additionalProperties": false
+    },
+    "mail_client_data": {
+      "type": "object",
+      "properties": {
+        "next_id": {
+          "$ref": "#/$defs/decimal"
+        },
+        "inbox": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/received_mail"
+          },
+          "maxItems": 256
+        },
+        "sent": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/mail_message"
+          },
+          "maxItems": 256
+        },
+        "contacts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/contact"
+          },
+          "maxItems": 128
+        }
+      },
+      "required": [
+        "next_id",
+        "inbox",
+        "sent",
+        "contacts"
+      ],
+      "additionalProperties": false
+    },
+    "mail_message": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "sender_name": {
+          "type": "string",
+          "maxLength": 256
+        },
+        "relay_path": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 253
+          },
+          "maxItems": 8
+        },
+        "from": {
+          "type": "string",
+          "maxLength": 320
+        },
+        "to": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 320
+          },
+          "maxItems": 32
+        },
+        "cc": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 320
+          },
+          "maxItems": 32
+        },
+        "bcc": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "maxLength": 320
+          },
+          "maxItems": 32
+        },
+        "subject": {
+          "type": "string",
+          "maxLength": 512
+        },
+        "body": {
+          "type": "string",
+          "maxLength": 32768
+        },
+        "received_us": {
+          "$ref": "#/$defs/decimal"
+        }
+      },
+      "required": [
+        "id",
+        "from",
+        "to",
+        "cc",
+        "bcc",
+        "subject",
+        "body",
+        "received_us"
+      ],
+      "additionalProperties": false
+    },
+    "mail_server": {
+      "type": "object",
+      "properties": {
+        "domain": {
+          "type": "string",
+          "maxLength": 253
+        },
+        "smtp_port": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "pop3_port": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "accounts": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/mail_account"
+          },
+          "maxItems": 64
+        }
+      },
+      "required": [
+        "domain",
+        "smtp_port",
+        "pop3_port",
+        "accounts"
+      ],
+      "additionalProperties": false
+    },
+    "mail_server_data": {
+      "type": "object",
+      "properties": {
+        "mailboxes": {
+          "type": "object",
+          "maxProperties": 64,
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "$ref": "#/$defs/received_mail"
+            },
+            "maxItems": 128
+          }
+        }
+      },
+      "required": [
+        "mailboxes"
+      ],
+      "additionalProperties": false
+    },
+    "map": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string",
+        "maxLength": 4096
+      }
+    },
+    "modem_config": {
+      "type": "object",
+      "properties": {
+        "role": {
+          "enum": [
+            "listen",
+            "connect"
+          ]
+        },
+        "endpoint": {
+          "type": "string",
+          "maxLength": 128
+        }
+      },
+      "required": [
+        "role",
+        "endpoint"
+      ],
+      "additionalProperties": false
+    },
+    "network": {
+      "type": "object",
+      "properties": {
+        "default_gateway": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "format": "ipv4"
+            }
+          ]
+        },
+        "dns_server": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "string",
+              "format": "ipv4"
+            }
+          ]
+        },
+        "forwarding": {
+          "anyOf": [
+            {
+              "type": "boolean"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "rip": {
+          "type": "boolean"
+        },
+        "routes": {
+          "type": "array",
+          "maxItems": 256,
+          "items": {
+            "$ref": "#/$defs/static_route"
+          }
+        },
+        "dhcp_server": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/dhcp_config"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "gateway": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/gateway"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "firewall": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/firewall"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "ssid": {
+          "anyOf": [
+            {
+              "type": "string",
+              "maxLength": 32
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "wireless": {
+          "type": "object",
+          "maxProperties": 32,
+          "propertyNames": {
+            "$ref": "#/$defs/id"
+          },
+          "additionalProperties": {
+            "type": "string",
+            "maxLength": 32
+          }
+        },
+        "modem": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/modem_config"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "default_gateway",
+        "dns_server"
+      ],
+      "additionalProperties": false
+    },
+    "p2p_config": {
+      "type": "object",
+      "properties": {
+        "port": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "max_neighbors": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 32
+        },
+        "shared_directory": {
+          "type": "string",
+          "maxLength": 4096
+        },
+        "bootstrap": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/endpoint"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "port",
+        "max_neighbors",
+        "shared_directory"
+      ],
+      "additionalProperties": false
+    },
+    "position": {
+      "type": "object",
+      "properties": {
+        "device_id": {
+          "$ref": "#/$defs/id"
+        },
+        "x": {
+          "type": "number",
+          "minimum": -1000000,
+          "maximum": 1000000
+        },
+        "y": {
+          "type": "number",
+          "minimum": -1000000,
+          "maximum": 1000000
+        }
+      },
+      "required": [
+        "device_id",
+        "x",
+        "y"
+      ],
+      "additionalProperties": false
+    },
+    "project": {
+      "type": "object",
+      "properties": {
+        "schema_version": {
+          "enum": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        "semantic_profile": {
+          "enum": [
+            "sns-educational-v1",
+            "sns-educational-lan-v1",
+            "sns-educational-hosts-v1",
+            "sns-educational-routing-v1",
+            "sns-educational-services-v1",
+            "sns-educational-private-v1",
+            "sns-educational-applications-v1",
+            "sns-educational-presentation-v1",
+            "sns-educational-documentation-v1"
+          ]
+        },
+        "project_id": {
+          "$ref": "#/$defs/id"
+        },
+        "name": {
+          "type": "string",
+          "maxLength": 4096
+        },
+        "devices": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/device"
+          },
+          "maxItems": 1024
+        },
+        "links": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/link"
+          },
+          "maxItems": 4096
+        },
+        "layout": {
+          "type": "object",
+          "properties": {
+            "devices": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/position"
+              },
+              "maxItems": 1024
+            }
+          },
+          "required": [
+            "devices"
+          ],
+          "additionalProperties": false
+        },
+        "annotations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/annotation"
+          },
+          "maxItems": 4096
+        },
+        "resources": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/resource"
+          },
+          "maxItems": 4096
+        },
+        "extensions": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/extension"
+          },
+          "maxItems": 128
+        },
+        "lan": {
+          "type": "object",
+          "propertyNames": {
+            "$ref": "#/$defs/id"
+          },
+          "maxProperties": 1024,
+          "additionalProperties": {
+            "type": "object",
+            "properties": {
+              "display": {
+                "enum": [
+                  "name",
+                  "ipv4",
+                  "mac"
+                ]
+              },
+              "sat_retention_us": {
+                "$ref": "#/$defs/decimal"
+              },
+              "symbol": {
+                "anyOf": [
+                  {
+                    "enum": [
+                      "desktop",
+                      "laptop",
+                      "server",
+                      "printer",
+                      "tablet",
+                      "router",
+                      "switch",
+                      "access_point",
+                      "modem",
+                      "cloud"
+                    ]
+                  },
+                  {
+                    "type": "null"
+                  }
+                ]
+              }
+            },
+            "required": [
+              "display",
+              "sat_retention_us"
+            ],
+            "additionalProperties": false
+          }
+        }
+      },
+      "required": [
+        "schema_version",
+        "semantic_profile",
+        "project_id",
+        "name",
+        "devices",
+        "links",
+        "layout",
+        "annotations",
+        "resources",
+        "extensions"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "oneOf": [
+            {
+              "properties": {
+                "schema_version": {
+                  "const": 1
+                },
+                "semantic_profile": {
+                  "const": "sns-educational-v1"
+                }
+              }
+            },
+            {
+              "properties": {
+                "schema_version": {
+                  "const": 2
+                },
+                "semantic_profile": {
+                  "const": "sns-educational-lan-v1"
+                }
+              }
+            },
+            {
+              "properties": {
+                "schema_version": {
+                  "const": 3
+                },
+                "semantic_profile": {
+                  "const": "sns-educational-hosts-v1"
+                }
+              }
+            },
+            {
+              "properties": {
+                "schema_version": {
+                  "const": 4
+                },
+                "semantic_profile": {
+                  "const": "sns-educational-routing-v1"
+                }
+              }
+            },
+            {
+              "properties": {
+                "schema_version": {
+                  "const": 5
+                },
+                "semantic_profile": {
+                  "const": "sns-educational-services-v1"
+                }
+              }
+            },
+            {
+              "properties": {
+                "schema_version": {
+                  "const": 6
+                },
+                "semantic_profile": {
+                  "const": "sns-educational-private-v1"
+                }
+              }
+            },
+            {
+              "properties": {
+                "schema_version": {
+                  "const": 7
+                },
+                "semantic_profile": {
+                  "const": "sns-educational-applications-v1"
+                }
+              }
+            },
+            {
+              "properties": {
+                "schema_version": {
+                  "const": 8
+                },
+                "semantic_profile": {
+                  "const": "sns-educational-presentation-v1"
+                }
+              }
+            },
+            {
+              "properties": {
+                "schema_version": {
+                  "const": 9
+                },
+                "semantic_profile": {
+                  "const": "sns-educational-documentation-v1"
+                }
+              }
+            }
+          ]
+        },
+        {
+          "if": {
+            "properties": {
+              "schema_version": {
+                "maximum": 7
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "lan": {
+                "additionalProperties": {
+                  "properties": {
+                    "symbol": {
+                      "not": {
+                        "const": "cloud"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "schema_version": {
+                "maximum": 8
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "annotations": {
+                "items": {
+                  "not": {
+                    "required": [
+                      "style"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "received_mail": {
+      "allOf": [
+        {
+          "$ref": "#/$defs/mail_message"
+        },
+        {
+          "properties": {
+            "bcc": {
+              "maxItems": 0
+            }
+          }
+        }
+      ]
+    },
+    "resource": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "$ref": "#/$defs/id"
+        },
+        "media_type": {
+          "type": "string",
+          "maxLength": 4096
+        },
+        "data_base64": {
+          "type": "string",
+          "maxLength": 2097152
+        }
+      },
+      "required": [
+        "id",
+        "media_type",
+        "data_base64"
+      ],
+      "additionalProperties": false
+    },
+    "service_config": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "service": {
+              "const": "dns"
+            },
+            "settings": {
+              "$ref": "#/$defs/dns_config"
+            }
+          },
+          "required": [
+            "service",
+            "settings"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "service": {
+              "const": "http"
+            },
+            "settings": {
+              "$ref": "#/$defs/http_config"
+            }
+          },
+          "required": [
+            "service",
+            "settings"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "service": {
+              "const": "mail_server"
+            },
+            "settings": {
+              "$ref": "#/$defs/mail_server"
+            }
+          },
+          "required": [
+            "service",
+            "settings"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "service": {
+              "const": "mail_client"
+            },
+            "settings": {
+              "$ref": "#/$defs/mail_client"
+            }
+          },
+          "required": [
+            "service",
+            "settings"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "service": {
+              "const": "p2p"
+            },
+            "settings": {
+              "$ref": "#/$defs/p2p_config"
+            }
+          },
+          "required": [
+            "service",
+            "settings"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "static_route": {
+      "type": "object",
+      "properties": {
+        "network": {
+          "type": "string",
+          "format": "ipv4"
+        },
+        "prefix": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 32
+        },
+        "gateway": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "ipv4"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "interface": {
+          "$ref": "#/$defs/id"
+        }
+      },
+      "required": [
+        "network",
+        "prefix",
+        "gateway",
+        "interface"
+      ],
+      "additionalProperties": false
+    },
+    "session_view": {
+      "type": "object",
+      "properties": {
+        "diagram": {
+          "type": "boolean"
+        },
+        "zoom": {
+          "type": "number",
+          "minimum": 0.25,
+          "maximum": 3
+        },
+        "pan": {
+          "type": "array",
+          "minItems": 2,
+          "maxItems": 2,
+          "items": {
+            "type": "number",
+            "minimum": -10000000,
+            "maximum": 10000000
+          }
+        },
+        "selected": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/id"
+          },
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "diagram",
+        "zoom",
+        "pan",
+        "selected"
+      ],
+      "additionalProperties": false
+    },
+    "editing_state": {
+      "type": "object",
+      "properties": {
+        "version": {
+          "const": 1
+        },
+        "inspector": {
+          "anyOf": [
+            {
+              "type": "null"
+            },
+            {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 2,
+              "items": {
+                "type": "object"
+              }
+            }
+          ]
+        },
+        "desktop": {
+          "type": "object",
+          "properties": {
+            "host": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/id"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "drafts": {
+              "type": "array",
+              "maxItems": 4096,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "device": {
+                    "$ref": "#/$defs/id"
+                  },
+                  "application": {
+                    "$ref": "#/$defs/id"
+                  },
+                  "state": {
+                    "type": "object"
+                  }
+                },
+                "required": [
+                  "device",
+                  "application",
+                  "state"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "host",
+            "drafts"
+          ],
+          "additionalProperties": false
+        },
+        "routing": {
+          "type": "object"
+        },
+        "security": {
+          "type": "object"
+        },
+        "conditions": {
+          "type": "object"
+        },
+        "annotation": {
+          "type": "string",
+          "maxLength": 4096
+        },
+        "target": {
+          "type": "string",
+          "maxLength": 4096
+        },
+        "ttl": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "annotation_draft": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/annotation"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "version",
+        "inspector",
+        "desktop",
+        "routing",
+        "security",
+        "conditions",
+        "annotation",
+        "target",
+        "ttl"
+      ],
+      "additionalProperties": false,
+      "description": "Inactive editing buffers. Their typed field shapes, ownership, UTF-8 byte limits and quotas are validated by the editor profile; pending input may be semantically invalid until explicitly applied. No commands are run on restore."
+    },
+    "annotationStyle": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "enum": [
+            "text",
+            "rectangle"
+          ]
+        },
+        "width": {
+          "type": "number",
+          "minimum": 24,
+          "maximum": 10000
+        },
+        "height": {
+          "type": "number",
+          "minimum": 24,
+          "maximum": 10000
+        },
+        "font_size": {
+          "type": "number",
+          "minimum": 8,
+          "maximum": 96
+        },
+        "font": {
+          "enum": [
+            "proportional",
+            "monospace"
+          ]
+        },
+        "italic": {
+          "type": "boolean"
+        },
+        "underline": {
+          "type": "boolean"
+        },
+        "border_width": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 20
+        },
+        "text_color": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          }
+        },
+        "fill_color": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          }
+        },
+        "border_color": {
+          "type": "array",
+          "minItems": 4,
+          "maxItems": 4,
+          "items": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 255
+          }
+        },
+        "bold": {
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "required": [
+        "kind",
+        "width",
+        "height",
+        "font_size",
+        "font",
+        "italic",
+        "underline",
+        "border_width",
+        "text_color",
+        "fill_color",
+        "border_color"
+      ]
+    }
+  }
+}

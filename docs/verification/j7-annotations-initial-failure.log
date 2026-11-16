@@ -1,0 +1,357 @@
+   Compiling sns-model v0.1.0 (/Users/kevin/Web/SNS/crates/sns-model)
+   Compiling sns-vfs v0.1.0 (/Users/kevin/Web/SNS/crates/sns-vfs)
+   Compiling sns-html v0.1.0 (/Users/kevin/Web/SNS/crates/sns-html)
+   Compiling sns-protocols v0.1.0 (/Users/kevin/Web/SNS/crates/sns-protocols)
+   Compiling sns-project v0.1.0 (/Users/kevin/Web/SNS/crates/sns-project)
+   Compiling sns-topology v0.1.0 (/Users/kevin/Web/SNS/crates/sns-topology)
+   Compiling sns-filius-import v0.1.0 (/Users/kevin/Web/SNS/crates/sns-filius-import)
+   Compiling sns-settings v0.1.0 (/Users/kevin/Web/SNS/crates/sns-settings)
+   Compiling sns-apps v0.1.0 (/Users/kevin/Web/SNS/crates/sns-apps)
+   Compiling sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+   Compiling sns-trace v0.1.0 (/Users/kevin/Web/SNS/crates/sns-trace)
+   Compiling sns-bridge v0.1.0 (/Users/kevin/Web/SNS/crates/sns-bridge)
+   Compiling sns-cli v0.1.0 (/Users/kevin/Web/SNS/crates/sns-cli)
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+   Compiling sns-desktop v0.1.0 (/Users/kevin/Web/SNS/apps/sns-desktop)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 26.42s
+     Running unittests src/lib.rs (target/debug/deps/sns_apps-0b03f6496bb7c697)
+
+running 1 test
+test web::tests::strict_framing_and_offline_urls ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_bridge-7880f730d77ee2ae)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/bridge.rs (target/debug/deps/bridge-8f4db558000da9bc)
+
+running 3 tests
+test bridge_child_process ... ok
+
+running 1 test
+test absent_endpoint_bad_version_oversize_and_mid_frame_cut_have_explicit_states ... ok
+test bridge_child_process ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.20s
+
+test two_real_instances_exchange_ping_record_external_inputs_and_disconnect ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.27s
+
+     Running unittests src/main.rs (target/debug/deps/sinesi-8f65c6aa8b7dae48)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/runner.rs (target/debug/deps/runner-5151e422e349d642)
+
+running 4 tests
+test filius_import_cli_emits_report_and_keeps_source_unchanged ... ok
+test independent_processes_emit_identical_traces_and_honor_bounds ... ok
+test independent_lan_processes_ping_and_reuse_arp_cache ... ok
+test network_scenario_checkpoint_continuation_and_offline_replay_match_across_processes ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.56s
+
+     Running unittests src/main.rs (target/debug/deps/sns_desktop-d93613313b537474)
+
+running 1 test
+test tests::explicit_file_argument_preserves_spaces_unicode_and_option_boundary ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_engine-7136010e2aca2608)
+
+running 2 tests
+test state_value::tests::compound_keys_and_large_counters_are_lossless_and_ordered ... ok
+test state::tests::state_contains_queue_budget_and_deterministic_protocol_and_application_tables ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/applications.rs (target/debug/deps/applications-a6f8b3aa851501e1)
+
+running 7 tests
+test failed_application_commands_keep_document_revision_and_runtime_atomic ... ok
+test j7_historical_file_probe_is_diagnostic_only_and_student_test_commands_are_rejected ... ok
+test registry_all_thirteen_entries_are_available ... ok
+test virtual_files_terminal_aliases_roundtrip_and_unknown_commands_are_isolated ... ok
+test echo_two_clients_window_service_lifecycle_and_transactional_ports ... ok
+test ping_default_four_statistics_capture_interrupt_and_broadcast ... ok
+test echo_retransmission_of_segmented_unicode_is_delivered_once ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+     Running tests/checkpoint.rs (target/debug/deps/checkpoint-59bd15b3a2086903)
+
+running 6 tests
+test recording_replays_control_commands_idempotency_and_external_output_drains ... ok
+test corrupt_incompatible_and_forged_reachable_state_are_rejected ... ok
+test scheduled_network_actions_survive_checkpoint_and_invalid_actions_are_atomic ... ok
+test checkpoint_replays_new_inputs_and_merged_event_tail_in_fresh_generation ... ok
+test checkpoint_preserves_in_flight_frames_suffix_and_rejects_old_generation ... ok
+test checkpoint_restores_active_tcp_rip_dhcp_dns_nat_and_all_expiration_suffixes ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.39s
+
+     Running tests/determinism.rs (target/debug/deps/determinism-1a8e30c6ce7819ef)
+
+running 7 tests
+test quota_and_time_overflow_fail_without_consuming_an_event_or_randomness ... ok
+test rejected_stale_and_duplicate_commands_are_atomic_and_stop_cancels_pending_work ... ok
+test delivery_priority_precedes_simultaneous_dispatch_and_fifo_breaks_ties ... ok
+test prototype_http_get_image_and_post_are_scheduled_messages ... ok
+test stable_order_is_independent_of_project_container_order ... ok
+test stepping_and_bounded_execution_match_uninterrupted_execution ... ok
+test fresh_executions_are_byte_identical_with_seeded_jitter ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/lan.rs (target/debug/deps/lan-7f4a6a38d98c59f7)
+
+running 10 tests
+test lan_quota_failure_rolls_back_state_rng_queue_and_trace ... ok
+test lan_time_overflow_leaves_failing_delivery_unconsumed ... ok
+test local_subnets_gateway_masks_and_errors ... ok
+test gateway_emits_wire_icmp_time_exceeded_and_unreachable ... ok
+test loop_protection_is_bounded_and_explained ... ok
+test configurable_sat_retention_and_arp_coalescing_keep_correlations ... ok
+test r_lan_arp_learning_unicast_cache_and_purge ... ok
+test all_three_hosts_exchange_and_shuffled_storage_preserves_seeded_trace ... ok
+test paused_step_loss_timeouts_and_ten_clean_restarts ... ok
+test deterministic_step_chunks_and_speeds_are_identical ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.43s
+
+     Running tests/link_conditions.rs (target/debug/deps/link_conditions-6c2a693cfb30b1c1)
+
+running 4 tests
+test failed_event_does_not_consume_a_random_trial_or_queue_boundary ... ok
+test invalid_configuration_is_atomic_live_repair_works_and_earlier_checkpoints_remain_readable ... ok
+test hundred_percent_blocks_only_one_link_zero_restores_and_streams_are_isolated ... ok
+test seeded_partial_loss_replays_and_resumes_with_future_actions_and_rng_state ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.38s
+
+     Running tests/mail.rs (target/debug/deps/mail-6d00e43cfafd522d)
+
+running 8 tests
+test occupied_pop3_port_rolls_back_smtp_listener_atomically ... ok
+test contacts_persist_and_bcc_only_delivery_is_valid ... ok
+test unknown_recipient_and_deleted_account_have_explicit_failures ... ok
+test remote_unknown_recipient_fails_after_mx_lookup_without_committing_local_copy ... ok
+test smtp_pop3_local_delivery_and_durable_client_folders ... ok
+test mx_then_a_relay_and_bcc_do_not_expose_hidden_recipients ... ok
+test invalid_credentials_custom_ports_and_reopened_mailboxes_are_isolated ... ok
+test interrupted_pop3_dele_does_not_commit_and_releases_mailbox_lock ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.20s
+
+     Running tests/p2p.rs (target/debug/deps/p2p-2e4d152b94ecfba1)
+
+running 3 tests
+test limits_reject_extra_neighbors_and_invalid_ttl ... ok
+test cancelled_and_superseded_searches_ignore_in_flight_results ... ok
+test cyclic_overlay_discovers_searches_downloads_exact_bytes_and_resets ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.25s
+
+     Running tests/presentation.rs (target/debug/deps/presentation-d4f879ffa8f72eb0)
+
+running 2 tests
+test invalid_target_and_full_trace_leave_the_entire_state_unchanged ... ok
+test cloud_toggle_preserves_ports_sat_timers_and_live_communication_then_replays ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/private.rs (target/debug/deps/private-e3942fc874486152)
+
+running 15 tests
+test wan_arp_failure_quotes_the_original_private_probe ... ok
+test idle_udp_mapping_expires_then_port_can_be_reused_and_invalid_edits_are_atomic ... ok
+test static_udp_forward_and_wan_private_scope_guard ... ok
+test nat_udp_same_ports_isolate_reply_endpoints ... ok
+test wan_dhcp_rejects_an_overlapping_lan_assignment_instead_of_swapping_roles ... ok
+test firewall_order_policy_icmp_and_udp_reverse_matching ... ok
+test mapping_purge_expiry_and_port_exhaustion_are_observable ... ok
+test filter_udp_reverse_rule_icmp_switch_and_syn_only_are_explicit ... ok
+test host_filter_blocks_one_service_and_preserves_http_when_icmp_is_blocked ... ok
+test nat_tcp_same_ports_restore_to_correct_hosts_and_keep_original_trace ... ok
+test static_forward_and_icmp_traceroute_quotes_traverse_nat ... ok
+test wan_dhcp_and_lan_distribution_are_independent_and_expiry_keeps_lan_administration ... ok
+test private_network_workflows_have_identical_canonical_traces ... ok
+test web_rule_changes_are_applied_and_the_journal_reports_the_rule_and_packet ... ok
+test administration_over_real_http_updates_shared_configuration_and_rejects_stale_or_wan_forms ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.33s
+
+     Running tests/routing.rs (target/debug/deps/routing-097d5324a6879b53)
+
+running 12 tests
+test arp_injection_changes_only_simulated_cache_and_broadcast_stays_on_lan ... ok
+test interrupted_traceroute_stops_future_probes_and_malformed_routes_do_not_panic ... ok
+test rejected_broadcast_command_does_not_leave_a_failing_event_in_the_queue ... ok
+test routes_specific_prefix_default_delete_and_host_forwarding_switch ... ok
+test arp_exercise_redirects_a_frame_to_the_claiming_host_only_in_the_simulation ... ok
+test traceroute_starts_at_one_orders_hops_and_finishes_without_os_calls ... ok
+test three_lans_forward_original_addresses_and_ttl_and_return_real_icmp ... ok
+test rip_chain_uses_two_hops_and_restarts_have_no_old_generation_state ... ok
+test missing_route_arp_failure_and_routing_loop_have_distinct_structured_causes ... ok
+test tcp_echo_uses_multiple_router_hops_and_preserves_routing_profile ... ok
+test rip_deterministic_with_reordered_entities_and_step_execution ... ok
+test rip_three_routers_shortest_path_poisoning_and_expiration ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+     Running tests/services.rs (target/debug/deps/services-301086c6e9ef689c)
+
+running 12 tests
+test r_dhcp_two_clients_reservation_effective_settings_and_document ... ok
+test dhcp_conflict_decline_pool_exhaustion_and_link_local ... ok
+test dhcp_nack_unoffered_address_and_expiration_of_refused_entries ... ok
+test link_local_conflicts_have_a_bounded_final_failure ... ok
+test dhcp_expiry_releases_and_reacquires_virtual_lease ... ok
+test dns_and_http_cross_routed_networks_with_dhcp_options_inherited ... ok
+test dns_mx_nodata_timeout_and_explicit_purge ... ok
+test dns_ttl_cache_is_per_host_and_delete_survives_reload ... ok
+test dns_parent_delegation_recursive_and_iterative_queries_and_bounded_loop ... ok
+test same_named_images_from_two_origins_and_navigation_are_isolated ... ok
+test r_web_offline_dns_http_images_forms_virtual_hosts_and_isolation ... ok
+test http_methods_encoded_paths_segmented_body_and_stop_with_pending_queries ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.36s
+
+     Running tests/transport.rs (target/debug/deps/transport-d5f8dfd0e77b6377)
+
+running 10 tests
+test udp_lost_datagram_has_no_transport_retry_and_broadcast_stays_on_its_lan ... ok
+test final_handshake_ack_loss_does_not_reaccept_or_reconnect ... ok
+test udp_interface_scopes_and_closed_port_are_explicit ... ok
+test transport_trace_quota_and_invalid_broadcast_connect_do_not_reserve_ports ... ok
+test mute_peer_times_out_boundedly_and_loopback_never_uses_ethernet ... ok
+test graceful_fin_ack_closes_sessions_and_timers_do_not_resurrect_them ... ok
+test ports_conflicts_and_invalid_commands_are_atomic_then_owner_stop_frees_everything ... ok
+test transport_step_and_run_preserve_canonical_order_for_fixed_input ... ok
+test loss_of_data_and_ack_retransmits_without_duplicate_application_bytes ... ok
+test tcp_two_clients_have_distinct_endpoints_and_segmented_bidirectional_streams ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.12s
+
+     Running tests/wireless.rs (target/debug/deps/wireless-d63f0959e170d313)
+
+running 2 tests
+test access_point_relays_between_two_radios_and_rejects_duplicate_ssids ... ok
+test ssid_association_reaches_wired_lan_and_ap_rename_only_detaches_its_clients ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_filius_import-e28478a6fb16468e)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/import.rs (target/debug/deps/import-83b0699c8507d3f9)
+
+running 8 tests
+test corpus_imports_as_data_preserving_every_byte_and_reports_all_losses ... ignored, requires the local read-only Filius corpus; run explicitly with --ignored
+test imported_historical_lan_uses_production_arp_and_icmp ... ignored, requires the local read-only Filius LAN example; run explicitly with --ignored
+test duplicate_names_bad_crc_and_unsafe_virtual_tree_are_rejected ... ok
+test arbitrary_embedded_code_is_preserved_and_disabled ... ok
+test unsafe_archives_and_entity_xml_and_dangling_aliases_are_rejected ... ok
+test import_is_deterministic_and_mac_repairs_are_unique ... ok
+test portable_synthetic_import_roundtrips_and_exchanges_real_simulated_frames ... ok
+test cloud_flag_imports_as_presentation_data_without_changing_ports_or_wires ... ok
+
+test result: ok. 6 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_fonts-495ba345c7df0a22)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_html-2b8110d10a80ea5f)
+
+running 3 tests
+test tests::encoded_external_urls_do_not_bypass_the_policy ... ok
+test tests::parses_image_link_and_post_form_without_any_loader ... ok
+test tests::rejects_external_resources_scripts_and_malformed_content ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_i18n-e3a608d06083d735)
+
+running 2 tests
+test tests::language_and_formatted_values_are_portable_and_no_fallback_occurs ... ok
+test tests::all_six_languages_have_every_key_and_matching_parameters ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_model-bfeda2013f083618)
+
+running 2 tests
+test tests::decimal_is_exact_and_canonical ... ok
+test tests::paths_cannot_escape_into_host_resources ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_project-d89c8e9672a42ec2)
+
+running 3 tests
+test tests::untrusted_documents_are_rejected_before_use ... ok
+test tests::project_roundtrip_and_failed_replacement_preserve_original ... ok
+test tests::migration_preserves_exact_source_and_refuses_unrecognized_versions ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+     Running tests/contracts.rs (target/debug/deps/contracts-ff84e596f45798f4)
+
+running 15 tests
+test actual_tcp_udp_commands_and_transport_frames_validate_as_portable_contracts ... ok
+test neutral_schemas_accept_actual_serialized_contracts ... ok
+test recovery_session_contract_is_versioned_bounded_and_validates_project_and_selection ... ok
+test schemas_reject_unknown_properties_versions_and_invalid_counters ... ok
+test semantic_reference_checks_complement_the_structural_schema ... ok
+test lan_v2_round_trip_commands_and_actual_frames_match_neutral_contracts ... ok
+test j7_cloud_project_live_commands_events_and_checkpoint_match_presentation_contracts ... ok
+test documentation_project_round_trips_styles_and_remains_valid_in_session_and_checkpoint ... ok
+test j7_scheduled_network_checkpoint_and_recording_follow_portable_contracts ... ok
+test private_network_profiles_commands_nat_and_quoted_icmp_match_neutral_contracts ... ok
+test j7_link_conditions_commands_events_scenarios_and_random_state_match_contracts ... ok
+test hosts_v3_app_commands_and_events_are_portable_and_strict ... ok
+test j6_projects_commands_durable_mail_and_advanced_events_match_contracts ... ok
+test routed_projects_and_actual_rip_forwarding_events_match_versioned_contracts ... ok
+test service_profiles_commands_and_actual_trace_roundtrip_with_neutral_schemas ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.89s
+
+     Running tests/session.rs (target/debug/deps/session-a55a0eb0f8732a4e)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... FAILED
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+failures:
+
+---- unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved stdout ----
+
+thread 'unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved' (37653721) panicked at crates/sns-project/tests/session.rs:179:5:
+assertion `left == right` failed
+  left: 0
+ right: 1
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved
+
+test result: FAILED. 2 passed; 1 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.09s
+
+error: test failed, to rerun pass `-p sns-project --test session`

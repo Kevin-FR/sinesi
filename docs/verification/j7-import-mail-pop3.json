@@ -1,0 +1,10 @@
+{
+  "bcc_received": 0,
+  "checkpoint_and_replay_match": true,
+  "inbox_after": 3,
+  "inbox_before": 1,
+  "sent_after": 3,
+  "source": "man-in-the-middle.fls",
+  "trace_events": 517,
+  "trace_sha256": "f9e79ae74dcb71192d1a1f9278be197277f02540461fb25c8300f5f662013b38"
+}

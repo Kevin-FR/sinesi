@@ -1,0 +1,5 @@
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.06s
+     Running `target/debug/xtask unknown`
+xtask: Unknown task: unknown. Use check, layers, ci or ui.
+
+exit_code=1

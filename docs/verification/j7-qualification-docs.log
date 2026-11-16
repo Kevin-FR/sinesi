@@ -1,0 +1,17 @@
+$ python3 scripts/docs.py render
+$ python3 scripts/docs.py check --require-reference
+OK — 178 exigences, 50 tâches, 1061 fichiers source; preuves, dépendances, jalons, couverture et séparation vérifiés.
+$ python3 scripts/check_manifest.py check docs/verification/j7-qualification-code-manifest.json
+OK — 834 source files, revision 05253c91d082652da756302775c66271247387c432ed9ccc2f0e7b4992361d4c
+$ shasum -a 256 -c docs/verification/j7-qualification-packages.sha256.txt
+artifacts/packages/j7-qualification/sinesi_0.1.0_amd64.deb: OK
+$ git diff --check
+$ python3 /tmp/sns-seal-j7-qualification.py
+docs/suivi/features.json []
+docs/rust/taches.json []
+Correctif vérifié : 31 fichiers, 187697 octets.
+$ python3 scripts/docs.py check --require-reference
+OK — 178 exigences, 50 tâches, 1061 fichiers source; preuves, dépendances, jalons, couverture et séparation vérifiés.
+$ python3 scripts/check_manifest.py check docs/verification/j7-qualification-code-manifest.json
+OK — 834 source files, revision 05253c91d082652da756302775c66271247387c432ed9ccc2f0e7b4992361d4c
+$ git diff --check

@@ -1,0 +1,9 @@
++ python3 scripts/docs.py render
+docs/suivi/features.json []
+docs/rust/taches.json []
+Correctif vérifié : 20 fichiers, 233791 octets.
++ python3 scripts/docs.py check --require-reference
+OK — 178 exigences, 50 tâches, 1061 fichiers source; preuves, dépendances, jalons, couverture et séparation vérifiés.
++ python3 scripts/check_manifest.py check docs/verification/structure-document-open-code-manifest.json
+OK — 821 source files, revision 4f228c1cf1953e1c18856b37aced872c52af84857dddd46178ede2eac52b27e5
++ git diff --check

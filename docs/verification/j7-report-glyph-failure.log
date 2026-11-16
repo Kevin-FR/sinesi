@@ -1,0 +1,32 @@
+   Compiling sns-report v0.1.0 (/Users/kevin/Web/SNS/crates/sns-report)
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+   Compiling sns-cli v0.1.0 (/Users/kevin/Web/SNS/crates/sns-cli)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 8.51s
+     Running tests/report.rs (target/debug/deps/report-80a5aeb2dbf9ae9e)
+
+running 1 test
+test headless_report_from_project_and_checkpoint_is_deterministic_and_atomic ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.93s
+
+     Running tests/report.rs (target/debug/deps/report-58d4c542cfc9b748)
+
+running 2 tests
+test pdf_export_keeps_previous_file_on_failure_and_protects_project ... FAILED
+test pdf_buttons_and_background_export_preserve_six_languages_views_and_frozen_document ... ok
+
+failures:
+
+---- pdf_export_keeps_previous_file_on_failure_and_protects_project stdout ----
+
+thread 'pdf_export_keeps_previous_file_on_failure_and_protects_project' (38371072) panicked at /Users/kevin/.cargo/registry/src/index.crates.io-1949cf8c6b5b557f/epaint-0.37.0/src/text/fonts.rs:806:9:
+No glyph for "\u{10ffff}" (U+10FFFF) in Name("sns-annotation-mono"). Installed fonts: ["sns-annotation-mono"]. Install a font that has it, add a `FontProvider` or `GlyphRasterizer` that can draw it, or allow tofu with `MissingGlyphPolicy::Tofu`.
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    pdf_export_keeps_previous_file_on_failure_and_protects_project
+
+test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.28s
+
+error: test failed, to rerun pass `-p sns-ui-egui --test report`

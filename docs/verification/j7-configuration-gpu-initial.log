@@ -1,0 +1,20 @@
+   Compiling sns-i18n v0.1.0 (/Users/kevin/Web/SNS/crates/sns-i18n)
+   Compiling sns-apps v0.1.0 (/Users/kevin/Web/SNS/crates/sns-apps)
+   Compiling sns-settings v0.1.0 (/Users/kevin/Web/SNS/crates/sns-settings)
+   Compiling sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+   Compiling sns-report v0.1.0 (/Users/kevin/Web/SNS/crates/sns-report)
+   Compiling sns-trace v0.1.0 (/Users/kevin/Web/SNS/crates/sns-trace)
+   Compiling sns-bridge v0.1.0 (/Users/kevin/Web/SNS/crates/sns-bridge)
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 11.52s
+     Running tests/configuration.rs (target/debug/deps/configuration-14d8829eae0422b7)
+
+running 5 tests
+test public_startup_boundary_refuses_invalid_typed_display_data ... ok
+test administrator_and_project_destinations_are_protected_even_through_missing_parent_traversal ... ok
+test explicit_defaults_reset_hidden_persistent_values_and_cancel_remains_non_mutating ... ok
+test editing_one_preference_does_not_persist_other_command_line_overrides ... ok
+test invalid_startup_values_are_localized_in_six_languages_both_views_and_leave_network_and_files_intact ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.08s
+

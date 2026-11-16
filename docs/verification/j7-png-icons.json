@@ -1,0 +1,27 @@
+{
+  "annotations": 2,
+  "bounds": [
+    -324.0,
+    -274.0,
+    1498.0,
+    938.0
+  ],
+  "clipped_texts": 0,
+  "devices": 4,
+  "glyphs": 149,
+  "height": 763,
+  "links": 3,
+  "object_ids": [
+    "cable-host-a",
+    "cable-host-b",
+    "cable-host-c",
+    "host-a",
+    "host-b",
+    "host-c",
+    "note-exercise",
+    "switch",
+    "zone-lan"
+  ],
+  "sha256": "0e522e08bec79065e17c28086c18d7a74a84f18ed9b92472390ec105da8cc068",
+  "width": 1200
+}

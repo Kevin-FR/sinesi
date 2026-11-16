@@ -1,5 +1,5 @@
 use egui_kittest::{Harness, kittest::Queryable as _};
-use sns_ui_egui::{SinesiUi, Tab};
+use sns_ui_egui::prototype::{SinesiUi, Tab};
 
 fn harness() -> Harness<'static, SinesiUi> {
     Harness::builder()

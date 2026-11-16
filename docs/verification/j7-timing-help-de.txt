@@ -1,0 +1,35 @@
+Aufruf: sns-desktop [Optionen] [--] [Projekt.json]
+Priorität: integrierte Vorgaben < Administration < Benutzerprofil < Befehlszeile.
+
+  -r, --rtt-factor 1..5
+      Simulierte Antwortwartezeiten vervielfachen (1–5); Verbindungen und Lebensdauern bleiben unverändert.
+  -h, --help 
+      Diese Hilfe ohne Fenster anzeigen.
+  --version 
+      Version anzeigen.
+  --check-config 
+      Konfiguration und Projekt prüfen und einen JSON-Bericht ohne Fenster ausgeben.
+  --config PATH
+      Administrationskonfiguration wählen.
+  --settings PATH
+      Benutzerprofil wählen.
+  --session-dir PATH
+      Lokalen Wiederherstellungsordner wählen.
+  -w, --workdir PATH
+      Relative Pfade von diesem Verzeichnis aus auflösen, ohne Dateien zu verschieben.
+  --language fr|en|es|it|pt|de
+      Sprache vorübergehend wählen.
+  --ui-scale 80..200
+      Oberflächengröße vorübergehend in Prozent wählen.
+  --font default|noto_sans
+      Schriftart vorübergehend wählen.
+  --view icons|diagram
+      Symbol- oder Schemaansicht vorübergehend wählen.
+  --layout inspector_right|inspector_left|tabs
+      Bereichsanordnung vorübergehend wählen.
+  --window-width 840..3840
+      Fensterbreite vorübergehend wählen.
+  --window-height 600..2160
+      Fensterhöhe vorübergehend wählen.
+
+Anzeigeoptionen beim Start sind vorübergehend. Spätere Änderungen in der Oberfläche werden im Benutzerprofil gespeichert.

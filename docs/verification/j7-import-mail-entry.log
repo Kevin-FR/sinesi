@@ -1,0 +1,74 @@
++ cargo test -p sns-engine --test mail --locked --offline
+    Blocking waiting for file lock on artifact directory
+   Compiling sns-i18n v0.1.0 (/Users/kevin/Web/SNS/crates/sns-i18n)
+   Compiling sns-apps v0.1.0 (/Users/kevin/Web/SNS/crates/sns-apps)
+   Compiling sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.80s
+     Running tests/mail.rs (target/debug/deps/mail-57c886cb75fa6251)
+
+running 8 tests
+test occupied_pop3_port_rolls_back_smtp_listener_atomically ... ok
+test contacts_persist_and_bcc_only_delivery_is_valid ... ok
+test unknown_recipient_and_deleted_account_have_explicit_failures ... ok
+test remote_unknown_recipient_fails_after_mx_lookup_without_committing_local_copy ... ok
+test smtp_pop3_local_delivery_and_durable_client_folders ... ok
+test mx_then_a_relay_and_bcc_do_not_expose_hidden_recipients ... ok
+test invalid_credentials_custom_ports_and_reopened_mailboxes_are_isolated ... ok
+test interrupted_pop3_dele_does_not_commit_and_releases_mailbox_lock ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.20s
+
++ cargo test -p sns-cli --test runner --locked --offline
+   Compiling sns-filius-import v0.1.0 (/Users/kevin/Web/SNS/crates/sns-filius-import)
+   Compiling sns-cli v0.1.0 (/Users/kevin/Web/SNS/crates/sns-cli)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.25s
+     Running tests/runner.rs (target/debug/deps/runner-f7e4ffe4b39a6163)
+
+running 5 tests
+test filius_import_cli_emits_report_and_keeps_source_unchanged ... ok
+test independent_processes_emit_identical_traces_and_honor_bounds ... ok
+test independent_lan_processes_ping_and_reuse_arp_cache ... ok
+test network_scenario_checkpoint_continuation_and_offline_replay_match_across_processes ... ok
+test response_wait_factor_changes_slow_network_outcome_and_survives_offline_replay_and_resume ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.70s
+
++ cargo test -p sns-ui-egui --test lan j7_background_import --locked --offline
+   Compiling sns-filius-import v0.1.0 (/Users/kevin/Web/SNS/crates/sns-filius-import)
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 10.62s
+     Running tests/lan.rs (target/debug/deps/lan-37fec6bba389d50d)
+
+running 1 test
+test j7_background_import_preserves_six_languages_views_and_previous_project_on_failure ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.39s
+
++ cargo test -p sns-ui-egui --test lan j7_runtime_restore_export_replay --locked --offline
+   Compiling sns-filius-import v0.1.0 (/Users/kevin/Web/SNS/crates/sns-filius-import)
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.85s
+     Running tests/lan.rs (target/debug/deps/lan-37fec6bba389d50d)
+
+running 1 test
+test j7_runtime_restore_export_replay_preserves_languages_views_and_failed_load ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.31s
+
++ cargo test -p sns-ui-egui --test session --locked --offline
+    Blocking waiting for file lock on artifact directory
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 8.20s
+     Running tests/session.rs (target/debug/deps/session-2403a77579df221d)
+
+running 7 tests
+test automatic_ui_writer_child ... ignored, helper invoked only by the automatic-recovery parent test
+test preferences_cannot_replace_an_explicit_project_or_be_replaced_by_project_save ... ok
+test normal_quit_keeps_latest_applied_and_unapplied_edits_without_waiting_for_periodic_save ... ok
+test explicit_launch_file_has_priority_and_failed_restore_preserves_document_and_cache ... ok
+test recovery_offer_restores_language_document_selection_and_two_views_in_all_six_languages ... ok
+test a_full_cache_still_allows_recovery_without_deleting_other_documents ... ok
+test automatic_gui_snapshot_survives_forced_exit_with_unapplied_buffers_and_explicit_file_preserved ... ok
+
+test result: ok. 6 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 2.16s
+

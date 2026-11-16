@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mime-info xmlns="http://www.freedesktop.org/standards/shared-mime-info">
+  <mime-type type="application/vnd.sinesi.project+json">
+    <comment>Sinesi project</comment>
+    <comment xml:lang="fr">Projet Sinesi</comment>
+    <comment xml:lang="es">Proyecto Sinesi</comment>
+    <comment xml:lang="it">Progetto Sinesi</comment>
+    <comment xml:lang="pt">Projeto Sinesi</comment>
+    <comment xml:lang="de">Sinesi-Projekt</comment>
+    <sub-class-of type="application/json"/>
+    <glob pattern="*.sinesi"/>
+  </mime-type>
+</mime-info>

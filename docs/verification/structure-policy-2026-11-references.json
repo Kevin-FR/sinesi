@@ -1,0 +1,34 @@
+[
+  {
+    "repository": "tangency-labs/solidcraft",
+    "revision": "44525da6699b46cf00ce696c4c5dfd06874116d5",
+    "path": "Cargo.toml",
+    "url": "https://raw.githubusercontent.com/tangency-labs/solidcraft/44525da6699b46cf00ce696c4c5dfd06874116d5/Cargo.toml",
+    "sha256": "6561c186903878805e380c2fc19d964f4d1e155f500b2fec38f388aad025e08d",
+    "lines": 180
+  },
+  {
+    "repository": "tangency-labs/solidcraft",
+    "revision": "44525da6699b46cf00ce696c4c5dfd06874116d5",
+    "path": "AGENTS.md",
+    "url": "https://raw.githubusercontent.com/tangency-labs/solidcraft/44525da6699b46cf00ce696c4c5dfd06874116d5/AGENTS.md",
+    "sha256": "cd8894ef427c6de0a93787e70cf5d3f9130e8dc744c8148145ff2b082cddf845",
+    "lines": 52
+  },
+  {
+    "repository": "storytold/wordcraft",
+    "revision": "4b0d39959968a34e462cb53099e76fb108d0e96f",
+    "path": "Cargo.toml",
+    "url": "https://raw.githubusercontent.com/storytold/wordcraft/4b0d39959968a34e462cb53099e76fb108d0e96f/Cargo.toml",
+    "sha256": "63cca085d1367f042d11305f1f115af2a309ca33042b5af701c39b576d002a7f",
+    "lines": 152
+  },
+  {
+    "repository": "storytold/wordcraft",
+    "revision": "4b0d39959968a34e462cb53099e76fb108d0e96f",
+    "path": "AGENTS.md",
+    "url": "https://raw.githubusercontent.com/storytold/wordcraft/4b0d39959968a34e462cb53099e76fb108d0e96f/AGENTS.md",
+    "sha256": "8015808ce830b275c8bca3b5364a982d4680005585d63bd6de81338480e2930d",
+    "lines": 140
+  }
+]

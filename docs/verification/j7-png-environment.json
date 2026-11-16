@@ -1,0 +1,30 @@
+{
+  "date": "2026-11-08",
+  "system": "macOS-27.2-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "rustc": "rustc 1.95.0 (59807616e 2026-04-14)",
+  "workspace_tests": 224,
+  "bridge_child_test": 1,
+  "forced_session_child_exits_in_workspace": 2,
+  "ignored_by_default": 5,
+  "locale_keys": 709,
+  "languages": [
+    "fr",
+    "en",
+    "es",
+    "it",
+    "pt",
+    "de"
+  ],
+  "views": [
+    "icons",
+    "diagram"
+  ],
+  "new_ui_pngs": 12,
+  "export_pngs": 4,
+  "document_fonts": 4,
+  "network_svgs": 20,
+  "prior_proof_images_replaced": false,
+  "native_manual_workflow": false,
+  "windows_linux_proof": false
+}

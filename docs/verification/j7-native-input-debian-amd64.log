@@ -1,0 +1,213 @@
+x86_64
+debconf: delaying package configuration, since apt-utils is not installed
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  desktop-file-utils libegl-mesa0 libegl1 libgbm1 libwayland-server0
+  libxcb-xkb1 libxkbcommon-x11-0
+Recommended packages:
+  xdg-desktop-portal
+The following NEW packages will be installed:
+  desktop-file-utils libegl-mesa0 libegl1 libgbm1 libwayland-server0
+  libxcb-xkb1 libxkbcommon-x11-0 sinesi
+0 upgraded, 8 newly installed, 0 to remove and 0 not upgraded.
+Need to get 457 kB/16.4 MB of archives.
+After this operation, 1268 kB of additional disk space will be used.
+Get:1 http://deb.debian.org/debian bookworm/main amd64 desktop-file-utils amd64 0.26-1 [91.2 kB]
+Get:2 /out/final-amd64/sinesi_0.1.0_amd64.deb sinesi amd64 0.1.0 [16.0 MB]
+Get:3 http://deb.debian.org/debian bookworm/main amd64 libwayland-server0 amd64 1.21.0-1 [35.9 kB]
+Get:4 http://deb.debian.org/debian bookworm/main amd64 libgbm1 amd64 22.3.6-1+deb12u2 [38.1 kB]
+Get:5 http://deb.debian.org/debian bookworm/main amd64 libegl-mesa0 amd64 22.3.6-1+deb12u2 [114 kB]
+Get:6 http://deb.debian.org/debian bookworm/main amd64 libxcb-xkb1 amd64 1.15-1 [129 kB]
+Get:7 http://deb.debian.org/debian bookworm/main amd64 libxkbcommon-x11-0 amd64 1.5.0-1 [15.6 kB]
+Get:8 http://deb.debian.org/debian bookworm/main amd64 libegl1 amd64 1.6.0-1 [33.7 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 457 kB in 0s (1037 kB/s)
+Selecting previously unselected package desktop-file-utils.
+
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 11224 files and directories currently installed.)
+
+Preparing to unpack .../0-desktop-file-utils_0.26-1_amd64.deb ...
+
+Unpacking desktop-file-utils (0.26-1) ...
+
+Selecting previously unselected package libwayland-server0:amd64.
+
+Preparing to unpack .../1-libwayland-server0_1.21.0-1_amd64.deb ...
+
+Unpacking libwayland-server0:amd64 (1.21.0-1) ...
+
+Selecting previously unselected package libgbm1:amd64.
+
+Preparing to unpack .../2-libgbm1_22.3.6-1+deb12u2_amd64.deb ...
+
+Unpacking libgbm1:amd64 (22.3.6-1+deb12u2) ...
+
+Selecting previously unselected package libegl-mesa0:amd64.
+
+Preparing to unpack .../3-libegl-mesa0_22.3.6-1+deb12u2_amd64.deb ...
+
+Unpacking libegl-mesa0:amd64 (22.3.6-1+deb12u2) ...
+
+Selecting previously unselected package libxcb-xkb1:amd64.
+
+Preparing to unpack .../4-libxcb-xkb1_1.15-1_amd64.deb ...
+
+Unpacking libxcb-xkb1:amd64 (1.15-1) ...
+
+Selecting previously unselected package libxkbcommon-x11-0:amd64.
+
+Preparing to unpack .../5-libxkbcommon-x11-0_1.5.0-1_amd64.deb ...
+
+Unpacking libxkbcommon-x11-0:amd64 (1.5.0-1) ...
+
+Selecting previously unselected package libegl1:amd64.
+
+Preparing to unpack .../6-libegl1_1.6.0-1_amd64.deb ...
+
+Unpacking libegl1:amd64 (1.6.0-1) ...
+
+Selecting previously unselected package sinesi.
+
+Preparing to unpack .../7-sinesi_0.1.0_amd64.deb ...
+
+Unpacking sinesi (0.1.0) ...
+
+Setting up libwayland-server0:amd64 (1.21.0-1) ...
+
+Setting up desktop-file-utils (0.26-1) ...
+
+Setting up libgbm1:amd64 (22.3.6-1+deb12u2) ...
+
+Setting up libxcb-xkb1:amd64 (1.15-1) ...
+
+Setting up libegl-mesa0:amd64 (22.3.6-1+deb12u2) ...
+
+Setting up libxkbcommon-x11-0:amd64 (1.5.0-1) ...
+
+Setting up libegl1:amd64 (1.6.0-1) ...
+
+Setting up sinesi (0.1.0) ...
+
+Processing triggers for shared-mime-info (2.2-1) ...
+
+Processing triggers for libc-bin (2.36-9+deb12u14) ...
+
+OK — 12 startup combinations, portable save, ping, checkpoint, replay and PNG in /out/verified-amd64
+  standard::content-type: application/vnd.sinesi.project+json
+Default application for ?application/vnd.sinesi.project+json?: fr.sinesi.Sinesi.desktop
+Registered applications:
+	fr.sinesi.Sinesi.desktop
+Recommended applications:
+	fr.sinesi.Sinesi.desktop
+Default application for ?application/vnd.sinesi.project+json?: fr.sinesi.Sinesi.desktop
+	fr.sinesi.Sinesi.desktop
+	fr.sinesi.Sinesi.desktop
+Set fr.sinesi.Sinesi.desktop as the default for application/vnd.sinesi.project+json
+dbus-daemon[2944]: [session uid=0 pid=2944] Activating service name='org.a11y.Bus' requested by ':1.0' (uid=0 pid=2964 comm="gdbus call --session --dest org.a11y.Bus --object-")
+dbus-daemon[2944]: [session uid=0 pid=2944] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[2944]: [session uid=0 pid=2944] Activating service name='ca.desrt.dconf' requested by ':1.1' (uid=0 pid=2978 comm="/usr/libexec/at-spi-bus-launcher")
+dbus-daemon[2944]: [session uid=0 pid=2944] Successfully activated service 'ca.desrt.dconf'
+()
+dbus-daemon[2987]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=0 pid=2958 comm="python3 -u packaging/smoke-linux-accessibility.py")
+dbus-daemon[2987]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+OK — fr/icons at 150%: associated window, AT-SPI focus, Ctrl+S, ICMP reply
+OK — fr/diagram at 150%: associated window, AT-SPI focus, Ctrl+S, ICMP reply
+OK — en/icons at 150%: associated window, AT-SPI focus, Ctrl+S, ICMP reply
+OK — en/diagram at 150%: associated window, AT-SPI focus, Ctrl+S, ICMP reply
+OK — es/icons at 150%: associated window, AT-SPI focus, Ctrl+S, ICMP reply
+OK — es/diagram at 150%: associated window, AT-SPI focus, Ctrl+S, ICMP reply
+OK — it/icons at 150%: associated window, AT-SPI focus, Ctrl+S, ICMP reply
+OK — it/diagram at 150%: associated window, AT-SPI focus, Ctrl+S, ICMP reply
+OK — pt/icons at 150%: associated window, AT-SPI focus, Ctrl+S, ICMP reply
+OK — pt/diagram at 150%: associated window, AT-SPI focus, Ctrl+S, ICMP reply
+OK — de/icons at 150%: associated window, AT-SPI focus, Ctrl+S, ICMP reply
+OK — de/diagram at 150%: associated window, AT-SPI focus, Ctrl+S, ICMP reply
+(Reading database ... 11302 files and directories currently installed.)
+Removing sinesi (0.1.0) ...
+Processing triggers for shared-mime-info (2.2-1) ...
+Processing triggers for desktop-file-utils (0.26-1) ...
+/out/verified-amd64/- réseau de classe.sinesi: OK
+/out/verified-amd64/interactive/it/diagram/settings.json: OK
+/out/verified-amd64/interactive/it/diagram/sessions/.allocation.lock: OK
+/out/verified-amd64/interactive/it/diagram/sessions/session-4428-1794188897837386005-0.lock: OK
+/out/verified-amd64/interactive/it/diagram/sessions/session-4428-1794188897837386005-0.json: OK
+/out/verified-amd64/interactive/it/diagram/- réseau de classe.sinesi: OK
+/out/verified-amd64/interactive/it/icons/settings.json: OK
+/out/verified-amd64/interactive/it/icons/sessions/.allocation.lock: OK
+/out/verified-amd64/interactive/it/icons/sessions/session-4231-1794188871903472423-0.json: OK
+/out/verified-amd64/interactive/it/icons/sessions/session-4231-1794188871903472423-0.lock: OK
+/out/verified-amd64/interactive/it/icons/- réseau de classe.sinesi: OK
+/out/verified-amd64/interactive/pt/diagram/settings.json: OK
+/out/verified-amd64/interactive/pt/diagram/sessions/.allocation.lock: OK
+/out/verified-amd64/interactive/pt/diagram/sessions/session-4821-1794188949123398001-0.json: OK
+/out/verified-amd64/interactive/pt/diagram/sessions/session-4821-1794188949123398001-0.lock: OK
+/out/verified-amd64/interactive/pt/diagram/- réseau de classe.sinesi: OK
+/out/verified-amd64/interactive/pt/icons/settings.json: OK
+/out/verified-amd64/interactive/pt/icons/sessions/session-4624-1794188923466062628-0.lock: OK
+/out/verified-amd64/interactive/pt/icons/sessions/.allocation.lock: OK
+/out/verified-amd64/interactive/pt/icons/sessions/session-4624-1794188923466062628-0.json: OK
+/out/verified-amd64/interactive/pt/icons/- réseau de classe.sinesi: OK
+/out/verified-amd64/interactive/de/diagram/settings.json: OK
+/out/verified-amd64/interactive/de/diagram/sessions/session-5266-1794189007672101208-0.lock: OK
+/out/verified-amd64/interactive/de/diagram/sessions/.allocation.lock: OK
+/out/verified-amd64/interactive/de/diagram/sessions/session-5266-1794189007672101208-0.json: OK
+/out/verified-amd64/interactive/de/diagram/- réseau de classe.sinesi: OK
+/out/verified-amd64/interactive/de/icons/settings.json: OK
+/out/verified-amd64/interactive/de/icons/sessions/.allocation.lock: OK
+/out/verified-amd64/interactive/de/icons/sessions/session-5018-1794188975003057221-0.json: OK
+/out/verified-amd64/interactive/de/icons/sessions/session-5018-1794188975003057221-0.lock: OK
+/out/verified-amd64/interactive/de/icons/- réseau de classe.sinesi: OK
+/out/verified-amd64/interactive/fr/diagram/settings.json: OK
+/out/verified-amd64/interactive/fr/diagram/sessions/.allocation.lock: OK
+/out/verified-amd64/interactive/fr/diagram/sessions/session-3197-1794188736498485472-0.lock: OK
+/out/verified-amd64/interactive/fr/diagram/sessions/session-3197-1794188736498485472-0.json: OK
+/out/verified-amd64/interactive/fr/diagram/- réseau de classe.sinesi: OK
+/out/verified-amd64/interactive/fr/icons/settings.json: OK
+/out/verified-amd64/interactive/fr/icons/sessions/.allocation.lock: OK
+/out/verified-amd64/interactive/fr/icons/sessions/session-3000-1794188710581650918-0.lock: OK
+/out/verified-amd64/interactive/fr/icons/sessions/session-3000-1794188710581650918-0.json: OK
+/out/verified-amd64/interactive/fr/icons/- réseau de classe.sinesi: OK
+/out/verified-amd64/interactive/es/diagram/settings.json: OK
+/out/verified-amd64/interactive/es/diagram/sessions/.allocation.lock: OK
+/out/verified-amd64/interactive/es/diagram/sessions/session-4035-1794188846535694217-0.lock: OK
+/out/verified-amd64/interactive/es/diagram/sessions/session-4035-1794188846535694217-0.json: OK
+/out/verified-amd64/interactive/es/diagram/- réseau de classe.sinesi: OK
+/out/verified-amd64/interactive/es/icons/settings.json: OK
+/out/verified-amd64/interactive/es/icons/sessions/.allocation.lock: OK
+/out/verified-amd64/interactive/es/icons/sessions/session-3788-1794188814339931841-0.lock: OK
+/out/verified-amd64/interactive/es/icons/sessions/session-3788-1794188814339931841-0.json: OK
+/out/verified-amd64/interactive/es/icons/- réseau de classe.sinesi: OK
+/out/verified-amd64/interactive/en/diagram/settings.json: OK
+/out/verified-amd64/interactive/en/diagram/sessions/.allocation.lock: OK
+/out/verified-amd64/interactive/en/diagram/sessions/session-3591-1794188788584495676-0.lock: OK
+/out/verified-amd64/interactive/en/diagram/sessions/session-3591-1794188788584495676-0.json: OK
+/out/verified-amd64/interactive/en/diagram/- réseau de classe.sinesi: OK
+/out/verified-amd64/interactive/en/icons/settings.json: OK
+/out/verified-amd64/interactive/en/icons/sessions/.allocation.lock: OK
+/out/verified-amd64/interactive/en/icons/sessions/session-3394-1794188762501093637-0.json: OK
+/out/verified-amd64/interactive/en/icons/sessions/session-3394-1794188762501093637-0.lock: OK
+/out/verified-amd64/interactive/en/icons/- réseau de classe.sinesi: OK

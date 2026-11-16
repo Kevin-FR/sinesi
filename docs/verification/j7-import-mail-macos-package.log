@@ -1,0 +1,14 @@
++ cargo build --release --locked --offline -p sns-desktop -p sns-cli
+   Compiling sns-filius-import v0.1.0 (/Users/kevin/Web/SNS/crates/sns-filius-import)
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+   Compiling sns-cli v0.1.0 (/Users/kevin/Web/SNS/crates/sns-cli)
+   Compiling sns-desktop v0.1.0 (/Users/kevin/Web/SNS/apps/sns-desktop)
+    Finished `release` profile [optimized] target(s) in 13.79s
++ python3 packaging/build.py --output artifacts/packages/j7-mail
+/Users/kevin/Web/SNS/artifacts/packages/j7-mail/sinesi-6kzdag9f/Sinesi.app/Contents/MacOS/sns-desktop: replacing existing signature
+/Users/kevin/Web/SNS/artifacts/packages/j7-mail/sinesi-6kzdag9f/Sinesi.app/Contents/MacOS/sinesi: replacing existing signature
+/Users/kevin/Web/SNS/artifacts/packages/j7-mail/sinesi-6kzdag9f/Sinesi.app/Contents/MacOS/sinesi-launcher: replacing existing signature
+/Users/kevin/Web/SNS/artifacts/packages/j7-mail/sinesi-6kzdag9f/Sinesi.app: replacing existing signature
+/Users/kevin/Web/SNS/artifacts/packages/j7-mail/Sinesi-0.1.0-macos-arm64.zip
+OK — 12 startup combinations, portable save, ping, checkpoint, replay and PNG in /private/tmp/sns-j7-mail/macos-exercise
+/tmp/sns-j7-mail/macos-exercise/- réseau de classe.sinesi: OK

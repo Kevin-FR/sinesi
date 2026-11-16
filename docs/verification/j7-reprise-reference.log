@@ -1,0 +1,21 @@
+   Compiling sns-model v0.1.0 (/Users/kevin/Web/SNS/crates/sns-model)
+   Compiling ahash v0.8.12
+   Compiling sns-i18n v0.1.0 (/Users/kevin/Web/SNS/crates/sns-i18n)
+   Compiling referencing v0.46.10
+   Compiling jsonschema v0.46.10
+   Compiling sns-vfs v0.1.0 (/Users/kevin/Web/SNS/crates/sns-vfs)
+   Compiling sns-html v0.1.0 (/Users/kevin/Web/SNS/crates/sns-html)
+   Compiling sns-protocols v0.1.0 (/Users/kevin/Web/SNS/crates/sns-protocols)
+   Compiling sns-project v0.1.0 (/Users/kevin/Web/SNS/crates/sns-project)
+   Compiling sns-filius-import v0.1.0 (/Users/kevin/Web/SNS/crates/sns-filius-import)
+   Compiling sns-apps v0.1.0 (/Users/kevin/Web/SNS/crates/sns-apps)
+   Compiling sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 9.16s
+     Running tests/import.rs (target/debug/deps/import-801d552c8cc7d3b4)
+
+running 2 tests
+test imported_historical_lan_uses_production_arp_and_icmp ... ok
+test corpus_imports_as_data_preserving_every_byte_and_reports_all_losses ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.41s
+

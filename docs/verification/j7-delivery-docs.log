@@ -1,0 +1,44 @@
++ python3 scripts/docs.py render
+docs/suivi/features.json [('F-CFG-007', 'not_started', 'implemented'), ('F-NFR-007', 'not_started', 'in_progress')]
+docs/rust/taches.json [('RS-QUALITY-J7', 'not_started', 'in_progress')]
+Correctif vérifié : 27 fichiers, 235618 octets.
++ python3 scripts/docs.py check --require-reference
+OK — 178 exigences, 50 tâches, 1061 fichiers source; preuves, dépendances, jalons, couverture et séparation vérifiés.
++ python3 scripts/check_manifest.py check docs/verification/j7-delivery-code-manifest.json
+OK — 833 source files, revision 73cbbc5b0f1c27f2a9784a22c5dc6e24b8f32b58c32c5ae32a56e81df68feee6
++ cargo xtask check
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.06s
+     Running `target/debug/xtask check`
++ cargo fmt --all --check
++ python3 scripts/check_layers.py
+OK — 20 workspace packages: explicit production edges, headless isolation and inherited manifests checked (all features, target/build edges).
++ python3 scripts/test_layers.py
+............
+----------------------------------------------------------------------
+Ran 12 tests in 0.147s
+
+OK
++ python3 scripts/check_i18n.py
+OK — 872 keys, six languages, literal diagnostics and templates checked.
++ python3 scripts/check_network_assets.py
+OK — 20 embedded SVG assets, provenance and offline rendering checked.
++ python3 scripts/check_fonts.py
+OK — four pinned OFL fonts, regular/bold weights and six-language Latin coverage; no download required.
++ python3 scripts/test_docs.py
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.011s
+
+OK
++ python3 scripts/test_filius_inspection.py
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.003s
+
+OK
++ python3 scripts/docs.py check
+OK — 178 exigences, 50 tâches, 1061 fichiers source; preuves, dépendances, jalons, couverture et séparation vérifiés.
++ shasum -a 256 -c docs/verification/j7-delivery-packages.sha256.txt
+Sinesi-0.1.0-macos-arm64.zip: OK
+sinesi_0.1.0_arm64.deb: OK
++ git diff --check

@@ -1,0 +1,182 @@
+{
+ "format_version": 1,
+ "packages": {
+  "sns-apps": {
+   "kind": "headless",
+   "dependencies": [
+    "sns-html",
+    "sns-i18n",
+    "sns-model",
+    "sns-protocols",
+    "sns-vfs"
+   ]
+  },
+  "sns-bridge": {
+   "kind": "bridge",
+   "dependencies": [
+    "sns-engine",
+    "sns-model"
+   ]
+  },
+  "sns-cli": {
+   "kind": "headless",
+   "dependencies": [
+    "sns-engine",
+    "sns-filius-import",
+    "sns-i18n",
+    "sns-missions",
+    "sns-model",
+    "sns-project",
+    "sns-render",
+    "sns-report"
+   ]
+  },
+  "sns-desktop": {
+   "kind": "desktop",
+   "dependencies": [
+    "sns-model",
+    "sns-settings",
+    "sns-ui-egui"
+   ]
+  },
+  "sns-engine": {
+   "kind": "headless",
+   "dependencies": [
+    "sns-apps",
+    "sns-model",
+    "sns-protocols"
+   ]
+  },
+  "sns-filius-import": {
+   "kind": "headless",
+   "dependencies": [
+    "sns-model",
+    "sns-vfs"
+   ]
+  },
+  "sns-fonts": {
+   "kind": "headless",
+   "dependencies": []
+  },
+  "sns-html": {
+   "kind": "headless",
+   "dependencies": [
+    "sns-model"
+   ]
+  },
+  "sns-i18n": {
+   "kind": "headless",
+   "dependencies": []
+  },
+  "sns-missions": {
+   "kind": "headless",
+   "dependencies": [
+    "sns-engine",
+    "sns-model"
+   ]
+  },
+  "sns-model": {
+   "kind": "headless",
+   "dependencies": []
+  },
+  "sns-project": {
+   "kind": "headless",
+   "dependencies": [
+    "sns-model"
+   ]
+  },
+  "sns-protocols": {
+   "kind": "headless",
+   "dependencies": [
+    "sns-model"
+   ]
+  },
+  "sns-render": {
+   "kind": "headless",
+   "dependencies": [
+    "sns-fonts",
+    "sns-model",
+    "sns-topology"
+   ]
+  },
+  "sns-report": {
+   "kind": "headless",
+   "dependencies": [
+    "sns-engine",
+    "sns-fonts",
+    "sns-i18n",
+    "sns-model",
+    "sns-protocols",
+    "sns-render",
+    "sns-topology"
+   ]
+  },
+  "sns-settings": {
+   "kind": "headless",
+   "dependencies": [
+    "sns-i18n",
+    "sns-model",
+    "sns-project"
+   ]
+  },
+  "sns-topology": {
+   "kind": "headless",
+   "dependencies": [
+    "sns-model"
+   ]
+  },
+  "sns-trace": {
+   "kind": "headless",
+   "dependencies": [
+    "sns-engine",
+    "sns-model"
+   ]
+  },
+  "sns-ui-egui": {
+   "kind": "ui",
+   "dependencies": [
+    "sns-apps",
+    "sns-bridge",
+    "sns-engine",
+    "sns-filius-import",
+    "sns-fonts",
+    "sns-html",
+    "sns-i18n",
+    "sns-missions",
+    "sns-model",
+    "sns-project",
+    "sns-protocols",
+    "sns-render",
+    "sns-report",
+    "sns-settings",
+    "sns-topology",
+    "sns-trace",
+    "sns-vfs"
+   ]
+  },
+  "sns-vfs": {
+   "kind": "headless",
+   "dependencies": [
+    "sns-model"
+   ]
+  },
+  "xtask": {
+   "kind": "tool",
+   "dependencies": []
+  }
+ },
+ "headless_forbidden": [
+  "egui",
+  "eframe",
+  "wgpu",
+  "winit",
+  "rfd",
+  "arboard",
+  "tokio",
+  "reqwest",
+  "ureq"
+ ],
+ "headless_forbidden_prefixes": [
+  "craft-"
+ ]
+}

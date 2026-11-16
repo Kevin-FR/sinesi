@@ -1,0 +1,30 @@
+{
+  "source_revision": "sha256:3991dc6ed962fbd61a6259ac9c53185b19cc7b2f8e9b409453a3205283dfda28",
+  "traces": {
+    "j6-mail-local.jsonl": {
+      "events": 842,
+      "sha256": "7c419dee4fb7993c90bd8eec0a08b26929382158c01b7d4f1d642f374dbd5f02",
+      "external_inputs": 0
+    },
+    "j6-mail-relay.jsonl": {
+      "events": 1132,
+      "sha256": "8d362987baccb58bcdd03ff6147f26229901e895eff5f39cb03b821f09c5fd7b",
+      "external_inputs": 0
+    },
+    "j6-p2p.jsonl": {
+      "events": 1020,
+      "sha256": "100bbf19b43ab05daffc45867ac34abc95d7c952eeeacc68af5b885de05145b1",
+      "external_inputs": 0
+    },
+    "j6-bridge-local.json": {
+      "events": 20,
+      "sha256": "a509f58646bb6548117434f393f3a41eb505d932fdfc30ff9094648ca0eb56b8",
+      "external_inputs": 2
+    },
+    "j6-bridge-remote.json": {
+      "events": 18,
+      "sha256": "fbac5513c92fba9a1d4fd54821119a09ad5bc91c33a6bcbcd0e7589306eceb33",
+      "external_inputs": 2
+    }
+  }
+}

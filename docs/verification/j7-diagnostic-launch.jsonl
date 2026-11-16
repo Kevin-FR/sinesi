@@ -1,0 +1,4 @@
+{"sequence":1,"event":"startup"}
+{"sequence":2,"event":"configuration_resolved"}
+{"sequence":3,"event":"project_ready"}
+{"sequence":4,"event":"exit"}

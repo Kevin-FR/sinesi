@@ -1,0 +1,13 @@
+{
+  "format_version": 1,
+  "base_reconstruction": "docs/verification/j7-timing-source-delta.json",
+  "base_revision": "bbd20f87e9e141f1b10d02655d53e95a0c94199ac7418a8018e905aa7eb2bf05",
+  "patch_archive": "docs/verification/j7-diagnostic-source-patch.tar.gz",
+  "patch_sha256": "afd15d8ec0f67656f51394d8b09fe25c9ed1ec58280feb62346e5bef7c47af54",
+  "patch_bytes": 1206165,
+  "patch_files": 52,
+  "deleted_paths": [],
+  "source_revision": "72eaec6602cecd73da604d6d77c519fb30c838dfa8d225be8308dcbf080908bb",
+  "overlay_verified": true,
+  "reconstruction": "Reconstruct j7-timing using its metadata, verify its code manifest, then overlay this patch and apply deleted_paths. Run scripts/check_manifest.py check with the j7-diagnostic manifest."
+}

@@ -1,0 +1,13 @@
+{
+  "format_version": 1,
+  "base_reconstruction": "docs/verification/structure-document-open-source-patch.json",
+  "base_revision": "4f228c1cf1953e1c18856b37aced872c52af84857dddd46178ede2eac52b27e5",
+  "patch_archive": "docs/verification/j7-import-network-source-patch.tar.gz",
+  "patch_sha256": "679e407eee4e360133583f8f7ddf24b6f293aa552cb80e8bd27232f1dc6079e9",
+  "patch_bytes": 158954,
+  "patch_files": 19,
+  "deleted_paths": [],
+  "source_revision": "7e2832bdddf9df73ee9b9c5f71f3a42cdf9b511356f653bd06a897e8adc24160",
+  "overlay_verified": true,
+  "reconstruction": "Reconstruct structure-document-open using its metadata, verify its code manifest, then overlay this patch and apply deleted_paths. Run scripts/check_manifest.py check with the j7-import-network manifest."
+}

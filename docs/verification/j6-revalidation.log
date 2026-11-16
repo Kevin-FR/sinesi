@@ -1,0 +1,49 @@
+   Compiling sns-bridge v0.1.0 (/Users/kevin/Web/SNS/crates/sns-bridge)
+   Compiling sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.92s
+     Running tests/bridge.rs (target/debug/deps/bridge-57eb77c7cd567b83)
+
+running 3 tests
+test bridge_child_process ... ok
+
+running 1 test
+test absent_endpoint_bad_version_oversize_and_mid_frame_cut_have_explicit_states ... ok
+test bridge_child_process ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.21s
+
+test two_real_instances_exchange_ping_record_external_inputs_and_disconnect ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.29s
+
+     Running tests/mail.rs (target/debug/deps/mail-f9aea46a7322bd4d)
+
+running 8 tests
+test occupied_pop3_port_rolls_back_smtp_listener_atomically ... ok
+test contacts_persist_and_bcc_only_delivery_is_valid ... ok
+test unknown_recipient_and_deleted_account_have_explicit_failures ... ok
+test remote_unknown_recipient_fails_after_mx_lookup_without_committing_local_copy ... ok
+test smtp_pop3_local_delivery_and_durable_client_folders ... ok
+test invalid_credentials_custom_ports_and_reopened_mailboxes_are_isolated ... ok
+test mx_then_a_relay_and_bcc_do_not_expose_hidden_recipients ... ok
+test interrupted_pop3_dele_does_not_commit_and_releases_mailbox_lock ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.20s
+
+     Running tests/p2p.rs (target/debug/deps/p2p-e421ae3e2a3151fa)
+
+running 3 tests
+test limits_reject_extra_neighbors_and_invalid_ttl ... ok
+test cancelled_and_superseded_searches_ignore_in_flight_results ... ok
+test cyclic_overlay_discovers_searches_downloads_exact_bytes_and_resets ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.26s
+
+     Running tests/wireless.rs (target/debug/deps/wireless-04078d16b6116c76)
+
+running 2 tests
+test access_point_relays_between_two_radios_and_rejects_duplicate_ssids ... ok
+test ssid_association_reaches_wired_lan_and_ap_rename_only_detaches_its_clients ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+

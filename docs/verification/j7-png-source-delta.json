@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "base_archive": "docs/verification/j7-import-source-bundle.tar.gz",
+  "base_sha256": "74ae256df66043ad27083e394bcf5bd8096192eb861cce836723d99fab0546ee",
+  "delta_archive": "docs/verification/j7-png-source-delta.tar.gz",
+  "delta_sha256": "c0e34a588ef8c5066cfaf852563b1c53a96a4c49d0a20c6a4dec3b7aeb7c3c19",
+  "delta_bytes": 16128205,
+  "source_revision": "283a6311478c3e03b56949a1188eecae75604599ed1d3dc45df62e55cf0a01a9",
+  "source_files": 568,
+  "delta_files": 423,
+  "deleted_paths": [],
+  "external_metadata_and_check_log": [
+    "docs/verification/j7-png-docs.log",
+    "docs/verification/j7-png-source-delta.json"
+  ],
+  "reconstruction": "Verify archive hashes; extract the base into an empty directory and overlay the delta, then remove deleted_paths. Run scripts/check_manifest.py check docs/verification/j7-png-code-manifest.json. Supply external archives/metadata/check logs for documentation checks; reference tests and --require-reference additionally require the read-only Filius archive, which is not redistributed.",
+  "overlay_verified_without_extraction": true
+}

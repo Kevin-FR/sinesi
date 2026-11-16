@@ -1,0 +1,29 @@
+{
+  "format_version": 1,
+  "base_archive": "docs/verification/j7-import-source-bundle.tar.gz",
+  "base_sha256": "74ae256df66043ad27083e394bcf5bd8096192eb861cce836723d99fab0546ee",
+  "delta_archive": "docs/verification/structure-review-2026-11-source-delta.tar.gz",
+  "delta_sha256": "d479b4ed9de503641bd870ae70a9ea704a1cc46efe26542641c94326796cf88b",
+  "delta_bytes": 41457392,
+  "source_revision": "40cc7928a7359d07ae577db0e47b05f5701e34c821bade2937ac0adc05cc83de",
+  "source_files": 787,
+  "delta_files": 791,
+  "deleted_paths": [
+    "crates/sns-ui-egui/src/controller.rs",
+    "crates/sns-ui-egui/src/desktop.rs",
+    "crates/sns-ui-egui/src/import_ui.rs",
+    "crates/sns-ui-egui/src/lan.rs",
+    "crates/sns-ui-egui/src/lan_worker.rs",
+    "crates/sns-ui-egui/src/mail_ui.rs",
+    "crates/sns-ui-egui/src/p2p_ui.rs",
+    "crates/sns-ui-egui/src/routing_ui.rs",
+    "crates/sns-ui-egui/src/security_ui.rs",
+    "crates/sns-ui-egui/src/services_ui.rs"
+  ],
+  "external_metadata_and_check_log": [
+    "docs/verification/structure-review-2026-11-docs.log",
+    "docs/verification/structure-review-2026-11-source-delta.json"
+  ],
+  "reconstruction": "Verify archive hashes; extract the base into an empty directory and overlay the delta, then remove deleted_paths. Run scripts/check_manifest.py check docs/verification/structure-review-2026-11-code-manifest.json. Supply external archives/metadata/check logs for documentation checks; reference tests and --require-reference additionally require the read-only Filius archive, which is not redistributed.",
+  "overlay_verified_without_extraction": true
+}

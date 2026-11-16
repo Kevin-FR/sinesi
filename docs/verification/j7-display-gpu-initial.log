@@ -1,0 +1,43 @@
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.35s
+     Running `target/debug/xtask ui`
++ cargo test -p sns-ui-egui --features ui-snapshots --test png --test report --test help --test preferences --locked --offline
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 15.32s
+     Running tests/help.rs (target/debug/deps/help-31e84139d055c6fe)
+
+running 3 tests
+test focused_draft_stays_intact_while_f1_and_escape_open_and_close_help ... ok
+test guided_example_reuses_the_unsaved_document_confirmation ... ok
+test f1_opens_context_and_about_in_six_languages_both_views_without_mutation ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 23.80s
+
+     Running tests/png.rs (target/debug/deps/png-7f95b183e0973a9d)
+
+running 3 tests
+test simulation_png_freezes_effective_dhcp_labels_without_advancing_or_stopping_the_network ... ok
+test png_export_freezes_applied_document_and_protects_project_preferences_and_session_storage ... ok
+test png_controls_and_background_exports_preserve_six_languages_two_views_and_document ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 13.91s
+
+     Running tests/preferences.rs (target/debug/deps/preferences-a36f7bcefa140899)
+
+running 5 tests
+test invalid_preferences_and_conflicting_project_paths_are_preserved ... ok
+test help_geometry_is_remembered_and_clamped_after_restart_on_a_smaller_viewport ... ok
+test apply_cancel_and_keyboard_shortcut_preserve_the_network_and_focused_draft ... ok
+test terminal_remains_usable_at_200_percent_in_all_languages_without_advancing_protocols ... ok
+test enlarged_display_persists_in_six_languages_both_views_without_network_mutation ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 24.73s
+
+     Running tests/report.rs (target/debug/deps/report-a06b663a6dbf0d84)
+
+running 3 tests
+test pdf_export_keeps_previous_file_on_failure_and_protects_project ... ok
+test simulation_pdf_captures_recorded_packets_without_advancing_the_network ... ok
+test pdf_buttons_and_background_export_preserve_six_languages_views_and_frozen_document ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 20.78s
+

@@ -1,0 +1,29 @@
+{
+  "format_version": 1,
+  "base_archive": "docs/verification/j7-import-source-bundle.tar.gz",
+  "base_sha256": "74ae256df66043ad27083e394bcf5bd8096192eb861cce836723d99fab0546ee",
+  "delta_archive": "docs/verification/j7-timing-source-delta.tar.gz",
+  "delta_sha256": "c88bdf19b968476a924ac5b0c4e63989004b4b10f654bf0c922d810c70efe2b1",
+  "delta_bytes": 41549806,
+  "source_revision": "bbd20f87e9e141f1b10d02655d53e95a0c94199ac7418a8018e905aa7eb2bf05",
+  "source_files": 790,
+  "delta_files": 840,
+  "deleted_paths": [
+    "crates/sns-ui-egui/src/controller.rs",
+    "crates/sns-ui-egui/src/desktop.rs",
+    "crates/sns-ui-egui/src/import_ui.rs",
+    "crates/sns-ui-egui/src/lan.rs",
+    "crates/sns-ui-egui/src/lan_worker.rs",
+    "crates/sns-ui-egui/src/mail_ui.rs",
+    "crates/sns-ui-egui/src/p2p_ui.rs",
+    "crates/sns-ui-egui/src/routing_ui.rs",
+    "crates/sns-ui-egui/src/security_ui.rs",
+    "crates/sns-ui-egui/src/services_ui.rs"
+  ],
+  "external_metadata_and_check_log": [
+    "docs/verification/j7-timing-docs.log",
+    "docs/verification/j7-timing-source-delta.json"
+  ],
+  "reconstruction": "Verify archive hashes; extract the base into an empty directory and overlay the delta, then remove deleted_paths. Run scripts/check_manifest.py check docs/verification/j7-timing-code-manifest.json. Supply external archives/metadata/check logs for documentation checks; reference tests and --require-reference additionally require the read-only Filius archive, which is not redistributed.",
+  "overlay_verified_without_extraction": true
+}

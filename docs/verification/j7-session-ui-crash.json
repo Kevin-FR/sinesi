@@ -1,0 +1,11 @@
+{
+  "automatic_interval_seconds": 2,
+  "diagram": true,
+  "document_label": "Poste A — travail en cours",
+  "forced_child_exit_success": false,
+  "language": "de",
+  "saved_original_unchanged": true,
+  "terminal_input_restored_without_execution": true,
+  "text_editor_draft_restored": true,
+  "unapplied_inspector_restored": true
+}

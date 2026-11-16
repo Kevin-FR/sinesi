@@ -1,0 +1,43 @@
+{
+  "date": "2026-11-08",
+  "system": "macOS-27.2-arm64-arm-64bit-Mach-O",
+  "rustc": "rustc 1.95.0 (59807616e 2026-04-14)",
+  "workspace_tests": 233,
+  "bridge_child_test": 1,
+  "forced_session_child_exits": 2,
+  "ignored_by_default": 5,
+  "gpu_tests": 6,
+  "current_ui_pngs_compared": 24,
+  "historical_ui_pngs_unchanged": 321,
+  "pdf_reports": 13,
+  "standard_report_pages": [
+    8,
+    9
+  ],
+  "standard_packet_rows": 34,
+  "stress_pages": 72,
+  "stress_packet_rows": 1200,
+  "embedded_document_fonts": 4,
+  "locale_keys": 734,
+  "languages": [
+    "fr",
+    "en",
+    "es",
+    "it",
+    "pt",
+    "de"
+  ],
+  "views": [
+    "icons",
+    "diagram"
+  ],
+  "network_svgs": 20,
+  "workspace_members": 20,
+  "krilla": "0.8.2",
+  "pypdf": "6.10.0",
+  "pdfplumber": "0.11.9",
+  "native_picker_manual": false,
+  "windows_linux_run": false,
+  "remote_ci_run": false,
+  "full_historical_gpu_suite": false
+}

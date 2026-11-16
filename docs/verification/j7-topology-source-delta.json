@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "base_archive": "docs/verification/j7-import-source-bundle.tar.gz",
+  "base_sha256": "74ae256df66043ad27083e394bcf5bd8096192eb861cce836723d99fab0546ee",
+  "delta_archive": "docs/verification/j7-topology-source-delta.tar.gz",
+  "delta_sha256": "efb8ea7a6856ed5251fe241a38217850d0bc46fb2e52be5e0228ec0d22b56d1e",
+  "delta_bytes": 4842119,
+  "source_revision": "dd924eaa4a3c9543750f5ab8546d0749d3bf302e17a8a13d7afb8e0c198b9fb1",
+  "source_files": 459,
+  "delta_files": 174,
+  "deleted_paths": [],
+  "external_metadata_and_check_log": [
+    "docs/verification/j7-topology-docs.log",
+    "docs/verification/j7-topology-source-delta.json"
+  ],
+  "reconstruction": "Verify archive hashes; extract the base into an empty directory and overlay the delta, then remove deleted_paths. Run scripts/check_manifest.py check docs/verification/j7-topology-code-manifest.json. Supply external archives/metadata/check logs for documentation checks; reference tests and --require-reference additionally require the read-only Filius archive, which is not redistributed.",
+  "overlay_verified_without_extraction": true
+}

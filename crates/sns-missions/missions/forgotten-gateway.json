@@ -1,0 +1,315 @@
+{
+  "mission_version": 1,
+  "id": "forgotten-gateway",
+  "chapter": 1,
+  "order": 2,
+  "title": {
+    "fr": "La passerelle oubliée",
+    "en": "The forgotten gateway",
+    "es": "La puerta de enlace olvidada",
+    "it": "Il gateway dimenticato",
+    "pt": "O gateway esquecido",
+    "de": "Das vergessene Gateway"
+  },
+  "brief": {
+    "fr": "A n’arrive pas à joindre B, qui se trouve deux routeurs plus loin. Répare la configuration de A, puis vérifie avec un ping vers 192.168.30.2.",
+    "en": "A cannot reach B, two routers away. Fix A’s configuration, then check with a ping to 192.168.30.2.",
+    "es": "A no consigue llegar a B, que está dos routers más allá. Repara la configuración de A y compruébalo con un ping a 192.168.30.2.",
+    "it": "A non riesce a raggiungere B, che si trova due router più in là. Ripara la configurazione di A e verifica con un ping verso 192.168.30.2.",
+    "pt": "A não consegue chegar a B, que está dois routers mais à frente. Repara a configuração de A e verifica com um ping para 192.168.30.2.",
+    "de": "A erreicht B nicht, das zwei Router weiter liegt. Repariere die Konfiguration von A und prüfe sie mit einem Ping an 192.168.30.2."
+  },
+  "project": {
+    "schema_version": 4,
+    "semantic_profile": "sns-educational-routing-v1",
+    "project_id": "project-lan",
+    "name": "J3 — Trois réseaux",
+    "devices": [
+      {
+        "id": "a",
+        "kind": "workstation",
+        "label": "A",
+        "interfaces": [
+          {
+            "id": "a-p0",
+            "mac": "02:01:00:00:00:01",
+            "medium": "ethernet",
+            "ipv4": {
+              "mode": "static",
+              "address": "192.168.10.2",
+              "prefix_length": 24
+            }
+          }
+        ],
+        "network": {
+          "default_gateway": null,
+          "dns_server": null
+        },
+        "applications": [
+          {
+            "id": "a-terminal",
+            "kind": "terminal",
+            "config": {}
+          }
+        ],
+        "files": []
+      },
+      {
+        "id": "r1",
+        "kind": "router",
+        "label": "R1",
+        "interfaces": [
+          {
+            "id": "r1-p0",
+            "mac": "02:01:00:00:00:02",
+            "medium": "ethernet",
+            "ipv4": {
+              "mode": "static",
+              "address": "192.168.10.1",
+              "prefix_length": 24
+            }
+          },
+          {
+            "id": "r1-p1",
+            "mac": "02:01:00:00:00:03",
+            "medium": "ethernet",
+            "ipv4": {
+              "mode": "static",
+              "address": "192.168.20.1",
+              "prefix_length": 24
+            }
+          }
+        ],
+        "network": {
+          "default_gateway": null,
+          "dns_server": null,
+          "routes": [
+            {
+              "network": "192.168.30.0",
+              "prefix": 24,
+              "gateway": "192.168.20.2",
+              "interface": "r1-p1"
+            }
+          ]
+        },
+        "applications": [
+          {
+            "id": "r1-terminal",
+            "kind": "terminal",
+            "config": {}
+          }
+        ],
+        "files": []
+      },
+      {
+        "id": "r2",
+        "kind": "router",
+        "label": "R2",
+        "interfaces": [
+          {
+            "id": "r2-p0",
+            "mac": "02:01:00:00:00:04",
+            "medium": "ethernet",
+            "ipv4": {
+              "mode": "static",
+              "address": "192.168.20.2",
+              "prefix_length": 24
+            }
+          },
+          {
+            "id": "r2-p1",
+            "mac": "02:01:00:00:00:05",
+            "medium": "ethernet",
+            "ipv4": {
+              "mode": "static",
+              "address": "192.168.30.1",
+              "prefix_length": 24
+            }
+          }
+        ],
+        "network": {
+          "default_gateway": null,
+          "dns_server": null,
+          "routes": [
+            {
+              "network": "192.168.10.0",
+              "prefix": 24,
+              "gateway": "192.168.20.1",
+              "interface": "r2-p0"
+            }
+          ]
+        },
+        "applications": [
+          {
+            "id": "r2-terminal",
+            "kind": "terminal",
+            "config": {}
+          }
+        ],
+        "files": []
+      },
+      {
+        "id": "b",
+        "kind": "notebook",
+        "label": "B",
+        "interfaces": [
+          {
+            "id": "b-p0",
+            "mac": "02:01:00:00:00:06",
+            "medium": "ethernet",
+            "ipv4": {
+              "mode": "static",
+              "address": "192.168.30.2",
+              "prefix_length": 24
+            }
+          }
+        ],
+        "network": {
+          "default_gateway": "192.168.30.1",
+          "dns_server": null
+        },
+        "applications": [
+          {
+            "id": "b-terminal",
+            "kind": "terminal",
+            "config": {}
+          }
+        ],
+        "files": []
+      }
+    ],
+    "links": [
+      {
+        "id": "link-0",
+        "endpoints": [
+          "a-p0",
+          "r1-p0"
+        ],
+        "latency_us": "1000",
+        "jitter_us": "0"
+      },
+      {
+        "id": "link-1",
+        "endpoints": [
+          "r1-p1",
+          "r2-p0"
+        ],
+        "latency_us": "1000",
+        "jitter_us": "0"
+      },
+      {
+        "id": "link-2",
+        "endpoints": [
+          "r2-p1",
+          "b-p0"
+        ],
+        "latency_us": "1000",
+        "jitter_us": "0"
+      }
+    ],
+    "layout": {
+      "devices": [
+        {
+          "device_id": "a",
+          "x": 100,
+          "y": 150
+        },
+        {
+          "device_id": "r1",
+          "x": 270,
+          "y": 250
+        },
+        {
+          "device_id": "r2",
+          "x": 440,
+          "y": 150
+        },
+        {
+          "device_id": "b",
+          "x": 610,
+          "y": 250
+        }
+      ]
+    },
+    "annotations": [],
+    "resources": [],
+    "extensions": [],
+    "lan": {}
+  },
+  "objectives": [
+    {
+      "id": "gateway",
+      "text": {
+        "fr": "Donne à A la bonne passerelle",
+        "en": "Give A the right gateway",
+        "es": "Da a A la puerta de enlace correcta",
+        "it": "Assegna ad A il gateway giusto",
+        "pt": "Dá a A o gateway certo",
+        "de": "Gib A das richtige Gateway"
+      },
+      "explain": {
+        "fr": "La passerelle de A n’est pas encore celle du routeur de son réseau.",
+        "en": "A’s gateway is not yet the router of its own network.",
+        "es": "La puerta de enlace de A aún no es la del router de su red.",
+        "it": "Il gateway di A non è ancora quello del router della sua rete.",
+        "pt": "O gateway de A ainda não é o do router da sua rede.",
+        "de": "Das Gateway von A ist noch nicht der Router seines eigenen Netzes."
+      },
+      "check": {
+        "kind": "gateway",
+        "device": "a",
+        "equals": "192.168.10.1"
+      }
+    },
+    {
+      "id": "ping",
+      "text": {
+        "fr": "Réussis un ping de A vers B (192.168.30.2)",
+        "en": "Ping B (192.168.30.2) from A successfully",
+        "es": "Haz un ping con éxito de A a B (192.168.30.2)",
+        "it": "Esegui con successo un ping da A a B (192.168.30.2)",
+        "pt": "Faz um ping com sucesso de A para B (192.168.30.2)",
+        "de": "Pinge B (192.168.30.2) erfolgreich von A aus"
+      },
+      "explain": {
+        "fr": "Aucune réponse de 192.168.30.2 n’est encore arrivée sur A. Lis « Le voyage du paquet » pour voir où il s’arrête.",
+        "en": "No reply from 192.168.30.2 has reached A yet. Read “The packet’s journey” to see where it stops.",
+        "es": "Aún no ha llegado a A ninguna respuesta de 192.168.30.2. Lee «El viaje del paquete» para ver dónde se detiene.",
+        "it": "Nessuna risposta da 192.168.30.2 è ancora arrivata ad A. Leggi «Il viaggio del pacchetto» per vedere dove si ferma.",
+        "pt": "Ainda não chegou a A nenhuma resposta de 192.168.30.2. Lê «A viagem do pacote» para ver onde ele para.",
+        "de": "Bei A ist noch keine Antwort von 192.168.30.2 angekommen. Lies „Die Reise des Pakets“, um zu sehen, wo es stoppt."
+      },
+      "check": {
+        "kind": "echo_reply",
+        "device": "a",
+        "from": "192.168.30.2"
+      }
+    }
+  ],
+  "hints": [
+    {
+      "fr": "Pour sortir de son réseau, un ordinateur confie ses paquets à une passerelle.",
+      "en": "To leave its network, a computer hands its packets to a gateway.",
+      "es": "Para salir de su red, un ordenador entrega sus paquetes a una puerta de enlace.",
+      "it": "Per uscire dalla sua rete, un computer affida i pacchetti a un gateway.",
+      "pt": "Para sair da sua rede, um computador entrega os pacotes a um gateway.",
+      "de": "Um sein Netz zu verlassen, übergibt ein Rechner seine Pakete an ein Gateway."
+    },
+    {
+      "fr": "La passerelle, c’est le routeur R1 : regarde son adresse du côté du réseau de A.",
+      "en": "The gateway is router R1: look at its address on A’s side.",
+      "es": "La puerta de enlace es el router R1: mira su dirección del lado de la red de A.",
+      "it": "Il gateway è il router R1: guarda il suo indirizzo dal lato della rete di A.",
+      "pt": "O gateway é o router R1: vê o seu endereço do lado da rede de A.",
+      "de": "Das Gateway ist Router R1: Sieh dir seine Adresse auf der Seite von A an."
+    },
+    {
+      "fr": "Ouvre la fiche de A, écris 192.168.10.1 dans « Passerelle » et applique.",
+      "en": "Open A’s sheet, type 192.168.10.1 in “Gateway” and apply.",
+      "es": "Abre la ficha de A, escribe 192.168.10.1 en «Puerta de enlace» y aplica.",
+      "it": "Apri la scheda di A, scrivi 192.168.10.1 in «Gateway» e applica.",
+      "pt": "Abre a ficha de A, escreve 192.168.10.1 em «Gateway» e aplica.",
+      "de": "Öffne das Blatt von A, trage 192.168.10.1 bei „Gateway“ ein und übernimm es."
+    }
+  ]
+}

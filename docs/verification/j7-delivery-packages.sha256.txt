@@ -1,0 +1,2 @@
+63ee13edaa5e37e1f68027097a7dcb1329223986d6632ba602adf1f5fc37aa33  Sinesi-0.1.0-macos-arm64.zip
+932cd7a6716dbdce4a24a3e65753cce4fb09c80193c8ccc3d0fefc91039cdbb4  sinesi_0.1.0_arm64.deb

@@ -1,0 +1,60 @@
+{
+  "configuration": {
+    "diagnostics": [],
+    "effective": {
+      "display": {
+        "application_scale_percent": 100,
+        "center_application_windows": false,
+        "font": "noto_sans",
+        "inspector_width": 360,
+        "layout": "inspector_right",
+        "palette_width": 185,
+        "representation": "icons",
+        "scale_percent": 150,
+        "window_height": 880,
+        "window_width": 1320,
+        "windows": {}
+      },
+      "language": "pt",
+      "settings_version": 2
+    },
+    "origins": {
+      "display.application_scale_percent": "builtin",
+      "display.center_application_windows": "builtin",
+      "display.font": "administrator",
+      "display.inspector_width": "administrator",
+      "display.layout": "builtin",
+      "display.palette_width": "builtin",
+      "display.representation": "command_line",
+      "display.scale_percent": "command_line",
+      "display.window_height": "builtin",
+      "display.window_width": "builtin",
+      "display.windows": "builtin",
+      "language": "command_line"
+    },
+    "persistent": {
+      "display": {
+        "application_scale_percent": 100,
+        "center_application_windows": false,
+        "font": "noto_sans",
+        "inspector_width": 360,
+        "layout": "inspector_right",
+        "palette_width": 185,
+        "representation": "icons",
+        "scale_percent": 125,
+        "window_height": 880,
+        "window_width": 1320,
+        "windows": {}
+      },
+      "language": "fr",
+      "settings_version": 2
+    },
+    "user_writable": true
+  },
+  "project": {
+    "devices": 4,
+    "links": 3,
+    "schema_version": 2
+  },
+  "startup_report_version": 1
+}

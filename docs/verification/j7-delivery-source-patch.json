@@ -1,0 +1,13 @@
+{
+  "format_version": 1,
+  "base_reconstruction": "docs/verification/j7-import-rip-doc-source-patch.json",
+  "base_revision": "1bc0f946aaf8f424116faec13100a65fc67bef1aecdef26a38f68fb2bb87323a",
+  "patch_archive": "docs/verification/j7-delivery-source-patch.tar.gz",
+  "patch_sha256": "651ea04d161aa64c983ab59b187a22232216846d9e3b124066d3aa75ce551bc1",
+  "patch_bytes": 235618,
+  "patch_files": 27,
+  "deleted_paths": [],
+  "source_revision": "73cbbc5b0f1c27f2a9784a22c5dc6e24b8f32b58c32c5ae32a56e81df68feee6",
+  "overlay_verified": true,
+  "reconstruction": "Reconstruct j7-import-rip-doc using its metadata, verify its code manifest, then overlay this patch and apply deleted_paths. Run scripts/check_manifest.py check with the j7-delivery manifest."
+}

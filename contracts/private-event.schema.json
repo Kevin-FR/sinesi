@@ -1,0 +1,1710 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sinesi.dev/contracts/private-event.schema.json",
+  "title": "Sinesi NAT, filtering and quoted ICMP events J5",
+  "$ref": "#/$defs/event",
+  "$defs": {
+    "id": {
+      "type": "string",
+      "pattern": "^[A-Za-z0-9_.-]{1,128}$"
+    },
+    "decimal": {
+      "type": "string",
+      "pattern": "^(0|[1-9][0-9]{0,18}|1[0-7][0-9]{18}|18[0-3][0-9]{17}|184[0-3][0-9]{16}|1844[0-5][0-9]{15}|18446[0-6][0-9]{14}|184467[0-3][0-9]{13}|1844674[0-3][0-9]{12}|184467440[0-6][0-9]{10}|1844674407[0-2][0-9]{9}|18446744073[0-6][0-9]{8}|1844674407370[0-8][0-9]{6}|18446744073709[0-4][0-9]{5}|184467440737095[0-4][0-9]{4}|18446744073709550[0-9]{3}|18446744073709551[0-5][0-9]{2}|1844674407370955160[0-9]{1}|1844674407370955161[0-4][0-9]{0}|18446744073709551615)$"
+    },
+    "endpoint": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "format": "ipv4"
+        },
+        "port": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        }
+      },
+      "required": [
+        "address",
+        "port"
+      ],
+      "additionalProperties": false
+    },
+    "flags": {
+      "type": "object",
+      "properties": {
+        "syn": {
+          "type": "boolean"
+        },
+        "ack": {
+          "type": "boolean"
+        },
+        "fin": {
+          "type": "boolean"
+        },
+        "rst": {
+          "type": "boolean"
+        }
+      },
+      "required": [
+        "syn",
+        "ack",
+        "fin",
+        "rst"
+      ],
+      "additionalProperties": false
+    },
+    "packet": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "protocol": {
+              "const": "tcp"
+            },
+            "source_port": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 65535
+            },
+            "destination_port": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 65535
+            },
+            "sequence": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "acknowledgment": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 4294967295
+            },
+            "flags": {
+              "$ref": "#/$defs/flags"
+            },
+            "window": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "data_base64": {
+              "type": "string",
+              "maxLength": 684,
+              "pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$"
+            }
+          },
+          "required": [
+            "protocol",
+            "source_port",
+            "destination_port",
+            "sequence",
+            "acknowledgment",
+            "flags",
+            "window",
+            "data_base64"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "protocol": {
+              "const": "udp"
+            },
+            "source_port": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            "destination_port": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 65535
+            },
+            "length": {
+              "type": "integer",
+              "minimum": 8,
+              "maximum": 65515
+            },
+            "data_base64": {
+              "type": "string",
+              "maxLength": 87344,
+              "pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$"
+            }
+          },
+          "required": [
+            "protocol",
+            "source_port",
+            "destination_port",
+            "length",
+            "data_base64"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "socket_command": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "const": "bind"
+            },
+            "socket": {
+              "$ref": "#/$defs/id"
+            },
+            "owner": {
+              "$ref": "#/$defs/id"
+            },
+            "protocol": {
+              "enum": [
+                "tcp",
+                "udp"
+              ]
+            },
+            "interface": {
+              "anyOf": [
+                {
+                  "$ref": "#/$defs/id"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "address": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "ipv4"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "port": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            }
+          },
+          "required": [
+            "operation",
+            "socket",
+            "owner",
+            "protocol",
+            "address",
+            "port"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "const": "connect"
+            },
+            "socket": {
+              "$ref": "#/$defs/id"
+            },
+            "owner": {
+              "$ref": "#/$defs/id"
+            },
+            "destination": {
+              "type": "string",
+              "format": "ipv4"
+            },
+            "port": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 65535
+            },
+            "local_address": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "format": "ipv4"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "local_port": {
+              "anyOf": [
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 65535
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [
+            "operation",
+            "socket",
+            "owner",
+            "destination",
+            "port",
+            "local_address",
+            "local_port"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "const": "send"
+            },
+            "socket": {
+              "$ref": "#/$defs/id"
+            },
+            "data_base64": {
+              "type": "string",
+              "maxLength": 1398104,
+              "pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$"
+            }
+          },
+          "required": [
+            "operation",
+            "socket",
+            "data_base64"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "const": "send_to"
+            },
+            "socket": {
+              "$ref": "#/$defs/id"
+            },
+            "destination": {
+              "type": "string",
+              "format": "ipv4"
+            },
+            "port": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 65535
+            },
+            "data_base64": {
+              "type": "string",
+              "maxLength": 1398104,
+              "pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$"
+            }
+          },
+          "required": [
+            "operation",
+            "socket",
+            "destination",
+            "port",
+            "data_base64"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "const": "close"
+            },
+            "socket": {
+              "$ref": "#/$defs/id"
+            },
+            "force": {
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "operation",
+            "socket",
+            "force"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "operation": {
+              "const": "close_owner"
+            },
+            "owner": {
+              "$ref": "#/$defs/id"
+            }
+          },
+          "required": [
+            "operation",
+            "owner"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "command": {
+      "type": "object",
+      "properties": {
+        "type": {
+          "const": "socket.command"
+        },
+        "payload": {
+          "type": "object",
+          "properties": {
+            "device": {
+              "$ref": "#/$defs/id"
+            },
+            "command": {
+              "$ref": "#/$defs/socket_command"
+            }
+          },
+          "required": [
+            "device",
+            "command"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "required": [
+        "type",
+        "payload"
+      ],
+      "additionalProperties": false
+    },
+    "envelope": {
+      "type": "object",
+      "properties": {
+        "api_version": {
+          "const": 1
+        },
+        "command_id": {
+          "$ref": "#/$defs/id"
+        },
+        "project_id": {
+          "$ref": "#/$defs/id"
+        },
+        "expected_revision": {
+          "$ref": "#/$defs/decimal"
+        },
+        "run_id": {
+          "$ref": "#/$defs/id"
+        },
+        "command": {
+          "$ref": "#/$defs/command"
+        }
+      },
+      "required": [
+        "api_version",
+        "command_id",
+        "project_id",
+        "expected_revision",
+        "run_id",
+        "command"
+      ],
+      "additionalProperties": false
+    },
+    "notice_kind": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "event": {
+              "const": "listening"
+            }
+          },
+          "required": [
+            "event"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event": {
+              "const": "connected"
+            }
+          },
+          "required": [
+            "event"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event": {
+              "const": "accepted"
+            }
+          },
+          "required": [
+            "event"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event": {
+              "const": "peer_closed"
+            }
+          },
+          "required": [
+            "event"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event": {
+              "const": "closed"
+            },
+            "reason": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "event",
+            "reason"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event": {
+              "const": "data"
+            },
+            "data_base64": {
+              "type": "string",
+              "maxLength": 1398104,
+              "pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$"
+            }
+          },
+          "required": [
+            "event",
+            "data_base64"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "event": {
+              "const": "datagram"
+            },
+            "source": {
+              "$ref": "#/$defs/endpoint"
+            },
+            "destination": {
+              "$ref": "#/$defs/endpoint"
+            },
+            "data_base64": {
+              "type": "string",
+              "maxLength": 1398104,
+              "pattern": "^(?:[A-Za-z0-9+/]{4})*(?:[A-Za-z0-9+/]{2}==|[A-Za-z0-9+/]{3}=)?$"
+            }
+          },
+          "required": [
+            "event",
+            "source",
+            "destination",
+            "data_base64"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "frame": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "frame_id": {
+              "$ref": "#/$defs/decimal"
+            },
+            "source_mac": {
+              "type": "string",
+              "pattern": "^([0-9a-f]{2}:){5}[0-9a-f]{2}$"
+            },
+            "destination_mac": {
+              "type": "string",
+              "pattern": "^([0-9a-f]{2}:){5}[0-9a-f]{2}$"
+            },
+            "ether_type": {
+              "const": 2048
+            },
+            "payload": {
+              "type": "object",
+              "properties": {
+                "protocol": {
+                  "const": "ipv4_transport"
+                },
+                "source": {
+                  "type": "string",
+                  "format": "ipv4"
+                },
+                "destination": {
+                  "type": "string",
+                  "format": "ipv4"
+                },
+                "ttl": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 255
+                },
+                "packet": {
+                  "$ref": "#/$defs/packet"
+                }
+              },
+              "required": [
+                "protocol",
+                "source",
+                "destination",
+                "ttl",
+                "packet"
+              ],
+              "additionalProperties": false
+            }
+          },
+          "required": [
+            "frame_id",
+            "source_mac",
+            "destination_mac",
+            "ether_type",
+            "payload"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "frame_id": {
+              "$ref": "#/$defs/decimal"
+            },
+            "source_mac": {
+              "type": "string",
+              "pattern": "^([0-9a-f]{2}:){5}[0-9a-f]{2}$"
+            },
+            "destination_mac": {
+              "type": "string",
+              "pattern": "^([0-9a-f]{2}:){5}[0-9a-f]{2}$"
+            },
+            "ether_type": {
+              "enum": [
+                2048,
+                2054
+              ]
+            },
+            "payload": {
+              "oneOf": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "protocol": {
+                      "const": "arp"
+                    },
+                    "operation": {
+                      "enum": [
+                        1,
+                        2
+                      ]
+                    },
+                    "sender_ip": {
+                      "type": "string",
+                      "format": "ipv4"
+                    },
+                    "sender_mac": {
+                      "type": "string",
+                      "pattern": "^([0-9a-f]{2}:){5}[0-9a-f]{2}$"
+                    },
+                    "target_ip": {
+                      "type": "string",
+                      "format": "ipv4"
+                    },
+                    "target_mac": {
+                      "type": "string",
+                      "pattern": "^([0-9a-f]{2}:){5}[0-9a-f]{2}$"
+                    }
+                  },
+                  "required": [
+                    "protocol",
+                    "operation",
+                    "sender_ip",
+                    "sender_mac",
+                    "target_ip",
+                    "target_mac"
+                  ],
+                  "additionalProperties": false
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "protocol": {
+                      "const": "ipv4"
+                    },
+                    "source": {
+                      "type": "string",
+                      "format": "ipv4"
+                    },
+                    "destination": {
+                      "type": "string",
+                      "format": "ipv4"
+                    },
+                    "ttl": {
+                      "type": "integer",
+                      "minimum": 0,
+                      "maximum": 255
+                    },
+                    "icmp": {
+                      "$ref": "#/$defs/icmp"
+                    }
+                  },
+                  "required": [
+                    "protocol",
+                    "source",
+                    "destination",
+                    "ttl",
+                    "icmp"
+                  ],
+                  "additionalProperties": false
+                }
+              ]
+            }
+          },
+          "required": [
+            "frame_id",
+            "source_mac",
+            "destination_mac",
+            "ether_type",
+            "payload"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "event": {
+      "type": "object",
+      "properties": {
+        "event_schema_version": {
+          "const": 7
+        },
+        "run_id": {
+          "$ref": "#/$defs/id"
+        },
+        "event_id": {
+          "$ref": "#/$defs/id"
+        },
+        "time_us": {
+          "$ref": "#/$defs/decimal"
+        },
+        "sequence": {
+          "$ref": "#/$defs/decimal"
+        },
+        "type": {
+          "enum": [
+            "nat.mapping.created",
+            "nat.mapping.expired",
+            "nat.table.cleared",
+            "nat.translated",
+            "nat.dropped",
+            "firewall.decision",
+            "security.configuration.changed",
+            "admin.configuration.requested",
+            "ethernet.sent",
+            "ethernet.received",
+            "ethernet.dropped",
+            "ipv4.delivered",
+            "ipv4.forwarded",
+            "routing.dropped"
+          ]
+        },
+        "device_id": {
+          "$ref": "#/$defs/id"
+        },
+        "caused_by": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "correlation_id": {
+          "$ref": "#/$defs/id"
+        },
+        "payload": {
+          "type": "object",
+          "maxProperties": 32,
+          "properties": {
+            "mapping": {
+              "$ref": "#/$defs/mapping"
+            },
+            "decision": {
+              "$ref": "#/$defs/decision"
+            },
+            "frame": {
+              "$ref": "#/$defs/frame"
+            },
+            "original_frame": {
+              "$ref": "#/$defs/frame"
+            },
+            "before": {
+              "$ref": "#/$defs/ip_payload"
+            },
+            "after": {
+              "$ref": "#/$defs/ip_payload"
+            }
+          }
+        }
+      },
+      "required": [
+        "event_schema_version",
+        "run_id",
+        "event_id",
+        "time_us",
+        "sequence",
+        "type",
+        "device_id",
+        "caused_by",
+        "correlation_id",
+        "payload"
+      ],
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "nat.mapping.created"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "required": [
+                  "mapping"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "nat.mapping.expired"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "required": [
+                  "mapping"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "nat.table.cleared"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "required": [
+                  "removed",
+                  "reason"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "nat.translated"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "required": [
+                  "direction",
+                  "mapping",
+                  "before",
+                  "after"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "nat.dropped"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "required": [
+                  "reason"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "firewall.decision"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "required": [
+                  "decision",
+                  "frame"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "security.configuration.changed"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "required": [
+                  "gateway",
+                  "firewall"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "admin.configuration.requested"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "required": [
+                  "path"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "ethernet.sent"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "required": [
+                  "frame"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "ethernet.received"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "required": [
+                  "frame"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "ethernet.dropped"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "required": [
+                  "reason"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "ipv4.delivered"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "required": [
+                  "source",
+                  "destination"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "ipv4.forwarded"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "required": [
+                  "original_frame"
+                ]
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "routing.dropped"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "required": [
+                  "reason"
+                ]
+              }
+            }
+          }
+        }
+      ]
+    },
+    "icmp": {
+      "type": "object",
+      "properties": {
+        "message_type": {
+          "enum": [
+            0,
+            3,
+            8,
+            11
+          ]
+        },
+        "code": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 255
+        },
+        "identifier": {
+          "$ref": "#/$defs/id"
+        },
+        "sequence": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 65535
+        },
+        "quoted": {
+          "$ref": "#/$defs/ip_payload"
+        }
+      },
+      "required": [
+        "message_type",
+        "code",
+        "identifier",
+        "sequence"
+      ],
+      "additionalProperties": false
+    },
+    "advertisement": {
+      "type": "object",
+      "properties": {
+        "network": {
+          "type": "string",
+          "format": "ipv4"
+        },
+        "prefix": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 32
+        },
+        "metric": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 16
+        }
+      },
+      "required": [
+        "network",
+        "prefix",
+        "metric"
+      ],
+      "additionalProperties": false
+    },
+    "route_view": {
+      "type": "object",
+      "properties": {
+        "network": {
+          "type": "string",
+          "format": "ipv4"
+        },
+        "prefix": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 32
+        },
+        "gateway": {
+          "anyOf": [
+            {
+              "type": "string",
+              "format": "ipv4"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "interface": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/id"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "origin": {
+          "enum": [
+            "loopback",
+            "direct",
+            "static",
+            "rip",
+            "default"
+          ]
+        },
+        "metric": {
+          "type": "integer",
+          "minimum": 0,
+          "maximum": 16
+        },
+        "expires_us": {
+          "anyOf": [
+            {
+              "$ref": "#/$defs/decimal"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "network",
+        "prefix",
+        "gateway",
+        "interface",
+        "origin",
+        "metric",
+        "expires_us"
+      ],
+      "additionalProperties": false
+    },
+    "ip_match": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "match": {
+              "const": "any"
+            }
+          },
+          "required": [
+            "match"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "match": {
+              "const": "local_network"
+            }
+          },
+          "required": [
+            "match"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "match": {
+              "const": "subnet"
+            },
+            "network": {
+              "type": "string",
+              "format": "ipv4"
+            },
+            "prefix": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 32
+            }
+          },
+          "required": [
+            "match",
+            "network",
+            "prefix"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "firewall_rule": {
+      "type": "object",
+      "properties": {
+        "source": {
+          "$ref": "#/$defs/ip_match"
+        },
+        "destination": {
+          "$ref": "#/$defs/ip_match"
+        },
+        "protocol": {
+          "enum": [
+            "any",
+            "tcp",
+            "udp"
+          ]
+        },
+        "destination_port": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 65535
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "action": {
+          "enum": [
+            "accept",
+            "drop"
+          ]
+        }
+      },
+      "required": [
+        "source",
+        "destination",
+        "protocol",
+        "destination_port",
+        "action"
+      ],
+      "additionalProperties": false
+    },
+    "forward": {
+      "type": "object",
+      "properties": {
+        "protocol": {
+          "enum": [
+            "tcp",
+            "udp"
+          ]
+        },
+        "external_port": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "internal_address": {
+          "type": "string",
+          "format": "ipv4"
+        },
+        "internal_port": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        }
+      },
+      "required": [
+        "protocol",
+        "external_port",
+        "internal_address",
+        "internal_port"
+      ],
+      "additionalProperties": false
+    },
+    "gateway": {
+      "type": "object",
+      "properties": {
+        "lan": {
+          "$ref": "#/$defs/id"
+        },
+        "wan": {
+          "$ref": "#/$defs/id"
+        },
+        "nat_enabled": {
+          "type": "boolean"
+        },
+        "port_start": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "port_end": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 65535
+        },
+        "idle_timeout_us": {
+          "$ref": "#/$defs/decimal"
+        },
+        "forwards": {
+          "type": "array",
+          "maxItems": 128,
+          "items": {
+            "$ref": "#/$defs/forward"
+          }
+        }
+      },
+      "required": [
+        "lan",
+        "wan",
+        "nat_enabled",
+        "port_start",
+        "port_end",
+        "idle_timeout_us",
+        "forwards"
+      ],
+      "additionalProperties": false
+    },
+    "firewall": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean"
+        },
+        "default_policy": {
+          "enum": [
+            "accept",
+            "drop"
+          ]
+        },
+        "syn_only": {
+          "type": "boolean"
+        },
+        "filter_udp": {
+          "type": "boolean"
+        },
+        "drop_icmp": {
+          "type": "boolean"
+        },
+        "rules": {
+          "type": "array",
+          "maxItems": 128,
+          "items": {
+            "$ref": "#/$defs/firewall_rule"
+          }
+        }
+      },
+      "required": [
+        "enabled",
+        "default_policy",
+        "syn_only",
+        "filter_udp",
+        "drop_icmp",
+        "rules"
+      ],
+      "additionalProperties": false
+    },
+    "ip_payload": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "protocol": {
+              "const": "ipv4_transport"
+            },
+            "source": {
+              "type": "string",
+              "format": "ipv4"
+            },
+            "destination": {
+              "type": "string",
+              "format": "ipv4"
+            },
+            "ttl": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "packet": {
+              "$ref": "#/$defs/packet"
+            }
+          },
+          "required": [
+            "protocol",
+            "source",
+            "destination",
+            "ttl",
+            "packet"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "oneOf": [
+            {
+              "type": "object",
+              "properties": {
+                "protocol": {
+                  "const": "arp"
+                },
+                "operation": {
+                  "enum": [
+                    1,
+                    2
+                  ]
+                },
+                "sender_ip": {
+                  "type": "string",
+                  "format": "ipv4"
+                },
+                "sender_mac": {
+                  "type": "string",
+                  "pattern": "^([0-9a-f]{2}:){5}[0-9a-f]{2}$"
+                },
+                "target_ip": {
+                  "type": "string",
+                  "format": "ipv4"
+                },
+                "target_mac": {
+                  "type": "string",
+                  "pattern": "^([0-9a-f]{2}:){5}[0-9a-f]{2}$"
+                }
+              },
+              "required": [
+                "protocol",
+                "operation",
+                "sender_ip",
+                "sender_mac",
+                "target_ip",
+                "target_mac"
+              ],
+              "additionalProperties": false
+            },
+            {
+              "type": "object",
+              "properties": {
+                "protocol": {
+                  "const": "ipv4"
+                },
+                "source": {
+                  "type": "string",
+                  "format": "ipv4"
+                },
+                "destination": {
+                  "type": "string",
+                  "format": "ipv4"
+                },
+                "ttl": {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 255
+                },
+                "icmp": {
+                  "$ref": "#/$defs/icmp"
+                }
+              },
+              "required": [
+                "protocol",
+                "source",
+                "destination",
+                "ttl",
+                "icmp"
+              ],
+              "additionalProperties": false
+            }
+          ]
+        }
+      ]
+    },
+    "nat_token": {
+      "oneOf": [
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "port"
+            },
+            "value": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 65535
+            }
+          },
+          "required": [
+            "kind",
+            "value"
+          ],
+          "additionalProperties": false
+        },
+        {
+          "type": "object",
+          "properties": {
+            "kind": {
+              "const": "icmp"
+            },
+            "value": {
+              "$ref": "#/$defs/id"
+            }
+          },
+          "required": [
+            "kind",
+            "value"
+          ],
+          "additionalProperties": false
+        }
+      ]
+    },
+    "nat_endpoint": {
+      "type": "object",
+      "properties": {
+        "address": {
+          "type": "string",
+          "format": "ipv4"
+        },
+        "token": {
+          "$ref": "#/$defs/nat_token"
+        }
+      },
+      "required": [
+        "address",
+        "token"
+      ],
+      "additionalProperties": false
+    },
+    "mapping": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 18446744073709551615
+        },
+        "device": {
+          "$ref": "#/$defs/id"
+        },
+        "protocol": {
+          "enum": [
+            "tcp",
+            "udp",
+            "icmp"
+          ]
+        },
+        "internal": {
+          "$ref": "#/$defs/nat_endpoint"
+        },
+        "external": {
+          "$ref": "#/$defs/nat_endpoint"
+        },
+        "remote": {
+          "type": "string",
+          "format": "ipv4"
+        },
+        "remote_port": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 65535
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "forwarded": {
+          "type": "boolean"
+        },
+        "expires_us": {
+          "$ref": "#/$defs/decimal"
+        }
+      },
+      "required": [
+        "id",
+        "device",
+        "protocol",
+        "internal",
+        "external",
+        "remote",
+        "remote_port",
+        "forwarded",
+        "expires_us"
+      ],
+      "additionalProperties": false
+    },
+    "decision": {
+      "type": "object",
+      "properties": {
+        "time_us": {
+          "$ref": "#/$defs/decimal"
+        },
+        "interface": {
+          "$ref": "#/$defs/id"
+        },
+        "frame_id": {
+          "$ref": "#/$defs/decimal"
+        },
+        "action": {
+          "enum": [
+            "accept",
+            "drop"
+          ]
+        },
+        "rule": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 128
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "reason": {
+          "enum": [
+            "icmp_policy",
+            "tcp_non_syn",
+            "udp_bypass",
+            "first_match",
+            "default_policy"
+          ]
+        },
+        "source": {
+          "type": "string",
+          "format": "ipv4"
+        },
+        "destination": {
+          "type": "string",
+          "format": "ipv4"
+        },
+        "protocol": {
+          "enum": [
+            "tcp",
+            "udp",
+            "icmp"
+          ]
+        },
+        "source_port": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "destination_port": {
+          "anyOf": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 65535
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      },
+      "required": [
+        "time_us",
+        "interface",
+        "frame_id",
+        "action",
+        "rule",
+        "reason",
+        "source",
+        "destination",
+        "protocol",
+        "source_port",
+        "destination_port"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

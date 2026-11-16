@@ -1,0 +1,25 @@
+
+running 1 test
+{"devices":100,"engine_ms":5219.624,"links":150,"processed_events":10000,"termination":"event_budget","trace_facts":27093,"ui_method":"egui CPU layout + accessibility, 1320x880, 100 frames; excludes GPU/presentation","ui_topology_p95_ms":1.818041,"ui_trace_p95_ms":1.104792}
+test lan::measurements::reference_load_100_nodes_150_links_10000_events ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 5.62s
+
+        5.97 real         5.49 user         0.10 sys
+           150568960  maximum resident set size
+                   0  average shared memory size
+                   0  average unshared data size
+                   0  average unshared stack size
+                9408  page reclaims
+                   3  page faults
+                   0  swaps
+                   0  block input operations
+                   0  block output operations
+                   0  messages sent
+                   0  messages received
+                   0  signals received
+                   0  voluntary context switches
+                3234  involuntary context switches
+         71313436893  instructions retired
+         18554878030  cycles elapsed
+           139805224  peak memory footprint

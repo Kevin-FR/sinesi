@@ -1,0 +1,8 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.48s
+     Running tests/lan.rs (target/debug/deps/lan-4126e22deaa51576)
+
+running 1 test
+test j7_cloud_switch_changes_live_with_ports_sat_and_run_preserved_in_six_languages ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 37 filtered out; finished in 3.98s
+

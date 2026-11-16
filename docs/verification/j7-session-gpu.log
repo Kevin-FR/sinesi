@@ -1,0 +1,9 @@
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.44s
+     Running tests/session.rs (target/debug/deps/session-b7e2634fb2ce0b93)
+
+running 1 test
+test recovery_offer_restores_language_document_selection_and_two_views_in_all_six_languages ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 6.77s
+

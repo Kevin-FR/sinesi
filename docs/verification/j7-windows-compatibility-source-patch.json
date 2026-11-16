@@ -1,0 +1,13 @@
+{
+  "format_version": 1,
+  "base_reconstruction": "docs/verification/j7-native-input-source-patch.json",
+  "base_revision": "3d1c1565bd42830cd0919ac0847b9fe515d0ebdf7613ce9944d88d400388f311",
+  "patch_archive": "docs/verification/j7-windows-compatibility-source-patch.tar.gz",
+  "patch_sha256": "9d55c66852e71a36d9e36d271c164ab6e918b1fa62a0b180afc6c6aafbb51ac9",
+  "patch_bytes": 145269,
+  "patch_files": 17,
+  "deleted_paths": [],
+  "source_revision": "eaf90d258c1ec39e93d827211d45feb6b10e0089e96ccb0be7003b1eb88365bb",
+  "overlay_verified": true,
+  "reconstruction": "Reconstruct j7-native-input using its metadata, verify its code manifest, then overlay this patch and apply deleted_paths. Run scripts/check_manifest.py check with the j7-windows-compatibility manifest."
+}

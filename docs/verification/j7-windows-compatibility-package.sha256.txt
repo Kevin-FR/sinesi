@@ -1,0 +1,1 @@
+08620c6cf2ded2b6734017f744eff8b47e9d31bcb5e053aef013577b968956a7  artifacts/packages/j7-windows-compatibility/Sinesi-0.1.0-windows-x64.exe

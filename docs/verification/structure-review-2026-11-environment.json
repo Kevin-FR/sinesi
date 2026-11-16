@@ -1,0 +1,24 @@
+{
+  "date": "2026-11-09",
+  "os": "macOS-27.2-arm64-arm-64bit-Mach-O",
+  "architecture": "arm64",
+  "python": "3.14.4",
+  "rust": "rustc 1.95.0 (59807616e 2026-04-14)",
+  "cargo": "cargo 1.95.0 (f2d3ce0bd 2026-03-21)",
+  "reference_baseline": "docs/verification/j7-configuration-code-manifest.json",
+  "changed_source_paths": [
+    "AGENTS.md",
+    "scripts/check_layers.py",
+    "scripts/test_layers.py"
+  ],
+  "unchanged_historical_pngs": 496,
+  "workspace_members": 20,
+  "metadata_packages_default": 510,
+  "metadata_packages_all_features": 521,
+  "limits": [
+    "Local macOS only",
+    "No native interaction or remote CI execution",
+    "All-features dependency graph does not compile all combinations"
+  ],
+  "source_revision": "sha256:40cc7928a7359d07ae577db0e47b05f5701e34c821bade2937ac0adc05cc83de"
+}

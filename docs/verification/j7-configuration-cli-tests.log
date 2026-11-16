@@ -1,0 +1,20 @@
+   Compiling sns-desktop v0.1.0 (/Users/kevin/Web/SNS/apps/sns-desktop)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.00s
+     Running unittests src/main.rs (target/debug/deps/sns_desktop-d369da4c2473b5f8)
+
+running 2 tests
+test launch::tests::native_paths_option_boundary_and_duplicate_values_are_explicit ... ok
+test launch::parser_keeps_non_utf8_project_and_profile_path_bytes ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/startup.rs (target/debug/deps/startup-ca07349d8538831a)
+
+running 4 tests
+test non_utf8_path_metadata_does_not_prevent_a_startup_report_on_apfs ... ok
+test real_binary_resolves_layers_and_checks_the_explicit_project_without_writing_files ... ok
+test working_directory_and_invalid_project_are_explicit_and_preserve_the_source ... ok
+test help_version_and_safe_fallback_work_in_all_six_languages_without_a_window ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.97s
+

@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "base_archive": "docs/verification/j7-import-source-bundle.tar.gz",
+  "base_sha256": "74ae256df66043ad27083e394bcf5bd8096192eb861cce836723d99fab0546ee",
+  "delta_archive": "docs/verification/j7-annotations-source-delta.tar.gz",
+  "delta_sha256": "8de46bd0de2c78eaff38a07c1bce415676689d37d7a21585f1a846262eadab9d",
+  "delta_bytes": 14022863,
+  "source_revision": "020669e66fe9209d8e5899823d06db615a66f9e6b283df391a1eace825573084",
+  "source_files": 544,
+  "delta_files": 371,
+  "deleted_paths": [],
+  "external_metadata_and_check_log": [
+    "docs/verification/j7-annotations-docs.log",
+    "docs/verification/j7-annotations-source-delta.json"
+  ],
+  "reconstruction": "Verify archive hashes; extract the base into an empty directory and overlay the delta, then remove deleted_paths. Run scripts/check_manifest.py check docs/verification/j7-annotations-code-manifest.json. Supply external archives/metadata/check logs for documentation checks; reference tests and --require-reference additionally require the read-only Filius archive, which is not redistributed.",
+  "overlay_verified_without_extraction": true
+}

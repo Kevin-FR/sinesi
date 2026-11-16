@@ -1,0 +1,43 @@
+    Blocking waiting for file lock on build directory
+    Checking smallvec v1.16.5
+    Checking serde_json v1.0.154
+    Checking num-traits v0.2.19
+    Checking serde v1.0.229
+    Checking thiserror v2.0.21
+    Checking zerofrom v0.1.8
+    Checking ref-cast v1.0.27
+    Checking parking_lot_core v0.9.12
+    Checking yoke v0.8.4
+    Checking fluent-uri v0.4.1
+    Checking ahash v0.8.12
+    Checking email_address v0.2.9
+    Checking num-integer v0.1.47
+    Checking sns-model v0.1.0 (/Users/kevin/Web/SNS/crates/sns-model)
+    Checking num-complex v0.4.6
+    Checking sns-i18n v0.1.0 (/Users/kevin/Web/SNS/crates/sns-i18n)
+    Checking parking_lot v0.12.5
+    Checking zerovec v0.11.9
+    Checking zerotrie v0.2.5
+    Checking num-bigint v0.4.8
+    Checking num-iter v0.1.46
+    Checking referencing v0.46.10
+    Checking tinystr v0.8.5
+    Checking potential_utf v0.1.6
+    Checking sns-vfs v0.1.0 (/Users/kevin/Web/SNS/crates/sns-vfs)
+    Checking sns-protocols v0.1.0 (/Users/kevin/Web/SNS/crates/sns-protocols)
+    Checking sns-html v0.1.0 (/Users/kevin/Web/SNS/crates/sns-html)
+    Checking sns-project v0.1.0 (/Users/kevin/Web/SNS/crates/sns-project)
+    Checking num-rational v0.4.2
+    Checking icu_collections v2.4.0
+    Checking icu_locale_core v2.4.0
+    Checking num v0.4.3
+    Checking sns-apps v0.1.0 (/Users/kevin/Web/SNS/crates/sns-apps)
+    Checking icu_provider v2.4.0
+    Checking fraction v0.15.4
+    Checking icu_properties v2.4.0
+    Checking icu_normalizer v2.4.0
+    Checking sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+    Checking idna_adapter v1.2.2
+    Checking idna v1.1.0
+    Checking jsonschema v0.46.10
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 17.49s

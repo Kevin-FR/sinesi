@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "base_archive": "docs/verification/j7-import-source-bundle.tar.gz",
+  "base_sha256": "74ae256df66043ad27083e394bcf5bd8096192eb861cce836723d99fab0546ee",
+  "delta_archive": "docs/verification/j7-terminal-source-delta.tar.gz",
+  "delta_sha256": "0b0b5fbeab2e6936f62183403b6ad63372ed4c04dcf46a6ea89ec1dcbe39a570",
+  "delta_bytes": 9152238,
+  "source_revision": "2da4353ff9c13f5286afddda344a163279be35a42741bf54cf1ee201c7b043c0",
+  "source_files": 498,
+  "delta_files": 277,
+  "deleted_paths": [],
+  "external_metadata_and_check_log": [
+    "docs/verification/j7-terminal-docs.log",
+    "docs/verification/j7-terminal-source-delta.json"
+  ],
+  "reconstruction": "Verify archive hashes; extract the base into an empty directory and overlay the delta, then remove deleted_paths. Run scripts/check_manifest.py check docs/verification/j7-terminal-code-manifest.json. Supply external archives/metadata/check logs for documentation checks; reference tests and --require-reference additionally require the read-only Filius archive, which is not redistributed.",
+  "overlay_verified_without_extraction": true
+}

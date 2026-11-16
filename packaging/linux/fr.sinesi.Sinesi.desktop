@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=Application
+Name=Sinesi
+Comment=Educational network simulator
+Comment[fr]=Simulateur de réseaux éducatif
+Comment[es]=Simulador de redes educativo
+Comment[it]=Simulatore di reti didattico
+Comment[pt]=Simulador de redes educativo
+Comment[de]=Netzwerksimulator für den Unterricht
+Exec=/usr/bin/sns-desktop -- %f
+TryExec=/usr/bin/sns-desktop
+Icon=fr.sinesi.Sinesi
+Terminal=false
+Categories=Education;
+MimeType=application/vnd.sinesi.project+json;

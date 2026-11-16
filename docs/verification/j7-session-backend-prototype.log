@@ -1,0 +1,14 @@
+   Compiling sns-i18n v0.1.0 (/Users/kevin/Web/SNS/crates/sns-i18n)
+   Compiling sns-apps v0.1.0 (/Users/kevin/Web/SNS/crates/sns-apps)
+   Compiling sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+   Compiling sns-project v0.1.0 (/Users/kevin/Web/SNS/crates/sns-project)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.93s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 3 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 2 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.06s
+

@@ -1,0 +1,10 @@
+{
+  "diagnostic_version": 1,
+  "discarded": 0,
+  "entries": [
+    {
+      "sequence": 1,
+      "event": "runtime_file_failed"
+    }
+  ]
+}

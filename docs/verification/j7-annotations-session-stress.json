@@ -1,0 +1,18 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "-p",
+    "sns-project",
+    "--test",
+    "session",
+    "--locked",
+    "--offline"
+  ],
+  "iterations": 40,
+  "passed_iterations": 40,
+  "ordinary_tests_per_iteration": 3,
+  "forced_child_exits_per_iteration": 1,
+  "all_passed": true,
+  "elapsed_seconds": 10.698
+}

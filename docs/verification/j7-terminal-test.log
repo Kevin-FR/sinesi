@@ -1,0 +1,11 @@
+   Compiling sns-i18n v0.1.0 (/Users/kevin/Web/SNS/crates/sns-i18n)
+   Compiling sns-apps v0.1.0 (/Users/kevin/Web/SNS/crates/sns-apps)
+   Compiling sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.88s
+     Running tests/applications.rs (target/debug/deps/applications-b4ac4096bfd7e7a1)
+
+running 1 test
+test j7_historical_file_probe_is_diagnostic_only_and_student_test_commands_are_rejected ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 6 filtered out; finished in 0.01s
+

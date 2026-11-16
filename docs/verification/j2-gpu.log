@@ -1,0 +1,36 @@
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.33s
+     Running tests/lan.rs (target/debug/deps/lan-107b72d63ea8d511)
+
+running 17 tests
+test palette_delete_and_undo_drive_transactional_editor ... ok
+test preferred_language_survives_new_ui_instance_and_new_documents_use_it ... ok
+test inspector_rename_preserves_ids_and_shortcuts_respect_text_entry ... ok
+test documentation_and_unsaved_replacement_preserve_project_until_decision ... ok
+test traffic_filters_export_and_clear_preserve_immutable_trace ... ok
+test palette_drag_drop_and_rectangle_group_move_keep_cables_attached ... ok
+test six_languages_change_visible_controls_without_modifying_project ... ok
+test keyboard_equipment_ping_pause_step_and_modes_preserve_project ... ok
+test failed_file_save_preserves_draft_and_close_requires_explicit_discard ... ok
+test explorer_copy_move_delete_and_host_switch_use_isolated_documents ... ok
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+test six_language_desktops_terminal_history_and_persistent_document ... ok
+test tcp_windows_use_actual_transport_and_close_view_keeps_server_active ... ok
+test virtual_editor_saves_and_image_viewer_preserves_binary_in_six_languages ... ok
+test rendered_lan_editor_reference ... ok
+test rendered_six_languages_reference ... ok
+test rendered_desktop_and_terminal_six_languages ... ok
+
+test result: ok. 17 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.78s
+
+     Running tests/workbench.rs (target/debug/deps/workbench-6835244f47e90863)
+
+running 5 tests
+test canvas_has_a_keyboard_reachable_equipment_selection ... ok
+test controls_drive_the_real_engine_and_restart_clears_state ... ok
+test native_browser_gets_page_image_link_and_post_via_engine ... ok
+test rendered_workbench_reference ... ok
+test large_trace_uses_the_virtualized_table ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.64s
+

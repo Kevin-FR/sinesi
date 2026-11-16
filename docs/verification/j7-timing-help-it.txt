@@ -1,0 +1,35 @@
+Uso: sns-desktop [opzioni] [--] [progetto.json]
+Priorità: valori integrati < amministratore < profilo utente < riga di comando.
+
+  -r, --rtt-factor 1..5
+      Moltiplica le attese di risposta simulate (1–5), senza cambiare collegamenti o durate.
+  -h, --help 
+      Mostrare questo aiuto senza aprire finestre.
+  --version 
+      Mostrare la versione.
+  --check-config 
+      Verificare configurazione e progetto e produrre un rapporto JSON senza finestre.
+  --config PATH
+      Scegliere la configurazione amministratore.
+  --settings PATH
+      Scegliere il profilo utente.
+  --session-dir PATH
+      Scegliere la cartella locale di recupero.
+  -w, --workdir PATH
+      Risolvere i percorsi relativi da questa cartella senza spostare file.
+  --language fr|en|es|it|pt|de
+      Scegliere temporaneamente la lingua.
+  --ui-scale 80..200
+      Scegliere temporaneamente la dimensione dell’interfaccia in percentuale.
+  --font default|noto_sans
+      Scegliere temporaneamente il carattere.
+  --view icons|diagram
+      Scegliere temporaneamente la vista Icone o Schema.
+  --layout inspector_right|inspector_left|tabs
+      Scegliere temporaneamente la disposizione dei pannelli.
+  --window-width 840..3840
+      Scegliere temporaneamente la larghezza della finestra.
+  --window-height 600..2160
+      Scegliere temporaneamente l’altezza della finestra.
+
+Le opzioni di visualizzazione all’avvio sono temporanee. Le modifiche successive nell’interfaccia vengono salvate nel profilo utente.

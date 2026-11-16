@@ -1,0 +1,18 @@
+
+
+HKEY_CURRENT_USER\Software\Classes\Sinesi.Project\shell\open\command
+
+    (Default)    REG_SZ    "C:\SinesiQA\sns-desktop.exe" -- "%1"
+
+
+
+
+
+HKEY_CURRENT_USER\Software\Classes\.sinesi\OpenWithProgids
+
+    Sinesi.Project    REG_SZ    
+
+
+
+OK — 12 startup combinations, portable save, ping, checkpoint, replay and PNG in /private/tmp/sns-j7-win64/cx-exercise
+/tmp/sns-j7-win64/cx-exercise/- réseau de classe.sinesi: OK

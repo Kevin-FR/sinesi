@@ -1,6 +1,28 @@
 # Pile native egui — sélection et adoption
 
-Révision du cadrage : **7 novembre 2026**, à partir de la structure proposée par l’utilisateur et des manifestes publics consultés. Ce document conserve la sélection cible et ses évaluations. Le socle J0 utilise désormais la famille upstream 0.37.0, avec graphe compilé localement et verrouillé; voir [D-002](decisions/D-002-egui-j0.md). Les briques Craft, rfd, tiny-skia et le texte avancé restent des candidats des prochains lots.
+## État courant de l’adaptateur
+
+Le [manifeste du workspace](../../Cargo.toml) et son lockfile font autorité.
+Les tableaux de sélection ci-dessous conservent le cadrage initial; une proposition
+ne signifie pas une dépendance adoptée. Au 8 novembre 2026 :
+
+- UI : famille upstream egui/eframe/egui_extras/egui_kittest **0.37.0**, rfd **0.17.2**;
+  aucun fork egui/winit ni module Craft activé.
+- Scène et PNG : resvg **0.45.1**, tiny-skia transitif **0.11.4**;
+  fontes embarquées, HarfRust **0.12.0** et Skrifa **0.44.0** dans `sns-fonts`.
+- Rapports : Krilla **0.8.2** dans `sns-report`, indépendant des widgets.
+- Qualité : **20 membres**, dépendances/lints partagés et politique de couches
+  exhaustive; `cargo xtask ci` est commun au poste de développement et à la CI.
+- Produit : **FR EN ES IT PT DE**, vues **Icônes/Schéma**. Leur présence ne qualifie
+  pas à elle seule l’accessibilité ni un parcours natif sur trois OS.
+
+Les décisions D-010 à D-012 et les sections de réalisation en fin de document
+décrivent les choix effectifs. Une dépendance Craft ou un patch observé chez
+SolidCraft/WordCraft exige toujours un besoin reproduit dans Sinesi.
+
+## Cadrage initial conservé
+
+Révision du cadrage : **7 novembre 2026**, à partir de la structure proposée par l’utilisateur et des manifestes publics consultés. Ce document conserve la sélection cible et ses évaluations. Le socle J0 utilise désormais la famille upstream 0.37.0, avec graphe compilé localement et verrouillé; voir [D-002](decisions/D-002-egui-j0.md). J1 adopte rfd 0.17.2 pour les dialogues natifs, verrouillé dans Cargo.lock. Les briques Craft, tiny-skia et le texte avancé restent des candidats des prochains lots.
 
 La direction graphique est **egui/eframe 0.37**. Les numéros ci-dessous désignent des familles de versions cibles. Un lockfile et des commits Git immuables devront fixer les versions effectivement testées. Le catalogue agnostique et les identifiants `F-*` restent l’autorité fonctionnelle.
 
@@ -43,7 +65,7 @@ Le canevas de J1 commence avec les formes egui, un index spatial de sélection s
 
 Sources : [skrifa](https://docs.rs/skrifa/latest/skrifa/), [harfrust](https://docs.rs/harfrust/latest/harfrust/), [unicode-bidi](https://docs.rs/unicode-bidi/latest/unicode_bidi/), [icu_segmenter](https://docs.rs/icu_segmenter/latest/icu_segmenter/).
 
-FR/EN/DE sont les langues requises par F-CFG-001. Les textes libres peuvent contenir d’autres écritures : documenter le support constaté et les caractères manquants. Une future extension de langue exige ses recettes. Installer un shaper ou un moteur bidi ne les branche pas automatiquement aux champs egui : le pipeline, le curseur, la sélection, l’IME, le fallback et les métriques d’export doivent être intégrés et testés explicitement.
+FR/EN/ES/IT/PT/DE sont les six langues conservées pour F-CFG-001. Les textes libres peuvent contenir d’autres écritures : documenter le support constaté et les caractères manquants. Une future extension de langue exige ses recettes. Installer un shaper ou un moteur bidi ne les branche pas automatiquement aux champs egui : le pipeline, le curseur, la sélection, l’IME, le fallback et les métriques d’export doivent être intégrés et testés explicitement.
 
 ## Briques craft-libs
 
@@ -112,3 +134,36 @@ Une table de dépendances au workspace ne les installe pas partout : chaque crat
 - **J7 — RS-REPORTING-J7 / RS-PLATFORM-J7 :** PNG transparent, PDF paginé et polices cohérentes, dialogues/presse-papiers, fenêtres et accessibilité sur les trois OS.
 
 Le [guide egui_kittest](https://github.com/emilk/egui/blob/0.37.0/crates/egui_kittest/README.md) distingue interactions et snapshots GPU. Les tests sans fenêtre réelle sont complétés par les essais natifs; les diffs d’image ne sont pas acceptés automatiquement par mise à jour des références.
+
+## Dépendances réellement utilisées à J2
+
+Le [lockfile](../../Cargo.lock) fixe notamment egui/eframe 0.37.0, rfd 0.17.2 et image 0.25.10. J2 active PNG/JPEG/GIF/BMP pour les images virtuelles, avec quotas de décodage. Les crates de domaine sns-apps/sns-vfs/sns-i18n restent sans GUI et sns-settings conserve la préférence de langue hors projet. Voir [J2](J2.md) pour le graphe et les limites des dialogues modaux. Aucun fork winit ni brique Craft supplémentaire n’a été introduit pour ce jalon.
+
+## Dépendances J3
+
+Le rendu des SVG fournis active uniquement `egui_extras/svg` et ses helpers CPU, sans image loader réseau. Le lockfile fixe resvg/usvg 0.45.1 et tiny-skia 0.11.4 sur ce chemin. Les graphismes sont intégrés au binaire avec leurs empreintes; les protocoles ne reçoivent aucune dépendance de rendu supplémentaire. Voir [J3](J3.md).
+
+## Réalisation J6
+
+Le courrier et le P2P réutilisent le TCP/DNS/VFS et SHA-256 déjà disponibles. Le nouvel adaptateur `sns-bridge` utilise uniquement les sockets et canaux bornés de la bibliothèque standard, sur un fil dédié. Le moteur ne dépend pas de cet adaptateur. Aucun runtime asynchrone ni dépendance réseau externe n’a été ajouté. Les SVG modem/point d’accès fournis par l’utilisateur portent le catalogue embarqué à 18 fichiers.
+
+## Polices documentaires J7
+
+`sns-fonts` est une bibliothèque locale de données, sans dépendance externe. Quatre fichiers Noto Sans/Noto Sans Mono Regular/Bold, non modifiés, sont fixés au commit `ffebf8c1ee449e544955a7e813c54f9b73848eac` de Noto. Leur [provenance et licence OFL-1.1](../../assets/fonts/README.md) accompagnent les fontes; les polices ne sont pas couvertes par la licence MIT du code SNS. La GUI les inscrit dans des familles d’annotation dédiées. `scripts/check_fonts.py` vérifie empreintes, poids et corpus latin des six langues hors ligne. L’ajout au lockfile concerne uniquement ce crate local; aucun nouveau paquet tiers ni changement de version externe. Les backends PNG/PDF et shaping restent à qualifier dans RS-REPORTING-J7.
+
+## Rendu PNG J7
+
+`sns-render` réutilise resvg/usvg **0.45.1** et tiny-skia **0.11.4**, sans fonctionnalités par défaut de resvg. HarfRust **0.12.0** et skrifa **0.44.0** deviennent des dépendances directes de `sns-fonts`; pollster **0.4.0** est utilisé pour attendre le dialogue asynchrone sur un fil GUI dédié. Ces versions existaient déjà dans Cargo.lock : aucun nouveau paquet tiers ni changement de version, seulement le crate local et les liens directs. Les images externes SVG et les fontes système ne sont pas résolues. La proposition tiny-skia 0.12 n’est pas présentée comme réalisée; [D-010](decisions/D-010-export-scene-j7.md) consigne le choix vérifié. Le backend CPU reste sans egui/wgpu, runtime réseau ni I/O implicite. Les bibliothèques et le backend PDF restent distincts.
+
+## Réexamen de structure du 8 novembre 2026
+
+[D-011](decisions/D-011-structure-et-workflow.md) compare les manifestes SolidCraft/WordCraft à des révisions figées. Les dépendances encore locales (XML, ZIP, validation de schéma et attente asynchrone) héritent désormais du workspace, sans changer leur résolution. `xtask` utilise uniquement la bibliothèque standard. Les forks et crates Craft des références restent des candidats motivés par un besoin, pas une nouvelle pile activée. Le [guide](DEVELOPPEMENT.md) et la [politique](layers.json) sont les points d’entrée courants.
+
+## Rapport PDF J7
+
+Krilla 0.8.2, défauts désactivés et `raster-images`, rejoint le graphe pour l’écriture
+PDF dans `sns-report`. Les glyphes restent façonnés par SNS; pas de `simple-text`,
+lecture de PDF, rayon ou patch Craft activé. Les versions internes de Skrifa et
+tiny-skia-path sont séparées de celles de l’export PNG. [D-012](decisions/D-012-rapport-pdf-j7.md)
+détaille le choix, les données qui traversent la frontière et les dépendances de
+qualification indépendantes de l’application.

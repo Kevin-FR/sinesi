@@ -1,0 +1,184 @@
+iteration 1
+   Compiling sns-fonts v0.1.0 (/Users/kevin/Web/SNS/crates/sns-fonts)
+   Compiling sns-topology v0.1.0 (/Users/kevin/Web/SNS/crates/sns-topology)
+   Compiling sns-render v0.1.0 (/Users/kevin/Web/SNS/crates/sns-render)
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 8.97s
+     Running tests/lan.rs (target/debug/deps/lan-788c8b4f355d13db)
+
+running 1 test
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.09s
+
+iteration 2
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.13s
+     Running tests/lan.rs (target/debug/deps/lan-788c8b4f355d13db)
+
+running 1 test
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.08s
+
+iteration 3
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/lan.rs (target/debug/deps/lan-788c8b4f355d13db)
+
+running 1 test
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.08s
+
+iteration 4
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.10s
+     Running tests/lan.rs (target/debug/deps/lan-788c8b4f355d13db)
+
+running 1 test
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.08s
+
+iteration 5
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/lan.rs (target/debug/deps/lan-788c8b4f355d13db)
+
+running 1 test
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.08s
+
+iteration 6
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.10s
+     Running tests/lan.rs (target/debug/deps/lan-788c8b4f355d13db)
+
+running 1 test
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.08s
+
+iteration 7
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/lan.rs (target/debug/deps/lan-788c8b4f355d13db)
+
+running 1 test
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.08s
+
+iteration 8
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/lan.rs (target/debug/deps/lan-788c8b4f355d13db)
+
+running 1 test
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.08s
+
+iteration 9
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.10s
+     Running tests/lan.rs (target/debug/deps/lan-788c8b4f355d13db)
+
+running 1 test
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.08s
+
+iteration 10
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/lan.rs (target/debug/deps/lan-788c8b4f355d13db)
+
+running 1 test
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.08s
+
+iteration 11
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/lan.rs (target/debug/deps/lan-788c8b4f355d13db)
+
+running 1 test
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.08s
+
+iteration 12
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/lan.rs (target/debug/deps/lan-788c8b4f355d13db)
+
+running 1 test
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.08s
+
+iteration 13
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/lan.rs (target/debug/deps/lan-788c8b4f355d13db)
+
+running 1 test
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.08s
+
+iteration 14
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.10s
+     Running tests/lan.rs (target/debug/deps/lan-788c8b4f355d13db)
+
+running 1 test
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.08s
+
+iteration 15
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/lan.rs (target/debug/deps/lan-788c8b4f355d13db)
+
+running 1 test
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.08s
+
+iteration 16
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/lan.rs (target/debug/deps/lan-788c8b4f355d13db)
+
+running 1 test
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.08s
+
+iteration 17
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/lan.rs (target/debug/deps/lan-788c8b4f355d13db)
+
+running 1 test
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.08s
+
+iteration 18
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/lan.rs (target/debug/deps/lan-788c8b4f355d13db)
+
+running 1 test
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.08s
+
+iteration 19
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/lan.rs (target/debug/deps/lan-788c8b4f355d13db)
+
+running 1 test
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.08s
+
+iteration 20
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/lan.rs (target/debug/deps/lan-788c8b4f355d13db)
+
+running 1 test
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 0.08s
+

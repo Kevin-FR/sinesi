@@ -1,0 +1,82 @@
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 9.66s
+     Running tests/lan.rs (target/debug/deps/lan-37fec6bba389d50d)
+
+running 1 test
+test j7_trace_queries_exports_and_local_global_animation_preserve_six_languages_and_views ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 9.52s
+
+    Blocking waiting for file lock on artifact directory
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.52s
+     Running tests/lan.rs (target/debug/deps/lan-37fec6bba389d50d)
+
+running 1 test
+test j7_trace_queries_exports_and_local_global_animation_preserve_six_languages_and_views ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 7.97s
+
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.52s
+     Running tests/lan.rs (target/debug/deps/lan-37fec6bba389d50d)
+
+running 1 test
+test j7_trace_queries_exports_and_local_global_animation_preserve_six_languages_and_views ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 9.76s
+
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.44s
+     Running tests/lan.rs (target/debug/deps/lan-37fec6bba389d50d)
+
+running 1 test
+test j7_trace_queries_exports_and_local_global_animation_preserve_six_languages_and_views ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 5.43s
+
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.33s
+     Running tests/lan.rs (target/debug/deps/lan-37fec6bba389d50d)
+
+running 1 test
+test j7_trace_queries_exports_and_local_global_animation_preserve_six_languages_and_views ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 5.69s
+
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.32s
+     Running tests/lan.rs (target/debug/deps/lan-37fec6bba389d50d)
+
+running 1 test
+test j7_trace_queries_exports_and_local_global_animation_preserve_six_languages_and_views ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 5.43s
+
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.27s
+     Running tests/lan.rs (target/debug/deps/lan-37fec6bba389d50d)
+
+running 1 test
+test j7_trace_queries_exports_and_local_global_animation_preserve_six_languages_and_views ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 6.09s
+
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.61s
+     Running tests/lan.rs (target/debug/deps/lan-37fec6bba389d50d)
+
+running 1 test
+test j7_trace_queries_exports_and_local_global_animation_preserve_six_languages_and_views ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 6.45s
+
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.43s
+     Running tests/lan.rs (target/debug/deps/lan-37fec6bba389d50d)
+
+running 1 test
+test j7_trace_queries_exports_and_local_global_animation_preserve_six_languages_and_views ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 6.42s
+
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.34s
+     Running tests/lan.rs (target/debug/deps/lan-37fec6bba389d50d)
+
+running 1 test
+test j7_trace_queries_exports_and_local_global_animation_preserve_six_languages_and_views ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 32 filtered out; finished in 5.78s
+

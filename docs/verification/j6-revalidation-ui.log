@@ -1,0 +1,177 @@
+   Compiling serde_core v1.0.229
+   Compiling serde v1.0.229
+   Compiling serde_json v1.0.154
+   Compiling serde_spanned v1.1.3
+   Compiling toml_datetime v1.1.3+spec-1.1.0
+   Compiling toml v1.2.1+spec-1.1.0
+   Compiling sns-model v0.1.0 (/Users/kevin/Web/SNS/crates/sns-model)
+   Compiling sns-i18n v0.1.0 (/Users/kevin/Web/SNS/crates/sns-i18n)
+   Compiling egui_kittest v0.37.0
+   Compiling sns-vfs v0.1.0 (/Users/kevin/Web/SNS/crates/sns-vfs)
+   Compiling sns-protocols v0.1.0 (/Users/kevin/Web/SNS/crates/sns-protocols)
+   Compiling sns-html v0.1.0 (/Users/kevin/Web/SNS/crates/sns-html)
+   Compiling sns-project v0.1.0 (/Users/kevin/Web/SNS/crates/sns-project)
+   Compiling sns-topology v0.1.0 (/Users/kevin/Web/SNS/crates/sns-topology)
+   Compiling sns-filius-import v0.1.0 (/Users/kevin/Web/SNS/crates/sns-filius-import)
+   Compiling sns-settings v0.1.0 (/Users/kevin/Web/SNS/crates/sns-settings)
+   Compiling sns-apps v0.1.0 (/Users/kevin/Web/SNS/crates/sns-apps)
+   Compiling sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+   Compiling sns-bridge v0.1.0 (/Users/kevin/Web/SNS/crates/sns-bridge)
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 13.13s
+     Running tests/lan.rs (target/debug/deps/lan-4126e22deaa51576)
+
+running 4 tests
+test j6_mail_native_buttons_send_receive_reply_and_delete ... FAILED
+test j6_wireless_inspector_and_both_views_preserve_associations ... FAILED
+test j6_modem_activation_is_explicit_localized_and_disconnects ... FAILED
+test j6_mail_windows_and_p2p_controls_preserve_all_six_languages ... FAILED
+
+failures:
+
+---- j6_mail_native_buttons_send_receive_reply_and_delete stdout ----
+
+thread 'j6_mail_native_buttons_send_receive_reply_and_delete' (33125429) panicked at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ptr/mod.rs:805:1:
+Snapshot errors:
+  'j6-mail-reply-fr' Image did not match snapshot. Diff: 5229, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-mail-reply-fr.diff.png.
+  Failing pixels by threshold: 0.0: 5244, 0.1: 5244, 0.2: 5244, 0.4: 5244, 0.6: 5229, 1.0: 5229, 1.5: 5229, 2.0: 5229, 3.0: 5219, 5.0: 5207, 10.0: 5194
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- j6_wireless_inspector_and_both_views_preserve_associations stdout ----
+
+thread 'j6_wireless_inspector_and_both_views_preserve_associations' (33125432) panicked at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ptr/mod.rs:805:1:
+Snapshot errors:
+  'j6-wireless-icons-fr' Image did not match snapshot. Diff: 5229, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-wireless-icons-fr.diff.png.
+  Failing pixels by threshold: 0.0: 5244, 0.1: 5244, 0.2: 5244, 0.4: 5244, 0.6: 5229, 1.0: 5229, 1.5: 5229, 2.0: 5229, 3.0: 5219, 5.0: 5207, 10.0: 5194
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-wireless-diagram-fr' Image did not match snapshot. Diff: 5229, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-wireless-diagram-fr.diff.png.
+  Failing pixels by threshold: 0.0: 5244, 0.1: 5244, 0.2: 5244, 0.4: 5244, 0.6: 5229, 1.0: 5229, 1.5: 5229, 2.0: 5229, 3.0: 5219, 5.0: 5207, 10.0: 5194
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-wireless-icons-en' Image did not match snapshot. Diff: 4965, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-wireless-icons-en.diff.png.
+  Failing pixels by threshold: 0.0: 4983, 0.1: 4983, 0.2: 4983, 0.4: 4983, 0.6: 4965, 1.0: 4965, 1.5: 4965, 2.0: 4965, 3.0: 4943, 5.0: 4935, 10.0: 4924
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-wireless-diagram-en' Image did not match snapshot. Diff: 4965, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-wireless-diagram-en.diff.png.
+  Failing pixels by threshold: 0.0: 4983, 0.1: 4983, 0.2: 4983, 0.4: 4983, 0.6: 4965, 1.0: 4965, 1.5: 4965, 2.0: 4965, 3.0: 4943, 5.0: 4935, 10.0: 4924
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-wireless-icons-es' Image did not match snapshot. Diff: 5142, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-wireless-icons-es.diff.png.
+  Failing pixels by threshold: 0.0: 5155, 0.1: 5155, 0.2: 5155, 0.4: 5155, 0.6: 5142, 1.0: 5142, 1.5: 5142, 2.0: 5142, 3.0: 5130, 5.0: 5115, 10.0: 5098
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-wireless-diagram-es' Image did not match snapshot. Diff: 5142, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-wireless-diagram-es.diff.png.
+  Failing pixels by threshold: 0.0: 5155, 0.1: 5155, 0.2: 5155, 0.4: 5155, 0.6: 5142, 1.0: 5142, 1.5: 5142, 2.0: 5142, 3.0: 5130, 5.0: 5115, 10.0: 5098
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-wireless-icons-it' Image did not match snapshot. Diff: 4957, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-wireless-icons-it.diff.png.
+  Failing pixels by threshold: 0.0: 4978, 0.1: 4978, 0.2: 4978, 0.4: 4978, 0.6: 4957, 1.0: 4957, 1.5: 4957, 2.0: 4957, 3.0: 4940, 5.0: 4929, 10.0: 4917
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-wireless-diagram-it' Image did not match snapshot. Diff: 4957, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-wireless-diagram-it.diff.png.
+  Failing pixels by threshold: 0.0: 4978, 0.1: 4978, 0.2: 4978, 0.4: 4978, 0.6: 4957, 1.0: 4957, 1.5: 4957, 2.0: 4957, 3.0: 4940, 5.0: 4929, 10.0: 4917
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-wireless-icons-pt' Image did not match snapshot. Diff: 5082, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-wireless-icons-pt.diff.png.
+  Failing pixels by threshold: 0.0: 5101, 0.1: 5101, 0.2: 5101, 0.4: 5101, 0.6: 5082, 1.0: 5082, 1.5: 5082, 2.0: 5082, 3.0: 5073, 5.0: 5065, 10.0: 5050
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-wireless-diagram-pt' Image did not match snapshot. Diff: 5082, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-wireless-diagram-pt.diff.png.
+  Failing pixels by threshold: 0.0: 5101, 0.1: 5101, 0.2: 5101, 0.4: 5101, 0.6: 5082, 1.0: 5082, 1.5: 5082, 2.0: 5082, 3.0: 5073, 5.0: 5065, 10.0: 5050
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-wireless-icons-de' Image did not match snapshot. Diff: 5820, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-wireless-icons-de.diff.png.
+  Failing pixels by threshold: 0.0: 5835, 0.1: 5835, 0.2: 5835, 0.4: 5835, 0.6: 5820, 1.0: 5820, 1.5: 5820, 2.0: 5820, 3.0: 5807, 5.0: 5794, 10.0: 5781
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-wireless-diagram-de' Image did not match snapshot. Diff: 5820, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-wireless-diagram-de.diff.png.
+  Failing pixels by threshold: 0.0: 5835, 0.1: 5835, 0.2: 5835, 0.4: 5835, 0.6: 5820, 1.0: 5820, 1.5: 5820, 2.0: 5820, 3.0: 5807, 5.0: 5794, 10.0: 5781
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+
+
+---- j6_modem_activation_is_explicit_localized_and_disconnects stdout ----
+
+thread 'j6_modem_activation_is_explicit_localized_and_disconnects' (33125431) panicked at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ptr/mod.rs:805:1:
+Snapshot errors:
+  'j6-modem-fr' Image did not match snapshot. Diff: 5229, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-modem-fr.diff.png.
+  Failing pixels by threshold: 0.0: 5244, 0.1: 5244, 0.2: 5244, 0.4: 5244, 0.6: 5229, 1.0: 5229, 1.5: 5229, 2.0: 5229, 3.0: 5219, 5.0: 5207, 10.0: 5194
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-modem-en' Image did not match snapshot. Diff: 4965, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-modem-en.diff.png.
+  Failing pixels by threshold: 0.0: 4983, 0.1: 4983, 0.2: 4983, 0.4: 4983, 0.6: 4965, 1.0: 4965, 1.5: 4965, 2.0: 4965, 3.0: 4943, 5.0: 4935, 10.0: 4924
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-modem-es' Image did not match snapshot. Diff: 5142, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-modem-es.diff.png.
+  Failing pixels by threshold: 0.0: 5155, 0.1: 5155, 0.2: 5155, 0.4: 5155, 0.6: 5142, 1.0: 5142, 1.5: 5142, 2.0: 5142, 3.0: 5130, 5.0: 5115, 10.0: 5098
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-modem-it' Image did not match snapshot. Diff: 4957, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-modem-it.diff.png.
+  Failing pixels by threshold: 0.0: 4978, 0.1: 4978, 0.2: 4978, 0.4: 4978, 0.6: 4957, 1.0: 4957, 1.5: 4957, 2.0: 4957, 3.0: 4940, 5.0: 4929, 10.0: 4917
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-modem-pt' Image did not match snapshot. Diff: 5082, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-modem-pt.diff.png.
+  Failing pixels by threshold: 0.0: 5101, 0.1: 5101, 0.2: 5101, 0.4: 5101, 0.6: 5082, 1.0: 5082, 1.5: 5082, 2.0: 5082, 3.0: 5073, 5.0: 5065, 10.0: 5050
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-modem-de' Image did not match snapshot. Diff: 5820, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-modem-de.diff.png.
+  Failing pixels by threshold: 0.0: 5835, 0.1: 5835, 0.2: 5835, 0.4: 5835, 0.6: 5820, 1.0: 5820, 1.5: 5820, 2.0: 5820, 3.0: 5807, 5.0: 5794, 10.0: 5781
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+
+
+---- j6_mail_windows_and_p2p_controls_preserve_all_six_languages stdout ----
+
+thread 'j6_mail_windows_and_p2p_controls_preserve_all_six_languages' (33125430) panicked at /rustc/59807616e1fa2540724bfbac14d7976d7e4a3860/library/core/src/ptr/mod.rs:805:1:
+Snapshot errors:
+  'j6-mail-server-fr' Image did not match snapshot. Diff: 5229, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-mail-server-fr.diff.png.
+  Failing pixels by threshold: 0.0: 5244, 0.1: 5244, 0.2: 5244, 0.4: 5244, 0.6: 5229, 1.0: 5229, 1.5: 5229, 2.0: 5229, 3.0: 5219, 5.0: 5207, 10.0: 5194
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-mail-client-fr' Image did not match snapshot. Diff: 5229, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-mail-client-fr.diff.png.
+  Failing pixels by threshold: 0.0: 5244, 0.1: 5244, 0.2: 5244, 0.4: 5244, 0.6: 5229, 1.0: 5229, 1.5: 5229, 2.0: 5229, 3.0: 5219, 5.0: 5207, 10.0: 5194
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-p2p-fr' Image did not match snapshot. Diff: 5229, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-p2p-fr.diff.png.
+  Failing pixels by threshold: 0.0: 5244, 0.1: 5244, 0.2: 5244, 0.4: 5244, 0.6: 5229, 1.0: 5229, 1.5: 5229, 2.0: 5229, 3.0: 5219, 5.0: 5207, 10.0: 5194
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-mail-server-en' Image did not match snapshot. Diff: 4965, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-mail-server-en.diff.png.
+  Failing pixels by threshold: 0.0: 4983, 0.1: 4983, 0.2: 4983, 0.4: 4983, 0.6: 4965, 1.0: 4965, 1.5: 4965, 2.0: 4965, 3.0: 4943, 5.0: 4935, 10.0: 4924
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-mail-client-en' Image did not match snapshot. Diff: 4965, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-mail-client-en.diff.png.
+  Failing pixels by threshold: 0.0: 4983, 0.1: 4983, 0.2: 4983, 0.4: 4983, 0.6: 4965, 1.0: 4965, 1.5: 4965, 2.0: 4965, 3.0: 4943, 5.0: 4935, 10.0: 4924
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-p2p-en' Image did not match snapshot. Diff: 4965, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-p2p-en.diff.png.
+  Failing pixels by threshold: 0.0: 4983, 0.1: 4983, 0.2: 4983, 0.4: 4983, 0.6: 4965, 1.0: 4965, 1.5: 4965, 2.0: 4965, 3.0: 4943, 5.0: 4935, 10.0: 4924
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-mail-server-es' Image did not match snapshot. Diff: 5142, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-mail-server-es.diff.png.
+  Failing pixels by threshold: 0.0: 5155, 0.1: 5155, 0.2: 5155, 0.4: 5155, 0.6: 5142, 1.0: 5142, 1.5: 5142, 2.0: 5142, 3.0: 5130, 5.0: 5115, 10.0: 5098
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-mail-client-es' Image did not match snapshot. Diff: 5142, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-mail-client-es.diff.png.
+  Failing pixels by threshold: 0.0: 5155, 0.1: 5155, 0.2: 5155, 0.4: 5155, 0.6: 5142, 1.0: 5142, 1.5: 5142, 2.0: 5142, 3.0: 5130, 5.0: 5115, 10.0: 5098
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-p2p-es' Image did not match snapshot. Diff: 5142, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-p2p-es.diff.png.
+  Failing pixels by threshold: 0.0: 5155, 0.1: 5155, 0.2: 5155, 0.4: 5155, 0.6: 5142, 1.0: 5142, 1.5: 5142, 2.0: 5142, 3.0: 5130, 5.0: 5115, 10.0: 5098
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-mail-server-it' Image did not match snapshot. Diff: 4957, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-mail-server-it.diff.png.
+  Failing pixels by threshold: 0.0: 4978, 0.1: 4978, 0.2: 4978, 0.4: 4978, 0.6: 4957, 1.0: 4957, 1.5: 4957, 2.0: 4957, 3.0: 4940, 5.0: 4929, 10.0: 4917
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-mail-client-it' Image did not match snapshot. Diff: 4957, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-mail-client-it.diff.png.
+  Failing pixels by threshold: 0.0: 4978, 0.1: 4978, 0.2: 4978, 0.4: 4978, 0.6: 4957, 1.0: 4957, 1.5: 4957, 2.0: 4957, 3.0: 4940, 5.0: 4929, 10.0: 4917
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-p2p-it' Image did not match snapshot. Diff: 4957, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-p2p-it.diff.png.
+  Failing pixels by threshold: 0.0: 4978, 0.1: 4978, 0.2: 4978, 0.4: 4978, 0.6: 4957, 1.0: 4957, 1.5: 4957, 2.0: 4957, 3.0: 4940, 5.0: 4929, 10.0: 4917
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-mail-server-pt' Image did not match snapshot. Diff: 5082, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-mail-server-pt.diff.png.
+  Failing pixels by threshold: 0.0: 5101, 0.1: 5101, 0.2: 5101, 0.4: 5101, 0.6: 5082, 1.0: 5082, 1.5: 5082, 2.0: 5082, 3.0: 5073, 5.0: 5065, 10.0: 5050
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-mail-client-pt' Image did not match snapshot. Diff: 5082, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-mail-client-pt.diff.png.
+  Failing pixels by threshold: 0.0: 5101, 0.1: 5101, 0.2: 5101, 0.4: 5101, 0.6: 5082, 1.0: 5082, 1.5: 5082, 2.0: 5082, 3.0: 5073, 5.0: 5065, 10.0: 5050
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-p2p-pt' Image did not match snapshot. Diff: 5082, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-p2p-pt.diff.png.
+  Failing pixels by threshold: 0.0: 5101, 0.1: 5101, 0.2: 5101, 0.4: 5101, 0.6: 5082, 1.0: 5082, 1.5: 5082, 2.0: 5082, 3.0: 5073, 5.0: 5065, 10.0: 5050
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-mail-server-de' Image did not match snapshot. Diff: 5820, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-mail-server-de.diff.png.
+  Failing pixels by threshold: 0.0: 5835, 0.1: 5835, 0.2: 5835, 0.4: 5835, 0.6: 5820, 1.0: 5820, 1.5: 5820, 2.0: 5820, 3.0: 5807, 5.0: 5794, 10.0: 5781
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-mail-client-de' Image did not match snapshot. Diff: 5820, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-mail-client-de.diff.png.
+  Failing pixels by threshold: 0.0: 5835, 0.1: 5835, 0.2: 5835, 0.4: 5835, 0.6: 5820, 1.0: 5820, 1.5: 5820, 2.0: 5820, 3.0: 5807, 5.0: 5794, 10.0: 5781
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+  'j6-p2p-de' Image did not match snapshot. Diff: 5820, /Users/kevin/Web/SNS/crates/sns-ui-egui/tests/snapshots/j6-p2p-de.diff.png.
+  Failing pixels by threshold: 0.0: 5835, 0.1: 5835, 0.2: 5835, 0.4: 5835, 0.6: 5820, 1.0: 5820, 1.5: 5820, 2.0: 5820, 3.0: 5807, 5.0: 5794, 10.0: 5781
+  Run `UPDATE_SNAPSHOTS=1 cargo test --all-features` to update the snapshots.
+
+
+
+failures:
+    j6_mail_native_buttons_send_receive_reply_and_delete
+    j6_mail_windows_and_p2p_controls_preserve_all_six_languages
+    j6_modem_activation_is_explicit_localized_and_disconnects
+    j6_wireless_inspector_and_both_views_preserve_associations
+
+test result: FAILED. 0 passed; 4 failed; 0 ignored; 0 measured; 30 filtered out; finished in 4.05s
+
+error: test failed, to rerun pass `-p sns-ui-egui --test lan`

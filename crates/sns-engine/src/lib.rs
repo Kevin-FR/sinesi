@@ -1,4 +1,12 @@
-//! Deterministic, bounded event engine. J0 messages are prototypes, not a TCP/IP stack.
+//! Deterministic bounded engine; real LAN events and isolated J0 prototype messages.
+mod applications;
+mod checkpoint;
+pub use checkpoint::{Checkpoint, MAX_CHECKPOINT_BYTES};
+mod recording;
+pub use recording::{RecordedOperation, Recording};
+mod state;
+mod state_value;
+use applications::ApplicationPlan;
 use base64::{Engine as _, engine::general_purpose::STANDARD};
 use serde::{Deserialize, Serialize};
 use sha2::{Digest, Sha256};
@@ -6,9 +14,11 @@ use sns_model::*;
 use std::{
     cmp::{Ordering, Reverse},
     collections::{BTreeMap, BTreeSet, BinaryHeap, VecDeque},
+    sync::Arc,
 };
 
-#[derive(Clone, Copy, Debug)]
+#[derive(Clone, Copy, Debug, Serialize, Deserialize)]
+#[serde(deny_unknown_fields)]
 pub struct Limits {
     pub queue: usize,
     pub trace: usize,
@@ -69,7 +79,7 @@ impl SplitMix64 {
     }
 }
 
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize)]
 struct Transit {
     source: Id,
     target: Id,
@@ -77,8 +87,19 @@ struct Transit {
     correlation: Id,
     caused_by: Option<Id>,
 }
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize)]
 enum Event {
+    NetworkCommand {
+        action: NetworkAction,
+    },
+    Application {
+        timer: sns_apps::Timer,
+        cause: Option<Id>,
+    },
+    Network {
+        event: sns_protocols::Event,
+        cause: Option<Id>,
+    },
     Dispatch(Transit),
     Arrival {
         transit: Transit,
@@ -86,7 +107,7 @@ enum Event {
         hop: usize,
     },
 }
-#[derive(Clone, Debug)]
+#[derive(Clone, Debug, Serialize)]
 struct Scheduled {
     time: u64,
     priority: u8,
@@ -122,8 +143,10 @@ struct Fact {
     reason: Option<&'static str>,
 }
 
+#[derive(Clone)]
 pub struct Engine {
-    scenario: Scenario,
+    recording: Recording,
+    scenario: Arc<Scenario>,
     seed: u64,
     generation: u64,
     run_id: Id,
@@ -135,18 +158,35 @@ pub struct Engine {
     trace: Vec<TraceEvent>,
     limits: Limits,
     receipts: BTreeMap<Id, CommandEnvelope>,
+    network: sns_protocols::Network,
+    apps: sns_apps::Runtime,
+    revision: u64,
 }
 
 impl Engine {
     pub fn new(scenario: Scenario, seed: Option<u64>, limits: Limits) -> Result<Self, Diagnostic> {
+        Self::new_with_wait_factor(scenario, seed, limits, WaitFactor::default())
+    }
+    pub fn new_with_wait_factor(
+        scenario: Scenario,
+        seed: Option<u64>,
+        limits: Limits,
+        wait_factor: WaitFactor,
+    ) -> Result<Self, Diagnostic> {
         scenario.validate()?;
-        if scenario.actions.len() > limits.queue {
+        if scenario.actions.len() + scenario.network_actions.len() > limits.queue {
             return Err(Diagnostic::new("resource.limit_exceeded", "queue"));
         }
+        let apps = sns_apps::Runtime::new(&scenario.project)?;
         let seed = seed.unwrap_or(scenario.seed.0);
         let run_id = Id::new(format!("run-{seed}-0"))?;
+        let scenario = Arc::new(scenario);
+        let recording = Recording::new(scenario.clone(), seed, limits, wait_factor);
         let mut engine = Self {
+            recording,
             scenario,
+            apps,
+            revision: 0,
             seed,
             generation: 0,
             run_id,
@@ -158,7 +198,60 @@ impl Engine {
             trace: Vec::new(),
             limits,
             receipts: BTreeMap::new(),
+            network: sns_protocols::Network::with_wait_factor(wait_factor),
         };
+        let mut routers: Vec<_> = engine
+            .project()
+            .devices
+            .iter()
+            .filter(|h| h.network.rip)
+            .map(|h| h.id.clone())
+            .collect();
+        routers.sort();
+        for (index, device) in routers.into_iter().enumerate() {
+            engine.enqueue(Effect {
+                time: 0,
+                priority: 15,
+                event: Event::Network {
+                    event: sns_protocols::Event {
+                        correlation: Id::new(format!("rip-init-{index}"))?,
+                        action: sns_protocols::Action::RipTick {
+                            device,
+                            periodic: true,
+                        },
+                    },
+                    cause: None,
+                },
+            })?;
+        }
+        let clients: Vec<_> = engine
+            .project()
+            .devices
+            .iter()
+            .flat_map(|d| &d.interfaces)
+            .filter(|i| matches!(i.ipv4, Some(Ipv4Config::Dhcp)))
+            .map(|i| i.id.clone())
+            .collect();
+        for (index, interface) in clients.into_iter().enumerate() {
+            engine.enqueue(Effect {
+                time: 0,
+                priority: 15,
+                event: Event::Network {
+                    event: sns_protocols::Event {
+                        correlation: Id::new(format!("dhcp-init-{index}"))?,
+                        action: sns_protocols::Action::DhcpStart { interface },
+                    },
+                    cause: None,
+                },
+            })?;
+        }
+        for action in engine.scenario.network_actions.clone() {
+            engine.enqueue(Effect {
+                time: action.at_us.0,
+                priority: 0,
+                event: Event::NetworkCommand { action },
+            })?;
+        }
         let actions = engine.scenario.actions.clone();
         for (index, action) in actions.into_iter().enumerate() {
             let transit = Transit {
@@ -174,7 +267,26 @@ impl Engine {
                 event: Event::Dispatch(transit),
             })?;
         }
+        engine.boot_applications()?;
         Ok(engine)
+    }
+    pub fn revision(&self) -> u64 {
+        self.revision
+    }
+    pub fn apps(&self) -> &sns_apps::Runtime {
+        &self.apps
+    }
+    pub fn stop(&mut self) -> Result<(), Diagnostic> {
+        let record = self.state != RunState::Stopped;
+        let apps = sns_apps::Runtime::new(self.project())?;
+        self.queue.clear();
+        self.network = sns_protocols::Network::with_wait_factor(self.network.wait_factor());
+        self.apps = apps;
+        self.state = RunState::Stopped;
+        if record {
+            self.recording.push(RecordedOperation::Stop);
+        }
+        Ok(())
     }
     pub fn project(&self) -> &Project {
         &self.scenario.project
@@ -184,6 +296,33 @@ impl Engine {
     }
     pub fn run_id(&self) -> &Id {
         &self.run_id
+    }
+    /// Command identities remain reserved after checkpoint restoration.
+    pub fn command_id_taken(&self, id: &Id) -> bool {
+        self.receipts.contains_key(id) || self.scenario.network_actions.iter().any(|a| &a.id == id)
+    }
+    pub fn generation(&self) -> u64 {
+        self.generation
+    }
+    /// Adopt recorded state as a new live execution without reusing an earlier UI generation.
+    pub fn renew_generation_after(&mut self, floor: u64) -> Result<(), Diagnostic> {
+        let generation = self
+            .generation
+            .max(floor)
+            .checked_add(1)
+            .ok_or_else(|| Diagnostic::new("simulation.generation_overflow", "restore"))?;
+        let run_id = Id::new(format!("run-{}-{generation}", self.seed))?;
+        let mut recording = self.recording()?;
+        recording.push(RecordedOperation::Rebase {
+            generation: Decimal(generation),
+        });
+        if recording.overflow {
+            return Err(Diagnostic::new("checkpoint.history_limit", "generation"));
+        }
+        self.generation = generation;
+        self.run_id = run_id;
+        self.recording = recording;
+        Ok(())
     }
     pub fn seed(&self) -> u64 {
         self.seed
@@ -200,13 +339,71 @@ impl Engine {
     pub fn pending(&self) -> usize {
         self.queue.len()
     }
+    pub fn take_bridge_output(&mut self) -> Vec<(Id, BridgePacket)> {
+        if !self.network.bridge_output.is_empty() {
+            self.recording.push(RecordedOperation::DrainBridgeOutput);
+        }
+        std::mem::take(&mut self.network.bridge_output)
+    }
+    pub fn network(&self) -> &sns_protocols::Network {
+        &self.network
+    }
+    pub fn from_project(project: Project, seed: u64, limits: Limits) -> Result<Self, Diagnostic> {
+        Self::from_project_with_wait_factor(project, seed, limits, WaitFactor::default())
+    }
+    pub fn from_project_with_wait_factor(
+        project: Project,
+        seed: u64,
+        limits: Limits,
+        wait_factor: WaitFactor,
+    ) -> Result<Self, Diagnostic> {
+        Self::new_with_wait_factor(
+            Scenario {
+                scenario_schema_version: 1,
+                project,
+                seed: Decimal(seed),
+                actions: vec![],
+                prototype_servers: vec![],
+                network_actions: vec![],
+            },
+            None,
+            limits,
+            wait_factor,
+        )
+    }
+    pub fn replace_project(&mut self, project: Project) -> Result<(), Diagnostic> {
+        self.replace_project_with_wait_factor(project, self.network.wait_factor())
+    }
+    pub fn replace_project_with_wait_factor(
+        &mut self,
+        project: Project,
+        wait_factor: WaitFactor,
+    ) -> Result<(), Diagnostic> {
+        let generation = self
+            .generation
+            .checked_add(1)
+            .ok_or_else(|| Diagnostic::new("simulation.generation_overflow", "run"))?;
+        let mut next =
+            Self::from_project_with_wait_factor(project, self.seed, self.limits, wait_factor)?;
+        next.generation = generation;
+        next.recording.initial_generation = Decimal(generation);
+        next.run_id = Id::new(format!("run-{}-{generation}", self.seed))?;
+        *self = next;
+        Ok(())
+    }
     pub fn restart(&mut self) -> Result<(), Diagnostic> {
         let generation = self
             .generation
             .checked_add(1)
             .ok_or_else(|| Diagnostic::new("simulation.generation_overflow", "run"))?;
-        let mut next = Self::new(self.scenario.clone(), Some(self.seed), self.limits)?;
+        let mut next = Self::new_with_wait_factor(
+            self.scenario.as_ref().clone(),
+            Some(self.seed),
+            self.limits,
+            self.network.wait_factor(),
+        )?;
         next.generation = generation;
+        next.recording.initial_generation = Decimal(generation);
         next.run_id = Id::new(format!("run-{}-{generation}", self.seed))?;
         *self = next;
         Ok(())
@@ -232,6 +429,19 @@ impl Engine {
 
     /// Accepted command IDs are remembered for this run; reusing an ID with other data fails.
     pub fn command(&mut self, envelope: CommandEnvelope) -> Result<(), Diagnostic> {
+        let suppressed = self.recording.suppressed;
+        self.recording.suppressed = true;
+        let repeated = self.receipts.contains_key(&envelope.command_id);
+        let result = self.command_inner(envelope.clone());
+        self.recording.suppressed = suppressed;
+        if result.is_ok() && !repeated {
+            self.recording.push(RecordedOperation::Command {
+                envelope: Box::new(envelope),
+            });
+        }
+        result
+    }
+    fn command_inner(&mut self, envelope: CommandEnvelope) -> Result<(), Diagnostic> {
         if envelope.api_version != 1 || envelope.project_id != self.project().project_id {
             return Err(Diagnostic::new(
                 "command.invalid_envelope",
@@ -251,7 +461,7 @@ impl Engine {
                 ))
             };
         }
-        if envelope.expected_revision.0 != 0 {
+        if envelope.expected_revision.0 != self.revision {
             return Err(Diagnostic::new("state.revision_conflict", "project"));
         }
         if self.receipts.len() >= self.limits.commands {
@@ -261,12 +471,195 @@ impl Engine {
             return Err(Diagnostic::new("state.stopped", self.run_id.as_str()));
         }
         match &envelope.command {
+            Command::SetSymbol { device, symbol } => {
+                let project = self.project().with_symbol(device, *symbol)?;
+                if project != *self.project() {
+                    if self.trace.len() >= self.limits.trace {
+                        return Err(Diagnostic::new("resource.limit_exceeded", "trace"));
+                    }
+                    let revision = self
+                        .revision
+                        .checked_add(1)
+                        .ok_or_else(|| Diagnostic::new("state.revision_overflow", "project"))?;
+                    let sequence = self.trace.len() as u64 + 1;
+                    let fact = TraceEvent {
+                        event_schema_version: 10,
+                        run_id: self.run_id.clone(),
+                        event_id: Id::new(format!("evt-{sequence}"))?,
+                        time_us: Decimal(self.now),
+                        sequence: Decimal(sequence),
+                        kind: "presentation.symbol.changed".into(),
+                        device_id: device.clone(),
+                        caused_by: None,
+                        correlation_id: envelope.command_id.clone(),
+                        payload: BTreeMap::from([
+                            ("symbol".into(), serde_json::json!(symbol)),
+                            (
+                                "project_schema_version".into(),
+                                serde_json::json!(project.schema_version),
+                            ),
+                        ]),
+                    };
+                    Arc::make_mut(&mut self.scenario).project = project;
+                    self.revision = revision;
+                    self.trace.push(fact);
+                }
+            }
+            Command::ConfigureLink { link, conditions } => {
+                let event = sns_protocols::Event {
+                    correlation: envelope.command_id.clone(),
+                    action: sns_protocols::Action::ConfigureLink {
+                        link: link.clone(),
+                        conditions: conditions.clone(),
+                        seed: self.seed,
+                    },
+                };
+                let scheduled = Scheduled {
+                    time: self.now,
+                    priority: 0,
+                    sequence: 0,
+                    event: Event::Network {
+                        event: event.clone(),
+                        cause: None,
+                    },
+                };
+                self.tick_network(&scheduled, &event, None, false)?;
+            }
+            Command::Bridge { device, command } => {
+                let event = sns_protocols::Event {
+                    correlation: envelope.command_id.clone(),
+                    action: sns_protocols::Action::Bridge {
+                        device: device.clone(),
+                        command: command.clone(),
+                    },
+                };
+                let scheduled = Scheduled {
+                    time: self.now,
+                    priority: 20,
+                    sequence: 0,
+                    event: Event::Network {
+                        event: event.clone(),
+                        cause: None,
+                    },
+                };
+                self.tick_network(&scheduled, &event, None, false)?;
+            }
+            Command::Security { device, command } => {
+                self.security_command(device, command, &envelope.command_id)?
+            }
+            Command::RipMute { device, muted } => {
+                let event = sns_protocols::Event {
+                    correlation: envelope.command_id.clone(),
+                    action: sns_protocols::Action::RipMute {
+                        device: device.clone(),
+                        muted: *muted,
+                    },
+                };
+                let scheduled = Scheduled {
+                    time: self.now,
+                    priority: 20,
+                    sequence: 0,
+                    event: Event::Network {
+                        event: event.clone(),
+                        cause: None,
+                    },
+                };
+                self.tick_network(&scheduled, &event, None, false)?;
+            }
+            Command::App { device, command } => {
+                self.application_command(device, command, &envelope.command_id)?
+            }
+            Command::Socket { device, command } => {
+                let event = sns_protocols::Event {
+                    correlation: envelope.command_id.clone(),
+                    action: sns_protocols::Action::Socket {
+                        device: device.clone(),
+                        command: command.clone(),
+                    },
+                };
+                let scheduled = Scheduled {
+                    time: self.now,
+                    priority: 20,
+                    sequence: 0,
+                    event: Event::Network {
+                        event: event.clone(),
+                        cause: None,
+                    },
+                };
+                self.tick_network(&scheduled, &event, None, false)?;
+            }
+            Command::Ping {
+                source,
+                destination,
+                ttl,
+            } => {
+                if !self.project().device(source).is_some_and(|d| {
+                    matches!(
+                        d.kind,
+                        DeviceKind::Workstation | DeviceKind::Notebook | DeviceKind::Router
+                    )
+                }) {
+                    return Err(Diagnostic::new("device.not_host", source.as_str()));
+                }
+                let destination = destination
+                    .parse()
+                    .map_err(|_| Diagnostic::new("validation.invalid_ipv4", destination))?;
+                let target: std::net::Ipv4Addr = destination;
+                let host = self.project().device(source).unwrap();
+                if target.is_broadcast() || host.interfaces.iter().any(|i|matches!(&i.ipv4,Some(Ipv4Config::Static{address,prefix_length}) if *prefix_length<31 && address.parse().ok().is_some_and(|a|sns_protocols::subnet(a,*prefix_length).is_ok_and(|(_,b)|b==target)))) {
+                    return Err(Diagnostic::new("ipv4.broadcast_requires_opt_in",source.as_str()));
+                }
+                self.enqueue(Effect {
+                    time: self.now,
+                    priority: 20,
+                    event: Event::Network {
+                        event: sns_protocols::Event {
+                            correlation: envelope.command_id.clone(),
+                            action: sns_protocols::Action::Ping {
+                                source: source.clone(),
+                                destination,
+                                ttl: *ttl,
+                            },
+                        },
+                        cause: None,
+                    },
+                })?;
+            }
+            Command::ManualLoss { enabled } => self.network.manual_loss = *enabled,
+            Command::PurgeArp { device } | Command::PurgeSat { device } => {
+                if self.project().device(device).is_none() {
+                    return Err(Diagnostic::new(
+                        "project.invalid_reference",
+                        device.as_str(),
+                    ));
+                }
+                let action = if matches!(&envelope.command, Command::PurgeArp { .. }) {
+                    sns_protocols::Action::PurgeArp {
+                        device: device.clone(),
+                    }
+                } else {
+                    sns_protocols::Action::PurgeSat {
+                        device: device.clone(),
+                    }
+                };
+                let event = sns_protocols::Event {
+                    correlation: envelope.command_id.clone(),
+                    action,
+                };
+                let scheduled = Scheduled {
+                    time: self.now,
+                    priority: 0,
+                    sequence: 0,
+                    event: Event::Network {
+                        event: event.clone(),
+                        cause: None,
+                    },
+                };
+                self.tick_network(&scheduled, &event, None, false)?;
+            }
             Command::Pause => self.state = RunState::Paused,
             Command::Resume => self.state = RunState::Running,
-            Command::Stop => {
-                self.queue.clear();
-                self.state = RunState::Stopped;
-            }
+            Command::Stop => self.stop()?,
             Command::Step => {
                 if self.state != RunState::Paused {
                     return Err(Diagnostic::new("state.not_paused", "simulation"));
@@ -314,28 +707,46 @@ impl Engine {
         event_budget: usize,
         until_us: Option<u64>,
     ) -> Result<RunReport, Diagnostic> {
-        if until_us.is_some_and(|bound| bound < self.now) {
+        let (count, termination) = self.pump(event_budget, until_us)?;
+        Ok(self.report(count, termination))
+    }
+    /// Bounded execution without serializing the entire trace (for UI projections).
+    pub fn pump(
+        &mut self,
+        budget: usize,
+        bound: Option<u64>,
+    ) -> Result<(usize, Termination), Diagnostic> {
+        if bound.is_some_and(|bound| bound < self.now) {
             return Err(Diagnostic::new("simulation.past_bound", "until_us"));
         }
         if self.state == RunState::Stopped {
-            return Ok(self.report(0, Termination::Stopped));
+            return Ok((0, Termination::Stopped));
         }
+        let before = self.state;
+        let recorded = self.recording.events;
         self.state = RunState::Running;
-        let result = self.advance(event_budget, until_us);
+        let result = self.advance(budget, bound);
         self.state = RunState::Paused;
+        if self.recording.events == recorded && before != RunState::Paused {
+            self.recording.push(RecordedOperation::Pause);
+        }
         result
     }
-    fn advance(&mut self, budget: usize, bound: Option<u64>) -> Result<RunReport, Diagnostic> {
+    fn advance(
+        &mut self,
+        budget: usize,
+        bound: Option<u64>,
+    ) -> Result<(usize, Termination), Diagnostic> {
         let mut count = 0;
         loop {
             let Some(Reverse(next)) = self.queue.peek() else {
-                return Ok(self.report(count, Termination::Idle));
+                return Ok((count, Termination::Idle));
             };
             if bound.is_some_and(|limit| next.time > limit) {
-                return Ok(self.report(count, Termination::TimeBound));
+                return Ok((count, Termination::TimeBound));
             }
             if count >= budget {
-                return Ok(self.report(count, Termination::EventBudget));
+                return Ok((count, Termination::EventBudget));
             }
             self.tick()?;
             count += 1;
@@ -367,9 +778,39 @@ impl Engine {
     }
 
     fn tick(&mut self) -> Result<bool, Diagnostic> {
+        let result = self.tick_inner();
+        if matches!(result, Ok(true)) {
+            self.recording
+                .push(RecordedOperation::Events { count: Decimal(1) });
+        }
+        result
+    }
+    fn tick_inner(&mut self) -> Result<bool, Diagnostic> {
         let Some(Reverse(scheduled)) = self.queue.peek().cloned() else {
             return Ok(false);
         };
+        if let Event::NetworkCommand { action } = &scheduled.event {
+            // A command and its consumed queue entry commit together. Invalid actions leave the engine unchanged.
+            let mut next = self.clone();
+            next.queue.pop();
+            next.now = scheduled.time;
+            next.command_inner(CommandEnvelope {
+                api_version: 1,
+                command_id: action.id.clone(),
+                project_id: next.project().project_id.clone(),
+                expected_revision: Decimal(next.revision),
+                run_id: next.run_id.clone(),
+                command: action.command.clone(),
+            })?;
+            *self = next;
+            return Ok(true);
+        }
+        if let Event::Application { timer, cause } = &scheduled.event {
+            return self.tick_application(&scheduled, timer, cause.clone());
+        }
+        if let Event::Network { event, cause } = &scheduled.event {
+            return self.tick_network(&scheduled, event, cause.clone(), true);
+        }
         let mut rng = self.rng;
         let (effects, facts) = self.plan(&scheduled, &mut rng)?;
         if self.queue.len() - 1 + effects.len() > self.limits.queue
@@ -411,6 +852,21 @@ impl Engine {
         Ok(true)
     }
 
+    fn tick_network(
+        &mut self,
+        scheduled: &Scheduled,
+        event: &sns_protocols::Event,
+        mut cause: Option<Id>,
+        consume: bool,
+    ) -> Result<bool, Diagnostic> {
+        let scenario = self.scenario.clone();
+        let mut plan =
+            ApplicationPlan::new(&scenario.project, self.network.clone(), self.apps.clone());
+        plan.network(scheduled.time, event.clone())?;
+        self.commit_application_plan(scheduled.time, plan, cause.take(), consume)?;
+        Ok(true)
+    }
+
     fn plan(
         &self,
         scheduled: &Scheduled,
@@ -420,6 +876,9 @@ impl Engine {
         let mut facts = Vec::new();
         let event_id = Id::new(format!("evt-{}", self.trace.len() + 1))?;
         match &scheduled.event {
+            Event::NetworkCommand { .. } | Event::Application { .. } | Event::Network { .. } => {
+                unreachable!("network events have their own transactional planner")
+            }
             Event::Dispatch(transit) => {
                 let Some(route) = self.route(&transit.source, &transit.target) else {
                     facts.push(Fact {

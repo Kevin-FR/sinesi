@@ -1,0 +1,33 @@
+Utilisation : sns-desktop [options] [--] [projet.json]
+Priorité : valeurs intégrées < administrateur < profil utilisateur < ligne de commande.
+
+  -h, --help 
+      Afficher cette aide sans ouvrir de fenêtre.
+  --version 
+      Afficher la version.
+  --check-config 
+      Contrôler la configuration et le projet, puis produire un rapport JSON sans fenêtre.
+  --config PATH
+      Choisir la configuration administrateur.
+  --settings PATH
+      Choisir le profil utilisateur.
+  --session-dir PATH
+      Choisir le dossier local de récupération.
+  -w, --workdir PATH
+      Résoudre les chemins relatifs depuis ce répertoire, sans déplacer les fichiers.
+  --language fr|en|es|it|pt|de
+      Choisir temporairement la langue.
+  --ui-scale 80..200
+      Choisir temporairement la taille de l’interface en pourcentage.
+  --font default|noto_sans
+      Choisir temporairement la police.
+  --view icons|diagram
+      Choisir temporairement la vue Icônes ou Schéma.
+  --layout inspector_right|inspector_left|tabs
+      Choisir temporairement la disposition des panneaux.
+  --window-width 840..3840
+      Choisir temporairement la largeur de fenêtre.
+  --window-height 600..2160
+      Choisir temporairement la hauteur de fenêtre.
+
+Les options d’affichage de lancement sont temporaires. Les modifications faites ensuite dans l’interface sont enregistrées dans le profil utilisateur.

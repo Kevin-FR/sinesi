@@ -1,0 +1,13 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.08s
+     Running tests/applications.rs (target/debug/deps/applications-ae8d3ce6dbcc7e6a)
+
+running 6 tests
+test failed_application_commands_keep_document_revision_and_runtime_atomic ... ok
+test registry_all_thirteen_entries_and_future_software_are_explicit ... ok
+test virtual_files_terminal_aliases_roundtrip_and_unknown_commands_are_isolated ... ok
+test ping_default_four_statistics_capture_interrupt_and_broadcast ... ok
+test echo_two_clients_window_service_lifecycle_and_transactional_ports ... ok
+test echo_retransmission_of_segmented_unicode_is_delivered_once ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+

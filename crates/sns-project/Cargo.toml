@@ -7,13 +7,14 @@ license.workspace = true
 repository.workspace = true
 
 [dependencies]
+serde.workspace = true
 sns-model.workspace = true
 serde_json.workspace = true
 tempfile.workspace = true
 thiserror.workspace = true
 
 [dev-dependencies]
-jsonschema = { version = "0.46", default-features = false }
+jsonschema.workspace = true
 sns-engine.workspace = true
 
 [lints]

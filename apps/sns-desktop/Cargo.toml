@@ -7,8 +7,15 @@ license.workspace = true
 repository.workspace = true
 
 [dependencies]
-eframe.workspace = true
+sns-model.workspace = true
+sns-settings.workspace = true
+serde_json.workspace = true
+eframe = { workspace = true, features = ["wgpu", "accesskit", "clipboard", "x11", "wayland"] }
 sns-ui-egui.workspace = true
+
+[dev-dependencies]
+jsonschema.workspace = true
+tempfile.workspace = true
 
 [lints]
 workspace = true

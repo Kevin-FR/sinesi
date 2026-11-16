@@ -1,0 +1,9 @@
+    Blocking waiting for file lock on artifact directory
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 12.24s
+     Running tests/lan.rs (target/debug/deps/lan-875e862678172a55)
+
+running 1 test
+test j7_trace_queries_exports_and_local_global_animation_preserve_six_languages_and_views ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 38 filtered out; finished in 5.14s
+

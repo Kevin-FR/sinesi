@@ -1,0 +1,13 @@
+{
+  "format_version": 1,
+  "base_reconstruction": "docs/verification/j7-windows-keyboard-source-patch.json",
+  "base_revision": "2009f983b20ff3fc162f7ae462d0fc64b9c347d025bdd7b7bbe0ae5246ff7ae2",
+  "patch_archive": "docs/verification/j7-macos-keyboard-source-patch.tar.gz",
+  "patch_sha256": "ecb66efbb4c5cf8e959b3dee45e54adff83dd26c9879a9f0b10a6c99458b2ec0",
+  "patch_bytes": 145561,
+  "patch_files": 13,
+  "deleted_paths": [],
+  "source_revision": "2f1aaf9eed9b2da26caf8d0f59b05acbb3f2b94145c584b4f789bcc1aee6c4aa",
+  "overlay_verified": true,
+  "reconstruction": "Reconstruct j7-windows-keyboard using its metadata, verify its code manifest, then overlay this patch and apply deleted_paths. Run scripts/check_manifest.py check with the j7-macos-keyboard manifest."
+}

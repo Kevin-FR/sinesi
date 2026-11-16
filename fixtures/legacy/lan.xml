@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Sinesi-owned synthetic JavaBeans data. No archived Filius content. -->
+<java class="java.beans.XMLDecoder">
+ <object class="java.util.LinkedList">
+  <void method="add"><object class="filius.gui.netzwerksicht.GUIKnotenItem">
+   <void property="knoten"><object class="filius.hardware.knoten.Rechner">
+    <void property="name"><string>Élève A</string></void>
+    <void property="netzwerkInterfaces"><void index="0">
+     <void property="ip"><string>192.168.8.2</string></void>
+     <void property="mac"><string>02:08:00:00:00:01</string></void>
+     <void id="PortA" property="port"/>
+    </void></void>
+    <void property="systemSoftware"><void property="installierteAnwendungen"><void method="put"><string>filius.software.lokal.Terminal</string><object class="filius.software.lokal.Terminal"/></void></void></void>
+    <void property="unmappedTeachingNote"><string>This field must remain in the coverage report.</string></void>
+   </object></void>
+  </object></void>
+  <void method="add"><object class="filius.gui.netzwerksicht.GUIKnotenItem">
+   <void property="knoten"><object class="filius.hardware.knoten.Rechner">
+    <void property="name"><string>Serveur importé</string></void>
+    <void property="netzwerkInterfaces"><void index="0">
+     <void property="ip"><string>192.168.8.3</string></void>
+     <void property="mac"><string>02:08:00:00:00:02</string></void>
+     <void id="PortB" property="port"/>
+    </void></void>
+    <void property="systemSoftware"><void property="installierteAnwendungen"><void method="put"><string>filius.software.www.WebServer</string><object class="filius.software.www.WebServer"/></void></void></void>
+   </object></void>
+  </object></void>
+  <void method="add"><object class="filius.gui.netzwerksicht.GUIKnotenItem">
+   <void property="knoten"><object class="filius.hardware.knoten.Switch">
+    <void property="name"><string>Commutateur importé</string></void>
+    <void property="anschluesse"><void index="0" id="SwitchPortA"/><void index="1" id="SwitchPortB"/></void>
+   </object></void>
+  </object></void>
+  <void method="add"><object class="filius.hardware.Kabel"><void property="anschluesse"><array class="filius.hardware.Port" length="2"><void index="0"><object idref="PortA"/></void><void index="1"><object idref="SwitchPortA"/></void></array></void></object></void>
+  <void method="add"><object class="filius.hardware.Kabel"><void property="anschluesse"><array class="filius.hardware.Port" length="2"><void index="0"><object idref="PortB"/></void><void index="1"><object idref="SwitchPortB"/></void></array></void></object></void>
+ </object>
+</java>

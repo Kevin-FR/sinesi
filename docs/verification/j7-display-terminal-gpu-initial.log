@@ -1,0 +1,10 @@
+    Blocking waiting for file lock on package cache
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 7.04s
+     Running tests/preferences.rs (target/debug/deps/preferences-a36f7bcefa140899)
+
+running 1 test
+test terminal_remains_usable_at_200_percent_in_all_languages_without_advancing_protocols ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 5 filtered out; finished in 6.70s
+

@@ -1,5 +1,9 @@
 # Architecture indépendante de l’implémentation
 
+## Réalisation J1
+
+Le moteur de réseau local, les transactions d’édition et leurs frontières sont réalisés selon [LAN_J1](LAN_J1.md). La carte vers l’adaptateur actuel est dans la [matrice de traçabilité](../suivi/MATRICE.md); les identifiants fonctionnels restent portables.
+
 ## Choix directeur
 
 Employer un moteur à événements discrets, autonome et déterministe. Les équipements et protocoles réagissent à des événements et programment leurs prochaines actions dans le temps virtuel. L’interface est un client du moteur, comme le lanceur sans interface et le runner de recettes.
@@ -108,3 +112,25 @@ Le pont entre instances est une entrée externe non déterministe. Toute trame r
 ## Passage à un autre adaptateur
 
 Le comportement est fixé par les exigences, les contrats neutres et les fixtures. Les bibliothèques, représentations mémoire et outils de compilation peuvent changer sans changer ces références. Un changement de sémantique exige une décision, une version de profil et une recette mise à jour. Le nouvel adaptateur porte les mêmes identifiants fonctionnels et fournit ses propres preuves.
+
+
+## Services J4
+
+La [projection réseau effective et les services](SERVICES_J4.md) complètent le transport et le routage. Configuration sauvegardée, état des services et ressources des navigateurs restent distincts.
+
+
+## Réseaux privés J5
+
+Le [profil privé](RESEAUX_PRIVES_J5.md) fixe les rôles LAN/WAN et l’ordre filtrage, traduction et transfert. L’administration interne est un client des mêmes commandes transactionnelles que l’inspecteur.
+
+## Évolution des adaptateurs
+
+Le [processus d’évolution](EVOLUTION.md) fixe les tranches de refactor, les frontières et leurs preuves. Un changement d’organisation ne modifie ni les exigences ni les contrats de données. La carte des modules et les commandes restent propres à chaque adaptateur.
+
+## Rapport documentaire
+
+Le [profil de rapport J7](RAPPORTS_J7.md) décrit la capture, les sections, les échanges par MAC et les limites. Projet sauvegardé, réseau effectif et génération des faits restent distincts pendant l’export.
+
+## Aide pédagogique
+
+Le [guide contextuel](AIDE_J7.md) est une projection hors ligne des fonctions disponibles, séparée de leur exécution. Les liens de chargement d’exemples passent par les mêmes protections que les autres ouvertures de document.

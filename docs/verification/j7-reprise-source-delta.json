@@ -1,0 +1,18 @@
+{
+  "format_version": 1,
+  "base_archive": "docs/verification/j7-import-source-bundle.tar.gz",
+  "base_sha256": "74ae256df66043ad27083e394bcf5bd8096192eb861cce836723d99fab0546ee",
+  "delta_archive": "docs/verification/j7-reprise-source-delta.tar.gz",
+  "delta_sha256": "a3397bcd6f968fb19080885cdb00eee414c5f0a48c38fa1746e38aba748748ab",
+  "delta_bytes": 1378308,
+  "source_revision": "02f6cb9f761bb56561017fd99620884d1d4ddcc53d749a68beced8c7d6e54e1b",
+  "source_files": 424,
+  "delta_files": 94,
+  "deleted_paths": [],
+  "external_metadata_and_check_log": [
+    "docs/verification/j7-reprise-docs.log",
+    "docs/verification/j7-reprise-source-delta.json"
+  ],
+  "reconstruction": "Verify both archive hashes. Extract the base into an empty directory; overlay the delta; remove deleted_paths. Copy this metadata and the provided check log separately if running documentation checks. Run scripts/check_manifest.py check docs/verification/j7-reprise-code-manifest.json. Reference corpus tests additionally require the read-only Filius archive; it is not redistributed.",
+  "overlay_verified_without_extraction": true
+}

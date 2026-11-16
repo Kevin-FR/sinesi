@@ -1,0 +1,483 @@
+[
+  {
+    "capture": "j6-mail-client-de.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      430,
+      17,
+      1283,
+      37
+    ]
+  },
+  {
+    "capture": "j6-mail-client-en.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      449,
+      17,
+      1195,
+      37
+    ]
+  },
+  {
+    "capture": "j6-mail-client-es.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      410,
+      17,
+      1239,
+      37
+    ]
+  },
+  {
+    "capture": "j6-mail-client-fr.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      423,
+      17,
+      1257,
+      37
+    ]
+  },
+  {
+    "capture": "j6-mail-client-it.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      434,
+      17,
+      1218,
+      37
+    ]
+  },
+  {
+    "capture": "j6-mail-client-pt.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      439,
+      17,
+      1282,
+      37
+    ]
+  },
+  {
+    "capture": "j6-mail-reply-fr.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      423,
+      17,
+      1257,
+      37
+    ]
+  },
+  {
+    "capture": "j6-mail-server-de.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      430,
+      17,
+      1283,
+      37
+    ]
+  },
+  {
+    "capture": "j6-mail-server-en.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      449,
+      17,
+      1195,
+      37
+    ]
+  },
+  {
+    "capture": "j6-mail-server-es.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      410,
+      17,
+      1239,
+      37
+    ]
+  },
+  {
+    "capture": "j6-mail-server-fr.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      423,
+      17,
+      1257,
+      37
+    ]
+  },
+  {
+    "capture": "j6-mail-server-it.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      434,
+      17,
+      1218,
+      37
+    ]
+  },
+  {
+    "capture": "j6-mail-server-pt.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      439,
+      17,
+      1282,
+      37
+    ]
+  },
+  {
+    "capture": "j6-modem-de.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      430,
+      17,
+      1283,
+      37
+    ]
+  },
+  {
+    "capture": "j6-modem-en.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      449,
+      17,
+      1195,
+      37
+    ]
+  },
+  {
+    "capture": "j6-modem-es.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      410,
+      17,
+      1239,
+      37
+    ]
+  },
+  {
+    "capture": "j6-modem-fr.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      423,
+      17,
+      1257,
+      37
+    ]
+  },
+  {
+    "capture": "j6-modem-it.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      434,
+      17,
+      1218,
+      37
+    ]
+  },
+  {
+    "capture": "j6-modem-pt.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      439,
+      17,
+      1282,
+      37
+    ]
+  },
+  {
+    "capture": "j6-p2p-de.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      430,
+      17,
+      1283,
+      37
+    ]
+  },
+  {
+    "capture": "j6-p2p-en.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      449,
+      17,
+      1195,
+      37
+    ]
+  },
+  {
+    "capture": "j6-p2p-es.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      410,
+      17,
+      1239,
+      37
+    ]
+  },
+  {
+    "capture": "j6-p2p-fr.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      423,
+      17,
+      1257,
+      37
+    ]
+  },
+  {
+    "capture": "j6-p2p-it.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      434,
+      17,
+      1218,
+      37
+    ]
+  },
+  {
+    "capture": "j6-p2p-pt.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      439,
+      17,
+      1282,
+      37
+    ]
+  },
+  {
+    "capture": "j6-wireless-diagram-de.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      430,
+      17,
+      1283,
+      37
+    ]
+  },
+  {
+    "capture": "j6-wireless-diagram-en.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      449,
+      17,
+      1195,
+      37
+    ]
+  },
+  {
+    "capture": "j6-wireless-diagram-es.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      410,
+      17,
+      1239,
+      37
+    ]
+  },
+  {
+    "capture": "j6-wireless-diagram-fr.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      423,
+      17,
+      1257,
+      37
+    ]
+  },
+  {
+    "capture": "j6-wireless-diagram-it.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      434,
+      17,
+      1218,
+      37
+    ]
+  },
+  {
+    "capture": "j6-wireless-diagram-pt.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      439,
+      17,
+      1282,
+      37
+    ]
+  },
+  {
+    "capture": "j6-wireless-icons-de.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      430,
+      17,
+      1283,
+      37
+    ]
+  },
+  {
+    "capture": "j6-wireless-icons-en.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      449,
+      17,
+      1195,
+      37
+    ]
+  },
+  {
+    "capture": "j6-wireless-icons-es.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      410,
+      17,
+      1239,
+      37
+    ]
+  },
+  {
+    "capture": "j6-wireless-icons-fr.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      423,
+      17,
+      1257,
+      37
+    ]
+  },
+  {
+    "capture": "j6-wireless-icons-it.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      434,
+      17,
+      1218,
+      37
+    ]
+  },
+  {
+    "capture": "j6-wireless-icons-pt.png",
+    "size": [
+      1650,
+      1200
+    ],
+    "changed_bounds": [
+      439,
+      17,
+      1282,
+      37
+    ]
+  }
+]

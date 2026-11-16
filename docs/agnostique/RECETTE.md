@@ -1,6 +1,6 @@
 # Recettes intégrées de référence
 
-Ce plan décrit les scénarios à implémenter. Aucun de ces tests du nouveau produit n’a encore été exécuté. Les critères élémentaires de toutes les exigences restent dans le catalogue; ces recettes vérifient leurs interactions.
+Ce plan décrit les scénarios de référence. R-LAN est qualifiée dans le [rapport J1](../verification/J1.md); R-TCP et R-FICHIERS le sont dans le [rapport J2](../verification/J2.md), pour les profils pédagogiques déclarés. R-ROUTES et R-RIP sont qualifiées dans le [rapport J3](../verification/J3.md). Les autres recettes restent à réaliser. Les critères élémentaires de toutes les exigences restent dans le catalogue; ces recettes vérifient leurs interactions.
 
 Chaque recette conserve : version du produit, versions de contrat/profil, OS, fichier de scénario, graine, liste ordonnée des commandes, borne virtuelle, assertions et trace canonique. Les mesures de performance ajoutent modèle de machine, mémoire, configuration de build et méthode de calcul des percentiles.
 

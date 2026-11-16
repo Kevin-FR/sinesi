@@ -1,0 +1,287 @@
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+   Compiling sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+   Compiling sns-desktop v0.1.0 (/Users/kevin/Web/SNS/apps/sns-desktop)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.53s
+     Running unittests src/lib.rs (target/debug/deps/sns_apps-674cd4cc51400254)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/main.rs (target/debug/deps/sinesi-9f4b8cae904adeb5)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/runner.rs (target/debug/deps/runner-13343a951a094198)
+
+running 2 tests
+test independent_processes_emit_identical_traces_and_honor_bounds ... ok
+test independent_lan_processes_ping_and_reuse_arp_cache ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.48s
+
+     Running unittests src/main.rs (target/debug/deps/sns_desktop-a934f1ac0e94e664)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_engine-2336018317cdbb3a)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/applications.rs (target/debug/deps/applications-e232ee437c6b7073)
+
+running 6 tests
+test failed_application_commands_keep_document_revision_and_runtime_atomic ... ok
+test registry_all_thirteen_entries_and_future_software_are_explicit ... ok
+test virtual_files_terminal_aliases_roundtrip_and_unknown_commands_are_isolated ... ok
+test ping_default_four_statistics_capture_interrupt_and_broadcast ... ok
+test echo_two_clients_window_service_lifecycle_and_transactional_ports ... ok
+test echo_retransmission_of_segmented_unicode_is_delivered_once ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running tests/determinism.rs (target/debug/deps/determinism-58183383da58d519)
+
+running 7 tests
+test quota_and_time_overflow_fail_without_consuming_an_event_or_randomness ... ok
+test rejected_stale_and_duplicate_commands_are_atomic_and_stop_cancels_pending_work ... ok
+test delivery_priority_precedes_simultaneous_dispatch_and_fifo_breaks_ties ... ok
+test prototype_http_get_image_and_post_are_scheduled_messages ... ok
+test stable_order_is_independent_of_project_container_order ... ok
+test stepping_and_bounded_execution_match_uninterrupted_execution ... ok
+test fresh_executions_are_byte_identical_with_seeded_jitter ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/lan.rs (target/debug/deps/lan-ca718c0cad30a4e0)
+
+running 10 tests
+test lan_time_overflow_leaves_failing_delivery_unconsumed ... ok
+test lan_quota_failure_rolls_back_state_rng_queue_and_trace ... ok
+test local_subnets_gateway_masks_and_errors ... ok
+test loop_protection_is_bounded_and_explained ... ok
+test gateway_emits_wire_icmp_time_exceeded_and_unreachable ... ok
+test configurable_sat_retention_and_arp_coalescing_keep_correlations ... ok
+test r_lan_arp_learning_unicast_cache_and_purge ... ok
+test all_three_hosts_exchange_and_shuffled_storage_preserves_seeded_trace ... ok
+test paused_step_loss_timeouts_and_ten_clean_restarts ... ok
+test deterministic_step_chunks_and_speeds_are_identical ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.41s
+
+     Running tests/transport.rs (target/debug/deps/transport-d743ad19804aa850)
+
+running 10 tests
+test transport_trace_quota_and_invalid_broadcast_connect_do_not_reserve_ports ... ok
+test udp_lost_datagram_has_no_transport_retry_and_broadcast_stays_on_its_lan ... ok
+test final_handshake_ack_loss_does_not_reaccept_or_reconnect ... ok
+test udp_interface_scopes_and_closed_port_are_explicit ... ok
+test ports_conflicts_and_invalid_commands_are_atomic_then_owner_stop_frees_everything ... ok
+test mute_peer_times_out_boundedly_and_loopback_never_uses_ethernet ... ok
+test graceful_fin_ack_closes_sessions_and_timers_do_not_resurrect_them ... ok
+test transport_step_and_run_preserve_canonical_order_for_fixed_input ... ok
+test loss_of_data_and_ack_retransmits_without_duplicate_application_bytes ... ok
+test tcp_two_clients_have_distinct_endpoints_and_segmented_bidirectional_streams ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_html-0ff8be30672080b9)
+
+running 3 tests
+test tests::encoded_external_urls_do_not_bypass_the_policy ... ok
+test tests::parses_image_link_and_post_form_without_any_loader ... ok
+test tests::rejects_external_resources_scripts_and_malformed_content ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_i18n-f55074b7570153a7)
+
+running 2 tests
+test tests::language_and_formatted_values_are_portable_and_no_fallback_occurs ... ok
+test tests::all_six_languages_have_every_key_and_matching_parameters ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_model-76b4219d961e4696)
+
+running 2 tests
+test tests::paths_cannot_escape_into_host_resources ... ok
+test tests::decimal_is_exact_and_canonical ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_project-e82840480070066a)
+
+running 3 tests
+test tests::untrusted_documents_are_rejected_before_use ... ok
+test tests::project_roundtrip_and_failed_replacement_preserve_original ... ok
+test tests::migration_preserves_exact_source_and_refuses_unrecognized_versions ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+     Running tests/contracts.rs (target/debug/deps/contracts-ab5540f537a7b6b3)
+
+running 6 tests
+test schemas_reject_unknown_properties_versions_and_invalid_counters ... ok
+test semantic_reference_checks_complement_the_structural_schema ... ok
+test neutral_schemas_accept_actual_serialized_contracts ... ok
+test actual_tcp_udp_commands_and_transport_frames_validate_as_portable_contracts ... ok
+test lan_v2_round_trip_commands_and_actual_frames_match_neutral_contracts ... ok
+test hosts_v3_app_commands_and_events_are_portable_and_strict ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.09s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_protocols-e78dd86f0bc31a55)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_settings-f3187d14363c9f2a)
+
+running 2 tests
+test tests::malformed_and_oversized_settings_do_not_get_overwritten_on_load ... ok
+test tests::language_survives_restart_outside_the_project ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_topology-279e7be4d55e00aa)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/editor.rs (target/debug/deps/editor-00718bc902d4f099)
+
+running 4 tests
+test group_delete_undo_restores_everything_and_history_branches ... ok
+test invalid_commands_are_transactional_and_identity_survives_configuration ... ok
+test imported_missing_layout_and_mac_collisions_are_recovered_without_reusing_identity ... ok
+test palette_round_trip_and_free_port_connection ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_ui_egui-39d34d002910244f)
+
+running 1 test
+test lan::measurements::reference_load_100_nodes_150_links_10000_events ... ignored, reference capacity measurement; run explicitly with --nocapture
+
+test result: ok. 0 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/lan.rs (target/debug/deps/lan-e15cf115dc265d64)
+
+running 14 tests
+test preferred_language_survives_new_ui_instance_and_new_documents_use_it ... ok
+test palette_delete_and_undo_drive_transactional_editor ... ok
+test traffic_filters_export_and_clear_preserve_immutable_trace ... ok
+test inspector_rename_preserves_ids_and_shortcuts_respect_text_entry ... ok
+test documentation_and_unsaved_replacement_preserve_project_until_decision ... ok
+test palette_drag_drop_and_rectangle_group_move_keep_cables_attached ... ok
+test six_languages_change_visible_controls_without_modifying_project ... ok
+test keyboard_equipment_ping_pause_step_and_modes_preserve_project ... ok
+test failed_file_save_preserves_draft_and_close_requires_explicit_discard ... ok
+test explorer_copy_move_delete_and_host_switch_use_isolated_documents ... ok
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+test six_language_desktops_terminal_history_and_persistent_document ... ok
+test tcp_windows_use_actual_transport_and_close_view_keeps_server_active ... ok
+test virtual_editor_saves_and_image_viewer_preserves_binary_in_six_languages ... ok
+
+test result: ok. 14 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.33s
+
+     Running tests/workbench.rs (target/debug/deps/workbench-70d4a6c4efd84454)
+
+running 4 tests
+test canvas_has_a_keyboard_reachable_equipment_selection ... ok
+test controls_drive_the_real_engine_and_restart_clears_state ... ok
+test native_browser_gets_page_image_link_and_post_via_engine ... ok
+test large_trace_uses_the_virtualized_table ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.63s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_vfs-e09f86edf2fea8a0)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/files.rs (target/debug/deps/files-f11aa39278f99eac)
+
+running 3 tests
+test normalization_never_reaches_host_and_failures_preserve_tree ... ok
+test legacy_implicit_directories_and_limits_are_explicit ... ok
+test r_files_isolation_copy_move_remove_and_binary_round_trip ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_apps
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_engine
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_html
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_i18n
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_model
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_project
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_protocols
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_settings
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_topology
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_ui_egui
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_vfs
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

@@ -1,0 +1,13 @@
+{
+  "format_version": 1,
+  "base_reconstruction": "docs/verification/j7-launch-examples-source-patch.json",
+  "base_revision": "dbec2070218bce118ba0d0cb90410a77775e1911d581f340e567a20471bcf59b",
+  "patch_archive": "docs/verification/structure-document-open-source-patch.tar.gz",
+  "patch_sha256": "fa82b536e3102b88a8a84cfd82e9a976bbc36155c68f6130b96e8881290d5a62",
+  "patch_bytes": 233791,
+  "patch_files": 20,
+  "deleted_paths": [],
+  "source_revision": "4f228c1cf1953e1c18856b37aced872c52af84857dddd46178ede2eac52b27e5",
+  "overlay_verified": true,
+  "reconstruction": "Reconstruct j7-launch-examples using its metadata, verify its code manifest, then overlay this patch and apply deleted_paths. Run scripts/check_manifest.py check with the structure-document-open manifest."
+}

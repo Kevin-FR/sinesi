@@ -1,0 +1,12 @@
+    Blocking waiting for file lock on build directory
+    Checking sns-i18n v0.1.0 (/Users/kevin/Web/SNS/crates/sns-i18n)
+    Checking sns-apps v0.1.0 (/Users/kevin/Web/SNS/crates/sns-apps)
+    Checking sns-settings v0.1.0 (/Users/kevin/Web/SNS/crates/sns-settings)
+    Checking sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+    Checking sns-bridge v0.1.0 (/Users/kevin/Web/SNS/crates/sns-bridge)
+    Checking sns-project v0.1.0 (/Users/kevin/Web/SNS/crates/sns-project)
+    Checking sns-filius-import v0.1.0 (/Users/kevin/Web/SNS/crates/sns-filius-import)
+    Checking sns-cli v0.1.0 (/Users/kevin/Web/SNS/crates/sns-cli)
+    Checking sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+    Checking sns-desktop v0.1.0 (/Users/kevin/Web/SNS/apps/sns-desktop)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 27.33s

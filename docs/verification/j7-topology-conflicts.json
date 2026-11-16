@@ -1,0 +1,41 @@
+[
+  {
+    "address": "192.168.1.2",
+    "interfaces": [
+      {
+        "device": "copy-device-2",
+        "interface": "copy-port-4"
+      },
+      {
+        "device": "host-a",
+        "interface": "host-a-p0"
+      }
+    ]
+  },
+  {
+    "address": "192.168.1.3",
+    "interfaces": [
+      {
+        "device": "copy-device-6",
+        "interface": "copy-port-7"
+      },
+      {
+        "device": "host-b",
+        "interface": "host-b-p0"
+      }
+    ]
+  },
+  {
+    "address": "192.168.1.4",
+    "interfaces": [
+      {
+        "device": "copy-device-9",
+        "interface": "copy-port-10"
+      },
+      {
+        "device": "host-c",
+        "interface": "host-c-p0"
+      }
+    ]
+  }
+]

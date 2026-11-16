@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-08",
+  "system": "macOS-27.2-arm64-arm-64bit-Mach-O",
+  "rustc": "rustc 1.95.0 (59807616e 2026-04-14)",
+  "workspace_tests": 226,
+  "bridge_child_test": 1,
+  "forced_session_child_exits": 2,
+  "ignored_by_default": 5,
+  "layer_negative_tests": 5,
+  "doc_gate_tests": 2,
+  "inspection_tests": 2,
+  "gpu_tests": 3,
+  "current_ui_images_compared": 12,
+  "historical_ui_images_unchanged": 321,
+  "independent_png_decodes": 4,
+  "keyboard_stress_iterations": 20,
+  "locale_keys": 709,
+  "languages": [
+    "fr",
+    "en",
+    "es",
+    "it",
+    "pt",
+    "de"
+  ],
+  "views": [
+    "icons",
+    "diagram"
+  ],
+  "network_svgs": 20,
+  "document_fonts": 4,
+  "workspace_members": 19,
+  "new_third_party_packages": 0,
+  "native_manual_workflow": false,
+  "windows_linux_run": false,
+  "remote_ci_run": false
+}

@@ -1,0 +1,29 @@
+{
+  "reader": "pdfplumber 0.11.9",
+  "bounds": {
+    "left": 34,
+    "right": 561,
+    "top": 23,
+    "bottom": 821
+  },
+  "reports": [
+    {
+      "report": "fr-diagram",
+      "pages": 8,
+      "characters": 9055,
+      "out_of_bounds": []
+    },
+    {
+      "report": "de-icons",
+      "pages": 8,
+      "characters": 8950,
+      "out_of_bounds": []
+    },
+    {
+      "report": "it-diagram",
+      "pages": 9,
+      "characters": 9206,
+      "out_of_bounds": []
+    }
+  ]
+}

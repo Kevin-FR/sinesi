@@ -1,0 +1,22 @@
+{
+  "date": "2026-11-07",
+  "platform": "macOS arm64",
+  "final_binary": "target/debug/sns-desktop",
+  "final_run": "run-42-1",
+  "observed_event": {
+    "type": "icmp.echo.reply",
+    "event_id": "evt-37",
+    "time_us": "8000",
+    "correlation_id": "lan-ui-1",
+    "source": "192.168.1.3",
+    "rtt_us": "8000"
+  },
+  "checks": [
+    "Final J1 binary launched in native window",
+    "Selected Poste A, started simulation paused, ping + resume + pause",
+    "Filtered LAN trace and inspected echo reply payload",
+    "Native rfd save/open exercised earlier in the same J1 session; saved document semantically equals fixtures/valid/lan.json"
+  ],
+  "saved_test_path": "target/recette-j1.sinesi.json",
+  "native_other_platforms_tested": false
+}

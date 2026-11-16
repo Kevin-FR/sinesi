@@ -1,0 +1,9 @@
+{
+  "platform": "macOS-27.2-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "cpu": "Apple M2 Max",
+  "memory_bytes": 68719476736,
+  "toolchain": "rustc 1.95.0 (59807616e 2026-04-14)",
+  "profile": "dev, workspace code opt-level 0, dependencies opt-level 2",
+  "gpu_included_in_measurement": false
+}

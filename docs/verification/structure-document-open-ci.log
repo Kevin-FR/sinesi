@@ -1,0 +1,848 @@
+    Blocking waiting for file lock on artifact directory
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 17.76s
+     Running `target/debug/xtask ci`
++ cargo fmt --all --check
++ python3 scripts/check_layers.py
+OK — 20 workspace packages: explicit production edges, headless isolation and inherited manifests checked (all features, target/build edges).
++ python3 scripts/test_layers.py
+............
+----------------------------------------------------------------------
+Ran 12 tests in 0.160s
+
+OK
++ python3 scripts/check_i18n.py
+OK — 872 keys, six languages, literal diagnostics and templates checked.
++ python3 scripts/check_network_assets.py
+OK — 20 embedded SVG assets, provenance and offline rendering checked.
++ python3 scripts/check_fonts.py
+OK — four pinned OFL fonts, regular/bold weights and six-language Latin coverage; no download required.
++ python3 scripts/test_docs.py
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.012s
+
+OK
++ python3 scripts/test_filius_inspection.py
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.003s
+
+OK
++ python3 scripts/docs.py check
+OK — 178 exigences, 50 tâches, 1061 fichiers source; preuves, dépendances, jalons, couverture et séparation vérifiés.
++ cargo clippy --workspace --all-targets --locked --offline -- -D warnings
+    Checking sns-i18n v0.1.0 (/Users/kevin/Web/SNS/crates/sns-i18n)
+    Checking sns-apps v0.1.0 (/Users/kevin/Web/SNS/crates/sns-apps)
+    Checking sns-settings v0.1.0 (/Users/kevin/Web/SNS/crates/sns-settings)
+    Checking sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+    Checking sns-report v0.1.0 (/Users/kevin/Web/SNS/crates/sns-report)
+    Checking sns-trace v0.1.0 (/Users/kevin/Web/SNS/crates/sns-trace)
+    Checking sns-bridge v0.1.0 (/Users/kevin/Web/SNS/crates/sns-bridge)
+    Checking sns-project v0.1.0 (/Users/kevin/Web/SNS/crates/sns-project)
+    Checking sns-topology v0.1.0 (/Users/kevin/Web/SNS/crates/sns-topology)
+    Checking sns-filius-import v0.1.0 (/Users/kevin/Web/SNS/crates/sns-filius-import)
+    Checking sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+    Checking sns-cli v0.1.0 (/Users/kevin/Web/SNS/crates/sns-cli)
+    Checking sns-desktop v0.1.0 (/Users/kevin/Web/SNS/apps/sns-desktop)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 32.57s
++ cargo test --workspace --locked --offline
+   Compiling sns-i18n v0.1.0 (/Users/kevin/Web/SNS/crates/sns-i18n)
+   Compiling sns-apps v0.1.0 (/Users/kevin/Web/SNS/crates/sns-apps)
+   Compiling sns-settings v0.1.0 (/Users/kevin/Web/SNS/crates/sns-settings)
+   Compiling sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+   Compiling sns-report v0.1.0 (/Users/kevin/Web/SNS/crates/sns-report)
+   Compiling sns-bridge v0.1.0 (/Users/kevin/Web/SNS/crates/sns-bridge)
+   Compiling sns-trace v0.1.0 (/Users/kevin/Web/SNS/crates/sns-trace)
+   Compiling sns-topology v0.1.0 (/Users/kevin/Web/SNS/crates/sns-topology)
+   Compiling sns-project v0.1.0 (/Users/kevin/Web/SNS/crates/sns-project)
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+   Compiling sns-cli v0.1.0 (/Users/kevin/Web/SNS/crates/sns-cli)
+   Compiling sns-filius-import v0.1.0 (/Users/kevin/Web/SNS/crates/sns-filius-import)
+   Compiling sns-desktop v0.1.0 (/Users/kevin/Web/SNS/apps/sns-desktop)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 34.36s
+     Running unittests src/lib.rs (target/debug/deps/sns_apps-0b03f6496bb7c697)
+
+running 1 test
+test web::tests::strict_framing_and_offline_urls ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_bridge-7880f730d77ee2ae)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/bridge.rs (target/debug/deps/bridge-8f4db558000da9bc)
+
+running 3 tests
+test bridge_child_process ... ok
+
+running 1 test
+test absent_endpoint_bad_version_oversize_and_mid_frame_cut_have_explicit_states ... ok
+test bridge_child_process ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.23s
+
+test two_real_instances_exchange_ping_record_external_inputs_and_disconnect ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.32s
+
+     Running unittests src/main.rs (target/debug/deps/sinesi-3c33fb6bf7c60ee1)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/png.rs (target/debug/deps/png-0d67b142e20c8731)
+
+running 1 test
+test cli_png_exports_both_views_and_preserves_source_and_previous_output_on_failure ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.60s
+
+     Running tests/report.rs (target/debug/deps/report-d476d2aeb08bec0f)
+
+running 1 test
+test headless_report_from_project_and_checkpoint_is_deterministic_and_atomic ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.22s
+
+     Running tests/runner.rs (target/debug/deps/runner-0a3bdab44debdc09)
+
+running 5 tests
+test filius_import_cli_emits_report_and_keeps_source_unchanged ... ok
+test independent_processes_emit_identical_traces_and_honor_bounds ... ok
+test independent_lan_processes_ping_and_reuse_arp_cache ... ok
+test response_wait_factor_changes_slow_network_outcome_and_survives_offline_replay_and_resume ... ok
+test network_scenario_checkpoint_continuation_and_offline_replay_match_across_processes ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.17s
+
+     Running unittests src/main.rs (target/debug/deps/sns_desktop-2708cbcd803472ae)
+
+running 3 tests
+test launch::tests::native_paths_option_boundary_and_duplicate_values_are_explicit ... ok
+test launch::parser_keeps_non_utf8_project_and_profile_path_bytes ... ok
+test launch::launch_uses_system_theme_updates_and_reduces_the_compact_viewport_minimum ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/startup.rs (target/debug/deps/startup-6ccc00b221c737c9)
+
+running 8 tests
+test non_utf8_path_metadata_does_not_prevent_a_startup_report_on_apfs ... ok
+test real_binary_resolves_layers_and_checks_the_explicit_project_without_writing_files ... ok
+test working_directory_and_invalid_project_are_explicit_and_preserve_the_source ... ok
+test technical_log_is_announced_and_verbose_preserves_machine_readable_stdout ... ok
+test log_creation_protects_launch_roles_and_records_only_the_failed_stage ... ok
+test help_version_and_safe_fallback_work_in_all_six_languages_without_a_window ... ok
+test compact_launch_is_temporary_and_explicit_valid_options_override_its_baseline ... ok
+test response_wait_factor_is_applied_to_the_worker_and_help_is_available_in_six_languages ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.20s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_engine-7136010e2aca2608)
+
+running 2 tests
+test state_value::tests::compound_keys_and_large_counters_are_lossless_and_ordered ... ok
+test state::tests::state_contains_queue_budget_and_deterministic_protocol_and_application_tables ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/applications.rs (target/debug/deps/applications-a6f8b3aa851501e1)
+
+running 7 tests
+test failed_application_commands_keep_document_revision_and_runtime_atomic ... ok
+test j7_historical_file_probe_is_diagnostic_only_and_student_test_commands_are_rejected ... ok
+test registry_all_thirteen_entries_are_available ... ok
+test virtual_files_terminal_aliases_roundtrip_and_unknown_commands_are_isolated ... ok
+test echo_two_clients_window_service_lifecycle_and_transactional_ports ... ok
+test ping_default_four_statistics_capture_interrupt_and_broadcast ... ok
+test echo_retransmission_of_segmented_unicode_is_delivered_once ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+
+     Running tests/checkpoint.rs (target/debug/deps/checkpoint-59bd15b3a2086903)
+
+running 6 tests
+test recording_replays_control_commands_idempotency_and_external_output_drains ... ok
+test corrupt_incompatible_and_forged_reachable_state_are_rejected ... ok
+test scheduled_network_actions_survive_checkpoint_and_invalid_actions_are_atomic ... ok
+test checkpoint_replays_new_inputs_and_merged_event_tail_in_fresh_generation ... ok
+test checkpoint_preserves_in_flight_frames_suffix_and_rejects_old_generation ... ok
+test checkpoint_restores_active_tcp_rip_dhcp_dns_nat_and_all_expiration_suffixes ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.39s
+
+     Running tests/determinism.rs (target/debug/deps/determinism-1a8e30c6ce7819ef)
+
+running 7 tests
+test quota_and_time_overflow_fail_without_consuming_an_event_or_randomness ... ok
+test delivery_priority_precedes_simultaneous_dispatch_and_fifo_breaks_ties ... ok
+test rejected_stale_and_duplicate_commands_are_atomic_and_stop_cancels_pending_work ... ok
+test prototype_http_get_image_and_post_are_scheduled_messages ... ok
+test stable_order_is_independent_of_project_container_order ... ok
+test stepping_and_bounded_execution_match_uninterrupted_execution ... ok
+test fresh_executions_are_byte_identical_with_seeded_jitter ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/lan.rs (target/debug/deps/lan-7f4a6a38d98c59f7)
+
+running 11 tests
+test lan_time_overflow_leaves_failing_delivery_unconsumed ... ok
+test lan_quota_failure_rolls_back_state_rng_queue_and_trace ... ok
+test local_subnets_gateway_masks_and_errors ... ok
+test direct_example_resolves_arp_and_replies_over_its_only_cable ... ok
+test loop_protection_is_bounded_and_explained ... ok
+test gateway_emits_wire_icmp_time_exceeded_and_unreachable ... ok
+test configurable_sat_retention_and_arp_coalescing_keep_correlations ... ok
+test r_lan_arp_learning_unicast_cache_and_purge ... ok
+test all_three_hosts_exchange_and_shuffled_storage_preserves_seeded_trace ... ok
+test paused_step_loss_timeouts_and_ten_clean_restarts ... ok
+test deterministic_step_chunks_and_speeds_are_identical ... ok
+
+test result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.42s
+
+     Running tests/link_conditions.rs (target/debug/deps/link_conditions-6c2a693cfb30b1c1)
+
+running 4 tests
+test failed_event_does_not_consume_a_random_trial_or_queue_boundary ... ok
+test invalid_configuration_is_atomic_live_repair_works_and_earlier_checkpoints_remain_readable ... ok
+test hundred_percent_blocks_only_one_link_zero_restores_and_streams_are_isolated ... ok
+test seeded_partial_loss_replays_and_resumes_with_future_actions_and_rng_state ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.38s
+
+     Running tests/mail.rs (target/debug/deps/mail-6d00e43cfafd522d)
+
+running 8 tests
+test occupied_pop3_port_rolls_back_smtp_listener_atomically ... ok
+test contacts_persist_and_bcc_only_delivery_is_valid ... ok
+test unknown_recipient_and_deleted_account_have_explicit_failures ... ok
+test remote_unknown_recipient_fails_after_mx_lookup_without_committing_local_copy ... ok
+test smtp_pop3_local_delivery_and_durable_client_folders ... ok
+test mx_then_a_relay_and_bcc_do_not_expose_hidden_recipients ... ok
+test invalid_credentials_custom_ports_and_reopened_mailboxes_are_isolated ... ok
+test interrupted_pop3_dele_does_not_commit_and_releases_mailbox_lock ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.21s
+
+     Running tests/p2p.rs (target/debug/deps/p2p-2e4d152b94ecfba1)
+
+running 3 tests
+test limits_reject_extra_neighbors_and_invalid_ttl ... ok
+test cancelled_and_superseded_searches_ignore_in_flight_results ... ok
+test cyclic_overlay_discovers_searches_downloads_exact_bytes_and_resets ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.27s
+
+     Running tests/presentation.rs (target/debug/deps/presentation-d4f879ffa8f72eb0)
+
+running 2 tests
+test invalid_target_and_full_trace_leave_the_entire_state_unchanged ... ok
+test cloud_toggle_preserves_ports_sat_timers_and_live_communication_then_replays ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+     Running tests/private.rs (target/debug/deps/private-e3942fc874486152)
+
+running 15 tests
+test wan_arp_failure_quotes_the_original_private_probe ... ok
+test idle_udp_mapping_expires_then_port_can_be_reused_and_invalid_edits_are_atomic ... ok
+test static_udp_forward_and_wan_private_scope_guard ... ok
+test wan_dhcp_rejects_an_overlapping_lan_assignment_instead_of_swapping_roles ... ok
+test nat_udp_same_ports_isolate_reply_endpoints ... ok
+test mapping_purge_expiry_and_port_exhaustion_are_observable ... ok
+test firewall_order_policy_icmp_and_udp_reverse_matching ... ok
+test filter_udp_reverse_rule_icmp_switch_and_syn_only_are_explicit ... ok
+test host_filter_blocks_one_service_and_preserves_http_when_icmp_is_blocked ... ok
+test nat_tcp_same_ports_restore_to_correct_hosts_and_keep_original_trace ... ok
+test wan_dhcp_and_lan_distribution_are_independent_and_expiry_keeps_lan_administration ... ok
+test static_forward_and_icmp_traceroute_quotes_traverse_nat ... ok
+test private_network_workflows_have_identical_canonical_traces ... ok
+test web_rule_changes_are_applied_and_the_journal_reports_the_rule_and_packet ... ok
+test administration_over_real_http_updates_shared_configuration_and_rejects_stale_or_wan_forms ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.28s
+
+     Running tests/routing.rs (target/debug/deps/routing-097d5324a6879b53)
+
+running 12 tests
+test interrupted_traceroute_stops_future_probes_and_malformed_routes_do_not_panic ... ok
+test arp_injection_changes_only_simulated_cache_and_broadcast_stays_on_lan ... ok
+test rejected_broadcast_command_does_not_leave_a_failing_event_in_the_queue ... ok
+test routes_specific_prefix_default_delete_and_host_forwarding_switch ... ok
+test traceroute_starts_at_one_orders_hops_and_finishes_without_os_calls ... ok
+test missing_route_arp_failure_and_routing_loop_have_distinct_structured_causes ... ok
+test three_lans_forward_original_addresses_and_ttl_and_return_real_icmp ... ok
+test arp_exercise_redirects_a_frame_to_the_claiming_host_only_in_the_simulation ... ok
+test rip_chain_uses_two_hops_and_restarts_have_no_old_generation_state ... ok
+test tcp_echo_uses_multiple_router_hops_and_preserves_routing_profile ... ok
+test rip_deterministic_with_reordered_entities_and_step_execution ... ok
+test rip_three_routers_shortest_path_poisoning_and_expiration ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.12s
+
+     Running tests/services.rs (target/debug/deps/services-301086c6e9ef689c)
+
+running 12 tests
+test dhcp_conflict_decline_pool_exhaustion_and_link_local ... ok
+test r_dhcp_two_clients_reservation_effective_settings_and_document ... ok
+test dhcp_expiry_releases_and_reacquires_virtual_lease ... ok
+test link_local_conflicts_have_a_bounded_final_failure ... ok
+test dhcp_nack_unoffered_address_and_expiration_of_refused_entries ... ok
+test dns_and_http_cross_routed_networks_with_dhcp_options_inherited ... ok
+test dns_ttl_cache_is_per_host_and_delete_survives_reload ... ok
+test dns_mx_nodata_timeout_and_explicit_purge ... ok
+test dns_parent_delegation_recursive_and_iterative_queries_and_bounded_loop ... ok
+test same_named_images_from_two_origins_and_navigation_are_isolated ... ok
+test r_web_offline_dns_http_images_forms_virtual_hosts_and_isolation ... ok
+test http_methods_encoded_paths_segmented_body_and_stop_with_pending_queries ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.24s
+
+     Running tests/timing.rs (target/debug/deps/timing-ce29d87ace4b56da)
+
+running 5 tests
+test stop_restart_and_replacement_keep_policy_and_reject_incompatible_headers ... ok
+test factor_is_bounded_and_default_keeps_the_previous_checkpoint_encoding ... ok
+test tcp_dns_and_dhcp_waits_scale_but_ping_cadence_and_dhcp_leases_do_not ... ok
+test tcp_time_wait_and_rip_cadence_remain_protocol_lifetimes ... ok
+test extended_wait_succeeds_on_a_slow_lan_and_checkpoint_replay_preserve_its_suffix ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+     Running tests/transport.rs (target/debug/deps/transport-d5f8dfd0e77b6377)
+
+running 10 tests
+test transport_trace_quota_and_invalid_broadcast_connect_do_not_reserve_ports ... ok
+test udp_lost_datagram_has_no_transport_retry_and_broadcast_stays_on_its_lan ... ok
+test udp_interface_scopes_and_closed_port_are_explicit ... ok
+test final_handshake_ack_loss_does_not_reaccept_or_reconnect ... ok
+test mute_peer_times_out_boundedly_and_loopback_never_uses_ethernet ... ok
+test graceful_fin_ack_closes_sessions_and_timers_do_not_resurrect_them ... ok
+test ports_conflicts_and_invalid_commands_are_atomic_then_owner_stop_frees_everything ... ok
+test transport_step_and_run_preserve_canonical_order_for_fixed_input ... ok
+test loss_of_data_and_ack_retransmits_without_duplicate_application_bytes ... ok
+test tcp_two_clients_have_distinct_endpoints_and_segmented_bidirectional_streams ... ok
+
+test result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+
+     Running tests/wireless.rs (target/debug/deps/wireless-d63f0959e170d313)
+
+running 2 tests
+test access_point_relays_between_two_radios_and_rejects_duplicate_ssids ... ok
+test ssid_association_reaches_wired_lan_and_ap_rename_only_detaches_its_clients ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_filius_import-f4472c7a2031c089)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/import.rs (target/debug/deps/import-59f1c32886c3a6fe)
+
+running 8 tests
+test corpus_imports_as_data_preserving_every_byte_and_reports_all_losses ... ignored, requires the local read-only Filius corpus; run explicitly with --ignored
+test imported_historical_lan_uses_production_arp_and_icmp ... ignored, requires the local read-only Filius LAN example; run explicitly with --ignored
+test duplicate_names_bad_crc_and_unsafe_virtual_tree_are_rejected ... ok
+test arbitrary_embedded_code_is_preserved_and_disabled ... ok
+test unsafe_archives_and_entity_xml_and_dangling_aliases_are_rejected ... ok
+test import_is_deterministic_and_mac_repairs_are_unique ... ok
+test cloud_flag_imports_as_presentation_data_without_changing_ports_or_wires ... ok
+test portable_synthetic_import_roundtrips_and_exchanges_real_simulated_frames ... ok
+
+test result: ok. 6 passed; 0 failed; 2 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_fonts-230e5360b6d20310)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/layout.rs (target/debug/deps/layout-43e06dea3e8b32b3)
+
+running 2 tests
+test latin_shaping_accents_clusters_wrapping_and_outlines_use_bundled_fonts ... ok
+test clipping_ellipsis_limits_missing_glyphs_and_long_words_are_explicit ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_html-2b8110d10a80ea5f)
+
+running 3 tests
+test tests::encoded_external_urls_do_not_bypass_the_policy ... ok
+test tests::parses_image_link_and_post_form_without_any_loader ... ok
+test tests::rejects_external_resources_scripts_and_malformed_content ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_i18n-e3a608d06083d735)
+
+running 2 tests
+test tests::language_and_formatted_values_are_portable_and_no_fallback_occurs ... ok
+test tests::all_six_languages_have_every_key_and_matching_parameters ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_model-bfeda2013f083618)
+
+running 2 tests
+test tests::paths_cannot_escape_into_host_resources ... ok
+test tests::decimal_is_exact_and_canonical ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_project-8fab5660abef37a0)
+
+running 3 tests
+test tests::untrusted_documents_are_rejected_before_use ... ok
+test tests::project_roundtrip_and_failed_replacement_preserve_original ... ok
+test tests::migration_preserves_exact_source_and_refuses_unrecognized_versions ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running tests/contracts.rs (target/debug/deps/contracts-b6fa90685d2a771f)
+
+running 16 tests
+test neutral_schemas_accept_actual_serialized_contracts ... ok
+test recovery_session_contract_is_versioned_bounded_and_validates_project_and_selection ... ok
+test actual_tcp_udp_commands_and_transport_frames_validate_as_portable_contracts ... ok
+test schemas_reject_unknown_properties_versions_and_invalid_counters ... ok
+test semantic_reference_checks_complement_the_structural_schema ... ok
+test lan_v2_round_trip_commands_and_actual_frames_match_neutral_contracts ... ok
+test j7_cloud_project_live_commands_events_and_checkpoint_match_presentation_contracts ... ok
+test documentation_project_round_trips_styles_and_remains_valid_in_session_and_checkpoint ... ok
+test j7_scheduled_network_checkpoint_and_recording_follow_portable_contracts ... ok
+test response_wait_recording_and_checkpoint_versions_agree_and_old_data_remains_readable ... ok
+test hosts_v3_app_commands_and_events_are_portable_and_strict ... ok
+test private_network_profiles_commands_nat_and_quoted_icmp_match_neutral_contracts ... ok
+test j7_link_conditions_commands_events_scenarios_and_random_state_match_contracts ... ok
+test j6_projects_commands_durable_mail_and_advanced_events_match_contracts ... ok
+test routed_projects_and_actual_rip_forwarding_events_match_versioned_contracts ... ok
+test service_profiles_commands_and_actual_trace_roundtrip_with_neutral_schemas ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.42s
+
+     Running tests/session.rs (target/debug/deps/session-6f5e6fbc2200be18)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_protocols-1a24c56e71c168c4)
+
+running 1 test
+test rip::tests::malformed_rip_cannot_update_the_forwarding_table ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_render-7334589f82a8958b)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/png.rs (target/debug/deps/png-8c12691406399664)
+
+running 3 tests
+test annotation_only_and_fallback_layout_work_while_invalid_inputs_fail_before_output ... ok
+test every_user_provided_symbol_is_rendered_in_both_views ... ok
+test png_frames_every_object_on_transparent_margin_in_both_views_without_mutating_project ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.11s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_report-20aafcfa776ecf7f)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/report.rs (target/debug/deps/report-df776e6e938cf9ec)
+
+running 3 tests
+test invalid_input_and_quota_are_errors_before_pdf_output ... ok
+test packet_tables_paginate_without_dropping_rows_and_partial_history_is_explicit ... ok
+test routed_dns_report_is_deterministic_frozen_and_localized_in_both_views ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.90s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_settings-6aff59a6c5f403e3)
+
+running 5 tests
+test tests::malformed_and_oversized_settings_do_not_get_overwritten_on_load ... ok
+test help::tests::every_embedded_example_is_a_loadable_project ... ok
+test help::tests::every_help_route_and_lesson_is_translated_in_all_six_languages ... ok
+test diagnostics::tests::captures_recent_events_even_when_disk_reaches_its_limit ... ok
+test tests::language_survives_restart_outside_the_project ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.07s
+
+     Running tests/configuration.rs (target/debug/deps/configuration-325afd8589562b1c)
+
+running 7 tests
+test edits_copy_only_changed_fields_without_leaking_temporary_values ... ok
+test missing_malformed_future_and_oversized_files_do_not_block_safe_resolution ... ok
+test integral_json_spellings_match_the_portable_integer_contract ... ok
+test invalid_fields_retain_lower_values_preserve_original_and_never_echo_secrets ... ok
+test portable_administrator_contract_matches_resolver_and_rejects_invalid_fields ... ok
+test precedence_is_per_field_and_command_line_overrides_are_temporary ... ok
+test every_numeric_limit_uses_safe_fallback_and_window_maps_are_atomic ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+     Running tests/display.rs (target/debug/deps/display-cecdcb219724324e)
+
+running 4 tests
+test invalid_save_never_changes_existing_destination ... ok
+test every_application_window_category_has_the_same_portable_contract ... ok
+test portable_contract_and_reader_reject_invalid_preferences_and_preserve_file ... ok
+test version_one_migrates_in_memory_without_touching_original_and_all_preferences_roundtrip ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.22s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_topology-e5fc98685b2ed0f3)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/annotations.rs (target/debug/deps/annotations-9eea59b26884431f)
+
+running 2 tests
+test annotation_geometry_style_and_stacking_are_transactional_and_reversible ... ok
+test annotations_do_not_change_network_state_and_survive_runtime_merge ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+     Running tests/duplication.rs (target/debug/deps/duplication-a14a2614a37d8a91)
+
+running 5 tests
+test mail_files_and_unicode_labels_survive_with_fresh_consistent_message_identities ... ok
+test gateway_routes_dhcp_reservations_and_wireless_selection_remap_to_the_copies ... ok
+test every_alignment_is_reversible_and_preserves_all_network_configuration ... ok
+test repeated_whole_graph_copies_have_unique_identities_macs_and_work_over_their_own_cables ... ok
+test invalid_selection_offsets_and_document_quota_refuse_the_whole_edit ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.34s
+
+     Running tests/editor.rs (target/debug/deps/editor-c0c6410483c550e4)
+
+running 7 tests
+test group_delete_undo_restores_everything_and_history_branches ... ok
+test home_router_has_persistent_lan_wan_roles_and_no_profile_downgrade ... ok
+test invalid_commands_are_transactional_and_identity_survives_configuration ... ok
+test router_interfaces_swap_without_changing_identity_and_resize_is_transactional ... ok
+test palette_round_trip_and_free_port_connection ... ok
+test presentation_is_reversible_and_runtime_merge_preserves_local_topology_values ... ok
+test imported_missing_layout_and_mac_collisions_are_recovered_without_reusing_identity ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_trace-b200f9fb276d6b77)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/observation.rs (target/debug/deps/observation-c1181f6d7b89b74f)
+
+running 4 tests
+test journey_excludes_causal_siblings_other_runs_and_marks_missing_ancestors ... ok
+test causal_journey_spans_four_layers_and_devices_and_preserves_snapshot ... ok
+test combined_queries_export_exact_stable_ids_without_mutating_http_engine ... ok
+test structured_exports_quote_unicode_and_reject_oversized_results ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.96s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_ui_egui-25c8638aec80a479)
+
+running 6 tests
+test workbench::measurements::reference_load_100_nodes_150_links_10000_events ... ignored, reference capacity measurement; run explicitly with --nocapture
+test workbench::desktop::recovery_tests::restored_mail_composer_keeps_new_draft_and_forgets_old_send_acknowledgements ... ok
+test workbench::document::tests::document_open_dispatches_filius_and_scenario_to_their_existing_workers ... ok
+test workbench::worker::checkpoint_tests::restored_worker_reserves_old_and_future_ids_without_losing_command_acknowledgements ... ok
+test workbench::document::tests::document_open_waits_without_blocking_and_installs_a_validated_project ... ok
+test workbench::document::tests::document_open_cancellation_errors_and_stale_results_preserve_edits ... ok
+
+test result: ok. 5 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+     Running tests/annotations.rs (target/debug/deps/annotations-2009483d941846fc)
+
+running 2 tests
+test an_unapplied_annotation_draft_is_recovered_without_applying_it ... ok
+test notes_and_zones_edit_move_resize_reopen_and_preserve_network_in_six_languages_and_two_views ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.66s
+
+     Running tests/configuration.rs (target/debug/deps/configuration-a3e9fa394a107e14)
+
+running 9 tests
+test public_startup_boundary_refuses_invalid_typed_display_data ... ok
+test ordinary_help_clicks_do_not_persist_geometry_derived_from_temporary_display_options ... ok
+test administrator_and_project_destinations_are_protected_even_through_missing_parent_traversal ... ok
+test explicit_defaults_reset_hidden_persistent_values_and_cancel_remains_non_mutating ... ok
+test editing_one_preference_does_not_persist_other_command_line_overrides ... ok
+test invalid_startup_values_are_localized_in_six_languages_both_views_and_leave_network_and_files_intact ... ok
+test compact_workbench_exposes_tools_in_six_languages_and_keeps_fonts_on_theme_changes ... ok
+test restored_policy_wins_for_the_run_and_new_simulation_uses_launch_policy_in_all_languages_and_views ... ok
+test technical_diagnostic_export_records_the_failed_operation_in_six_languages_and_two_views ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.47s
+
+     Running tests/help.rs (target/debug/deps/help-44dd0e1717299d79)
+
+running 4 tests
+test focused_draft_stays_intact_while_f1_and_escape_open_and_close_help ... ok
+test guided_example_reuses_the_unsaved_document_confirmation ... ok
+test direct_arp_and_modem_examples_open_from_the_localized_network_menu ... ok
+test f1_opens_context_and_about_in_six_languages_both_views_without_mutation ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.27s
+
+     Running tests/lan.rs (target/debug/deps/lan-c32129302394ffd6)
+
+running 33 tests
+test inspector_rename_preserves_ids_and_shortcuts_respect_text_entry ... ok
+test documentation_and_unsaved_replacement_preserve_project_until_decision ... ok
+test failed_file_save_preserves_draft_and_close_requires_explicit_discard ... ok
+test explorer_copy_move_delete_and_host_switch_use_isolated_documents ... ok
+test j5_home_router_roles_views_and_six_languages_are_preserved ... ok
+test j5_nat_table_updates_and_purges_without_reopening_the_panel ... ok
+test j6_wireless_inspector_and_both_views_preserve_associations ... ok
+test j3_router_palette_and_pedagogical_views_are_localized_without_changing_topology ... ok
+test j5_firewall_native_window_edits_adds_and_deletes_rules_in_all_languages ... ok
+test j4_dhcp_controls_and_service_panels_preserve_six_languages_and_views ... ok
+test j6_mail_windows_and_p2p_controls_preserve_all_six_languages ... ok
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+test j7_duplicate_align_undo_and_ipv4_warnings_preserve_all_languages_and_views ... ok
+test palette_delete_and_undo_drive_transactional_editor ... ok
+test j7_background_import_preserves_six_languages_views_and_previous_project_on_failure ... ok
+test palette_drag_drop_and_rectangle_group_move_keep_cables_attached ... ok
+test keyboard_equipment_ping_pause_step_and_modes_preserve_project ... ok
+test j3_terminal_traceroute_is_usable_in_each_language ... ok
+test j7_cloud_switch_changes_live_with_ports_sat_and_run_preserved_in_six_languages ... ok
+test preferred_language_survives_new_ui_instance_and_new_documents_use_it ... ok
+test six_languages_change_visible_controls_without_modifying_project ... ok
+test j7_runtime_restore_export_replay_preserves_languages_views_and_failed_load ... ok
+test traffic_filters_export_and_clear_preserve_immutable_trace ... ok
+test static_route_inspector_creates_edits_and_removes_a_persistent_route ... ok
+test j7_link_conditions_apply_and_repair_in_all_languages_and_views_without_editing_project ... ok
+test j6_modem_activation_is_explicit_localized_and_disconnects ... ok
+test six_language_desktops_terminal_history_and_persistent_document ... ok
+test tcp_windows_use_actual_transport_and_close_view_keeps_server_active ... ok
+test virtual_editor_saves_and_image_viewer_preserves_binary_in_six_languages ... ok
+test j6_mail_native_buttons_send_receive_reply_and_delete ... ok
+test j4_browser_ui_generates_http_for_page_link_image_and_form ... ok
+test j5_web_administration_changes_the_same_model_and_localizes_six_languages ... ok
+test j7_trace_queries_exports_and_local_global_animation_preserve_six_languages_and_views ... ok
+
+test result: ok. 33 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.41s
+
+     Running tests/png.rs (target/debug/deps/png-d8c50905772996c4)
+
+running 3 tests
+test simulation_png_freezes_effective_dhcp_labels_without_advancing_or_stopping_the_network ... ok
+test png_export_freezes_applied_document_and_protects_project_preferences_and_session_storage ... ok
+test png_controls_and_background_exports_preserve_six_languages_two_views_and_document ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.39s
+
+     Running tests/preferences.rs (target/debug/deps/preferences-fc66a544da53faa8)
+
+running 6 tests
+test invalid_preferences_and_conflicting_project_paths_are_preserved ... ok
+test preference_parent_folders_can_be_created_without_writing_into_recovery_storage ... ok
+test apply_cancel_and_keyboard_shortcut_preserve_the_network_and_focused_draft ... ok
+test help_geometry_is_remembered_and_clamped_after_restart_on_a_smaller_viewport ... ok
+test terminal_remains_usable_at_200_percent_in_all_languages_without_advancing_protocols ... ok
+test enlarged_display_persists_in_six_languages_both_views_without_network_mutation ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.64s
+
+     Running tests/report.rs (target/debug/deps/report-c452ad07dc8193c8)
+
+running 3 tests
+test pdf_export_keeps_previous_file_on_failure_and_protects_project ... ok
+test simulation_pdf_captures_recorded_packets_without_advancing_the_network ... ok
+test pdf_buttons_and_background_export_preserve_six_languages_views_and_frozen_document ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.88s
+
+     Running tests/service_images.rs (target/debug/deps/service_images-a501716271f89249)
+
+running 1 test
+test network_browser_loads_png_bmp_gif_jpeg_from_simulated_http ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+
+     Running tests/session.rs (target/debug/deps/session-4707da5d248ff4be)
+
+running 7 tests
+test automatic_ui_writer_child ... ignored, helper invoked only by the automatic-recovery parent test
+test preferences_cannot_replace_an_explicit_project_or_be_replaced_by_project_save ... ok
+test explicit_launch_file_has_priority_and_failed_restore_preserves_document_and_cache ... ok
+test normal_quit_keeps_latest_applied_and_unapplied_edits_without_waiting_for_periodic_save ... ok
+test recovery_offer_restores_language_document_selection_and_two_views_in_all_six_languages ... ok
+test a_full_cache_still_allows_recovery_without_deleting_other_documents ... ok
+test automatic_gui_snapshot_survives_forced_exit_with_unapplied_buffers_and_explicit_file_preserved ... ok
+
+test result: ok. 6 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 2.15s
+
+     Running tests/workbench.rs (target/debug/deps/workbench-190e738fe2620f6d)
+
+running 4 tests
+test canvas_has_a_keyboard_reachable_equipment_selection ... ok
+test controls_drive_the_real_engine_and_restart_clears_state ... ok
+test native_browser_gets_page_image_link_and_post_via_engine ... ok
+test large_trace_uses_the_virtualized_table ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.66s
+
+     Running unittests src/lib.rs (target/debug/deps/sns_vfs-22aa93984143e92a)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/files.rs (target/debug/deps/files-3a3d0a54eeff8d9c)
+
+running 3 tests
+test normalization_never_reaches_host_and_failures_preserve_tree ... ok
+test legacy_implicit_directories_and_limits_are_explicit ... ok
+test r_files_isolation_copy_move_remove_and_binary_round_trip ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src/main.rs (target/debug/deps/xtask-3ef57b0438525bc0)
+
+running 2 tests
+test tests::ci_contains_checks_and_fails_closed_on_unknown_tasks ... ok
+error: unexpected argument '--sns-invalid-command' found
+
+Usage: cargo [+toolchain] [OPTIONS] [COMMAND]
+       cargo [+toolchain] [OPTIONS] -Zscript <MANIFEST_RS> [ARGS]...
+
+For more information, try '--help'.
+test tests::failed_subprocess_is_reported ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+
+   Doc-tests sns_apps
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_bridge
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_engine
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_filius_import
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_fonts
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_html
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_i18n
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_model
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_project
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_protocols
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_render
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_report
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_settings
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_topology
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_trace
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_ui_egui
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+   Doc-tests sns_vfs
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
++ python3 scripts/check_png_exports.py docs/verification/j7-png-icons.png --metadata docs/verification/j7-png-icons.json
+OK — 1200 × 763 RGBA, CRC/deflate/hash, 16-pixel transparent margin, 9 objects; 180619 visible pixels.
++ python3 scripts/check_png_exports.py docs/verification/j7-png-diagram.png --metadata docs/verification/j7-png-diagram.json
+OK — 1200 × 763 RGBA, CRC/deflate/hash, 16-pixel transparent margin, 9 objects; 168016 visible pixels.
++ python3 scripts/check_png_exports.py docs/verification/j7-png-symbols-icons.png --metadata docs/verification/j7-png-symbols-icons.json
+OK — 1600 × 1415 RGBA, CRC/deflate/hash, 16-pixel transparent margin, 14 objects; 1402059 visible pixels.
++ python3 scripts/check_png_exports.py docs/verification/j7-png-symbols-diagram.png --metadata docs/verification/j7-png-symbols-diagram.json
+OK — 1600 × 1415 RGBA, CRC/deflate/hash, 16-pixel transparent margin, 14 objects; 1091821 visible pixels.

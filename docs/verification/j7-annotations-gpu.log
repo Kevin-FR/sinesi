@@ -1,0 +1,9 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.16s
+     Running tests/annotations.rs (target/debug/deps/annotations-421ae809a90f0245)
+
+running 2 tests
+test an_unapplied_annotation_draft_is_recovered_without_applying_it ... ok
+test notes_and_zones_edit_move_resize_reopen_and_preserve_network_in_six_languages_and_two_views ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 5.50s
+

@@ -29,7 +29,7 @@ Le périmètre fonctionnel de référence est Filius 2.14.0 dans l’archive loc
 | Hôtes | Bureau, catalogue de 13 logiciels, installation/désinstallation, cycle de vie, fichiers virtuels, terminal, éditeur et images |
 | Observation | Échanges par interface, vue agrégée/par couches, inspection du contenu, purge et suivi, animation des liens, tables MAC/NAT, parcours entre couches expérimental |
 | Documentation | Textes, zones colorées, styles, export PNG, rapport PDF de configuration et de trafic |
-| Projets et environnement | Scénarios, préférences, langue FR/EN/DE, aide, jeux d’icônes, options de lancement, journaux, exemples, logiciels personnalisés |
+| Projets et environnement | Scénarios, préférences, langues FR/EN/ES/IT/PT/DE, aide, jeux d’icônes, options de lancement, journaux, exemples, logiciels personnalisés |
 
 Le catalogue distingue `present`, `experimental`, `internal` et `removed`. Le helper terminal `test`, le carnet de contacts exposé par le modèle et les anciens chemins de code ne sont pas assimilés à des interfaces utilisateur complètes. L’export SVG est historique et retiré de l’interface de référence; sa réintroduction reste optionnelle.
 

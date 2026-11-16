@@ -1,0 +1,61 @@
+$ file [Windows build inputs and resulting Inno installer]
+/tmp/sns-j7-win64/sinesi.exe:                                             PE32+ executable (console) x86-64 (stripped to external PDB), for MS Windows
+/tmp/sns-j7-win64/sns-desktop.exe:                                        PE32+ executable (console) x86-64 (stripped to external PDB), for MS Windows
+artifacts/packages/j7-windows-compatibility/Sinesi-0.1.0-windows-x64.exe: PE32 executable (GUI) Intel 80386, for MS Windows
+$ xcrun llvm-objdump --private-headers [Windows executables]
+/tmp/sns-j7-win64/sinesi.exe:	file format coff-x86-64
+    DLL Name: bcryptprimitives.dll
+    DLL Name: advapi32.dll
+    DLL Name: kernel32.dll
+    DLL Name: KERNEL32.dll
+    DLL Name: msvcrt.dll
+    DLL Name: ntdll.dll
+    DLL Name: USERENV.dll
+    DLL Name: WS2_32.dll
+    DLL Name: api-ms-win-core-synch-l1-2-0.dll
+/tmp/sns-j7-win64/sns-desktop.exe:	file format coff-x86-64
+    DLL Name: bcryptprimitives.dll
+    DLL Name: kernel32.dll
+    DLL Name: api-ms-win-core-synch-l1-2-0.dll
+    DLL Name: dxgi.dll
+    DLL Name: gdi32.dll
+    DLL Name: kernel32.dll
+    DLL Name: ole32.dll
+    DLL Name: oleaut32.dll
+    DLL Name: opengl32.dll
+    DLL Name: propsys.dll
+    DLL Name: setupapi.dll
+    DLL Name: uiautomationcore.dll
+    DLL Name: user32.dll
+    DLL Name: combase.dll
+    DLL Name: kernel32.dll
+    DLL Name: rpcrt4.dll
+    DLL Name: api-ms-win-core-winrt-error-l1-1-0.dll
+    DLL Name: oleaut32.dll
+    DLL Name: kernel32.dll
+    DLL Name: oleaut32.dll
+    DLL Name: advapi32.dll
+    DLL Name: api-ms-win-core-path-l1-1-0.dll
+    DLL Name: combase.dll
+    DLL Name: dwmapi.dll
+    DLL Name: gdi32.dll
+    DLL Name: kernel32.dll
+    DLL Name: ole32.dll
+    DLL Name: oleaut32.dll
+    DLL Name: shell32.dll
+    DLL Name: user32.dll
+    DLL Name: KERNEL32.dll
+    DLL Name: msvcrt.dll
+    DLL Name: ntdll.dll
+    DLL Name: SHELL32.dll
+    DLL Name: USER32.dll
+    DLL Name: dwmapi.dll
+    DLL Name: imm32.dll
+    DLL Name: ntdll.dll
+    DLL Name: userenv.dll
+    DLL Name: uxtheme.dll
+    DLL Name: ws2_32.dll
+    DLL Name: api-ms-win-core-synch-l1-2-0.dll
+$ Python packaging architecture guard against Mach-O and both Windows binaries
+Expected a Windows x64 PE32+ binary: /var/folders/sc/208xyjzj7z3f58qqztwyb7d00000gn/T/tmpo7gccynj/sns-desktop.exe
+OK — both real Windows x64 executables passed the packaging check

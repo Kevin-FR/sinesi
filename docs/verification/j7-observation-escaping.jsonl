@@ -1,0 +1,1 @@
+{"event_schema_version":4,"run_id":"run-42-0","event_id":"evt-1","time_us":"0","sequence":"1","type":"application.command","device_id":"host-b","caused_by":null,"correlation_id":"obs-0-0","payload":{"application":"dns","command":{"application":"dns","operation":"start_server","port":80},"note":"élève, \"réseau\"\r\n日本語"}}

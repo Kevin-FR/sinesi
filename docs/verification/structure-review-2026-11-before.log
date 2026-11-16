@@ -1,0 +1,14 @@
+.....F..
+======================================================================
+FAIL: test_optional_gui_dependency_is_checked_even_when_disabled_by_default (__main__.Layers.test_optional_gui_dependency_is_checked_even_when_disabled_by_default)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/kevin/Web/SNS/scripts/test_layers.py", line 46, in test_optional_gui_dependency_is_checked_even_when_disabled_by_default
+    with self.assertRaisesRegex(ValueError, 'model -> egui'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 8 tests in 0.186s
+
+FAILED (failures=1)

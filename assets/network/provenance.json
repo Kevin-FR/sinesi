@@ -1,0 +1,87 @@
+{
+  "source": "_archive/network-kit/assets",
+  "provided_by": "Utilisateur du projet — 7 novembre 2026",
+  "scope": "Représentation graphique uniquement; un pictogramme ne simule pas un protocole supplémentaire.",
+  "files": {
+    "assets/network/icon/desktop.svg": {
+      "source": "_archive/network-kit/assets/icon/desktop.svg",
+      "sha256": "e2de297154c63c0efdd7a28037119beb3b48a1044c2f63a7e9c433eadd1a2ad6"
+    },
+    "assets/network/icon/laptop.svg": {
+      "source": "_archive/network-kit/assets/icon/laptop.svg",
+      "sha256": "6f02422a2aa2401b7fbb39dd5df5cbb3e45e342faaae136f3cdb028a681480f8"
+    },
+    "assets/network/icon/server.svg": {
+      "source": "_archive/network-kit/assets/icon/server.svg",
+      "sha256": "39be23858e662d1b3cca76349dbc8263746e92b3d5e1397296cf20cdeee3ab53"
+    },
+    "assets/network/icon/printer.svg": {
+      "source": "_archive/network-kit/assets/icon/printer.svg",
+      "sha256": "499c085bd0cc1bdc0c10008df58c0a351f94a0c7c4e0de7b24eb5ee7c655161e"
+    },
+    "assets/network/icon/tablet.svg": {
+      "source": "_archive/network-kit/assets/icon/tablet.svg",
+      "sha256": "5ee056180a4b3a87f49fcda63b35344d28aae7ac605b380381523f47fdbf10e6"
+    },
+    "assets/network/icon/router.svg": {
+      "source": "_archive/network-kit/assets/icon/router.svg",
+      "sha256": "65f6db931fcba98ae929271a63cc90b76b74b3ce7c100d00a7321574ca0fadae"
+    },
+    "assets/network/icon/switch.svg": {
+      "source": "_archive/network-kit/assets/icon/switch.svg",
+      "sha256": "6e1d1d7f50a9cc8a7360cff080ffc3f7d604e90bb74002cc8c5125fa4e78df62"
+    },
+    "assets/network/diagram/desktop.svg": {
+      "source": "_archive/network-kit/assets/diagram/desktop.svg",
+      "sha256": "b26ceb220b5f3fcc19b45ea31daed459f45383668dc25ffbac1ba261c6692d95"
+    },
+    "assets/network/diagram/laptop.svg": {
+      "source": "_archive/network-kit/assets/diagram/laptop.svg",
+      "sha256": "2320f0fb56a4f9757b04ba4fd9d3ff2cfb8fb2f409e4e001a205dbd48969445e"
+    },
+    "assets/network/diagram/server.svg": {
+      "source": "_archive/network-kit/assets/diagram/server.svg",
+      "sha256": "c001183b933834ce60d413d56cc5b8262c1816ac145f2082ee41c0fa4451ee14"
+    },
+    "assets/network/diagram/printer.svg": {
+      "source": "_archive/network-kit/assets/diagram/printer.svg",
+      "sha256": "5e298a34ddfea32eaf881a412739c128e94c4314cc9d0d798fbe77b98b2dbb20"
+    },
+    "assets/network/diagram/tablet.svg": {
+      "source": "_archive/network-kit/assets/diagram/tablet.svg",
+      "sha256": "0520ee2667d84de0b285f5f367116826bfbc6e0d3c7879e741fb58515fb73ddb"
+    },
+    "assets/network/diagram/router.svg": {
+      "source": "_archive/network-kit/assets/diagram/router.svg",
+      "sha256": "157fb41bbb2493f88fbb0975c5147b4f563d9905cb7897908215aa26699b69cd"
+    },
+    "assets/network/diagram/switch.svg": {
+      "source": "_archive/network-kit/assets/diagram/switch.svg",
+      "sha256": "cea9997f48abfb46137d98c0daf5f7de769195ecaf1536624e4f5b0fc86915b0"
+    },
+    "assets/network/icon/access_point.svg": {
+      "source": "_archive/network-kit/assets/icon/access_point.svg",
+      "sha256": "8382e8bbd35817aded19e9d587e221b64eb2f37c15e8316e32ba0f70b263ac2d"
+    },
+    "assets/network/icon/modem.svg": {
+      "source": "_archive/network-kit/assets/icon/modem.svg",
+      "sha256": "e730e3d3f457a004abf6fb89e60741cb13a82c7ce19ff67e40957d96a9448501"
+    },
+    "assets/network/diagram/access_point.svg": {
+      "source": "_archive/network-kit/assets/diagram/access_point.svg",
+      "sha256": "f93502c8f41904c672a73109fbddbbe9bbb2bca5f31df4d9cdd3fcd2f391742c"
+    },
+    "assets/network/diagram/modem.svg": {
+      "source": "_archive/network-kit/assets/diagram/modem.svg",
+      "sha256": "5b98692cde0fcd2a5a81624736180e222542499be4600667fb7124a7da88771e"
+    },
+    "assets/network/icon/cloud.svg": {
+      "source": "_archive/network-kit/assets/icon/cloud.svg",
+      "sha256": "8afaec143e5a99037d142d1e58c3d48c44dc4a88ad685b6760de558d723ab6d3"
+    },
+    "assets/network/diagram/cloud.svg": {
+      "source": "_archive/network-kit/assets/diagram/cloud.svg",
+      "sha256": "e3b4f1fdd85f2d431aa7493a50d3e762bc760d28849de51adf563ebee90f3061"
+    }
+  }
+}

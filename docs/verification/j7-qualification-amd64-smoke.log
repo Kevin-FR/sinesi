@@ -1,0 +1,170 @@
+x86_64
+debconf: delaying package configuration, since apt-utils is not installed
+Reading package lists...
+Building dependency tree...
+Reading state information...
+The following additional packages will be installed:
+  desktop-file-utils libegl-mesa0 libegl1 libgbm1 libwayland-server0
+  libxcb-xkb1 libxcursor1 libxi6 libxkbcommon-x11-0 libxkbcommon0
+  shared-mime-info
+Recommended packages:
+  xdg-desktop-portal
+The following NEW packages will be installed:
+  desktop-file-utils libegl-mesa0 libegl1 libgbm1 libwayland-server0
+  libxcb-xkb1 libxcursor1 libxi6 libxkbcommon-x11-0 libxkbcommon0
+  shared-mime-info sinesi
+0 upgraded, 12 newly installed, 0 to remove and 0 not upgraded.
+Need to get 1418 kB/17.4 MB of archives.
+After this operation, 6959 kB of additional disk space will be used.
+Get:1 http://deb.debian.org/debian bookworm/main amd64 desktop-file-utils amd64 0.26-1 [91.2 kB]
+Get:2 http://deb.debian.org/debian bookworm/main amd64 libwayland-server0 amd64 1.21.0-1 [35.9 kB]
+Get:3 http://deb.debian.org/debian bookworm/main amd64 libgbm1 amd64 22.3.6-1+deb12u2 [38.1 kB]
+Get:4 /out/packages/sinesi_0.1.0_amd64.deb sinesi amd64 0.1.0 [16.0 MB]
+Get:5 http://deb.debian.org/debian bookworm/main amd64 libegl-mesa0 amd64 22.3.6-1+deb12u2 [114 kB]
+Get:6 http://deb.debian.org/debian bookworm/main amd64 libxcb-xkb1 amd64 1.15-1 [129 kB]
+Get:7 http://deb.debian.org/debian bookworm/main amd64 libxcursor1 amd64 1:1.2.1-1 [40.9 kB]
+Get:8 http://deb.debian.org/debian bookworm/main amd64 libxi6 amd64 2:1.8-1+b1 [84.2 kB]
+Get:9 http://deb.debian.org/debian bookworm/main amd64 libxkbcommon0 amd64 1.5.0-1 [106 kB]
+Get:10 http://deb.debian.org/debian bookworm/main amd64 libxkbcommon-x11-0 amd64 1.5.0-1 [15.6 kB]
+Get:11 http://deb.debian.org/debian bookworm/main amd64 shared-mime-info amd64 2.2-1 [729 kB]
+Get:12 http://deb.debian.org/debian bookworm/main amd64 libegl1 amd64 1.6.0-1 [33.7 kB]
+debconf: delaying package configuration, since apt-utils is not installed
+Fetched 1418 kB in 1s (1412 kB/s)
+Selecting previously unselected package desktop-file-utils.
+
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 8312 files and directories currently installed.)
+
+Preparing to unpack .../00-desktop-file-utils_0.26-1_amd64.deb ...
+
+Unpacking desktop-file-utils (0.26-1) ...
+
+Selecting previously unselected package libwayland-server0:amd64.
+
+Preparing to unpack .../01-libwayland-server0_1.21.0-1_amd64.deb ...
+
+Unpacking libwayland-server0:amd64 (1.21.0-1) ...
+
+Selecting previously unselected package libgbm1:amd64.
+
+Preparing to unpack .../02-libgbm1_22.3.6-1+deb12u2_amd64.deb ...
+
+Unpacking libgbm1:amd64 (22.3.6-1+deb12u2) ...
+
+Selecting previously unselected package libegl-mesa0:amd64.
+
+Preparing to unpack .../03-libegl-mesa0_22.3.6-1+deb12u2_amd64.deb ...
+
+Unpacking libegl-mesa0:amd64 (22.3.6-1+deb12u2) ...
+
+Selecting previously unselected package libxcb-xkb1:amd64.
+
+Preparing to unpack .../04-libxcb-xkb1_1.15-1_amd64.deb ...
+
+Unpacking libxcb-xkb1:amd64 (1.15-1) ...
+
+Selecting previously unselected package libxcursor1:amd64.
+
+Preparing to unpack .../05-libxcursor1_1%3a1.2.1-1_amd64.deb ...
+
+Unpacking libxcursor1:amd64 (1:1.2.1-1) ...
+
+Selecting previously unselected package libxi6:amd64.
+
+Preparing to unpack .../06-libxi6_2%3a1.8-1+b1_amd64.deb ...
+
+Unpacking libxi6:amd64 (2:1.8-1+b1) ...
+
+Selecting previously unselected package libxkbcommon0:amd64.
+
+Preparing to unpack .../07-libxkbcommon0_1.5.0-1_amd64.deb ...
+
+Unpacking libxkbcommon0:amd64 (1.5.0-1) ...
+
+Selecting previously unselected package libxkbcommon-x11-0:amd64.
+
+Preparing to unpack .../08-libxkbcommon-x11-0_1.5.0-1_amd64.deb ...
+
+Unpacking libxkbcommon-x11-0:amd64 (1.5.0-1) ...
+
+Selecting previously unselected package shared-mime-info.
+
+Preparing to unpack .../09-shared-mime-info_2.2-1_amd64.deb ...
+
+Unpacking shared-mime-info (2.2-1) ...
+
+Selecting previously unselected package libegl1:amd64.
+
+Preparing to unpack .../10-libegl1_1.6.0-1_amd64.deb ...
+
+Unpacking libegl1:amd64 (1.6.0-1) ...
+
+Selecting previously unselected package sinesi.
+
+Preparing to unpack .../11-sinesi_0.1.0_amd64.deb ...
+
+Unpacking sinesi (0.1.0) ...
+
+Setting up libwayland-server0:amd64 (1.21.0-1) ...
+
+Setting up desktop-file-utils (0.26-1) ...
+
+Setting up libxi6:amd64 (2:1.8-1+b1) ...
+
+Setting up libgbm1:amd64 (22.3.6-1+deb12u2) ...
+
+Setting up libxcursor1:amd64 (1:1.2.1-1) ...
+
+Setting up libxcb-xkb1:amd64 (1.15-1) ...
+
+Setting up libegl-mesa0:amd64 (22.3.6-1+deb12u2) ...
+
+Setting up shared-mime-info (2.2-1) ...
+
+Setting up libegl1:amd64 (1.6.0-1) ...
+
+Setting up libxkbcommon0:amd64 (1.5.0-1) ...
+
+Setting up libxkbcommon-x11-0:amd64 (1.5.0-1) ...
+
+Setting up sinesi (0.1.0) ...
+
+Processing triggers for libc-bin (2.36-9+deb12u14) ...
+
+OK — 12 startup combinations, portable save, ping, checkpoint, replay and PNG in /out/exercise
+  standard::content-type: application/vnd.sinesi.project+json
+Default application for ?application/vnd.sinesi.project+json?: fr.sinesi.Sinesi.desktop
+Registered applications:
+	fr.sinesi.Sinesi.desktop
+Recommended applications:
+	fr.sinesi.Sinesi.desktop
+Default application for ?application/vnd.sinesi.project+json?: fr.sinesi.Sinesi.desktop
+	fr.sinesi.Sinesi.desktop
+	fr.sinesi.Sinesi.desktop
+Set fr.sinesi.Sinesi.desktop as the default for application/vnd.sinesi.project+json
+OK — GIO launched the packaged desktop with the associated project under Xvfb
+(Reading database ... 8508 files and directories currently installed.)
+Removing sinesi (0.1.0) ...
+Processing triggers for shared-mime-info (2.2-1) ...
+Processing triggers for desktop-file-utils (0.26-1) ...
+/out/exercise/- réseau de classe.sinesi: OK

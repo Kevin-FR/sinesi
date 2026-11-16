@@ -1,0 +1,25 @@
+{
+  "date": "2026-11-08",
+  "system": "macOS-27.2-arm64-arm-64bit-Mach-O",
+  "machine": "arm64",
+  "rustc": "rustc 1.95.0 (59807616e 2026-04-14)",
+  "workspace_tests": 197,
+  "bridge_child_test": 1,
+  "ignored_by_default": 3,
+  "rendered_tests": 1,
+  "new_pngs": 12,
+  "locale_keys": 651,
+  "languages": [
+    "fr",
+    "en",
+    "es",
+    "it",
+    "pt",
+    "de"
+  ],
+  "views": [
+    "icons",
+    "diagram"
+  ],
+  "prior_proof_images_replaced": false
+}

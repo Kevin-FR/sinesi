@@ -1,0 +1,230 @@
+{
+  "corpus": [
+    {
+      "path": "beispiele/Internet_Complete_with_e-Mail_Webserver_Intranet_Portforwarding_Firewall_DHCP_EN.fls",
+      "source_sha256": "e85f5f2151a7928921e26d4aef40aeb994af189c52a22947f52e5994766d40fc",
+      "preserved_entries": 2,
+      "unconverted_fields": 558,
+      "port_forwards": 1,
+      "firewall_rules": 6,
+      "security_losses": [],
+      "execution_performed": false
+    },
+    {
+      "path": "beispiele/Internet_Komplett_mit_eMail_Webserver_Intranet_Portforwarding_Firewall_DHCP_DE.fls",
+      "source_sha256": "a15f0276a852146b9d8f09e55f29b3d592d37a15ebab44e20fc968ea4b9aaa7b",
+      "preserved_entries": 2,
+      "unconverted_fields": 576,
+      "port_forwards": 1,
+      "firewall_rules": 6,
+      "security_losses": [],
+      "execution_performed": false
+    },
+    {
+      "path": "beispiele/Public_and_Private_Networks_2_EN.fls",
+      "source_sha256": "3192ca6fbe2b44112cb04f44d18087e4ed1a073df61a070f6d5537a416a40f60",
+      "preserved_entries": 2,
+      "unconverted_fields": 182,
+      "port_forwards": 0,
+      "firewall_rules": 0,
+      "security_losses": [],
+      "execution_performed": false
+    },
+    {
+      "path": "beispiele/anwendung_komplett.fls",
+      "source_sha256": "e5b5661f4992c8613135d9745b73fed0bc7dec81d6581b2302998b4d88728c14",
+      "preserved_entries": 9,
+      "unconverted_fields": 56,
+      "port_forwards": 0,
+      "firewall_rules": 0,
+      "security_losses": [],
+      "execution_performed": false
+    },
+    {
+      "path": "beispiele/dhcp_test_scenario.fls",
+      "source_sha256": "c79c114608a30aa58fda26212cecfc8a3e8addad734318fc6b4e110885b7c1a3",
+      "preserved_entries": 9,
+      "unconverted_fields": 83,
+      "port_forwards": 0,
+      "firewall_rules": 0,
+      "security_losses": [],
+      "execution_performed": false
+    },
+    {
+      "path": "beispiele/dns_server.fls",
+      "source_sha256": "2ae5277d3fa538b5c688a986a6a6ae1a02e948a702fff3ccd8d40ed32d2b6fb3",
+      "preserved_entries": 2,
+      "unconverted_fields": 108,
+      "port_forwards": 0,
+      "firewall_rules": 0,
+      "security_losses": [],
+      "execution_performed": false
+    },
+    {
+      "path": "beispiele/einfaches_rechnernetz_komplett.fls",
+      "source_sha256": "fe4d9e8ffa34945a02a263eecf7b498905ef092f4446d29801647a70c328fd16",
+      "preserved_entries": 9,
+      "unconverted_fields": 154,
+      "port_forwards": 0,
+      "firewall_rules": 0,
+      "security_losses": [],
+      "execution_performed": false
+    },
+    {
+      "path": "beispiele/email_komplett.fls",
+      "source_sha256": "c0a2b1218ee684c4cb63b0f8d1b45ca2d15d21731edbc3654f5bc150137326ec",
+      "preserved_entries": 2,
+      "unconverted_fields": 221,
+      "port_forwards": 0,
+      "firewall_rules": 0,
+      "security_losses": [],
+      "execution_performed": false
+    },
+    {
+      "path": "beispiele/internetwork_komplett.fls",
+      "source_sha256": "265be10f44e1064a2c358dc4c811e3e18b66efb634a6ca6d4babf9eee2ad0901",
+      "preserved_entries": 2,
+      "unconverted_fields": 200,
+      "port_forwards": 0,
+      "firewall_rules": 0,
+      "security_losses": [],
+      "execution_performed": false
+    },
+    {
+      "path": "beispiele/man-in-the-middle.fls",
+      "source_sha256": "0b5e95545d3d0cba993e34517efde28380377878069a7d26d37d9e60fdad6af2",
+      "preserved_entries": 2,
+      "unconverted_fields": 257,
+      "port_forwards": 0,
+      "firewall_rules": 0,
+      "security_losses": [],
+      "execution_performed": false
+    },
+    {
+      "path": "beispiele/modem_beispiel.fls",
+      "source_sha256": "fb038bc8b4e536df2046abf673a913485c0747cb6f54dc6e479ba16ff597a32c",
+      "preserved_entries": 2,
+      "unconverted_fields": 56,
+      "port_forwards": 0,
+      "firewall_rules": 0,
+      "security_losses": [],
+      "execution_performed": false
+    },
+    {
+      "path": "beispiele/multicast_server.fls",
+      "source_sha256": "0cf713a288135dcb37418d14862036e39086a01bdeabc3022ab75d5ee469ffd6",
+      "preserved_entries": 9,
+      "unconverted_fields": 73,
+      "port_forwards": 0,
+      "firewall_rules": 0,
+      "security_losses": [],
+      "execution_performed": false
+    },
+    {
+      "path": "beispiele/nat.fls",
+      "source_sha256": "aff1eb4621ece16741b123526170359d9285db132380f374a1c66b8349546758",
+      "preserved_entries": 2,
+      "unconverted_fields": 61,
+      "port_forwards": 0,
+      "firewall_rules": 0,
+      "security_losses": [],
+      "execution_performed": false
+    },
+    {
+      "path": "beispiele/nat_with_mapped_port.fls",
+      "source_sha256": "b98c7ab56daf129df4ac2d3bcc4f3805855f169032b1faf1a6fcf1b899d8e9dd",
+      "preserved_entries": 2,
+      "unconverted_fields": 316,
+      "port_forwards": 1,
+      "firewall_rules": 0,
+      "security_losses": [],
+      "execution_performed": false
+    },
+    {
+      "path": "beispiele/private_and_public_network.fls",
+      "source_sha256": "e5020d301c5aa6dbd3b7eea3c7e2c8c4037fe0b2941f7ae6282fb60e51a58c12",
+      "preserved_entries": 2,
+      "unconverted_fields": 129,
+      "port_forwards": 0,
+      "firewall_rules": 0,
+      "security_losses": [],
+      "execution_performed": false
+    },
+    {
+      "path": "beispiele/private_und_public_networks_mit_provider_DE.fls",
+      "source_sha256": "fce3622671687016ae60311cc19162a0cde4c6161f2b802338474badefb9513f",
+      "preserved_entries": 2,
+      "unconverted_fields": 211,
+      "port_forwards": 0,
+      "firewall_rules": 0,
+      "security_losses": [],
+      "execution_performed": false
+    },
+    {
+      "path": "beispiele/webserver.fls",
+      "source_sha256": "6333973e935f47f90c3b718869695e679dea18b66e80e450aa929c0bc5dc8de2",
+      "preserved_entries": 9,
+      "unconverted_fields": 47,
+      "port_forwards": 0,
+      "firewall_rules": 0,
+      "security_losses": [],
+      "execution_performed": false
+    },
+    {
+      "path": "beispiele/zwei_rechnernetze_komplett.fls",
+      "source_sha256": "59459e92ae748aa5d33a9ca41d69ba6e4dae9591608ad424e5b54ddd5856f80b",
+      "preserved_entries": 2,
+      "unconverted_fields": 86,
+      "port_forwards": 0,
+      "firewall_rules": 0,
+      "security_losses": [],
+      "execution_performed": false
+    },
+    {
+      "path": "src/test/resources/einfaches_rechnernetz_komplett.fls",
+      "source_sha256": "fe4d9e8ffa34945a02a263eecf7b498905ef092f4446d29801647a70c328fd16",
+      "preserved_entries": 9,
+      "unconverted_fields": 154,
+      "port_forwards": 0,
+      "firewall_rules": 0,
+      "security_losses": [],
+      "execution_performed": false
+    },
+    {
+      "path": "src/test/resources/empty.fls",
+      "source_sha256": "b1aab2b2756cf82bcbf38fe0b7ae7ea5e04e00cc71f9fd06ae10f421dee481b4",
+      "preserved_entries": 9,
+      "unconverted_fields": 0,
+      "port_forwards": 0,
+      "firewall_rules": 0,
+      "security_losses": [],
+      "execution_performed": false
+    }
+  ],
+  "traces": {
+    "nat": {
+      "events": 601,
+      "sha256": "da3529cc3d59a15ef0b97275b54edefc88141b642223c4286b30e15a80bd396a",
+      "counts": {
+        "nat.mapping.created": 2,
+        "nat.translated": 22,
+        "http.request.sent": 1,
+        "http.response.sent": 1,
+        "http.response.received": 1
+      }
+    },
+    "firewall": {
+      "events": 715,
+      "sha256": "5427bfd8d9f2d2fb1887d87aa569b4170071c44c3cdfbc925636c3016cbc35b6",
+      "counts": {
+        "nat.table.cleared": 1,
+        "firewall.decision": 26,
+        "nat.mapping.created": 1,
+        "nat.translated": 13,
+        "http.request.sent": 1,
+        "http.response.sent": 1,
+        "http.response.received": 1
+      }
+    }
+  }
+}

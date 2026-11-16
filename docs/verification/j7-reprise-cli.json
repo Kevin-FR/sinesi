@@ -1,0 +1,63 @@
+{
+  "commands": [
+    {
+      "command": [
+        "target/debug/sinesi",
+        "run",
+        "fixtures/valid/network-scenario.json",
+        "--until-us",
+        "1500",
+        "--checkpoint",
+        "docs/verification/j7-scenario-checkpoint.json"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"pending_events\":4,\"processed_events\":2,\"termination\":\"time_bound\",\"time_us\":\"1000\",\"trace_sha256\":\"3ee152e52fd8184715fcce4d85136b5848bb8c4e28d2010ba9eaee91409a8385\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "target/debug/sinesi",
+        "run",
+        "fixtures/valid/network-scenario.json",
+        "--until-us",
+        "10000000",
+        "--recording",
+        "docs/verification/j7-scenario-recording.json",
+        "--trace",
+        "docs/verification/j7-scenario-full.jsonl"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"pending_events\":8,\"processed_events\":20,\"termination\":\"time_bound\",\"time_us\":\"8000000\",\"trace_sha256\":\"e60bb75c9eee0f4c72d8b015ec8aa1ea2948a9d0b046e7ffd1587ca40f3f15e9\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "target/debug/sinesi",
+        "resume",
+        "docs/verification/j7-scenario-checkpoint.json",
+        "--until-us",
+        "10000000",
+        "--trace",
+        "docs/verification/j7-scenario-resumed.jsonl"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"pending_events\":8,\"processed_events\":18,\"termination\":\"time_bound\",\"time_us\":\"8000000\",\"trace_sha256\":\"e60bb75c9eee0f4c72d8b015ec8aa1ea2948a9d0b046e7ffd1587ca40f3f15e9\"}\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "target/debug/sinesi",
+        "replay",
+        "docs/verification/j7-scenario-recording.json",
+        "--trace",
+        "docs/verification/j7-scenario-replayed.jsonl"
+      ],
+      "exit_code": 0,
+      "stdout": "{\"pending_events\":8,\"replayed\":true,\"time_us\":\"8000000\",\"trace_sha256\":\"e60bb75c9eee0f4c72d8b015ec8aa1ea2948a9d0b046e7ffd1587ca40f3f15e9\"}\n",
+      "stderr": ""
+    }
+  ],
+  "trace_sha256": "e60bb75c9eee0f4c72d8b015ec8aa1ea2948a9d0b046e7ffd1587ca40f3f15e9",
+  "events": 57,
+  "all_traces_equal": true
+}

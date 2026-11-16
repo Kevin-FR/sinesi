@@ -11,8 +11,13 @@ name = "sinesi"
 path = "src/main.rs"
 
 [dependencies]
+sns-report.workspace = true
+sns-i18n.workspace = true
+sns-render.workspace = true
+sns-filius-import.workspace = true
 sns-model.workspace = true
 sns-engine.workspace = true
+sns-missions.workspace = true
 sns-project.workspace = true
 serde_json.workspace = true
 

@@ -1,0 +1,37 @@
+   Compiling sns-filius-import v0.1.0 (/Users/kevin/Web/SNS/crates/sns-filius-import)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.28s
+     Running tests/import.rs (target/debug/deps/import-2a3cc3a7ca8521b6)
+
+running 15 tests
+test corpus_imports_as_data_preserving_every_byte_and_reports_all_losses ... ignored, requires the local read-only Filius corpus; run explicitly with --ignored
+test imported_historical_dhcp_and_manual_routes_drive_the_engine ... ignored, requires the local read-only Filius corpus; run explicitly with --ignored
+test imported_historical_lan_uses_production_arp_and_icmp ... ignored, requires the local read-only Filius LAN example; run explicitly with --ignored
+test imported_historical_nat_and_firewall_handle_real_packets ... ignored, requires the local read-only Filius corpus; run explicitly with --ignored
+test imported_historical_rip_converges_forwards_and_replays ... ignored, requires the local read-only Filius corpus; run explicitly with --ignored
+test duplicate_names_bad_crc_and_unsafe_virtual_tree_are_rejected ... ok
+test arbitrary_embedded_code_is_preserved_and_disabled ... ok
+test explicit_rip_keeps_legacy_static_choices_inactive ... ok
+test unsafe_archives_and_entity_xml_and_dangling_aliases_are_rejected ... ok
+test import_is_deterministic_and_mac_repairs_are_unique ... ok
+test unsafe_or_unrepresentable_security_rows_remain_visible ... ok
+test gateway_dhcp_keeps_the_lan_static_and_reports_rejected_reservations ... ok
+test cloud_flag_imports_as_presentation_data_without_changing_ports_or_wires ... ok
+test documentation_layers_colors_and_font_flags_are_portable ... ok
+test portable_synthetic_import_roundtrips_and_exchanges_real_simulated_frames ... ok
+
+test result: ok. 10 passed; 0 failed; 5 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.10s
+     Running tests/import.rs (target/debug/deps/import-2a3cc3a7ca8521b6)
+
+running 5 tests
+test imported_historical_dhcp_and_manual_routes_drive_the_engine ... ok
+test imported_historical_lan_uses_production_arp_and_icmp ... ok
+test corpus_imports_as_data_preserving_every_byte_and_reports_all_losses ... ok
+test imported_historical_rip_converges_forwards_and_replays ... ok
+test imported_historical_nat_and_firewall_handle_real_packets ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 10 filtered out; finished in 2.62s
+
+    Checking sns-filius-import v0.1.0 (/Users/kevin/Web/SNS/crates/sns-filius-import)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 3.87s

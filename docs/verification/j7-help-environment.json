@@ -1,0 +1,37 @@
+{
+  "date": "2026-11-08",
+  "system": "macOS-27.2-arm64-arm-64bit-Mach-O",
+  "rustc": "rustc 1.95.0 (59807616e 2026-04-14)",
+  "workspace_tests": 237,
+  "bridge_child_test": 1,
+  "forced_session_child_exits": 2,
+  "ignored_by_default": 5,
+  "gpu_tests": 9,
+  "new_help_pngs": 42,
+  "all_current_ui_pngs_compared": 66,
+  "prior_ui_pngs_unchanged": 345,
+  "locale_keys": 776,
+  "languages": [
+    "fr",
+    "en",
+    "es",
+    "it",
+    "pt",
+    "de"
+  ],
+  "views": [
+    "icons",
+    "diagram"
+  ],
+  "help_topics": 6,
+  "guided_examples": 10,
+  "loaded_project_schema": 2,
+  "latest_project_schema": 9,
+  "product_version": "0.1.0",
+  "new_third_party_packages": 0,
+  "archive_audit_recomputed": false,
+  "native_manual_workflow": false,
+  "windows_linux_run": false,
+  "remote_ci_run": false,
+  "full_historical_gpu_suite": false
+}

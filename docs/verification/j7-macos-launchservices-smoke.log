@@ -1,0 +1,28 @@
+$ python3 packaging/build.py --output [temporary package directory]
+/private/tmp/sns-j7-mac-launchservices/packages/sinesi-89f60mjt/Sinesi.app/Contents/MacOS/sns-desktop: replacing existing signature
+/private/tmp/sns-j7-mac-launchservices/packages/sinesi-89f60mjt/Sinesi.app/Contents/MacOS/sinesi: replacing existing signature
+/private/tmp/sns-j7-mac-launchservices/packages/sinesi-89f60mjt/Sinesi.app/Contents/MacOS/sinesi-launcher: replacing existing signature
+/private/tmp/sns-j7-mac-launchservices/packages/sinesi-89f60mjt/Sinesi.app: replacing existing signature
+/private/tmp/sns-j7-mac-launchservices/packages/Sinesi-0.1.0-macos-arm64.zip
+$ sh packaging/smoke-macos.sh [ZIP] [temporary exercise directory]
+OK — signed bundle, launcher and .sinesi document declaration
+OK — 12 startup combinations, portable save, ping, checkpoint, replay and PNG in /private/tmp/sns-j7-mac-launchservices/exercise/exercise
+/private/tmp/sns-j7-mac-launchservices/exercise/exercise/- réseau de classe.sinesi: OK
+$ sh packaging/smoke-macos.sh [ZIP] [temporary exercise directory]
+OK — signed arm64 bundle, launcher and .sinesi document declaration
+OK — 12 startup combinations, portable save, ping, checkpoint, replay and PNG in /private/tmp/sns-j7-mac-launchservices/checked-exercise/exercise
+/private/tmp/sns-j7-mac-launchservices/checked-exercise/exercise/- réseau de classe.sinesi: OK
+$ [built association probe] with missing arguments
+macOS association check failed: usage
+OK — argument validation failed cleanly before opening a window
+$ xcrun vtool -show-build [association probe]
+/tmp/sns-j7-mac-launchservices/checked-exercise/smoke-association:
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 13.0
+      sdk 27.2
+   ntools 1
+     tool LD
+  version 27106.1

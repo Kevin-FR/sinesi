@@ -1,0 +1,355 @@
+{
+  "bounds_us": [
+    2000000,
+    6000000,
+    160000000,
+    163000000
+  ],
+  "commands": [
+    {
+      "at_us": "2000000",
+      "request": {
+        "api_version": 1,
+        "command": {
+          "payload": {
+            "destination": "192.168.30.2",
+            "source": "a",
+            "ttl": 64
+          },
+          "type": "icmp.ping"
+        },
+        "command_id": "learned-ping",
+        "expected_revision": "0",
+        "project_id": "project-lan",
+        "run_id": "run-42-0"
+      }
+    },
+    {
+      "at_us": "6000000",
+      "request": {
+        "api_version": 1,
+        "command": {
+          "payload": {
+            "device": "r3",
+            "muted": true
+          },
+          "type": "routing.rip.mute"
+        },
+        "command_id": "mute",
+        "expected_revision": "0",
+        "project_id": "project-lan",
+        "run_id": "run-42-0"
+      }
+    },
+    {
+      "at_us": "160000000",
+      "request": {
+        "api_version": 1,
+        "command": {
+          "payload": {
+            "device": "r3",
+            "muted": false
+          },
+          "type": "routing.rip.mute"
+        },
+        "command_id": "unmute",
+        "expected_revision": "0",
+        "project_id": "project-lan",
+        "run_id": "run-42-0"
+      }
+    }
+  ],
+  "final_time_us": "163000000",
+  "routes": {
+    "a": [
+      {
+        "expires_us": null,
+        "gateway": "192.168.10.1",
+        "interface": "a-p0",
+        "metric": 0,
+        "network": "0.0.0.0",
+        "origin": "default",
+        "prefix": 0
+      },
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": null,
+        "metric": 0,
+        "network": "127.0.0.0",
+        "origin": "loopback",
+        "prefix": 8
+      },
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": "a-p0",
+        "metric": 0,
+        "network": "192.168.10.0",
+        "origin": "direct",
+        "prefix": 24
+      }
+    ],
+    "b": [
+      {
+        "expires_us": null,
+        "gateway": "192.168.30.1",
+        "interface": "b-p0",
+        "metric": 0,
+        "network": "0.0.0.0",
+        "origin": "default",
+        "prefix": 0
+      },
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": null,
+        "metric": 0,
+        "network": "127.0.0.0",
+        "origin": "loopback",
+        "prefix": 8
+      },
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": "b-p0",
+        "metric": 0,
+        "network": "192.168.30.0",
+        "origin": "direct",
+        "prefix": 24
+      }
+    ],
+    "r1": [
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": null,
+        "metric": 0,
+        "network": "127.0.0.0",
+        "origin": "loopback",
+        "prefix": 8
+      },
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": "r1-p0",
+        "metric": 0,
+        "network": "192.168.10.0",
+        "origin": "direct",
+        "prefix": 24
+      },
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": "r1-p1",
+        "metric": 0,
+        "network": "192.168.20.0",
+        "origin": "direct",
+        "prefix": 24
+      },
+      {
+        "expires_us": "235002000",
+        "gateway": "192.168.50.2",
+        "interface": "r1-p2",
+        "metric": 1,
+        "network": "192.168.30.0",
+        "origin": "rip",
+        "prefix": 24
+      },
+      {
+        "expires_us": "235006000",
+        "gateway": "192.168.20.2",
+        "interface": "r1-p1",
+        "metric": 2,
+        "network": "192.168.30.0",
+        "origin": "rip",
+        "prefix": 24
+      },
+      {
+        "expires_us": "235006000",
+        "gateway": "192.168.20.2",
+        "interface": "r1-p1",
+        "metric": 1,
+        "network": "192.168.40.0",
+        "origin": "rip",
+        "prefix": 24
+      },
+      {
+        "expires_us": "235002000",
+        "gateway": "192.168.50.2",
+        "interface": "r1-p2",
+        "metric": 1,
+        "network": "192.168.40.0",
+        "origin": "rip",
+        "prefix": 24
+      },
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": "r1-p2",
+        "metric": 0,
+        "network": "192.168.50.0",
+        "origin": "direct",
+        "prefix": 24
+      }
+    ],
+    "r2": [
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": null,
+        "metric": 0,
+        "network": "127.0.0.0",
+        "origin": "loopback",
+        "prefix": 8
+      },
+      {
+        "expires_us": "235006000",
+        "gateway": "192.168.20.1",
+        "interface": "r2-p0",
+        "metric": 1,
+        "network": "192.168.10.0",
+        "origin": "rip",
+        "prefix": 24
+      },
+      {
+        "expires_us": "235002000",
+        "gateway": "192.168.40.2",
+        "interface": "r2-p1",
+        "metric": 2,
+        "network": "192.168.10.0",
+        "origin": "rip",
+        "prefix": 24
+      },
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": "r2-p0",
+        "metric": 0,
+        "network": "192.168.20.0",
+        "origin": "direct",
+        "prefix": 24
+      },
+      {
+        "expires_us": "235002000",
+        "gateway": "192.168.40.2",
+        "interface": "r2-p1",
+        "metric": 1,
+        "network": "192.168.30.0",
+        "origin": "rip",
+        "prefix": 24
+      },
+      {
+        "expires_us": "235006000",
+        "gateway": "192.168.20.1",
+        "interface": "r2-p0",
+        "metric": 2,
+        "network": "192.168.30.0",
+        "origin": "rip",
+        "prefix": 24
+      },
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": "r2-p1",
+        "metric": 0,
+        "network": "192.168.40.0",
+        "origin": "direct",
+        "prefix": 24
+      },
+      {
+        "expires_us": "235006000",
+        "gateway": "192.168.20.1",
+        "interface": "r2-p0",
+        "metric": 1,
+        "network": "192.168.50.0",
+        "origin": "rip",
+        "prefix": 24
+      },
+      {
+        "expires_us": "235002000",
+        "gateway": "192.168.40.2",
+        "interface": "r2-p1",
+        "metric": 1,
+        "network": "192.168.50.0",
+        "origin": "rip",
+        "prefix": 24
+      }
+    ],
+    "r3": [
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": null,
+        "metric": 0,
+        "network": "127.0.0.0",
+        "origin": "loopback",
+        "prefix": 8
+      },
+      {
+        "expires_us": "235006000",
+        "gateway": "192.168.50.1",
+        "interface": "r3-p2",
+        "metric": 1,
+        "network": "192.168.10.0",
+        "origin": "rip",
+        "prefix": 24
+      },
+      {
+        "expires_us": "235006000",
+        "gateway": "192.168.40.1",
+        "interface": "r3-p0",
+        "metric": 2,
+        "network": "192.168.10.0",
+        "origin": "rip",
+        "prefix": 24
+      },
+      {
+        "expires_us": "235006000",
+        "gateway": "192.168.40.1",
+        "interface": "r3-p0",
+        "metric": 1,
+        "network": "192.168.20.0",
+        "origin": "rip",
+        "prefix": 24
+      },
+      {
+        "expires_us": "235006000",
+        "gateway": "192.168.50.1",
+        "interface": "r3-p2",
+        "metric": 1,
+        "network": "192.168.20.0",
+        "origin": "rip",
+        "prefix": 24
+      },
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": "r3-p1",
+        "metric": 0,
+        "network": "192.168.30.0",
+        "origin": "direct",
+        "prefix": 24
+      },
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": "r3-p0",
+        "metric": 0,
+        "network": "192.168.40.0",
+        "origin": "direct",
+        "prefix": 24
+      },
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": "r3-p2",
+        "metric": 0,
+        "network": "192.168.50.0",
+        "origin": "direct",
+        "prefix": 24
+      }
+    ]
+  },
+  "seed": 42
+}

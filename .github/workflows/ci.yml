@@ -1,4 +1,4 @@
-name: Sinesi J0
+name: Sinesi
 on:
   push:
   pull_request:
@@ -18,15 +18,7 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y libxkbcommon-dev libwayland-dev libx11-dev libxi-dev libxcursor-dev libxrandr-dev
       - name: Toolchain
         run: rustup show
-      - name: Format
-        run: cargo fmt --all --check
-      - name: Lint
-        run: cargo clippy --workspace --all-targets --locked -- -D warnings
-      - name: Tests and headless UI interactions
-        run: cargo test --workspace --locked
-      - name: Architecture boundaries
-        run: python3 scripts/check_layers.py
-      - name: Documentation and tracking
-        run: |
-          python3 scripts/docs.py check
-          python3 scripts/test_docs.py
+      - name: Fetch locked dependencies
+        run: cargo fetch --locked
+      - name: Shared quality gate
+        run: cargo xtask ci

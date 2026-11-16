@@ -72,6 +72,13 @@ impl Node {
 }
 
 pub fn parse(source: &str) -> Result<Document, Error> {
+    parse_mode(source, false)
+}
+/// Controlled network document: HTTP and relative references, without a loader or script engine.
+pub fn parse_network(source: &str) -> Result<Document, Error> {
+    parse_mode(source, true)
+}
+fn parse_mode(source: &str, network: bool) -> Result<Document, Error> {
     if source.len() > MAX_BYTES {
         return Err(error("limit_exceeded", "document bytes"));
     }
@@ -107,7 +114,7 @@ pub fn parse(source: &str) -> Result<Document, Error> {
                     .children
                     .push(node);
             } else {
-                let (tag, attrs, self_closing) = opening(token)?;
+                let (tag, attrs, self_closing) = opening(token, network)?;
                 let void = matches!(tag.as_str(), "input" | "img" | "br");
                 let node = Node {
                     tag,
@@ -166,7 +173,7 @@ fn tag_end(source: &str) -> Result<usize, Error> {
     Err(error("invalid_tag", "unterminated tag or attribute"))
 }
 
-fn opening(token: &str) -> Result<(String, BTreeMap<String, String>, bool), Error> {
+fn opening(token: &str, network: bool) -> Result<(String, BTreeMap<String, String>, bool), Error> {
     let self_closing = token.trim_end().ends_with('/');
     let token = if self_closing {
         token.trim_end().trim_end_matches('/')
@@ -237,7 +244,13 @@ fn opening(token: &str) -> Result<(String, BTreeMap<String, String>, bool), Erro
             return Err(error("unsupported_attribute", key));
         }
         if matches!(key.as_str(), "href" | "src" | "action")
-            && !sns_model::virtual_path_valid(&value)
+            && !(if network {
+                !value.chars().any(|c| c.is_control() || c == '\\')
+                    && (value.starts_with("http://")
+                        || (!value.contains(':') && !value.starts_with("//")))
+            } else {
+                sns_model::virtual_path_valid(&value)
+            })
         {
             return Err(error("external_resource_denied", value));
         }

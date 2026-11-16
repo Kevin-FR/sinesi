@@ -1,0 +1,19 @@
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on build directory
+    Checking sns-model v0.1.0 (/Users/kevin/Web/SNS/crates/sns-model)
+    Checking sns-i18n v0.1.0 (/Users/kevin/Web/SNS/crates/sns-i18n)
+    Checking sns-vfs v0.1.0 (/Users/kevin/Web/SNS/crates/sns-vfs)
+    Checking sns-html v0.1.0 (/Users/kevin/Web/SNS/crates/sns-html)
+    Checking sns-protocols v0.1.0 (/Users/kevin/Web/SNS/crates/sns-protocols)
+    Checking sns-project v0.1.0 (/Users/kevin/Web/SNS/crates/sns-project)
+    Checking sns-topology v0.1.0 (/Users/kevin/Web/SNS/crates/sns-topology)
+    Checking sns-settings v0.1.0 (/Users/kevin/Web/SNS/crates/sns-settings)
+    Checking sns-apps v0.1.0 (/Users/kevin/Web/SNS/crates/sns-apps)
+    Checking sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+    Checking sns-bridge v0.1.0 (/Users/kevin/Web/SNS/crates/sns-bridge)
+    Checking sns-cli v0.1.0 (/Users/kevin/Web/SNS/crates/sns-cli)
+    Checking sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+    Checking sns-desktop v0.1.0 (/Users/kevin/Web/SNS/apps/sns-desktop)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 55.37s

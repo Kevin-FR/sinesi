@@ -1,0 +1,45 @@
++ python3 scripts/docs.py render
+docs/suivi/features.json []
+docs/rust/taches.json []
+Correctif vérifié : 22 fichiers, 391516 octets.
++ python3 scripts/docs.py check --require-reference
+OK — 178 exigences, 50 tâches, 1061 fichiers source; preuves, dépendances, jalons, couverture et séparation vérifiés.
++ python3 scripts/check_manifest.py check docs/verification/j7-import-rip-doc-code-manifest.json
+OK — 824 source files, revision 1bc0f946aaf8f424116faec13100a65fc67bef1aecdef26a38f68fb2bb87323a
++ cargo xtask check
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.06s
+     Running `target/debug/xtask check`
++ cargo fmt --all --check
++ python3 scripts/check_layers.py
+OK — 20 workspace packages: explicit production edges, headless isolation and inherited manifests checked (all features, target/build edges).
++ python3 scripts/test_layers.py
+............
+----------------------------------------------------------------------
+Ran 12 tests in 0.147s
+
+OK
++ python3 scripts/check_i18n.py
+OK — 872 keys, six languages, literal diagnostics and templates checked.
++ python3 scripts/check_network_assets.py
+OK — 20 embedded SVG assets, provenance and offline rendering checked.
++ python3 scripts/check_fonts.py
+OK — four pinned OFL fonts, regular/bold weights and six-language Latin coverage; no download required.
++ python3 scripts/test_docs.py
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.011s
+
+OK
++ python3 scripts/test_filius_inspection.py
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.003s
+
+OK
++ python3 scripts/docs.py check
+OK — 178 exigences, 50 tâches, 1061 fichiers source; preuves, dépendances, jalons, couverture et séparation vérifiés.
++ python3 scripts/check_png_exports.py /tmp/sns-j7-rip/annotated-icons.png --metadata docs/verification/j7-import-rip-doc-icons.json
+OK — 1400 × 940 RGBA, CRC/deflate/hash, 16-pixel transparent margin, 38 objects; 746790 visible pixels.
++ python3 scripts/check_png_exports.py /tmp/sns-j7-rip/annotated-diagram.png --metadata docs/verification/j7-import-rip-doc-diagram.json
+OK — 1400 × 940 RGBA, CRC/deflate/hash, 16-pixel transparent margin, 38 objects; 678517 visible pixels.
++ git diff --check

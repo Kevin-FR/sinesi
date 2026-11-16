@@ -1,0 +1,438 @@
+{
+  "mission_version": 1,
+  "id": "broken-directory",
+  "chapter": 2,
+  "order": 1,
+  "title": {
+    "fr": "L’annuaire en panne",
+    "en": "The broken directory",
+    "es": "La guía averiada",
+    "it": "L’elenco guasto",
+    "pt": "A lista avariada",
+    "de": "Das kaputte Verzeichnis"
+  },
+  "brief": {
+    "fr": "Sur Poste A, le site www.ecole.test reste introuvable. Deux choses clochent : l’annuaire (DNS) du Serveur école n’est pas démarré, et Poste A ne demande pas au bon serveur. Répare tout, puis vérifie que le nom est traduit en adresse (terminal de Poste A : host www.ecole.test).",
+    "en": "On Poste A, the site www.ecole.test cannot be found. Two things are wrong: the directory (DNS) of Serveur école is not started, and Poste A does not ask the right server. Fix both, then check that the name is turned into an address (Poste A terminal: host www.ecole.test).",
+    "es": "En Poste A, el sitio www.ecole.test no se encuentra. Fallan dos cosas: la guía (DNS) de Serveur école no está iniciada y Poste A no pregunta al servidor correcto. Repáralo todo y comprueba que el nombre se traduce en dirección (terminal de Poste A: host www.ecole.test).",
+    "it": "Su Poste A, il sito www.ecole.test resta introvabile. Due cose non vanno: l’elenco (DNS) di Serveur école non è avviato e Poste A non interroga il server giusto. Ripara tutto e verifica che il nome venga tradotto in indirizzo (terminale di Poste A: host www.ecole.test).",
+    "pt": "No Poste A, o site www.ecole.test não é encontrado. Há duas coisas erradas: a lista (DNS) do Serveur école não está iniciada e o Poste A não pergunta ao servidor certo. Repara tudo e verifica que o nome é traduzido em endereço (terminal do Poste A: host www.ecole.test).",
+    "de": "Auf Poste A ist die Website www.ecole.test nicht zu finden. Zwei Dinge stimmen nicht: Das Verzeichnis (DNS) von Serveur école ist nicht gestartet, und Poste A fragt nicht den richtigen Server. Repariere beides und prüfe, ob der Name in eine Adresse übersetzt wird (Terminal von Poste A: host www.ecole.test)."
+  },
+  "project": {
+    "schema_version": 5,
+    "semantic_profile": "sns-educational-services-v1",
+    "project_id": "project-services",
+    "name": "DHCP · DNS · HTTP — réseau pédagogique",
+    "devices": [
+      {
+        "id": "host-a",
+        "kind": "workstation",
+        "label": "Poste A",
+        "interfaces": [
+          {
+            "id": "host-a-p0",
+            "mac": "02:00:00:00:00:01",
+            "medium": "ethernet",
+            "ipv4": {
+              "mode": "static",
+              "address": "192.168.1.10",
+              "prefix_length": 24
+            }
+          }
+        ],
+        "network": {
+          "default_gateway": null,
+          "dns_server": "192.168.1.30"
+        },
+        "applications": [
+          {
+            "id": "host-a-terminal",
+            "kind": "terminal",
+            "config": {}
+          },
+          {
+            "id": "host-a-browser",
+            "kind": "web_browser",
+            "config": {}
+          }
+        ],
+        "files": []
+      },
+      {
+        "id": "host-b",
+        "kind": "notebook",
+        "label": "Serveur école",
+        "interfaces": [
+          {
+            "id": "host-b-p0",
+            "mac": "02:00:00:00:01:01",
+            "medium": "ethernet",
+            "ipv4": {
+              "mode": "static",
+              "address": "192.168.1.3",
+              "prefix_length": 24
+            }
+          }
+        ],
+        "network": {
+          "default_gateway": null,
+          "dns_server": null,
+          "dhcp_server": {
+            "interface": "host-b-p0",
+            "pool_start": "192.168.1.10",
+            "pool_end": "192.168.1.11",
+            "prefix_length": 24,
+            "dns": "192.168.1.3",
+            "gateway": "192.168.1.1",
+            "lease_us": "86400000000",
+            "reservations": {
+              "02:00:00:00:00:01": "192.168.1.10"
+            }
+          }
+        },
+        "applications": [
+          {
+            "id": "dns",
+            "kind": "dns_server",
+            "config": {},
+            "service": {
+              "service": "dns",
+              "settings": {
+                "records": [
+                  {
+                    "name": "www.ecole.test",
+                    "record_type": "A",
+                    "value": "192.168.1.3",
+                    "ttl_seconds": 60,
+                    "priority": 0
+                  },
+                  {
+                    "name": "autre.ecole.test",
+                    "record_type": "A",
+                    "value": "192.168.1.3",
+                    "ttl_seconds": 60,
+                    "priority": 0
+                  },
+                  {
+                    "name": "ecole.test",
+                    "record_type": "MX",
+                    "value": "www.ecole.test",
+                    "ttl_seconds": 60,
+                    "priority": 10
+                  }
+                ],
+                "recursive": true
+              }
+            }
+          },
+          {
+            "id": "web",
+            "kind": "web_server",
+            "config": {},
+            "service": {
+              "service": "http",
+              "settings": {
+                "port": 80,
+                "root": "/www",
+                "virtual_hosts": {
+                  "autre.ecole.test": "/other"
+                },
+                "form_path": "/submit"
+              }
+            }
+          }
+        ],
+        "files": [
+          {
+            "path": "/www/index.html",
+            "media_type": "text/html",
+            "data_base64": "PGh0bWw+PGJvZHk+PGgxPsOJY29sZTwvaDE+PHA+UsOpc2VhdSBzaW11bMOpPC9wPjxpbWcgc3JjPSIvbG9nby5wbmciIGFsdD0iTG9nbyI+PGEgaHJlZj0iL3N1aXRlLmh0bWwiPlN1aXRlPC9hPjxmb3JtIGFjdGlvbj0iL3N1Ym1pdCIgbWV0aG9kPSJwb3N0Ij48bGFiZWw+UHLDqW5vbTxpbnB1dCBuYW1lPSJuYW1lIiB2YWx1ZT0iw6lsw6h2ZSI+PC9sYWJlbD48YnV0dG9uPkVudm95ZXI8L2J1dHRvbj48L2Zvcm0+PC9ib2R5PjwvaHRtbD4="
+          },
+          {
+            "path": "/www/suite.html",
+            "media_type": "text/html",
+            "data_base64": "PGgxPlN1aXRlPC9oMT48YSBocmVmPSIvIj5BY2N1ZWlsPC9hPg=="
+          },
+          {
+            "path": "/other/index.html",
+            "media_type": "text/html",
+            "data_base64": "PGgxPkF1dHJlIGNsYXNzZTwvaDE+"
+          },
+          {
+            "path": "/www/logo.png",
+            "media_type": "image/png",
+            "data_base64": "iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAN0lEQVR4nGOQnL3zPzY88YQbVkyqeoZRC0aABdQyCJf6UQtGggVDPx+MWjDwFgz9fDBqwYBbAAAtMquMU6WfQQAAAABJRU5ErkJggg=="
+          }
+        ]
+      },
+      {
+        "id": "host-c",
+        "kind": "workstation",
+        "label": "Poste C",
+        "interfaces": [
+          {
+            "id": "host-c-p0",
+            "mac": "02:00:00:00:02:01",
+            "medium": "ethernet",
+            "ipv4": {
+              "mode": "dhcp"
+            }
+          }
+        ],
+        "network": {
+          "default_gateway": null,
+          "dns_server": null
+        },
+        "applications": [
+          {
+            "id": "host-c-terminal",
+            "kind": "terminal",
+            "config": {}
+          },
+          {
+            "id": "host-c-browser",
+            "kind": "web_browser",
+            "config": {}
+          }
+        ],
+        "files": []
+      },
+      {
+        "id": "switch",
+        "kind": "switch",
+        "label": "Commutateur",
+        "interfaces": [
+          {
+            "id": "switch-p0",
+            "mac": "02:00:00:00:03:01",
+            "medium": "ethernet",
+            "ipv4": null
+          },
+          {
+            "id": "switch-p1",
+            "mac": "02:00:00:00:03:02",
+            "medium": "ethernet",
+            "ipv4": null
+          },
+          {
+            "id": "switch-p2",
+            "mac": "02:00:00:00:03:03",
+            "medium": "ethernet",
+            "ipv4": null
+          },
+          {
+            "id": "switch-p3",
+            "mac": "02:00:00:00:03:04",
+            "medium": "ethernet",
+            "ipv4": null
+          },
+          {
+            "id": "switch-p4",
+            "mac": "02:00:00:00:03:05",
+            "medium": "ethernet",
+            "ipv4": null
+          },
+          {
+            "id": "switch-p5",
+            "mac": "02:00:00:00:03:06",
+            "medium": "ethernet",
+            "ipv4": null
+          },
+          {
+            "id": "switch-p6",
+            "mac": "02:00:00:00:03:07",
+            "medium": "ethernet",
+            "ipv4": null
+          },
+          {
+            "id": "switch-p7",
+            "mac": "02:00:00:00:03:08",
+            "medium": "ethernet",
+            "ipv4": null
+          }
+        ],
+        "network": {
+          "default_gateway": null,
+          "dns_server": null
+        },
+        "applications": [],
+        "files": []
+      }
+    ],
+    "links": [
+      {
+        "id": "cable-host-a",
+        "endpoints": [
+          "host-a-p0",
+          "switch-p0"
+        ],
+        "latency_us": "1000",
+        "jitter_us": "0"
+      },
+      {
+        "id": "cable-host-b",
+        "endpoints": [
+          "host-b-p0",
+          "switch-p1"
+        ],
+        "latency_us": "1000",
+        "jitter_us": "0"
+      },
+      {
+        "id": "cable-host-c",
+        "endpoints": [
+          "host-c-p0",
+          "switch-p2"
+        ],
+        "latency_us": "1000",
+        "jitter_us": "0"
+      }
+    ],
+    "layout": {
+      "devices": [
+        {
+          "device_id": "host-a",
+          "x": 120,
+          "y": 100
+        },
+        {
+          "device_id": "host-b",
+          "x": 420,
+          "y": 100
+        },
+        {
+          "device_id": "host-c",
+          "x": 420,
+          "y": 320
+        },
+        {
+          "device_id": "switch",
+          "x": 230,
+          "y": 220
+        }
+      ]
+    },
+    "annotations": [],
+    "resources": [],
+    "extensions": [],
+    "lan": {
+      "host-a": {
+        "display": "name",
+        "sat_retention_us": "300000000"
+      },
+      "host-b": {
+        "display": "name",
+        "sat_retention_us": "300000000"
+      },
+      "host-c": {
+        "display": "name",
+        "sat_retention_us": "300000000"
+      },
+      "switch": {
+        "display": "name",
+        "sat_retention_us": "300000000"
+      }
+    }
+  },
+  "objectives": [
+    {
+      "id": "start-dns",
+      "text": {
+        "fr": "Démarre l’annuaire (DNS) du Serveur école",
+        "en": "Start the directory (DNS) on Serveur école",
+        "es": "Inicia la guía (DNS) de Serveur école",
+        "it": "Avvia l’elenco (DNS) di Serveur école",
+        "pt": "Inicia a lista (DNS) do Serveur école",
+        "de": "Starte das Verzeichnis (DNS) auf Serveur école"
+      },
+      "explain": {
+        "fr": "L’annuaire du Serveur école n’a pas encore été démarré : en Tester, ouvre le Bureau du Serveur école, puis le Serveur DNS, et démarre-le.",
+        "en": "The directory on Serveur école has not been started yet: in Test, open the desktop of Serveur école, then the DNS server, and start it.",
+        "es": "La guía de Serveur école aún no se ha iniciado: en Probar, abre el escritorio de Serveur école, luego el servidor DNS, e inícialo.",
+        "it": "L’elenco di Serveur école non è ancora stato avviato: in Prova, apri il desktop di Serveur école, poi il server DNS, e avvialo.",
+        "pt": "A lista do Serveur école ainda não foi iniciada: em Testar, abre o ambiente de trabalho do Serveur école, depois o servidor DNS, e inicia-o.",
+        "de": "Das Verzeichnis auf Serveur école wurde noch nicht gestartet: Öffne in Testen den Desktop von Serveur école, dann den DNS-Server, und starte ihn."
+      },
+      "check": {
+        "kind": "service_listening",
+        "device": "host-b",
+        "application": "dns"
+      }
+    },
+    {
+      "id": "dns-server",
+      "text": {
+        "fr": "Indique à Poste A le bon serveur DNS",
+        "en": "Give Poste A the right DNS server",
+        "es": "Indica a Poste A el servidor DNS correcto",
+        "it": "Indica a Poste A il server DNS giusto",
+        "pt": "Indica ao Poste A o servidor DNS certo",
+        "de": "Gib Poste A den richtigen DNS-Server"
+      },
+      "explain": {
+        "fr": "Poste A interroge un annuaire qui n’existe pas : son serveur DNS n’est pas celui de l’école.",
+        "en": "Poste A asks a directory that does not exist: its DNS server is not the school’s.",
+        "es": "Poste A consulta una guía que no existe: su servidor DNS no es el de la escuela.",
+        "it": "Poste A interroga un elenco che non esiste: il suo server DNS non è quello della scuola.",
+        "pt": "O Poste A consulta uma lista que não existe: o seu servidor DNS não é o da escola.",
+        "de": "Poste A fragt ein Verzeichnis, das es nicht gibt: Sein DNS-Server ist nicht der der Schule."
+      },
+      "check": {
+        "kind": "dns_server",
+        "device": "host-a",
+        "equals": "192.168.1.3"
+      }
+    },
+    {
+      "id": "resolve",
+      "text": {
+        "fr": "Obtiens l’adresse de www.ecole.test depuis Poste A",
+        "en": "Get the address of www.ecole.test from Poste A",
+        "es": "Obtén la dirección de www.ecole.test desde Poste A",
+        "it": "Ottieni l’indirizzo di www.ecole.test da Poste A",
+        "pt": "Obtém o endereço de www.ecole.test a partir do Poste A",
+        "de": "Ermittle von Poste A aus die Adresse von www.ecole.test"
+      },
+      "explain": {
+        "fr": "Poste A n’a encore reçu aucune réponse DNS réussie pour www.ecole.test : en Tester, ouvre son terminal et tape host www.ecole.test.",
+        "en": "Poste A has not yet received a successful DNS answer for www.ecole.test: in Test, open its terminal and type host www.ecole.test.",
+        "es": "Poste A aún no ha recibido ninguna respuesta DNS correcta para www.ecole.test: en Probar, abre su terminal y escribe host www.ecole.test.",
+        "it": "Poste A non ha ancora ricevuto una risposta DNS riuscita per www.ecole.test: in Prova, apri il suo terminale e scrivi host www.ecole.test.",
+        "pt": "O Poste A ainda não recebeu nenhuma resposta DNS bem-sucedida para www.ecole.test: em Testar, abre o seu terminal e escreve host www.ecole.test.",
+        "de": "Poste A hat noch keine erfolgreiche DNS-Antwort für www.ecole.test erhalten: Öffne in Testen sein Terminal und tippe host www.ecole.test."
+      },
+      "check": {
+        "kind": "dns_resolved",
+        "device": "host-a",
+        "name": "www.ecole.test"
+      }
+    }
+  ],
+  "hints": [
+    {
+      "fr": "Le DNS est l’annuaire qui traduit un nom de site en adresse IP.",
+      "en": "DNS is the directory that turns a site name into an IP address.",
+      "es": "El DNS es la guía que traduce un nombre de sitio en dirección IP.",
+      "it": "Il DNS è l’elenco che traduce il nome di un sito in indirizzo IP.",
+      "pt": "O DNS é a lista que traduz um nome de site num endereço IP.",
+      "de": "DNS ist das Verzeichnis, das einen Website-Namen in eine IP-Adresse übersetzt."
+    },
+    {
+      "fr": "L’annuaire de l’école tourne sur le Serveur école : démarre-le, puis regarde son adresse IP.",
+      "en": "The school’s directory runs on Serveur école: start it, then look at its IP address.",
+      "es": "La guía de la escuela funciona en Serveur école: iníciala y luego mira su dirección IP.",
+      "it": "L’elenco della scuola gira su Serveur école: avvialo, poi guarda il suo indirizzo IP.",
+      "pt": "A lista da escola funciona no Serveur école: inicia-a e depois vê o seu endereço IP.",
+      "de": "Das Verzeichnis der Schule läuft auf Serveur école: Starte es und sieh dir dann seine IP-Adresse an."
+    },
+    {
+      "fr": "Ouvre la fiche de Poste A, écris 192.168.1.3 dans « Serveur DNS » et applique.",
+      "en": "Open Poste A’s sheet, type 192.168.1.3 in “DNS server” and apply.",
+      "es": "Abre la ficha de Poste A, escribe 192.168.1.3 en «Servidor DNS» y aplica.",
+      "it": "Apri la scheda di Poste A, scrivi 192.168.1.3 in «Server DNS» e applica.",
+      "pt": "Abre a ficha do Poste A, escreve 192.168.1.3 em «Servidor DNS» e aplica.",
+      "de": "Öffne das Blatt von Poste A, trage 192.168.1.3 bei „DNS-Server“ ein und übernimm es."
+    }
+  ]
+}

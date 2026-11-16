@@ -1,0 +1,38 @@
+$ swiftc -warnings-as-errors -target arm64-apple-macos13.0 [association and keyboard probes]
+/tmp/sns-j7-macos-keyboard/checked-probe:
+Load command 11
+      cmd LC_BUILD_VERSION
+  cmdsize 32
+ platform MACOS
+    minos 13.0
+      sdk 27.2
+   ntools 1
+     tool LD
+  version 27106.1
+macOS association check failed: usage
+$ [fixture probe using KeyboardCase.prepare and verifySettings, packaged Rust binary]
+OK — fr/icons package resolved at 150%, project unchanged
+OK — fr/diagram package resolved at 150%, project unchanged
+OK — en/icons package resolved at 150%, project unchanged
+OK — en/diagram package resolved at 150%, project unchanged
+OK — es/icons package resolved at 150%, project unchanged
+OK — es/diagram package resolved at 150%, project unchanged
+OK — it/icons package resolved at 150%, project unchanged
+OK — it/diagram package resolved at 150%, project unchanged
+OK — pt/icons package resolved at 150%, project unchanged
+OK — pt/diagram package resolved at 150%, project unchanged
+OK — de/icons package resolved at 150%, project unchanged
+OK — de/diagram package resolved at 150%, project unchanged
+$ sh packaging/smoke-macos.sh [existing ZIP] [fresh work directory]
+OK — signed arm64 bundle, launcher and .sinesi document declaration
+OK — 12 startup combinations, portable save, ping, checkpoint, replay and PNG in /private/tmp/sns-j7-macos-keyboard/checked-exercise/exercise
+/private/tmp/sns-j7-macos-keyboard/checked-exercise/exercise/- réseau de classe.sinesi: OK
+/private/tmp/sns-j7-macos-keyboard/checked-exercise/exercise/replayed.jsonl: OK
+/private/tmp/sns-j7-macos-keyboard/checked-exercise/exercise/network-icons.png: OK
+/private/tmp/sns-j7-macos-keyboard/checked-exercise/exercise/checkpoint.json: OK
+/private/tmp/sns-j7-macos-keyboard/checked-exercise/exercise/import.json: OK
+/private/tmp/sns-j7-macos-keyboard/checked-exercise/exercise/recording.json: OK
+/private/tmp/sns-j7-macos-keyboard/checked-exercise/exercise/original.jsonl: OK
+/private/tmp/sns-j7-macos-keyboard/checked-exercise/exercise/network-diagram.png: OK
+/private/tmp/sns-j7-macos-keyboard/checked-exercise/exercise/- réseau de classe.sinesi: OK
+OK - macOS keyboard mode is opt-in

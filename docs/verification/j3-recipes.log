@@ -1,0 +1,20 @@
+   Compiling sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.89s
+     Running tests/routing.rs (target/debug/deps/routing-50d061e17dc8ebf4)
+
+running 12 tests
+test interrupted_traceroute_stops_future_probes_and_malformed_routes_do_not_panic ... ok
+test arp_injection_changes_only_simulated_cache_and_broadcast_stays_on_lan ... ok
+test rejected_broadcast_command_does_not_leave_a_failing_event_in_the_queue ... ok
+test routes_specific_prefix_default_delete_and_host_forwarding_switch ... ok
+test missing_route_arp_failure_and_routing_loop_have_distinct_structured_causes ... ok
+test arp_exercise_redirects_a_frame_to_the_claiming_host_only_in_the_simulation ... ok
+test three_lans_forward_original_addresses_and_ttl_and_return_real_icmp ... ok
+test traceroute_starts_at_one_orders_hops_and_finishes_without_os_calls ... ok
+test rip_chain_uses_two_hops_and_restarts_have_no_old_generation_state ... ok
+test tcp_echo_uses_multiple_router_hops_and_preserves_routing_profile ... ok
+test rip_deterministic_with_reordered_entities_and_step_execution ... ok
+test rip_three_routers_shortest_path_poisoning_and_expiration ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s
+

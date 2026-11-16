@@ -1,0 +1,67 @@
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.06s
+     Running `target/debug/xtask ui`
++ cargo test -p sns-ui-egui --features ui-snapshots --test png --test report --test help --test preferences --test configuration --locked --offline
+   Compiling sns-i18n v0.1.0 (/Users/kevin/Web/SNS/crates/sns-i18n)
+   Compiling sns-apps v0.1.0 (/Users/kevin/Web/SNS/crates/sns-apps)
+   Compiling sns-settings v0.1.0 (/Users/kevin/Web/SNS/crates/sns-settings)
+   Compiling sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+   Compiling sns-bridge v0.1.0 (/Users/kevin/Web/SNS/crates/sns-bridge)
+   Compiling sns-trace v0.1.0 (/Users/kevin/Web/SNS/crates/sns-trace)
+   Compiling sns-report v0.1.0 (/Users/kevin/Web/SNS/crates/sns-report)
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 13.71s
+     Running tests/configuration.rs (target/debug/deps/configuration-14d8829eae0422b7)
+
+running 9 tests
+test public_startup_boundary_refuses_invalid_typed_display_data ... ok
+test ordinary_help_clicks_do_not_persist_geometry_derived_from_temporary_display_options ... ok
+test explicit_defaults_reset_hidden_persistent_values_and_cancel_remains_non_mutating ... ok
+test administrator_and_project_destinations_are_protected_even_through_missing_parent_traversal ... ok
+test editing_one_preference_does_not_persist_other_command_line_overrides ... ok
+test restored_policy_wins_for_the_run_and_new_simulation_uses_launch_policy_in_all_languages_and_views ... ok
+test compact_workbench_exposes_tools_in_six_languages_and_keeps_fonts_on_theme_changes ... ok
+test invalid_startup_values_are_localized_in_six_languages_both_views_and_leave_network_and_files_intact ... ok
+test technical_diagnostic_export_records_the_failed_operation_in_six_languages_and_two_views ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 7.69s
+
+     Running tests/help.rs (target/debug/deps/help-31e84139d055c6fe)
+
+running 4 tests
+test focused_draft_stays_intact_while_f1_and_escape_open_and_close_help ... ok
+test guided_example_reuses_the_unsaved_document_confirmation ... ok
+test direct_arp_and_modem_examples_open_from_the_localized_network_menu ... ok
+test f1_opens_context_and_about_in_six_languages_both_views_without_mutation ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 7.62s
+
+     Running tests/png.rs (target/debug/deps/png-7f95b183e0973a9d)
+
+running 3 tests
+test simulation_png_freezes_effective_dhcp_labels_without_advancing_or_stopping_the_network ... ok
+test png_export_freezes_applied_document_and_protects_project_preferences_and_session_storage ... ok
+test png_controls_and_background_exports_preserve_six_languages_two_views_and_document ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 6.25s
+
+     Running tests/preferences.rs (target/debug/deps/preferences-a36f7bcefa140899)
+
+running 6 tests
+test invalid_preferences_and_conflicting_project_paths_are_preserved ... ok
+test preference_parent_folders_can_be_created_without_writing_into_recovery_storage ... ok
+test help_geometry_is_remembered_and_clamped_after_restart_on_a_smaller_viewport ... ok
+test apply_cancel_and_keyboard_shortcut_preserve_the_network_and_focused_draft ... ok
+test terminal_remains_usable_at_200_percent_in_all_languages_without_advancing_protocols ... ok
+test enlarged_display_persists_in_six_languages_both_views_without_network_mutation ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 5.01s
+
+     Running tests/report.rs (target/debug/deps/report-a06b663a6dbf0d84)
+
+running 3 tests
+test pdf_export_keeps_previous_file_on_failure_and_protects_project ... ok
+test simulation_pdf_captures_recorded_packets_without_advancing_the_network ... ok
+test pdf_buttons_and_background_export_preserve_six_languages_views_and_frozen_document ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 10.43s
+

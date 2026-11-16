@@ -1,0 +1,2 @@
+# Independent reader for report artifacts; not an application dependency.
+pypdf==6.10.0

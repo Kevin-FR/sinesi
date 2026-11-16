@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sinesi.dev/contracts/mission-report.schema.json",
+  "title": "Correction exportable d’une mission Sinesi (version 1)",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "report_version",
+    "mission",
+    "language",
+    "complete",
+    "hints_used",
+    "stars",
+    "objectives"
+  ],
+  "properties": {
+    "report_version": {
+      "const": 1
+    },
+    "mission": {
+      "type": "string",
+      "pattern": "^[a-z0-9-]{1,64}$"
+    },
+    "language": {
+      "enum": [
+        "fr",
+        "en",
+        "es",
+        "it",
+        "pt",
+        "de"
+      ]
+    },
+    "complete": {
+      "type": "boolean"
+    },
+    "hints_used": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 5
+    },
+    "stars": {
+      "oneOf": [
+        {
+          "type": "null"
+        },
+        {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3
+        }
+      ]
+    },
+    "objectives": {
+      "type": "array",
+      "minItems": 1,
+      "maxItems": 12,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "id",
+          "done",
+          "text",
+          "explanation"
+        ],
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z0-9-]{1,64}$"
+          },
+          "done": {
+            "type": "boolean"
+          },
+          "text": {
+            "type": "string"
+          },
+          "explanation": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

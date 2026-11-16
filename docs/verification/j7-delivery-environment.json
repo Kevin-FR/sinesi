@@ -1,0 +1,25 @@
+{
+  "macOS": "27.2 (26B123) arm64",
+  "linux": "Debian 12 arm64 container; Xvfb and Mesa Vulkan",
+  "rust": "1.95.0 (59807616e 2026-04-14)",
+  "windows": "Workflow prepared, not executed",
+  "images": [
+    "rust@sha256:6258907abe69656e41cd992e0b705cdcfabcbbe3db374f92ed2d47121282d4a1",
+    "debian@sha256:734a72b3d6142a71993b4bc580ca01d8ca687f77a2c422d96a961d3376b179bc"
+  ],
+  "revision": "73cbbc5b0f1c27f2a9784a22c5dc6e24b8f32b58c32c5ae32a56e81df68feee6",
+  "changed_source_paths": [
+    ".github/workflows/packages.yml",
+    "crates/sns-i18n/locales/messages.json",
+    "crates/sns-ui-egui/src/workbench/document.rs",
+    "packaging/build.py",
+    "packaging/linux/fr.sinesi.Sinesi.desktop",
+    "packaging/linux/fr.sinesi.Sinesi.xml",
+    "packaging/macos/Launcher.swift",
+    "packaging/smoke-deb.sh",
+    "packaging/smoke-windows.ps1",
+    "packaging/smoke.py",
+    "packaging/windows/Sinesi.iss",
+    "scripts/check_manifest.py"
+  ]
+}

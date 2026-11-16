@@ -1,0 +1,12 @@
+{
+  "platform": "macOS arm64",
+  "dialog": "native file import and save",
+  "source_bytes": 104,
+  "sha256": "5e21d045cc9a61acd5f4227c9c48efa6cbc240556a11dd7effcc839a336b3e00",
+  "host": "host-a",
+  "virtual_path": "/import.png",
+  "saved_project_schema": 3,
+  "binary_sha256": "4c4136bb775c21fce8027d8ec133d5debfb2f844c50096a6b5de50d08ca62836",
+  "result": "pass",
+  "note": "Native import, image display and save observed via CUA. Subsequent wording, window bounds and accessibility fixes are covered by final tests and GPU snapshots."
+}

@@ -1,0 +1,621 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Startup report, versions 1 and 2",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "startup_report_version",
+    "configuration",
+    "project"
+  ],
+  "properties": {
+    "startup_report_version": {
+      "enum": [
+        1,
+        2
+      ]
+    },
+    "configuration": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "effective",
+        "persistent",
+        "origins",
+        "diagnostics",
+        "user_writable"
+      ],
+      "properties": {
+        "effective": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "settings_version",
+            "language",
+            "display"
+          ],
+          "properties": {
+            "settings_version": {
+              "const": 2
+            },
+            "language": {
+              "enum": [
+                "fr",
+                "en",
+                "es",
+                "it",
+                "pt",
+                "de"
+              ]
+            },
+            "display": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "scale_percent": {
+                  "type": "integer",
+                  "minimum": 80,
+                  "maximum": 200
+                },
+                "palette_width": {
+                  "type": "integer",
+                  "minimum": 160,
+                  "maximum": 360
+                },
+                "inspector_width": {
+                  "type": "integer",
+                  "minimum": 240,
+                  "maximum": 480
+                },
+                "window_width": {
+                  "type": "integer",
+                  "minimum": 840,
+                  "maximum": 3840
+                },
+                "window_height": {
+                  "type": "integer",
+                  "minimum": 600,
+                  "maximum": 2160
+                },
+                "application_scale_percent": {
+                  "type": "integer",
+                  "minimum": 75,
+                  "maximum": 150
+                },
+                "font": {
+                  "enum": [
+                    "default",
+                    "noto_sans"
+                  ]
+                },
+                "representation": {
+                  "enum": [
+                    "icons",
+                    "diagram"
+                  ]
+                },
+                "layout": {
+                  "enum": [
+                    "inspector_right",
+                    "inspector_left",
+                    "tabs"
+                  ]
+                },
+                "center_application_windows": {
+                  "type": "boolean"
+                },
+                "level": {
+                  "enum": [
+                    "student",
+                    "expert"
+                  ]
+                },
+                "windows": {
+                  "type": "object",
+                  "maxProperties": 16,
+                  "propertyNames": {
+                    "enum": [
+                      "help",
+                      "terminal",
+                      "file_explorer",
+                      "text_editor",
+                      "image_viewer",
+                      "firewall",
+                      "dns_server",
+                      "tcp_server",
+                      "tcp_client",
+                      "web_server",
+                      "web_browser",
+                      "mail_server",
+                      "mail_client",
+                      "p2p"
+                    ]
+                  },
+                  "additionalProperties": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "x",
+                      "y",
+                      "width",
+                      "height"
+                    ],
+                    "properties": {
+                      "x": {
+                        "type": "integer",
+                        "minimum": -16384,
+                        "maximum": 16384
+                      },
+                      "y": {
+                        "type": "integer",
+                        "minimum": -16384,
+                        "maximum": 16384
+                      },
+                      "width": {
+                        "type": "integer",
+                        "minimum": 100,
+                        "maximum": 7680
+                      },
+                      "height": {
+                        "type": "integer",
+                        "minimum": 60,
+                        "maximum": 4320
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "scale_percent",
+                "palette_width",
+                "inspector_width",
+                "window_width",
+                "window_height",
+                "application_scale_percent",
+                "font",
+                "representation",
+                "layout",
+                "center_application_windows",
+                "windows",
+                "level"
+              ]
+            },
+            "missions": {
+              "type": "object",
+              "maxProperties": 64,
+              "propertyNames": {
+                "pattern": "^[a-z0-9-]{1,64}$"
+              },
+              "additionalProperties": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 3
+              }
+            }
+          }
+        },
+        "persistent": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "settings_version",
+            "language",
+            "display"
+          ],
+          "properties": {
+            "settings_version": {
+              "const": 2
+            },
+            "language": {
+              "enum": [
+                "fr",
+                "en",
+                "es",
+                "it",
+                "pt",
+                "de"
+              ]
+            },
+            "display": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "scale_percent": {
+                  "type": "integer",
+                  "minimum": 80,
+                  "maximum": 200
+                },
+                "palette_width": {
+                  "type": "integer",
+                  "minimum": 160,
+                  "maximum": 360
+                },
+                "inspector_width": {
+                  "type": "integer",
+                  "minimum": 240,
+                  "maximum": 480
+                },
+                "window_width": {
+                  "type": "integer",
+                  "minimum": 840,
+                  "maximum": 3840
+                },
+                "window_height": {
+                  "type": "integer",
+                  "minimum": 600,
+                  "maximum": 2160
+                },
+                "application_scale_percent": {
+                  "type": "integer",
+                  "minimum": 75,
+                  "maximum": 150
+                },
+                "font": {
+                  "enum": [
+                    "default",
+                    "noto_sans"
+                  ]
+                },
+                "representation": {
+                  "enum": [
+                    "icons",
+                    "diagram"
+                  ]
+                },
+                "layout": {
+                  "enum": [
+                    "inspector_right",
+                    "inspector_left",
+                    "tabs"
+                  ]
+                },
+                "center_application_windows": {
+                  "type": "boolean"
+                },
+                "level": {
+                  "enum": [
+                    "student",
+                    "expert"
+                  ]
+                },
+                "windows": {
+                  "type": "object",
+                  "maxProperties": 16,
+                  "propertyNames": {
+                    "enum": [
+                      "help",
+                      "terminal",
+                      "file_explorer",
+                      "text_editor",
+                      "image_viewer",
+                      "firewall",
+                      "dns_server",
+                      "tcp_server",
+                      "tcp_client",
+                      "web_server",
+                      "web_browser",
+                      "mail_server",
+                      "mail_client",
+                      "p2p"
+                    ]
+                  },
+                  "additionalProperties": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "required": [
+                      "x",
+                      "y",
+                      "width",
+                      "height"
+                    ],
+                    "properties": {
+                      "x": {
+                        "type": "integer",
+                        "minimum": -16384,
+                        "maximum": 16384
+                      },
+                      "y": {
+                        "type": "integer",
+                        "minimum": -16384,
+                        "maximum": 16384
+                      },
+                      "width": {
+                        "type": "integer",
+                        "minimum": 100,
+                        "maximum": 7680
+                      },
+                      "height": {
+                        "type": "integer",
+                        "minimum": 60,
+                        "maximum": 4320
+                      }
+                    }
+                  }
+                }
+              },
+              "required": [
+                "scale_percent",
+                "palette_width",
+                "inspector_width",
+                "window_width",
+                "window_height",
+                "application_scale_percent",
+                "font",
+                "representation",
+                "layout",
+                "center_application_windows",
+                "windows",
+                "level"
+              ]
+            },
+            "missions": {
+              "type": "object",
+              "maxProperties": 64,
+              "propertyNames": {
+                "pattern": "^[a-z0-9-]{1,64}$"
+              },
+              "additionalProperties": {
+                "type": "integer",
+                "minimum": 1,
+                "maximum": 3
+              }
+            }
+          }
+        },
+        "origins": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "language",
+            "display.scale_percent",
+            "display.palette_width",
+            "display.inspector_width",
+            "display.window_width",
+            "display.window_height",
+            "display.application_scale_percent",
+            "display.font",
+            "display.representation",
+            "display.layout",
+            "display.center_application_windows",
+            "display.level",
+            "display.windows"
+          ],
+          "properties": {
+            "language": {
+              "enum": [
+                "builtin",
+                "administrator",
+                "user",
+                "command_line"
+              ]
+            },
+            "display.scale_percent": {
+              "enum": [
+                "builtin",
+                "administrator",
+                "user",
+                "command_line"
+              ]
+            },
+            "display.palette_width": {
+              "enum": [
+                "builtin",
+                "administrator",
+                "user",
+                "command_line"
+              ]
+            },
+            "display.inspector_width": {
+              "enum": [
+                "builtin",
+                "administrator",
+                "user",
+                "command_line"
+              ]
+            },
+            "display.window_width": {
+              "enum": [
+                "builtin",
+                "administrator",
+                "user",
+                "command_line"
+              ]
+            },
+            "display.window_height": {
+              "enum": [
+                "builtin",
+                "administrator",
+                "user",
+                "command_line"
+              ]
+            },
+            "display.application_scale_percent": {
+              "enum": [
+                "builtin",
+                "administrator",
+                "user",
+                "command_line"
+              ]
+            },
+            "display.font": {
+              "enum": [
+                "builtin",
+                "administrator",
+                "user",
+                "command_line"
+              ]
+            },
+            "display.representation": {
+              "enum": [
+                "builtin",
+                "administrator",
+                "user",
+                "command_line"
+              ]
+            },
+            "display.layout": {
+              "enum": [
+                "builtin",
+                "administrator",
+                "user",
+                "command_line"
+              ]
+            },
+            "display.center_application_windows": {
+              "enum": [
+                "builtin",
+                "administrator",
+                "user",
+                "command_line"
+              ]
+            },
+            "display.level": {
+              "enum": [
+                "builtin",
+                "administrator",
+                "user",
+                "command_line"
+              ]
+            },
+            "display.windows": {
+              "enum": [
+                "builtin",
+                "administrator",
+                "user",
+                "command_line"
+              ]
+            }
+          }
+        },
+        "diagnostics": {
+          "type": "array",
+          "maxItems": 32,
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "source",
+              "field",
+              "code"
+            ],
+            "properties": {
+              "source": {
+                "enum": [
+                  "builtin",
+                  "administrator",
+                  "user",
+                  "command_line"
+                ]
+              },
+              "field": {
+                "enum": [
+                  "configuration",
+                  "configuration_version",
+                  "settings_version",
+                  "language",
+                  "display",
+                  "working_directory",
+                  "display.scale_percent",
+                  "display.palette_width",
+                  "display.inspector_width",
+                  "display.window_width",
+                  "display.window_height",
+                  "display.application_scale_percent",
+                  "display.font",
+                  "display.representation",
+                  "display.layout",
+                  "display.center_application_windows",
+                  "display.level",
+                  "display.windows",
+                  "missions",
+                  "wait_factor"
+                ]
+              },
+              "code": {
+                "enum": [
+                  "configuration.invalid_value",
+                  "configuration.unknown_field",
+                  "configuration.missing_field",
+                  "configuration.unsupported_version",
+                  "configuration.missing_file",
+                  "configuration.invalid_json",
+                  "configuration.read_failed",
+                  "configuration.too_large",
+                  "configuration.invalid_object",
+                  "configuration.too_many_issues",
+                  "configuration.invalid_directory",
+                  "configuration.path_conflict",
+                  "configuration.project_path_conflict",
+                  "simulation.invalid_wait_factor"
+                ]
+              }
+            }
+          }
+        },
+        "user_writable": {
+          "type": "boolean"
+        }
+      }
+    },
+    "project": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "schema_version",
+        "devices",
+        "links"
+      ],
+      "properties": {
+        "schema_version": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "devices": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "links": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "runtime": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "wait_factor"
+      ],
+      "properties": {
+        "wait_factor": {
+          "type": "integer",
+          "minimum": 2,
+          "maximum": 5
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "startup_report_version": {
+            "const": 1
+          }
+        }
+      },
+      "then": {
+        "not": {
+          "required": [
+            "runtime"
+          ]
+        }
+      },
+      "else": {
+        "required": [
+          "runtime"
+        ]
+      }
+    }
+  ]
+}

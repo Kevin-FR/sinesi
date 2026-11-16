@@ -18,6 +18,8 @@ J0 à J8 composent la trajectoire de réalisation; J9 regroupe les fonctions opt
 
 ## J1 — Réseau local et conception
 
+État réalisé : porte de sortie vérifiée pour le [profil J1](LAN_J1.md), avec [preuves et limites](../verification/J1.md).
+
 **But :** dessiner un LAN et observer un ping déterministe.
 
 - Palette, hôtes, switch, interfaces, câblage, inspecteur, sélection et raccourcis.
@@ -29,6 +31,8 @@ J0 à J8 composent la trajectoire de réalisation; J9 regroupe les fonctions opt
 **Porte de sortie :** recette R-LAN réussie avec trace contrôlable; boucle de switches bornée; dix cycles de démarrage sans événement résiduel; édition/sauvegarde sans perte des données alors prises en charge. Les écrans des logiciels non encore réalisés ne doivent pas être annoncés comme utilisables.
 
 ## J2 — Première version utilisable
+
+Réalisé et vérifié localement : [transport](TRANSPORT_J2.md), [hôtes et outils](HOTES_J2.md), observation et localisation FR/EN/ES/IT/PT/DE. R-TCP et R-FICHIERS sont qualifiées dans le [rapport J2](../verification/J2.md). Les logiciels des jalons futurs gardent leur disponibilité explicite.
 
 **But :** utiliser les hôtes, comprendre transport et transferts de texte.
 
@@ -42,6 +46,8 @@ J0 à J8 composent la trajectoire de réalisation; J9 regroupe les fonctions opt
 
 ## J3 — Réseaux routés et explications
 
+Réalisé et qualifié localement : [profil de routage](ROUTAGE_J3.md), R-ROUTES/R-RIP et représentations pédagogiques F-TOP-011. Le [rapport J3](../verification/J3.md) conserve les preuves et limites. Les quatorze exigences initiales et l’extension graphique demandée sont couvertes.
+
 **But :** relier des LAN et expliquer le choix du chemin.
 
 - Routeur multi-interface et réaffectation de connexions.
@@ -54,6 +60,9 @@ J0 à J8 composent la trajectoire de réalisation; J9 regroupe les fonctions opt
 
 ## J4 — Services d’infrastructure et web
 
+Réalisation et qualification : [profil des services](SERVICES_J4.md) et [preuves J4](../verification/J4.md). Vingt exigences relient la configuration effective, DHCP, DNS, le terminal et HTTP au suivi.
+
+
 **But :** exécuter un exercice complet DHCP → DNS → HTTP.
 
 - DHCP : plage, réservations, offres, conflits, attribution et link-local.
@@ -65,6 +74,9 @@ J0 à J8 composent la trajectoire de réalisation; J9 regroupe les fonctions opt
 **Porte de sortie :** R-DHCP et R-WEB réussies hors ligne; les images de deux hôtes ne se contaminent pas; le navigateur ne peut pas sortir du réseau simulé; la suppression d’un enregistrement reste effective après rechargement.
 
 ## J5 — Réseaux privés et filtrage
+
+Réalisé et qualifié localement : [profil privé](RESEAUX_PRIVES_J5.md) et [qualification J5](../verification/J5.md), dix-sept exigences et six lots reliés au suivi.
+
 
 **But :** simuler la frontière LAN/WAN et la configuration d’un routeur domestique.
 
@@ -86,6 +98,8 @@ J0 à J8 composent la trajectoire de réalisation; J9 regroupe les fonctions opt
 
 **Porte de sortie :** R-MAIL, R-P2P et R-PONT réussies; aucun service mail réel n’est contacté; un changement de SSID déconnecte les bons hôtes; un tunnel interrompu ne bloque pas l’UI et ses entrées sont enregistrées pour la recette de rejeu de J7.
 
+J6 est qualifié localement : [profil](APPLICATIONS_J6.md), [preuves](../verification/J6.md) et [état courant](../suivi/ETAT.md). Les entrées externes sont enregistrées; leur rejeu reste dans J7.
+
 ## J7 — Scénarios portables et expérience de livraison
 
 **But :** rendre le produit partageable, récupérable et documentable.
@@ -93,10 +107,15 @@ J0 à J8 composent la trajectoire de réalisation; J9 regroupe les fonctions opt
 - Import .fls et rapport détaillé sur les 18 exemples; préserver les pièces non converties inactives.
 - Autosauvegarde, session restaurée, checkpoints/rejeu et pannes paramétrées.
 - Annotations, PNG, PDF, exports structurés, recherche et parcours entre couches.
-- Duplication, alignement, préférences, FR/EN/DE, aide et exemples remis à jour.
+- Duplication, alignement, préférences, FR/EN/ES/IT/PT/DE, aide et exemples remis à jour.
 - Distribution sur trois OS, association de fichiers et validation d’accessibilité.
 
 **Porte de sortie :** R-IMPORT, R-REPRISE et R-RAPPORT réussies; parcours minimum validé sur chaque OS; contrôle visuel des exports et des textes traduits; tous les écarts de conversion connus sont visibles. Un fichier importé avec extension historique n’est pas exécuté automatiquement.
+
+Le lot moteur J7 est qualifié localement pour la [reprise](REPRISE_J7.md) et
+les [pannes](PANNES_J7.md). L’import est qualifié sur le corpus avec ses
+écarts documentés. La livraison multiplateforme reste ouverte dans
+[l’état de reprise](../suivi/ETAT.md).
 
 ## J8 — Extensions et fermeture de la parité
 

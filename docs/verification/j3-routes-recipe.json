@@ -1,0 +1,182 @@
+{
+  "bounds_us": [
+    5000000,
+    10000000
+  ],
+  "commands": [
+    {
+      "at_us": "0",
+      "request": {
+        "api_version": 1,
+        "command": {
+          "payload": {
+            "destination": "192.168.30.2",
+            "source": "a",
+            "ttl": 64
+          },
+          "type": "icmp.ping"
+        },
+        "command_id": "probe",
+        "expected_revision": "0",
+        "project_id": "project-lan",
+        "run_id": "run-42-0"
+      }
+    },
+    {
+      "at_us": "3000000",
+      "request": {
+        "api_version": 1,
+        "command": {
+          "payload": {
+            "destination": "192.168.30.2",
+            "source": "a",
+            "ttl": 1
+          },
+          "type": "icmp.ping"
+        },
+        "command_id": "ttl-one",
+        "expected_revision": "0",
+        "project_id": "project-lan",
+        "run_id": "run-42-0"
+      }
+    }
+  ],
+  "final_time_us": "6000000",
+  "routes": {
+    "a": [
+      {
+        "expires_us": null,
+        "gateway": "192.168.10.1",
+        "interface": "a-p0",
+        "metric": 0,
+        "network": "0.0.0.0",
+        "origin": "default",
+        "prefix": 0
+      },
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": null,
+        "metric": 0,
+        "network": "127.0.0.0",
+        "origin": "loopback",
+        "prefix": 8
+      },
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": "a-p0",
+        "metric": 0,
+        "network": "192.168.10.0",
+        "origin": "direct",
+        "prefix": 24
+      }
+    ],
+    "b": [
+      {
+        "expires_us": null,
+        "gateway": "192.168.30.1",
+        "interface": "b-p0",
+        "metric": 0,
+        "network": "0.0.0.0",
+        "origin": "default",
+        "prefix": 0
+      },
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": null,
+        "metric": 0,
+        "network": "127.0.0.0",
+        "origin": "loopback",
+        "prefix": 8
+      },
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": "b-p0",
+        "metric": 0,
+        "network": "192.168.30.0",
+        "origin": "direct",
+        "prefix": 24
+      }
+    ],
+    "r1": [
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": null,
+        "metric": 0,
+        "network": "127.0.0.0",
+        "origin": "loopback",
+        "prefix": 8
+      },
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": "r1-p0",
+        "metric": 0,
+        "network": "192.168.10.0",
+        "origin": "direct",
+        "prefix": 24
+      },
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": "r1-p1",
+        "metric": 0,
+        "network": "192.168.20.0",
+        "origin": "direct",
+        "prefix": 24
+      },
+      {
+        "expires_us": null,
+        "gateway": "192.168.20.2",
+        "interface": "r1-p1",
+        "metric": 0,
+        "network": "192.168.30.0",
+        "origin": "static",
+        "prefix": 24
+      }
+    ],
+    "r2": [
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": null,
+        "metric": 0,
+        "network": "127.0.0.0",
+        "origin": "loopback",
+        "prefix": 8
+      },
+      {
+        "expires_us": null,
+        "gateway": "192.168.20.1",
+        "interface": "r2-p0",
+        "metric": 0,
+        "network": "192.168.10.0",
+        "origin": "static",
+        "prefix": 24
+      },
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": "r2-p0",
+        "metric": 0,
+        "network": "192.168.20.0",
+        "origin": "direct",
+        "prefix": 24
+      },
+      {
+        "expires_us": null,
+        "gateway": null,
+        "interface": "r2-p1",
+        "metric": 0,
+        "network": "192.168.30.0",
+        "origin": "direct",
+        "prefix": 24
+      }
+    ]
+  },
+  "seed": 42
+}

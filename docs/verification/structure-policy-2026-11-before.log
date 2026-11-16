@@ -1,0 +1,59 @@
+..FFFFFF...
+======================================================================
+FAIL: test_invalid_policy_cannot_silently_weaken_checks (__main__.Layers.test_invalid_policy_cannot_silently_weaken_checks) (change=<function Layers.test_invalid_policy_cannot_silently_weaken_checks.<locals>.<lambda> at 0x10a4b1640>)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/kevin/Web/SNS/scripts/test_layers.py", line 43, in test_invalid_policy_cannot_silently_weaken_checks
+    with self.assertRaises(ValueError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_invalid_policy_cannot_silently_weaken_checks (__main__.Layers.test_invalid_policy_cannot_silently_weaken_checks) (change=<function Layers.test_invalid_policy_cannot_silently_weaken_checks.<locals>.<lambda> at 0x10a4b16f0>)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/kevin/Web/SNS/scripts/test_layers.py", line 43, in test_invalid_policy_cannot_silently_weaken_checks
+    with self.assertRaises(ValueError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_invalid_policy_cannot_silently_weaken_checks (__main__.Layers.test_invalid_policy_cannot_silently_weaken_checks) (change=<function Layers.test_invalid_policy_cannot_silently_weaken_checks.<locals>.<lambda> at 0x10a4b17a0>)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/kevin/Web/SNS/scripts/test_layers.py", line 43, in test_invalid_policy_cannot_silently_weaken_checks
+    with self.assertRaises(ValueError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_invalid_policy_cannot_silently_weaken_checks (__main__.Layers.test_invalid_policy_cannot_silently_weaken_checks) (change=<function Layers.test_invalid_policy_cannot_silently_weaken_checks.<locals>.<lambda> at 0x10a4b1900>)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/kevin/Web/SNS/scripts/test_layers.py", line 43, in test_invalid_policy_cannot_silently_weaken_checks
+    with self.assertRaises(ValueError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_invalid_policy_cannot_silently_weaken_checks (__main__.Layers.test_invalid_policy_cannot_silently_weaken_checks) (change=<function Layers.test_invalid_policy_cannot_silently_weaken_checks.<locals>.<lambda> at 0x10a4b1b10>)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/kevin/Web/SNS/scripts/test_layers.py", line 43, in test_invalid_policy_cannot_silently_weaken_checks
+    with self.assertRaises(ValueError):
+         ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+======================================================================
+FAIL: test_misspelled_kind_cannot_disable_headless_isolation (__main__.Layers.test_misspelled_kind_cannot_disable_headless_isolation)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "/Users/kevin/Web/SNS/scripts/test_layers.py", line 27, in test_misspelled_kind_cannot_disable_headless_isolation
+    with self.assertRaisesRegex(ValueError, 'settings.*kind'):
+         ~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ValueError not raised
+
+----------------------------------------------------------------------
+Ran 7 tests in 0.002s
+
+FAILED (failures=6)

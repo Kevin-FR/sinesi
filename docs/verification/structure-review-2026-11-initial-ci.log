@@ -1,0 +1,32 @@
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running `target/debug/xtask ci`
++ cargo fmt --all --check
++ python3 scripts/check_layers.py
+OK — 20 workspace packages: explicit production edges, headless isolation and inherited manifests checked (all features, target/build edges).
++ python3 scripts/test_layers.py
+............
+----------------------------------------------------------------------
+Ran 12 tests in 0.177s
+
+OK
++ python3 scripts/check_i18n.py
+OK — 849 keys, six languages, literal diagnostics and templates checked.
++ python3 scripts/check_network_assets.py
+OK — 20 embedded SVG assets, provenance and offline rendering checked.
++ python3 scripts/check_fonts.py
+OK — four pinned OFL fonts, regular/bold weights and six-language Latin coverage; no download required.
++ python3 scripts/test_docs.py
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.012s
+
+OK
++ python3 scripts/test_filius_inspection.py
+..
+----------------------------------------------------------------------
+Ran 2 tests in 0.003s
+
+OK
++ python3 scripts/docs.py check
+ERREUR — ('docs/rust/REVUE_STRUCTURE_2026_11.md', '../verification/STRUCTURE-REVUE-2026-11.md', 'lien absent')
+xtask: python3 failed: exit status: 1

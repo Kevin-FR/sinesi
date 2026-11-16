@@ -1,0 +1,16 @@
+{
+  "system": "Darwin",
+  "release": "27.2.0",
+  "machine": "arm64",
+  "python": "3.14.4",
+  "rustc": "rustc 1.95.0 (59807616e 2026-04-14)",
+  "cargo": "cargo 1.95.0 (f2d3ce0bd 2026-03-21)",
+  "baseline_revision": "73ca4e8b9d3f973181bd9df48caa71958fa364c41ed0dae170d639332befd48e",
+  "changed_sources": [
+    "scripts/check_layers.py",
+    "scripts/test_layers.py"
+  ],
+  "removed_sources": [],
+  "historical_snapshots_checked": 387,
+  "snapshots_unchanged": true
+}

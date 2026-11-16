@@ -1,0 +1,26 @@
+   Compiling serde v1.0.229
+   Compiling sns-model v0.1.0 (/Users/kevin/Web/SNS/crates/sns-model)
+   Compiling sns-i18n v0.1.0 (/Users/kevin/Web/SNS/crates/sns-i18n)
+   Compiling egui_kittest v0.37.0
+   Compiling sns-vfs v0.1.0 (/Users/kevin/Web/SNS/crates/sns-vfs)
+   Compiling sns-protocols v0.1.0 (/Users/kevin/Web/SNS/crates/sns-protocols)
+   Compiling sns-html v0.1.0 (/Users/kevin/Web/SNS/crates/sns-html)
+   Compiling sns-project v0.1.0 (/Users/kevin/Web/SNS/crates/sns-project)
+   Compiling sns-topology v0.1.0 (/Users/kevin/Web/SNS/crates/sns-topology)
+   Compiling sns-filius-import v0.1.0 (/Users/kevin/Web/SNS/crates/sns-filius-import)
+   Compiling sns-settings v0.1.0 (/Users/kevin/Web/SNS/crates/sns-settings)
+   Compiling sns-apps v0.1.0 (/Users/kevin/Web/SNS/crates/sns-apps)
+   Compiling sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+   Compiling sns-bridge v0.1.0 (/Users/kevin/Web/SNS/crates/sns-bridge)
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 10.16s
+     Running tests/lan.rs (target/debug/deps/lan-8deb750f1cb89b0a)
+
+running 4 tests
+test j6_wireless_inspector_and_both_views_preserve_associations ... ok
+test j6_mail_windows_and_p2p_controls_preserve_all_six_languages ... ok
+test j6_mail_native_buttons_send_receive_reply_and_delete ... ok
+test j6_modem_activation_is_explicit_localized_and_disconnects ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 24 filtered out; finished in 0.65s
+

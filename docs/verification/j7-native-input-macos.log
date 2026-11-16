@@ -1,0 +1,13 @@
+$ cargo build --release --locked --offline -p sns-desktop -p sns-cli
+    Blocking waiting for file lock on package cache
+    Blocking waiting for file lock on package cache
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+   Compiling sns-desktop v0.1.0 (/Users/kevin/Web/SNS/apps/sns-desktop)
+    Finished `release` profile [optimized] target(s) in 13.24s
+/private/tmp/sns-j7-native/packages-macos/sinesi-ktsxmr63/Sinesi.app/Contents/MacOS/sns-desktop: replacing existing signature
+/private/tmp/sns-j7-native/packages-macos/sinesi-ktsxmr63/Sinesi.app/Contents/MacOS/sinesi: replacing existing signature
+/private/tmp/sns-j7-native/packages-macos/sinesi-ktsxmr63/Sinesi.app/Contents/MacOS/sinesi-launcher: replacing existing signature
+/private/tmp/sns-j7-native/packages-macos/sinesi-ktsxmr63/Sinesi.app: replacing existing signature
+/private/tmp/sns-j7-native/packages-macos/Sinesi-0.1.0-macos-arm64.zip
+OK — 12 startup combinations, portable save, ping, checkpoint, replay and PNG in /private/tmp/sns-j7-native/smoke-macos
+/tmp/sns-j7-native/smoke-macos/- réseau de classe.sinesi: OK

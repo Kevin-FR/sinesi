@@ -2,7 +2,7 @@
 
 Vue générée depuis [features.json](../suivi/features.json); modifier le registre puis lancer `python3 scripts/docs.py render`. Les critères décrivent le produit cible, même lorsqu’ils corrigent une limite historique. Les états de réalisation et leurs preuves figurent dans le registre.
 
-177 exigences : 148 filius, 23 modernisation, 6 extension_optionnelle.
+184 exigences : 148 filius, 30 modernisation, 6 extension_optionnelle.
 
 Une preuve de code établit une présence statique; elle ne prouve ni conformité complète à un standard ni fonctionnement constaté à l’exécution.
 
@@ -11,7 +11,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 | Famille | Domaine | Nombre |
 | --- | --- | ---: |
 | SIM | [Simulation et moteur](#sim) | 8 |
-| TOP | [Édition de topologie](#top) | 10 |
+| TOP | [Édition de topologie](#top) | 11 |
 | EQU | [Équipements et interfaces](#equ) | 8 |
 | L2 | [Ethernet et ARP](#l2) | 6 |
 | IP4 | [IPv4 et ICMP](#ip4) | 5 |
@@ -35,6 +35,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 | CFG | [Préférences, aide et distribution](#cfg) | 8 |
 | NFR | [Qualité et contraintes transversales](#nfr) | 9 |
 | ADV | [Évolutions hors parité](#adv) | 6 |
+| UX | [Expérience élève](#ux) | 6 |
 
 <a id="sim"></a>
 
@@ -47,7 +48,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Offrir trois espaces de travail avec transitions explicites et cohérentes.
 - Recette : Construire un réseau, lancer une simulation, annoter puis revenir en conception sans perdre le projet.
-- Composant : `engine`; jalon : `J1`; état : `not_started`.
+- Composant : `engine`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : aucun.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/GUIMainMenu.java](../../_archive/filius-master/src/main/java/filius/gui/GUIMainMenu.java#L444), ligne 444, `public synchronized void selectMode`.
 
@@ -58,7 +59,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Démarrer tous les équipements et arrêter services, sockets et traitements transitoires à la sortie de simulation.
 - Recette : Après dix cycles conception/simulation, aucun paquet ancien ni port occupé ne subsiste.
-- Composant : `engine`; jalon : `J1`; état : `not_started`.
+- Composant : `engine`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : aucun.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/GUIMainMenu.java](../../_archive/filius-master/src/main/java/filius/gui/GUIMainMenu.java#L507), ligne 507, `private void stopSimulation`.
 
@@ -69,7 +70,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Régler la vitesse visible sans changer le résultat logique du scénario.
 - Recette : La même séquence de commandes produit les mêmes livraisons aux vitesses minimale et maximale.
-- Composant : `engine`; jalon : `J1`; état : `not_started`.
+- Composant : `engine`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : aucun.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/GUIMainMenu.java](../../_archive/filius-master/src/main/java/filius/gui/GUIMainMenu.java#L254), ligne 254, `private void updateLatency`.
 
@@ -80,7 +81,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Permettre de provoquer des pertes et de consulter les unités abandonnées.
 - Recette : Maintenir la commande de perte fait échouer un transfert; son relâchement rétablit les livraisons.
-- Composant : `engine`; jalon : `J1`; état : `not_started`.
+- Composant : `engine`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : aucun.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/anwendungssicht/SimulationControl.java](../../_archive/filius-master/src/main/java/filius/gui/anwendungssicht/SimulationControl.java#L60), ligne 60, `JButton dropButton`.
 
@@ -101,7 +102,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
 - Exigence : Suspendre la simulation et avancer exactement un événement ou jusqu’à une borne virtuelle.
 - Recette : En pause, aucune minuterie de protocole ne progresse; un pas consomme exactement un événement.
-- Composant : `engine`; jalon : `J1`; état : `not_started`.
+- Composant : `engine`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : aucun.
 
 <a id="f-sim-007"></a>
@@ -111,7 +112,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
 - Exigence : Enregistrer commandes, entrées externes et état complet nécessaire à une reprise.
 - Recette : Une reprise depuis un checkpoint retrouve la même trace suffixe, y compris les expirations.
-- Composant : `engine`; jalon : `J7`; état : `not_started`.
+- Composant : `engine`; jalon : `J7`; état : `verified`.
 - Prérequis fonctionnels : aucun.
 
 <a id="f-sim-008"></a>
@@ -121,7 +122,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
 - Exigence : Configurer délai et pertes par liaison avec une graine reproductible.
 - Recette : Une perte de 100 % bloque une liaison seule; 0 % la rétablit; un rejeu reproduit les pertes.
-- Composant : `engine`; jalon : `J7`; état : `not_started`.
+- Composant : `engine`; jalon : `J7`; état : `verified`.
 - Prérequis fonctionnels : aucun.
 
 
@@ -136,7 +137,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Créer les équipements depuis une palette et les disposer sur le canevas.
 - Recette : Chaque type disponible peut être ajouté et déplacé; sa position persiste.
-- Composant : `topology`; jalon : `J1`; état : `not_started`.
+- Composant : `topology`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : F-SIM-005.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/GUIEvents.java](../../_archive/filius-master/src/main/java/filius/gui/GUIEvents.java#L232), ligne 232, `public void mausPressedDesignMode`.
 
@@ -147,7 +148,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Sélectionner un ou plusieurs nœuds et déplacer le groupe avec ses liaisons.
 - Recette : Un rectangle sélectionne plusieurs nœuds; déplacer le groupe conserve les extrémités connectées.
-- Composant : `topology`; jalon : `J1`; état : `not_started`.
+- Composant : `topology`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : F-SIM-005.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/GUIEvents.java](../../_archive/filius-master/src/main/java/filius/gui/GUIEvents.java#L147), ligne 147, `public void mausDragged`.
 
@@ -158,7 +159,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Supprimer une sélection, un câble ou toutes les connexions d’un équipement sans référence orpheline.
 - Recette : Supprimer un routeur retire ses câbles et préserve les autres nœuds.
-- Composant : `topology`; jalon : `J1`; état : `not_started`.
+- Composant : `topology`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : F-SIM-005.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/GUIEvents.java](../../_archive/filius-master/src/main/java/filius/gui/GUIEvents.java#L720), ligne 720, `public void itemLoeschen`.
 
@@ -169,7 +170,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Prévisualiser une liaison et vérifier extrémités, ports libres, types et doublons.
 - Recette : Une liaison valide occupe deux ports; une liaison impossible est rejetée avec une explication.
-- Composant : `topology`; jalon : `J1`; état : `not_started`.
+- Composant : `topology`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : F-SIM-005.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/GUIEvents.java](../../_archive/filius-master/src/main/java/filius/gui/GUIEvents.java#L469), ligne 469, `public Kabel createConnection`.
 
@@ -180,7 +181,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Afficher les connexions d’un routeur et réaffecter leurs interfaces.
 - Recette : Échanger deux ports actualise les associations sans modifier les autres liens.
-- Composant : `topology`; jalon : `J3`; état : `not_started`.
+- Composant : `topology`; jalon : `J3`; état : `verified`.
 - Prérequis fonctionnels : F-SIM-005.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JConnectionsDialog.java](../../_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JConnectionsDialog.java#L591), ligne 591, `private void swapConnection`.
 
@@ -191,7 +192,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Éditer les propriétés; choisir nom libre, adresse IP ou MAC comme libellé d’un hôte.
 - Recette : Changer le libellé ne change pas l’identité du nœud ni les échanges.
-- Composant : `topology`; jalon : `J1`; état : `not_started`.
+- Composant : `topology`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : F-SIM-005.
 - Preuve : [_archive/filius-master/src/main/java/filius/hardware/knoten/Host.java](../../_archive/filius-master/src/main/java/filius/hardware/knoten/Host.java#L70), ligne 70, `public String holeAnzeigeName`.
 
@@ -202,7 +203,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
 - Exigence : Journaliser les commandes d’édition réversibles et offrir annuler/rétablir.
 - Recette : Supprimer puis annuler un groupe restaure ses paramètres, positions et liaisons.
-- Composant : `topology`; jalon : `J1`; état : `not_started`.
+- Composant : `topology`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : F-SIM-005.
 
 <a id="f-top-008"></a>
@@ -212,7 +213,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
 - Exigence : Offrir zoom, déplacement du canevas, cadrage du réseau et navigation clavier.
 - Recette : Après zoom et cadrage, toutes les extrémités restent sélectionnables; le clavier atteint l’inspecteur.
-- Composant : `topology`; jalon : `J1`; état : `not_started`.
+- Composant : `topology`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : F-SIM-005.
 
 <a id="f-top-009"></a>
@@ -222,7 +223,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
 - Exigence : Dupliquer une sélection avec identités uniques et offrir des outils d’alignement.
 - Recette : Deux copies possèdent des identifiants et MAC distincts; leurs adresses IP conflictuelles sont signalées.
-- Composant : `topology`; jalon : `J7`; état : `not_started`.
+- Composant : `topology`; jalon : `J7`; état : `verified`.
 - Prérequis fonctionnels : F-SIM-005.
 
 <a id="f-top-010"></a>
@@ -232,9 +233,19 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Fournir les raccourcis nouveau/ouvrir/enregistrer, changement de mode, vitesse, aide et outil câble.
 - Recette : Les raccourcis documentés déclenchent les mêmes commandes que les boutons et respectent le contexte de saisie.
-- Composant : `topology`; jalon : `J1`; état : `not_started`.
+- Composant : `topology`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : F-SIM-005.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/JMainFrame.java](../../_archive/filius-master/src/main/java/filius/gui/JMainFrame.java#L139), ligne 139, `case 78: // N (new)`.
+
+<a id="f-top-011"></a>
+
+### F-TOP-011 — Représentations pédagogiques par icônes et schéma
+
+- Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
+- Exigence : Utiliser les assets graphiques fournis pour basculer entre icônes et symboles de schéma lisibles, et conserver la représentation choisie pour chaque équipement.
+- Recette : Les deux vues affichent les mêmes équipements et liens sans modifier leur fonctionnement; les symboles des hôtes peuvent représenter poste, portable, serveur, imprimante ou tablette. Les symboles choisis persistent après sauvegarde/réouverture; les assets sont embarqués avec leur provenance, utilisables hors ligne et les contrôles existent dans les six langues.
+- Composant : `topology`; jalon : `J3`; état : `verified`.
+- Prérequis fonctionnels : F-TOP-001, F-TOP-006.
 
 
 <a id="equ"></a>
@@ -248,7 +259,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Fournir deux représentations d’hôtes avec pile réseau et catalogue de logiciels.
 - Recette : Un ordinateur et un portable exécutent le même test ping avec des identités distinctes.
-- Composant : `devices`; jalon : `J1`; état : `not_started`.
+- Composant : `devices`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : F-TOP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/netzwerksicht/GUIDesignSidebar.java](../../_archive/filius-master/src/main/java/filius/gui/netzwerksicht/GUIDesignSidebar.java#L108), ligne 108, `addHardwareComponent(RECHNER`.
 
@@ -259,7 +270,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Fournir un commutateur multiport reliant les hôtes du même LAN.
 - Recette : Trois hôtes connectés au switch échangent sur le même sous-réseau.
-- Composant : `devices`; jalon : `J1`; état : `not_started`.
+- Composant : `devices`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : F-TOP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/netzwerksicht/GUIDesignSidebar.java](../../_archive/filius-master/src/main/java/filius/gui/netzwerksicht/GUIDesignSidebar.java#L110), ligne 110, `addHardwareComponent(SWITCH`.
 
@@ -270,7 +281,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Fournir un routeur avec nombre d’interfaces configurable, minimum deux.
 - Recette : Deux sous-réseaux distincts sont routés par des interfaces configurées séparément.
-- Composant : `devices`; jalon : `J3`; état : `not_started`.
+- Composant : `devices`; jalon : `J3`; état : `verified`.
 - Prérequis fonctionnels : F-TOP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/netzwerksicht/GUIDesignSidebar.java](../../_archive/filius-master/src/main/java/filius/gui/netzwerksicht/GUIDesignSidebar.java#L114), ligne 114, `addHardwareComponent(VERMITTLUNGSRECHNER`.
 
@@ -281,7 +292,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Fournir un équipement distinct à deux interfaces LAN/WAN et services associés.
 - Recette : Les ports LAN et WAN restent identifiables au câblage et après sauvegarde.
-- Composant : `devices`; jalon : `J5`; état : `not_started`.
+- Composant : `devices`; jalon : `J5`; état : `verified`.
 - Prérequis fonctionnels : F-TOP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/netzwerksicht/GUIDesignSidebar.java](../../_archive/filius-master/src/main/java/filius/gui/netzwerksicht/GUIDesignSidebar.java#L112), ligne 112, `addHardwareComponent(GATEWAY`.
 
@@ -292,7 +303,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Fournir un pont explicite entre réseaux simulés sur deux instances réelles.
 - Recette : Deux instances reliées par leurs modems échangent des trames; déconnecter le pont arrête les échanges.
-- Composant : `devices`; jalon : `J6`; état : `not_started`.
+- Composant : `devices`; jalon : `J6`; état : `verified`.
 - Prérequis fonctionnels : F-TOP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/netzwerksicht/GUIDesignSidebar.java](../../_archive/filius-master/src/main/java/filius/gui/netzwerksicht/GUIDesignSidebar.java#L115), ligne 115, `addHardwareComponent(MODEM`.
 
@@ -303,7 +314,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Configurer IPv4, masque, passerelle et DNS; afficher et valider les MAC et paramètres effectifs.
 - Recette : Un masque invalide est refusé; les paramètres valides sont visibles depuis l’hôte.
-- Composant : `devices`; jalon : `J1`; état : `not_started`.
+- Composant : `devices`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : F-TOP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JHostKonfiguration.java](../../_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JHostKonfiguration.java#L105), ligne 105, `private void aenderungenAnnehmen`.
 
@@ -314,7 +325,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Associer un hôte à un switch/point d’accès par SSID, avec choix LAN/Wi-Fi.
 - Recette : Changer le SSID du point d’accès retire les associations concernées; choisir le nouveau SSID les recrée.
-- Composant : `devices`; jalon : `J6`; état : `not_started`.
+- Composant : `devices`; jalon : `J6`; état : `verified`.
 - Prérequis fonctionnels : F-TOP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JHostKonfiguration.java](../../_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JHostKonfiguration.java#L564), ligne 564, `private void updateWifiConnection`.
 
@@ -325,7 +336,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Permettre une représentation nuage du switch sans changer sa sémantique.
 - Recette : Le changement d’icône conserve ports et table MAC.
-- Composant : `devices`; jalon : `J7`; état : `not_started`.
+- Composant : `devices`; jalon : `J7`; état : `verified`.
 - Prérequis fonctionnels : F-TOP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JSwitchKonfiguration.java](../../_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JSwitchKonfiguration.java#L100), ligne 100, `public void changeAppearance`.
 
@@ -341,7 +352,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Encapsuler les paquets avec MAC source/destination et distinguer unicast et broadcast.
 - Recette : Un broadcast ARP atteint tous les ports pertinents; un unicast reste adressé à sa destination.
-- Composant : `link`; jalon : `J1`; état : `not_started`.
+- Composant : `link`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-002, F-EQU-006.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/netzzugangsschicht/Ethernet.java](../../_archive/filius-master/src/main/java/filius/software/netzzugangsschicht/Ethernet.java#L46), ligne 46, `public class Ethernet`.
 
@@ -352,7 +363,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Apprendre les MAC sources; transférer sur le port connu et inonder les destinations inconnues.
 - Recette : Après un échange initial, le trafic unicast connu ne ressort pas sur les ports inutiles.
-- Composant : `link`; jalon : `J1`; état : `not_started`.
+- Composant : `link`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-002, F-EQU-006.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/netzzugangsschicht/SwitchPortBeobachter.java](../../_archive/filius-master/src/main/java/filius/software/netzzugangsschicht/SwitchPortBeobachter.java#L42), ligne 42, `public class SwitchPortBeobachter`.
 
@@ -363,7 +374,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Configurer la rétention, afficher les mises à jour et vider la SAT.
 - Recette : Une entrée expire à la durée choisie; une purge vide immédiatement la table.
-- Composant : `link`; jalon : `J1`; état : `not_started`.
+- Composant : `link`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-002, F-EQU-006.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/system/SwitchFirmware.java](../../_archive/filius-master/src/main/java/filius/software/system/SwitchFirmware.java#L240), ligne 240, `public void checkSAT`.
 
@@ -374,7 +385,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Borner les circulations et signaler les trames répétées comme dans la protection simplifiée de Filius.
 - Recette : Une boucle de switches ne fait pas croître indéfiniment la file; l’abandon est expliqué.
-- Composant : `link`; jalon : `J1`; état : `not_started`.
+- Composant : `link`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-002, F-EQU-006.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/system/SwitchFirmware.java](../../_archive/filius-master/src/main/java/filius/software/system/SwitchFirmware.java#L97), ligne 97, `private LinkedList<EthernetFrame> durchgelaufeneFrames`.
 
@@ -385,7 +396,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Résoudre une IPv4 locale en MAC par requête/réponse et maintenir un cache consultable/purgeable.
 - Recette : Une première communication déclenche ARP; la seconde réutilise le cache; sa purge déclenche une nouvelle résolution.
-- Composant : `link`; jalon : `J1`; état : `not_started`.
+- Composant : `link`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-002, F-EQU-006.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/vermittlungsschicht/ARP.java](../../_archive/filius-master/src/main/java/filius/software/vermittlungsschicht/ARP.java#L46), ligne 46, `public class ARP`.
 
@@ -396,7 +407,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Permettre l’émission pédagogique de réponses ARP avec IP source choisie dans la simulation.
 - Recette : Une réponse ARP injectée modifie le cache simulé et apparaît dans la trace sans paquet sur le réseau réel.
-- Composant : `link`; jalon : `J3`; état : `not_started`.
+- Composant : `link`; jalon : `J3`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-002, F-EQU-006.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java](../../_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java#L909), ligne 909, `public String arpsend`.
 
@@ -412,7 +423,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Calculer réseau et broadcast, valider IPv4 et masques contigus, et choisir le prochain saut.
 - Recette : 192.168.10.2/24 calcule le réseau .0 et le broadcast .255; un hôte hors réseau passe par la passerelle.
-- Composant : `ipv4`; jalon : `J1`; état : `not_started`.
+- Composant : `ipv4`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : F-L2-005.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/vermittlungsschicht/IP.java](../../_archive/filius-master/src/main/java/filius/software/vermittlungsschicht/IP.java#L53), ligne 53, `public class IP`.
 
@@ -423,7 +434,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Traiter le loopback et la destination propre sans émission externe.
 - Recette : Un ping de 127.0.0.1 et de l’adresse propre réussit sans câble.
-- Composant : `ipv4`; jalon : `J1`; état : `not_started`.
+- Composant : `ipv4`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : F-L2-005.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/vermittlungsschicht/IP.java](../../_archive/filius-master/src/main/java/filius/software/vermittlungsschicht/IP.java#L217), ligne 217, `sendeUnicastLokal`.
 
@@ -434,7 +445,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Décrémenter le TTL à chaque routeur et arrêter une boucle à expiration.
 - Recette : Un paquet TTL=1 traversant un routeur produit un abandon et une réponse ICMP explicite.
-- Composant : `ipv4`; jalon : `J3`; état : `not_started`.
+- Composant : `ipv4`; jalon : `J3`; état : `verified`.
 - Prérequis fonctionnels : F-L2-005.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/vermittlungsschicht/IP.java](../../_archive/filius-master/src/main/java/filius/software/vermittlungsschicht/IP.java#L282), ligne 282, `public void weiterleitenPaket`.
 
@@ -445,7 +456,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Simuler echo request/reply, time exceeded et destinations inaccessibles du sous-ensemble Filius.
 - Recette : Une cible joignable répond; une route manquante et un TTL expiré produisent des résultats distincts.
-- Composant : `ipv4`; jalon : `J1`; état : `not_started`.
+- Composant : `ipv4`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : F-L2-005.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/vermittlungsschicht/ICMP.java](../../_archive/filius-master/src/main/java/filius/software/vermittlungsschicht/ICMP.java#L47), ligne 47, `public class ICMP`.
 
@@ -456,7 +467,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Autoriser les diffusions prévues, avec activation explicite pour ping broadcast.
 - Recette : Sans option de diffusion, ping refuse la destination broadcast; avec activation, plusieurs hôtes peuvent répondre.
-- Composant : `ipv4`; jalon : `J3`; état : `not_started`.
+- Composant : `ipv4`; jalon : `J3`; état : `verified`.
 - Prérequis fonctionnels : F-L2-005.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java](../../_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java#L775), ligne 775, `public String ping`.
 
@@ -472,7 +483,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Construire les routes des interfaces locales, du loopback et de la passerelle par défaut.
 - Recette : La table distingue les entrées calculées des entrées manuelles.
-- Composant : `routing`; jalon : `J3`; état : `not_started`.
+- Composant : `routing`; jalon : `J3`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-003, F-IP4-003.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/vermittlungsschicht/Weiterleitungstabelle.java](../../_archive/filius-master/src/main/java/filius/software/vermittlungsschicht/Weiterleitungstabelle.java#L45), ligne 45, `public class Weiterleitungstabelle`.
 
@@ -483,7 +494,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Ajouter, éditer et supprimer destination, masque, passerelle et interface de sortie.
 - Recette : Une route plus spécifique l’emporte sur la route par défaut et sa suppression rétablit le chemin précédent.
-- Composant : `routing`; jalon : `J3`; état : `not_started`.
+- Composant : `routing`; jalon : `J3`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-003, F-IP4-003.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/vermittlungsschicht/Weiterleitungstabelle.java](../../_archive/filius-master/src/main/java/filius/software/vermittlungsschicht/Weiterleitungstabelle.java#L282), ligne 282, `public Route determineRouteFromStaticRoutingTable`.
 
@@ -494,7 +505,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Permettre à un hôte de transférer les paquets quand l’option est activée.
 - Recette : Le même paquet est livré avec transfert actif et bloqué lorsque l’option est désactivée.
-- Composant : `routing`; jalon : `J3`; état : `not_started`.
+- Composant : `routing`; jalon : `J3`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-003, F-IP4-003.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JHostKonfiguration.java](../../_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JHostKonfiguration.java#L120), ligne 120, `bs.setIpForwardingEnabled`.
 
@@ -505,7 +516,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Activer le routage automatique avec annonces, métrique en sauts et table de routes.
 - Recette : Trois routeurs apprennent une route non directement connectée; le chemin retenu est inspectable.
-- Composant : `routing`; jalon : `J3`; état : `not_started`.
+- Composant : `routing`; jalon : `J3`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-003, F-IP4-003.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/rip/RIPBeacon.java](../../_archive/filius-master/src/main/java/filius/software/rip/RIPBeacon.java#L53), ligne 53, `public void announce`.
 
@@ -516,7 +527,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Rafraîchir les routes et représenter l’infini à 16 sauts selon le modèle Filius.
 - Recette : Une annonce absente finit par rendre sa route inutilisable; le délai est exprimé en temps virtuel.
-- Composant : `routing`; jalon : `J3`; état : `not_started`.
+- Composant : `routing`; jalon : `J3`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-003, F-IP4-003.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/rip/RIPTable.java](../../_archive/filius-master/src/main/java/filius/software/rip/RIPTable.java#L42), ligne 42, `public static final int INFINITY`.
 
@@ -527,7 +538,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Exposer les tables de transfert et de routage dynamique depuis l’UI et l’administration web simulée.
 - Recette : Une même route est visible depuis l’inspecteur et la page web du routeur.
-- Composant : `routing`; jalon : `J5`; état : `not_started`.
+- Composant : `routing`; jalon : `J5`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-003, F-IP4-003.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/vermittlungsschicht/VermittlungWeb.java](../../_archive/filius-master/src/main/java/filius/software/vermittlungsschicht/VermittlungWeb.java#L60), ligne 60, `createForwardingTablePage`.
 
@@ -543,7 +554,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Ouvrir, écouter, accepter, connecter et lier une socket à une interface simulée.
 - Recette : Un serveur accepte deux clients; chaque connexion est identifiée séparément.
-- Composant : `transport`; jalon : `J2`; état : `not_started`.
+- Composant : `transport`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-IP4-004.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/transportschicht/TCPSocket.java](../../_archive/filius-master/src/main/java/filius/software/transportschicht/TCPSocket.java#L139), ligne 139, `public class TCPSocket`.
 
@@ -554,7 +565,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Modéliser SYN, SYN/ACK, ACK et les transitions d’état visibles.
 - Recette : Une connexion affiche le handshake dans le bon ordre; une cible muette finit en timeout.
-- Composant : `transport`; jalon : `J2`; état : `not_started`.
+- Composant : `transport`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-IP4-004.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/transportschicht/TCPSocket.java](../../_archive/filius-master/src/main/java/filius/software/transportschicht/TCPSocket.java#L143), ligne 143, `protected static final int CLOSED`.
 
@@ -565,7 +576,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Segmenter le contenu, suivre séquence et acquittements et borner les réessais.
 - Recette : La perte d’un segment déclenche un réessai; le destinataire reçoit le contenu une seule fois.
-- Composant : `transport`; jalon : `J2`; état : `not_started`.
+- Composant : `transport`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-IP4-004.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/transportschicht/TCPSocket.java](../../_archive/filius-master/src/main/java/filius/software/transportschicht/TCPSocket.java#L443), ligne 443, `senden`.
 
@@ -576,7 +587,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Modéliser FIN/ACK et fermeture forcée, puis libérer toutes les ressources.
 - Recette : Arrêter un serveur permet immédiatement sa réinstallation sur le même port.
-- Composant : `transport`; jalon : `J2`; état : `not_started`.
+- Composant : `transport`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-IP4-004.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/transportschicht/TCPSocket.java](../../_archive/filius-master/src/main/java/filius/software/transportschicht/TCPSocket.java#L655), ligne 655, `public void schliessen`.
 
@@ -587,7 +598,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Réserver les ports, détecter les collisions et utiliser la plage éphémère 49152–65535.
 - Recette : Deux écoutes concurrentes du même endpoint sont refusées; un port libéré est réutilisable.
-- Composant : `transport`; jalon : `J2`; état : `not_started`.
+- Composant : `transport`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-IP4-004.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/transportschicht/TransportProtokoll.java](../../_archive/filius-master/src/main/java/filius/software/transportschicht/TransportProtokoll.java#L44), ligne 44, `public abstract class TransportProtokoll`.
 
@@ -603,7 +614,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Envoyer et recevoir des datagrammes sans connexion fiable.
 - Recette : Une perte UDP ne provoque pas de retransmission automatique de transport.
-- Composant : `transport`; jalon : `J2`; état : `not_started`.
+- Composant : `transport`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-IP4-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/transportschicht/UDPSocket.java](../../_archive/filius-master/src/main/java/filius/software/transportschicht/UDPSocket.java#L42), ligne 42, `public class UDPSocket`.
 
@@ -614,7 +625,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Supporter l’émission broadcast et l’écoute par port/interface.
 - Recette : Un datagramme broadcast DHCP atteint les serveurs du LAN et pas un autre LAN sans mécanisme dédié.
-- Composant : `transport`; jalon : `J2`; état : `not_started`.
+- Composant : `transport`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-IP4-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/transportschicht/UDPSocket.java](../../_archive/filius-master/src/main/java/filius/software/transportschicht/UDPSocket.java#L174), ligne 174, `sendeBroadcast`.
 
@@ -630,7 +641,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Ouvrir un espace propre à chaque hôte avec applications et état réseau.
 - Recette : Deux bureaux affichent leurs configurations et fichiers indépendamment.
-- Composant : `applications`; jalon : `J2`; état : `not_started`.
+- Composant : `applications`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-001, F-TCP-001, F-UDP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIDesktopPanel.java](../../_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIDesktopPanel.java#L64), ligne 64, `public class GUIDesktopPanel`.
 
@@ -641,7 +652,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Proposer terminal, explorateur, éditeur, images, pare-feu, DNS, serveur/client génériques, serveur/navigateur web, serveur/client mail et P2P.
 - Recette : Chaque logiciel apparaît au catalogue; l’installation et la désinstallation modifient la liste de l’hôte.
-- Composant : `applications`; jalon : `J2`; état : `not_started`.
+- Composant : `applications`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-001, F-TCP-001, F-UDP-001.
 - Preuve : [_archive/filius-master/src/main/resources/config/Desktop_fr_FR.txt](../../_archive/filius-master/src/main/resources/config/Desktop_fr_FR.txt#L1), ligne 1, `Ligne de commande`.
 
@@ -652,7 +663,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Distinguer fenêtre visible, application installée et service actif; rendre les commandes démarrer/arrêter explicites.
 - Recette : Fermer la vue d’un serveur ne coupe pas son écoute; arrêter ou désinstaller le serveur la libère.
-- Composant : `applications`; jalon : `J2`; état : `not_started`.
+- Composant : `applications`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-001, F-TCP-001, F-UDP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationWindow.java](../../_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationWindow.java#L66), ligne 66, `GUIApplicationWindow`.
 
@@ -663,7 +674,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Afficher IP, MAC, masque, passerelle, DNS et résultat DHCP actualisés.
 - Recette : Après une attribution DHCP, le panneau reflète immédiatement la nouvelle adresse.
-- Composant : `applications`; jalon : `J4`; état : `not_started`.
+- Composant : `applications`; jalon : `J4`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-001, F-TCP-001, F-UDP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/anwendungssicht/NetworkInfoPanel.java](../../_archive/filius-master/src/main/java/filius/gui/anwendungssicht/NetworkInfoPanel.java#L58), ligne 58, `public class NetworkInfoPanel`.
 
@@ -674,7 +685,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Configurer cible IP/nom et port, connecter, envoyer du texte et consulter les réponses.
 - Recette : Le client reçoit exactement le texte envoyé à un serveur echo.
-- Composant : `applications`; jalon : `J2`; état : `not_started`.
+- Composant : `applications`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-001, F-TCP-001, F-UDP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/clientserver/ClientBaustein.java](../../_archive/filius-master/src/main/java/filius/software/clientserver/ClientBaustein.java#L76), ligne 76, `public class ClientBaustein`.
 
@@ -685,7 +696,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Démarrer un serveur texte à port configurable avec journal des connexions/messages.
 - Recette : Deux clients reçoivent chacun leur message; arrêter le serveur ferme ses sessions.
-- Composant : `applications`; jalon : `J2`; état : `not_started`.
+- Composant : `applications`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-001, F-TCP-001, F-UDP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/clientserver/ServerBausteinMitarbeiter.java](../../_archive/filius-master/src/main/java/filius/software/clientserver/ServerBausteinMitarbeiter.java#L62), ligne 62, `protected void verarbeiteNachricht`.
 
@@ -701,7 +712,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Fournir une arborescence isolée avec fichiers texte et binaires.
 - Recette : Créer un fichier sur A ne le crée pas sur B; son contenu persiste dans le projet.
-- Composant : `filesystem`; jalon : `J2`; état : `not_started`.
+- Composant : `filesystem`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/system/Dateisystem.java](../../_archive/filius-master/src/main/java/filius/software/system/Dateisystem.java#L54), ligne 54, `public class Dateisystem`.
 
@@ -712,7 +723,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Naviguer, créer des dossiers, copier, renommer, supprimer et ouvrir avec l’application adaptée.
 - Recette : Un fichier texte copié puis renommé s’ouvre dans l’éditeur avec son contenu intact.
-- Composant : `filesystem`; jalon : `J2`; état : `not_started`.
+- Composant : `filesystem`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationFileExplorerWindow.java](../../_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationFileExplorerWindow.java#L75), ligne 75, `public class GUIApplicationFileExplorerWindow`.
 
@@ -723,7 +734,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Importer explicitement un fichier choisi vers le système de fichiers simulé.
 - Recette : Un fichier image sélectionné est copié dans le bon hôte sans exposer le reste du disque.
-- Composant : `filesystem`; jalon : `J2`; état : `not_started`.
+- Composant : `filesystem`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/lokal/FileImporter.java](../../_archive/filius-master/src/main/java/filius/software/lokal/FileImporter.java#L80), ligne 80, `public String addFile`.
 
@@ -734,7 +745,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Créer, ouvrir, modifier, enregistrer et enregistrer sous un fichier texte virtuel.
 - Recette : Modifier index.html change le contenu servi après enregistrement.
-- Composant : `filesystem`; jalon : `J2`; état : `not_started`.
+- Composant : `filesystem`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationTextEditorWindow.java](../../_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationTextEditorWindow.java#L140), ligne 140, `speichern`.
 
@@ -745,7 +756,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Ouvrir les formats image utiles dans les fichiers virtuels.
 - Recette : Une image importée s’affiche sans altérer son contenu binaire.
-- Composant : `filesystem`; jalon : `J2`; état : `not_started`.
+- Composant : `filesystem`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationImageViewerWindow.java](../../_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationImageViewerWindow.java#L47), ligne 47, `public class GUIApplicationImageViewerWindow`.
 
@@ -761,7 +772,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Lister les commandes et leur syntaxe, refuser les commandes/arguments inconnus.
 - Recette : help ping affiche sa syntaxe et une commande inconnue ne déclenche aucune action.
-- Composant : `terminal`; jalon : `J2`; état : `not_started`.
+- Composant : `terminal`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-FS-001, F-TCP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java](../../_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java#L631), ligne 631, `public String help(`.
 
@@ -772,7 +783,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Offrir cd et pwd avec chemins absolus et relatifs.
 - Recette : cd vers un dossier puis pwd affiche son chemin; un dossier absent laisse le répertoire courant inchangé.
-- Composant : `terminal`; jalon : `J2`; état : `not_started`.
+- Composant : `terminal`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-FS-001, F-TCP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java](../../_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java#L486), ligne 486, `public String cd(`.
 
@@ -783,7 +794,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Offrir dir et ls sur le dossier courant.
 - Recette : dir et ls donnent les mêmes fichiers et dossiers.
-- Composant : `terminal`; jalon : `J2`; état : `not_started`.
+- Composant : `terminal`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-FS-001, F-TCP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java](../../_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java#L344), ligne 344, `public String dir(`.
 
@@ -794,7 +805,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Offrir touch et mkdir dans le système de fichiers virtuel.
 - Recette : touch crée un fichier vide et mkdir un répertoire; une collision produit une erreur claire.
-- Composant : `terminal`; jalon : `J2`; état : `not_started`.
+- Composant : `terminal`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-FS-001, F-TCP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java](../../_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java#L410), ligne 410, `public String touch(`.
 
@@ -805,7 +816,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Offrir cat et type pour lire un fichier texte.
 - Recette : Les deux alias affichent le même contenu et signalent un fichier absent.
-- Composant : `terminal`; jalon : `J2`; état : `not_started`.
+- Composant : `terminal`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-FS-001, F-TCP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java](../../_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java#L649), ligne 649, `public String cat(`.
 
@@ -816,7 +827,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Offrir copy et cp.
 - Recette : La copie conserve le contenu et laisse le fichier source intact.
-- Composant : `terminal`; jalon : `J2`; état : `not_started`.
+- Composant : `terminal`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-FS-001, F-TCP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java](../../_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java#L255), ligne 255, `public String copy(`.
 
@@ -827,7 +838,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Offrir move et mv avec validation de la destination.
 - Recette : Après un déplacement réussi, seul le chemin destination contient le fichier.
-- Composant : `terminal`; jalon : `J2`; état : `not_started`.
+- Composant : `terminal`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-FS-001, F-TCP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java](../../_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java#L152), ligne 152, `public String move(`.
 
@@ -838,7 +849,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Offrir del et rm avec refus des opérations invalides.
 - Recette : Supprimer une cible existante la retire de l’arborescence sans toucher ses voisins.
-- Composant : `terminal`; jalon : `J2`; état : `not_started`.
+- Composant : `terminal`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-FS-001, F-TCP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java](../../_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java#L185), ligne 185, `public String del(`.
 
@@ -849,7 +860,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Afficher la configuration IP effective de l’hôte.
 - Recette : ipconfig correspond à l’inspecteur, y compris après DHCP.
-- Composant : `terminal`; jalon : `J2`; état : `not_started`.
+- Composant : `terminal`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-FS-001, F-TCP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java](../../_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java#L279), ligne 279, `public String ipconfig(`.
 
@@ -860,7 +871,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Afficher les routes; ne pas assimiler cette commande à un shell système complet.
 - Recette : route montre réseau, masque, passerelle et interface des entrées effectives.
-- Composant : `terminal`; jalon : `J3`; état : `not_started`.
+- Composant : `terminal`; jalon : `J3`; état : `verified`.
 - Prérequis fonctionnels : F-FS-001, F-TCP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java](../../_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java#L302), ligne 302, `public String route(`.
 
@@ -871,7 +882,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Afficher endpoints et états TCP ainsi que les sockets UDP.
 - Recette : Une écoute affiche LISTEN; une connexion affiche les deux endpoints et son état.
-- Composant : `terminal`; jalon : `J2`; état : `not_started`.
+- Composant : `terminal`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-FS-001, F-TCP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java](../../_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java#L532), ligne 532, `public String netstat(`.
 
@@ -882,7 +893,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Offrir arp, arp -a IP, arp -d IP et arp -d.
 - Recette : La purge ciblée retire une entrée et la purge globale retire toutes les entrées.
-- Composant : `terminal`; jalon : `J2`; état : `not_started`.
+- Composant : `terminal`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-FS-001, F-TCP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java](../../_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java#L665), ligne 665, `public String arp(`.
 
@@ -893,7 +904,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Offrir host et nslookup avec réponses, serveur interrogé et erreurs DNS.
 - Recette : host résout A et MX; nslookup expose le résultat A ou un timeout explicite.
-- Composant : `terminal`; jalon : `J4`; état : `not_started`.
+- Composant : `terminal`; jalon : `J4`; état : `verified`.
 - Prérequis fonctionnels : F-FS-001, F-TCP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java](../../_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java#L699), ligne 699, `public String host(`.
 
@@ -904,7 +915,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Offrir ping IP/nom, répétitions configurables, statistiques, interruption et diffusion explicite.
 - Recette : Un ping normal émet quatre requêtes par défaut; une perte est comptée dans les statistiques.
-- Composant : `terminal`; jalon : `J2`; état : `not_started`.
+- Composant : `terminal`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-FS-001, F-TCP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java](../../_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java#L775), ligne 775, `public String ping(`.
 
@@ -915,7 +926,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Offrir traceroute par sondes ICMP à TTL croissant.
 - Recette : Le premier saut utilise TTL=1 et les routeurs intermédiaires apparaissent dans l’ordre.
-- Composant : `terminal`; jalon : `J3`; état : `not_started`.
+- Composant : `terminal`; jalon : `J3`; état : `verified`.
 - Prérequis fonctionnels : F-FS-001, F-TCP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java](../../_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java#L935), ligne 935, `public String traceroute(`.
 
@@ -926,7 +937,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Afficher en continu les échanges observés sur l’hôte jusqu’à interruption.
 - Recette : tcpdump voit un nouvel échange puis s’arrête à la commande d’interruption sans arrêter l’hôte.
-- Composant : `terminal`; jalon : `J2`; état : `not_started`.
+- Composant : `terminal`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-FS-001, F-TCP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java](../../_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java#L874), ligne 874, `public String tcpdump(`.
 
@@ -937,7 +948,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Exposer arpsend IP-source IP-cible pour les exercices ARP simulés.
 - Recette : La trace contient les adresses demandées et aucun socket réel n’est utilisé.
-- Composant : `terminal`; jalon : `J3`; état : `not_started`.
+- Composant : `terminal`; jalon : `J3`; état : `verified`.
 - Prérequis fonctionnels : F-FS-001, F-TCP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java](../../_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java#L909), ligne 909, `public String arpsend(`.
 
@@ -948,7 +959,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Rappeler les commandes au clavier et interrompre une opération longue.
 - Recette : Flèche haute rappelle la commande précédente; Ctrl+C arrête ping ou tcpdump sans bloquer la saisie.
-- Composant : `terminal`; jalon : `J2`; état : `not_started`.
+- Composant : `terminal`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-FS-001, F-TCP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationTerminalWindow.java](../../_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationTerminalWindow.java#L87), ligne 87, `private ArrayList<String> commandHistory`.
 
@@ -959,9 +970,12 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `internal`.
 - Exigence : Recenser le helper historique qui écrit test.txt; le réserver au diagnostic, hors interface pédagogique.
 - Recette : Le diagnostic est documenté et ne figure pas dans la liste des commandes élèves.
-- Composant : `terminal`; jalon : `J7`; état : `not_started`.
+- Composant : `terminal`; jalon : `J7`; état : `verified`.
 - Prérequis fonctionnels : F-FS-001, F-TCP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java](../../_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java#L616), ligne 616, `public String test(`.
+- Preuve : [_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java](../../_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java#L81), ligne 81, `public void initUsageInfo()`.
+- Preuve : [_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java](../../_archive/filius-master/src/main/java/filius/software/lokal/Terminal.java#L1057), ligne 1057, `public void terminalEingabeAuswerten`.
+- Preuve : [_archive/filius-master/src/main/java/filius/software/Anwendung.java](../../_archive/filius-master/src/main/java/filius/software/Anwendung.java#L225), ligne 225, `method.invoke(this, args);`.
 
 <a id="f-cli-020"></a>
 
@@ -970,7 +984,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Offrir exit pour fermer sa fenêtre sans désinstaller le terminal.
 - Recette : exit ferme la vue; rouvrir le terminal conserve les fichiers de l’hôte.
-- Composant : `terminal`; jalon : `J2`; état : `not_started`.
+- Composant : `terminal`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-FS-001, F-TCP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationTerminalWindow.java](../../_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationTerminalWindow.java#L204), ligne 204, `if (enteredCommand.equals("exit"))`.
 
@@ -981,7 +995,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Offrir reset et cls pour effacer l’écran et réafficher l’accueil sans réinitialiser le réseau.
 - Recette : Après cls, la configuration IP et les services actifs sont inchangés.
-- Composant : `terminal`; jalon : `J2`; état : `not_started`.
+- Composant : `terminal`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-FS-001, F-TCP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationTerminalWindow.java](../../_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationTerminalWindow.java#L206), ligne 206, `enteredCommand.equals("reset")`.
 
@@ -997,7 +1011,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Activer le serveur sur un hôte ou le LAN de la passerelle et configurer sa plage.
 - Recette : Deux clients obtiennent deux adresses libres dans la plage; son épuisement est signalé.
-- Composant : `dhcp`; jalon : `J4`; état : `not_started`.
+- Composant : `dhcp`; jalon : `J4`; état : `verified`.
 - Prérequis fonctionnels : F-UDP-002, F-OS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/dhcp/DHCPServer.java](../../_archive/filius-master/src/main/java/filius/software/dhcp/DHCPServer.java#L53), ligne 53, `public class DHCPServer`.
 
@@ -1008,7 +1022,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Distribuer masque, DNS et passerelle, depuis les réglages du serveur ou une surcharge explicite.
 - Recette : Un client applique exactement les paramètres choisis.
-- Composant : `dhcp`; jalon : `J4`; état : `not_started`.
+- Composant : `dhcp`; jalon : `J4`; état : `verified`.
 - Prérequis fonctionnels : F-UDP-002, F-OS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/dhcp/DHCPServer.java](../../_archive/filius-master/src/main/java/filius/software/dhcp/DHCPServer.java#L70), ligne 70, `private boolean useDhcpSettings`.
 
@@ -1019,7 +1033,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Configurer des attributions statiques dans le serveur DHCP.
 - Recette : Une MAC réservée reçoit son IPv4 réservée et les autres clients ne la reçoivent pas.
-- Composant : `dhcp`; jalon : `J4`; état : `not_started`.
+- Composant : `dhcp`; jalon : `J4`; état : `verified`.
 - Prérequis fonctionnels : F-UDP-002, F-OS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/dhcp/DHCPServer.java](../../_archive/filius-master/src/main/java/filius/software/dhcp/DHCPServer.java#L406), ligne 406, `public void addStaticAssignment`.
 
@@ -1030,7 +1044,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Modéliser discover, offer, request, ack/nack, decline et détection ARP des adresses déjà occupées.
 - Recette : Un client refuse une offre en conflit et aboutit à une adresse libre ou à une erreur bornée.
-- Composant : `dhcp`; jalon : `J4`; état : `not_started`.
+- Composant : `dhcp`; jalon : `J4`; état : `verified`.
 - Prérequis fonctionnels : F-UDP-002, F-OS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/dhcp/DHCPClient.java](../../_archive/filius-master/src/main/java/filius/software/dhcp/DHCPClient.java#L51), ligne 51, `public class DHCPClient`.
 
@@ -1041,7 +1055,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Gérer offres temporaires, attributions expirables et adresses refusées selon le modèle documenté.
 - Recette : Une attribution expirée redevient disponible; toutes les durées sont pilotées par l’horloge virtuelle.
-- Composant : `dhcp`; jalon : `J4`; état : `not_started`.
+- Composant : `dhcp`; jalon : `J4`; état : `verified`.
 - Prérequis fonctionnels : F-UDP-002, F-OS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/dhcp/DHCPServer.java](../../_archive/filius-master/src/main/java/filius/software/dhcp/DHCPServer.java#L58), ligne 58, `private static final long DEFAULT_LEASE_TIME_MILLIS`.
 
@@ -1052,7 +1066,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Après échecs DHCP bornés, choisir et vérifier une adresse link-local.
 - Recette : Sans serveur, l’hôte obtient une adresse 169.254/16 non conflictuelle; l’échec final reste explicite.
-- Composant : `dhcp`; jalon : `J4`; état : `not_started`.
+- Composant : `dhcp`; jalon : `J4`; état : `verified`.
 - Prérequis fonctionnels : F-UDP-002, F-OS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/dhcp/DHCPClient.java](../../_archive/filius-master/src/main/java/filius/software/dhcp/DHCPClient.java#L63), ligne 63, `public static final String LINK_LOCAL_ADDRESS_PREFIX`.
 
@@ -1068,7 +1082,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Démarrer/arrêter un serveur et gérer les associations nom/IPv4.
 - Recette : Créer puis supprimer un A change la réponse des nouvelles requêtes après purge/expiration du cache.
-- Composant : `dns`; jalon : `J4`; état : `not_started`.
+- Composant : `dns`; jalon : `J4`; état : `verified`.
 - Prérequis fonctionnels : F-UDP-001, F-OS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/dns/DNSServer.java](../../_archive/filius-master/src/main/java/filius/software/dns/DNSServer.java#L44), ligne 44, `public class DNSServer`.
 
@@ -1079,7 +1093,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Éditer et valider les enregistrements mail et serveurs de noms.
 - Recette : Un MX désigne un nom et son A permet la livraison inter-domaines; un NS délègue la zone.
-- Composant : `dns`; jalon : `J4`; état : `not_started`.
+- Composant : `dns`; jalon : `J4`; état : `verified`.
 - Prérequis fonctionnels : F-UDP-001, F-OS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/dns/ResourceRecord.java](../../_archive/filius-master/src/main/java/filius/software/dns/ResourceRecord.java#L61), ligne 61, `public static final String ADDRESS`.
 
@@ -1090,7 +1104,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Résoudre via serveurs de noms, délégations et choix récursif du modèle Filius.
 - Recette : Une requête traverse un NS parent puis le serveur cible et retourne la réponse.
-- Composant : `dns`; jalon : `J4`; état : `not_started`.
+- Composant : `dns`; jalon : `J4`; état : `verified`.
 - Prérequis fonctionnels : F-UDP-001, F-OS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/dns/Resolver.java](../../_archive/filius-master/src/main/java/filius/software/dns/Resolver.java#L74), ligne 74, `public class Resolver`.
 
@@ -1101,7 +1115,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Persister les enregistrements avec leur champ TTL et synchroniser les éditions/suppressions entre vue et stockage.
 - Recette : Après sauvegarde/réouverture, le champ TTL est conservé; un enregistrement supprimé ne réapparaît pas lors d’une nouvelle édition.
-- Composant : `dns`; jalon : `J4`; état : `not_started`.
+- Composant : `dns`; jalon : `J4`; état : `verified`.
 - Prérequis fonctionnels : F-UDP-001, F-OS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/dns/ResourceRecord.java](../../_archive/filius-master/src/main/java/filius/software/dns/ResourceRecord.java#L79), ligne 79, `private int ttl`.
 
@@ -1112,7 +1126,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Normaliser casse et point final et exposer absence de réponse, absence de nom et timeout.
 - Recette : Example.test et example.test. sont équivalents; un serveur absent produit un timeout borné.
-- Composant : `dns`; jalon : `J4`; état : `not_started`.
+- Composant : `dns`; jalon : `J4`; état : `verified`.
 - Prérequis fonctionnels : F-UDP-001, F-OS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/dns/ResourceRecord.java](../../_archive/filius-master/src/main/java/filius/software/dns/ResourceRecord.java#L168), ligne 168, `public void setDomainname`.
 
@@ -1123,7 +1137,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
 - Exigence : Ajouter un véritable cache de résolution par nœud avec expiration en temps virtuel et purge explicite.
 - Recette : Une réponse est réutilisée avant son TTL puis interrogée de nouveau après expiration; les hôtes ne partagent pas leurs caches.
-- Composant : `dns`; jalon : `J4`; état : `not_started`.
+- Composant : `dns`; jalon : `J4`; état : `verified`.
 - Prérequis fonctionnels : F-DNS-001, F-SIM-005.
 
 
@@ -1138,7 +1152,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Activer un serveur à port configurable et servir les fichiers de son espace virtuel.
 - Recette : Un navigateur récupère index.html du serveur et obtient 404 pour une ressource absente.
-- Composant : `web`; jalon : `J4`; état : `not_started`.
+- Composant : `web`; jalon : `J4`; état : `verified`.
 - Prérequis fonctionnels : F-TCP-003, F-FS-004, F-DNS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/www/WebServer.java](../../_archive/filius-master/src/main/java/filius/software/www/WebServer.java#L54), ligne 54, `public class WebServer`.
 
@@ -1149,7 +1163,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Modéliser requêtes, en-têtes, corps, encodage des chemins et réponses utiles.
 - Recette : Un formulaire POST est traité par une page dynamique; une méthode non prise en charge produit 501.
-- Composant : `web`; jalon : `J4`; état : `not_started`.
+- Composant : `web`; jalon : `J4`; état : `verified`.
 - Prérequis fonctionnels : F-TCP-003, F-FS-004, F-DNS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/www/WebServerMitarbeiter.java](../../_archive/filius-master/src/main/java/filius/software/www/WebServerMitarbeiter.java#L123), ligne 123, `protected void verarbeiteNachricht`.
 
@@ -1160,7 +1174,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Associer plusieurs noms de domaine à des racines distinctes sur un serveur.
 - Recette : Deux noms résolus vers la même IP servent deux pages différentes.
-- Composant : `web`; jalon : `J4`; état : `not_started`.
+- Composant : `web`; jalon : `J4`; état : `verified`.
 - Prérequis fonctionnels : F-TCP-003, F-FS-004, F-DNS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/www/WebServer.java](../../_archive/filius-master/src/main/java/filius/software/www/WebServer.java#L221), ligne 221, `public void changeVHostTable`.
 
@@ -1171,7 +1185,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Servir texte/HTML et images PNG, BMP, GIF, JPG avec types adaptés.
 - Recette : Une page HTML contenant une image provoque une requête distincte et affiche l’image.
-- Composant : `web`; jalon : `J4`; état : `not_started`.
+- Composant : `web`; jalon : `J4`; état : `verified`.
 - Prérequis fonctionnels : F-TCP-003, F-FS-004, F-DNS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/www/WebServerMitarbeiter.java](../../_archive/filius-master/src/main/java/filius/software/www/WebServerMitarbeiter.java#L100), ligne 100, `HTTPNachricht.IMAGE_PNG`.
 
@@ -1182,7 +1196,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Offrir URL, liens et formulaires dans un rendu contrôlé alimenté par la pile simulée.
 - Recette : Un clic de lien génère HTTP dans la trace et n’interroge pas le réseau réel.
-- Composant : `web`; jalon : `J4`; état : `not_started`.
+- Composant : `web`; jalon : `J4`; état : `verified`.
 - Prérequis fonctionnels : F-TCP-003, F-FS-004, F-DNS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationWebBrowserWindow.java](../../_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationWebBrowserWindow.java#L206), ligne 206, `private void abrufenWebseite`.
 
@@ -1193,7 +1207,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Isoler les ressources et caches du navigateur par hôte et session.
 - Recette : Deux hôtes servant des images homonymes ne partagent pas le cache.
-- Composant : `web`; jalon : `J4`; état : `not_started`.
+- Composant : `web`; jalon : `J4`; état : `verified`.
 - Prérequis fonctionnels : F-TCP-003, F-FS-004, F-DNS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/www/WebBrowser.java](../../_archive/filius-master/src/main/java/filius/software/www/WebBrowser.java#L83), ligne 83, `clearImageCache`.
 
@@ -1204,7 +1218,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Brancher les pages internes de configuration et de journaux sur le serveur simulé.
 - Recette : Une modification depuis le formulaire du routeur change la même configuration que son inspecteur.
-- Composant : `web`; jalon : `J5`; état : `not_started`.
+- Composant : `web`; jalon : `J5`; état : `verified`.
 - Prérequis fonctionnels : F-TCP-003, F-FS-004, F-DNS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/www/WebServerPlugIn.java](../../_archive/filius-master/src/main/java/filius/software/www/WebServerPlugIn.java#L44), ligne 44, `public abstract class WebServerPlugIn`.
 
@@ -1220,7 +1234,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Traduire les connexions LAN vers l’adresse WAN et restaurer les réponses.
 - Recette : Deux hôtes LAN ouvrent des connexions vers le même serveur WAN; chaque réponse revient au bon hôte.
-- Composant : `nat`; jalon : `J5`; état : `not_started`.
+- Composant : `nat`; jalon : `J5`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-004, F-ROUT-002, F-TCP-003, F-UDP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/nat/NatGateway.java](../../_archive/filius-master/src/main/java/filius/software/nat/NatGateway.java#L38), ligne 38, `public class NatGateway`.
 
@@ -1231,7 +1245,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Réallouer les ports externes lorsque plusieurs sessions ont les mêmes ports locaux.
 - Recette : Deux sessions en collision obtiennent des mappings distincts et restent fonctionnelles.
-- Composant : `nat`; jalon : `J5`; état : `not_started`.
+- Composant : `nat`; jalon : `J5`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-004, F-ROUT-002, F-TCP-003, F-UDP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/nat/NetworkAddressTranslationTable.java](../../_archive/filius-master/src/main/java/filius/software/nat/NetworkAddressTranslationTable.java#L38), ligne 38, `public class NetworkAddressTranslationTable`.
 
@@ -1242,7 +1256,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Configurer port externe, adresse/port interne et protocole TCP/UDP.
 - Recette : Un client WAN atteint un service LAN avec un port externe différent du port interne.
-- Composant : `nat`; jalon : `J5`; état : `not_started`.
+- Composant : `nat`; jalon : `J5`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-004, F-ROUT-002, F-TCP-003, F-UDP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JPortForwardingDialog.java](../../_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JPortForwardingDialog.java#L49), ligne 49, `public class JPortForwardingDialog`.
 
@@ -1253,7 +1267,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Traduire les identifiants ICMP, les réponses et les erreurs encapsulées nécessaires.
 - Recette : Ping et traceroute depuis deux hôtes LAN traversent NAT sans confondre les réponses.
-- Composant : `nat`; jalon : `J5`; état : `not_started`.
+- Composant : `nat`; jalon : `J5`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-004, F-ROUT-002, F-TCP-003, F-UDP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/nat/NatGatewayWANThread.java](../../_archive/filius-master/src/main/java/filius/software/nat/NatGatewayWANThread.java#L41), ligne 41, `public class NatGatewayWANThread`.
 
@@ -1264,7 +1278,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Afficher endpoints, ports/identifiants, protocole, nature et durée des entrées NAT.
 - Recette : Une session apparaît dans la table; purge et expiration retirent son mapping.
-- Composant : `nat`; jalon : `J5`; état : `not_started`.
+- Composant : `nat`; jalon : `J5`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-004, F-ROUT-002, F-TCP-003, F-UDP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/system/GatewayFirmware.java](../../_archive/filius-master/src/main/java/filius/software/system/GatewayFirmware.java#L353), ligne 353, `public void checkNAT`.
 
@@ -1275,7 +1289,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Configurer indépendamment acquisition WAN et distribution LAN.
 - Recette : Une passerelle reçoit son WAN par DHCP tout en attribuant une configuration différente sur son LAN.
-- Composant : `nat`; jalon : `J5`; état : `not_started`.
+- Composant : `nat`; jalon : `J5`; état : `verified`.
 - Prérequis fonctionnels : F-NAT-001, F-DHCP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JGatewayConfiguration.java](../../_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JGatewayConfiguration.java#L70), ligne 70, `public class JGatewayConfiguration`.
 
@@ -1291,7 +1305,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Activer/désactiver un filtrage sur les équipements concernés.
 - Recette : Le même flux réussit pare-feu désactivé et suit les règles après activation.
-- Composant : `firewall`; jalon : `J5`; état : `not_started`.
+- Composant : `firewall`; jalon : `J5`; état : `verified`.
 - Prérequis fonctionnels : F-ROUT-002, F-TCP-003, F-UDP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/firewall/Firewall.java](../../_archive/filius-master/src/main/java/filius/software/firewall/Firewall.java#L63), ligne 63, `public class Firewall`.
 
@@ -1302,7 +1316,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Ajouter, modifier, supprimer et réordonner des règles ACCEPT/DROP avec politique de repli.
 - Recette : Deux règles contradictoires suivent la première correspondance; une absence de règle suit la politique.
-- Composant : `firewall`; jalon : `J5`; état : `not_started`.
+- Composant : `firewall`; jalon : `J5`; état : `verified`.
 - Prérequis fonctionnels : F-ROUT-002, F-TCP-003, F-UDP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/firewall/Firewall.java](../../_archive/filius-master/src/main/java/filius/software/firewall/Firewall.java#L156), ligne 156, `public boolean moveUp`.
 
@@ -1313,7 +1327,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Filtrer source/destination, réseaux, port destination et TCP/UDP.
 - Recette : Une règle ciblée bloque un service sans bloquer un autre port.
-- Composant : `firewall`; jalon : `J5`; état : `not_started`.
+- Composant : `firewall`; jalon : `J5`; état : `verified`.
 - Prérequis fonctionnels : F-ROUT-002, F-TCP-003, F-UDP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/firewall/FirewallRule.java](../../_archive/filius-master/src/main/java/filius/software/firewall/FirewallRule.java#L36), ligne 36, `public class FirewallRule`.
 
@@ -1324,7 +1338,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Exposer le filtrage TCP limité aux SYN et le traitement des réponses UDP de Filius, sans promettre un suivi de connexion complet.
 - Recette : Un test distingue filtrage SYN seul et filtrage de tous les segments; le chemin retour UDP est couvert.
-- Composant : `firewall`; jalon : `J5`; état : `not_started`.
+- Composant : `firewall`; jalon : `J5`; état : `verified`.
 - Prérequis fonctionnels : F-ROUT-002, F-TCP-003, F-UDP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/firewall/Firewall.java](../../_archive/filius-master/src/main/java/filius/software/firewall/Firewall.java#L72), ligne 72, `private boolean filterSYNSegmentsOnly`.
 
@@ -1335,7 +1349,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Autoriser ou bloquer ICMP avec une commande visible.
 - Recette : Bloquer ICMP fait échouer ping tout en laissant un HTTP autorisé fonctionner.
-- Composant : `firewall`; jalon : `J5`; état : `not_started`.
+- Composant : `firewall`; jalon : `J5`; état : `verified`.
 - Prérequis fonctionnels : F-ROUT-002, F-TCP-003, F-UDP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/firewall/Firewall.java](../../_archive/filius-master/src/main/java/filius/software/firewall/Firewall.java#L71), ligne 71, `private boolean dropICMP`.
 
@@ -1346,7 +1360,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Consigner acceptations/refus utiles et numéro de règle appliquée.
 - Recette : Un refus est corrélé au paquet et à la règle responsable.
-- Composant : `firewall`; jalon : `J5`; état : `not_started`.
+- Composant : `firewall`; jalon : `J5`; état : `verified`.
 - Prérequis fonctionnels : F-ROUT-002, F-TCP-003, F-UDP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/firewall/Firewall.java](../../_archive/filius-master/src/main/java/filius/software/firewall/Firewall.java#L207), ligne 207, `private void notifyRuleApplication`.
 
@@ -1357,7 +1371,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Configurer règles, activation et journal depuis les pages web simulées.
 - Recette : Un formulaire change la règle et le journal web reflète son application.
-- Composant : `firewall`; jalon : `J5`; état : `not_started`.
+- Composant : `firewall`; jalon : `J5`; état : `verified`.
 - Prérequis fonctionnels : F-FW-002, F-WEB-007.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/firewall/FirewallWebKonfig.java](../../_archive/filius-master/src/main/java/filius/software/firewall/FirewallWebKonfig.java#L41), ligne 41, `public class FirewallWebKonfig`.
 
@@ -1373,7 +1387,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Configurer domaine et ports; activer les services et afficher leur activité.
 - Recette : Un client envoie via SMTP puis récupère le message via POP3; la trace distingue les sessions.
-- Composant : `mail`; jalon : `J6`; état : `not_started`.
+- Composant : `mail`; jalon : `J6`; état : `verified`.
 - Prérequis fonctionnels : F-TCP-003, F-DNS-002, F-OS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/email/EmailServer.java](../../_archive/filius-master/src/main/java/filius/software/email/EmailServer.java#L56), ligne 56, `public class EmailServer`.
 
@@ -1384,7 +1398,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Créer, valider, supprimer et persister les comptes et identifiants pédagogiques.
 - Recette : Un compte existant se connecte et un compte supprimé est rejeté.
-- Composant : `mail`; jalon : `J6`; état : `not_started`.
+- Composant : `mail`; jalon : `J6`; état : `verified`.
 - Prérequis fonctionnels : F-TCP-003, F-DNS-002, F-OS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/email/EmailServer.java](../../_archive/filius-master/src/main/java/filius/software/email/EmailServer.java#L162), ligne 162, `public boolean benutzerHinzufuegen`.
 
@@ -1395,7 +1409,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Livrer localement ou relayer vers un autre domaine via MX puis A.
 - Recette : Un message entre deux domaines traverse le serveur distant et arrive dans la bonne boîte.
-- Composant : `mail`; jalon : `J6`; état : `not_started`.
+- Composant : `mail`; jalon : `J6`; état : `verified`.
 - Prérequis fonctionnels : F-TCP-003, F-DNS-002, F-OS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/email/EmailServer.java](../../_archive/filius-master/src/main/java/filius/software/email/EmailServer.java#L466), ligne 466, `public void emailWeiterleiten`.
 
@@ -1406,7 +1420,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Signaler les destinataires non résolus ou inexistants par le comportement d’erreur documenté.
 - Recette : Un envoi à un utilisateur absent produit un retour explicite et aucune livraison silencieuse.
-- Composant : `mail`; jalon : `J6`; état : `not_started`.
+- Composant : `mail`; jalon : `J6`; état : `verified`.
 - Prérequis fonctionnels : F-TCP-003, F-DNS-002, F-OS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/email/EmailServer.java](../../_archive/filius-master/src/main/java/filius/software/email/EmailServer.java#L497), ligne 497, `public void sendUnknownReceiverResponse`.
 
@@ -1417,7 +1431,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Configurer identité, SMTP/POP3, ports et identifiants sur l’hôte.
 - Recette : Deux clients peuvent utiliser des comptes indépendants sans échanger leurs réglages.
-- Composant : `mail`; jalon : `J6`; état : `not_started`.
+- Composant : `mail`; jalon : `J6`; état : `verified`.
 - Prérequis fonctionnels : F-TCP-003, F-DNS-002, F-OS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationEmailAnwendungWindow.java](../../_archive/filius-master/src/main/java/filius/gui/anwendungssicht/GUIApplicationEmailAnwendungWindow.java#L586), ligne 586, `private void kontoVerwalten`.
 
@@ -1428,7 +1442,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Gérer expéditeur, destinataires, copie/CCI, sujet et corps textuel selon le modèle Email.
 - Recette : Une réponse reprend le destinataire et le sujet; les champs To/CC/BCC sont conservés sans exposer BCC aux autres destinataires.
-- Composant : `mail`; jalon : `J6`; état : `not_started`.
+- Composant : `mail`; jalon : `J6`; état : `verified`.
 - Prérequis fonctionnels : F-TCP-003, F-DNS-002, F-OS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/email/Email.java](../../_archive/filius-master/src/main/java/filius/software/email/Email.java#L41), ligne 41, `public class Email`.
 
@@ -1439,7 +1453,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Récupérer les messages, consulter reçus/envoyés, supprimer et persister leur contenu.
 - Recette : Un message envoyé apparaît dans Envoyés et après récupération dans Réception; sa suppression persiste.
-- Composant : `mail`; jalon : `J6`; état : `not_started`.
+- Composant : `mail`; jalon : `J6`; état : `verified`.
 - Prérequis fonctionnels : F-TCP-003, F-DNS-002, F-OS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/email/EmailAnwendung.java](../../_archive/filius-master/src/main/java/filius/software/email/EmailAnwendung.java#L211), ligne 211, `public void removeReceivedMail`.
 
@@ -1450,7 +1464,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `internal`.
 - Exigence : Préserver les capacités de gestion de contacts exposées par le modèle; ne pas supposer une UI complète.
 - Recette : Un contact ajouté peut être enregistré, relu et supprimé par l’API applicative.
-- Composant : `mail`; jalon : `J6`; état : `not_started`.
+- Composant : `mail`; jalon : `J6`; état : `verified`.
 - Prérequis fonctionnels : F-TCP-003, F-DNS-002, F-OS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/email/EmailAnwendung.java](../../_archive/filius-master/src/main/java/filius/software/email/EmailAnwendung.java#L119), ligne 119, `public boolean kontaktHinzufuegen`.
 
@@ -1466,7 +1480,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Configurer le pair d’entrée et le nombre maximal de participants, rejoindre et afficher les voisins connus.
 - Recette : Trois pairs connectés apparaissent dans les vues de réseau; une limite de participants configurée est respectée.
-- Composant : `p2p`; jalon : `J6`; état : `not_started`.
+- Composant : `p2p`; jalon : `J6`; état : `verified`.
 - Prérequis fonctionnels : F-TCP-003, F-FS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/dateiaustausch/PeerToPeerAnwendung.java](../../_archive/filius-master/src/main/java/filius/software/dateiaustausch/PeerToPeerAnwendung.java#L276), ligne 276, `public void beitretenNetzwerk`.
 
@@ -1477,7 +1491,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Simuler Ping/Pong, identifiant, TTL et prévention des doublons de messages.
 - Recette : Un message en boucle ne circule pas indéfiniment et les pairs découverts sont listés.
-- Composant : `p2p`; jalon : `J6`; état : `not_started`.
+- Composant : `p2p`; jalon : `J6`; état : `verified`.
 - Prérequis fonctionnels : F-TCP-003, F-FS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/dateiaustausch/PeerToPeerPaket.java](../../_archive/filius-master/src/main/java/filius/software/dateiaustausch/PeerToPeerPaket.java#L38), ligne 38, `public class PeerToPeerPaket`.
 
@@ -1488,7 +1502,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Publier les fichiers du répertoire partagé et propager Query/QueryHit.
 - Recette : Une recherche sur un nom partagé par un pair distant retourne une source et son fichier.
-- Composant : `p2p`; jalon : `J6`; état : `not_started`.
+- Composant : `p2p`; jalon : `J6`; état : `verified`.
 - Prérequis fonctionnels : F-TCP-003, F-FS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/dateiaustausch/PeerToPeerAnwendung.java](../../_archive/filius-master/src/main/java/filius/software/dateiaustausch/PeerToPeerAnwendung.java#L328), ligne 328, `public void sucheDatei`.
 
@@ -1499,7 +1513,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Transférer un résultat vers les fichiers de l’hôte demandeur.
 - Recette : Le fichier téléchargé a le même contenu que le fichier partagé.
-- Composant : `p2p`; jalon : `J6`; état : `not_started`.
+- Composant : `p2p`; jalon : `J6`; état : `verified`.
 - Prérequis fonctionnels : F-TCP-003, F-FS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/dateiaustausch/PeerToPeerAnwendung.java](../../_archive/filius-master/src/main/java/filius/software/dateiaustausch/PeerToPeerAnwendung.java#L304), ligne 304, `public void herunterladenDatei`.
 
@@ -1510,7 +1524,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Annuler une recherche, vider les résultats et réinitialiser les connexions du réseau P2P.
 - Recette : Annuler arrête la collecte de nouveaux résultats et permet une nouvelle recherche.
-- Composant : `p2p`; jalon : `J6`; état : `not_started`.
+- Composant : `p2p`; jalon : `J6`; état : `verified`.
 - Prérequis fonctionnels : F-TCP-003, F-FS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/dateiaustausch/PeerToPeerAnwendung.java](../../_archive/filius-master/src/main/java/filius/software/dateiaustausch/PeerToPeerAnwendung.java#L343), ligne 343, `public void abbrechenSuche`.
 
@@ -1526,7 +1540,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Enregistrer envoi/réception avec numéro, temps, interface, direction et protocole.
 - Recette : Un échange entre deux hôtes est inspectable depuis chaque interface et garde un identifiant de corrélation.
-- Composant : `observation`; jalon : `J2`; état : `not_started`.
+- Composant : `observation`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-L2-001, F-IP4-004.
 - Preuve : [_archive/filius-master/src/main/java/filius/rahmenprogramm/nachrichten/Lauscher.java](../../_archive/filius-master/src/main/java/filius/rahmenprogramm/nachrichten/Lauscher.java#L55), ligne 55, `public class Lauscher`.
 
@@ -1537,7 +1551,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Offrir une vue synthétique et une vue détaillée des quatre couches pédagogiques.
 - Recette : La même communication est lisible dans les deux vues sans divergence de contenu.
-- Composant : `observation`; jalon : `J2`; état : `not_started`.
+- Composant : `observation`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-L2-001, F-IP4-004.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/nachrichtensicht/AggregatedExchangePanel.java](../../_archive/filius-master/src/main/java/filius/gui/nachrichtensicht/AggregatedExchangePanel.java#L64), ligne 64, `public class AggregatedExchangePanel`.
 
@@ -1548,7 +1562,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Afficher en-têtes, adresses, ports, flags, TTL, identifiants ICMP et contenu utile.
 - Recette : Cliquer sur une trame affiche ses valeurs historiques même après une traduction NAT.
-- Composant : `observation`; jalon : `J2`; état : `not_started`.
+- Composant : `observation`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-L2-001, F-IP4-004.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/nachrichtensicht/MessageDetailsTable.java](../../_archive/filius-master/src/main/java/filius/gui/nachrichtensicht/MessageDetailsTable.java#L29), ligne 29, `public class MessageDetailsTable`.
 
@@ -1559,7 +1573,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Choisir les couches visibles, activer le défilement automatique et vider le journal.
 - Recette : Masquer une couche change la vue sans supprimer les événements; purger est une action distincte.
-- Composant : `observation`; jalon : `J2`; état : `not_started`.
+- Composant : `observation`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-L2-001, F-IP4-004.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/nachrichtensicht/LayeredMessageTable.java](../../_archive/filius-master/src/main/java/filius/gui/nachrichtensicht/LayeredMessageTable.java#L172), ligne 172, `private void initKontextMenue`.
 
@@ -1570,7 +1584,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Mettre en évidence les liens traversés pendant les échanges.
 - Recette : Le chemin d’un ping s’illumine à vitesse lente et les couleurs se réinitialisent à l’arrêt.
-- Composant : `observation`; jalon : `J2`; état : `not_started`.
+- Composant : `observation`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-L2-001, F-IP4-004.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JCablePanel.java](../../_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JCablePanel.java#L219), ligne 219, `resetColor`.
 
@@ -1581,7 +1595,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `experimental`.
 - Exigence : Visualiser encapsulation/décapsulation et trajet entre équipements.
 - Recette : Une sélection de message peut animer son parcours local puis global et montrer les quatre couches.
-- Composant : `observation`; jalon : `J7`; état : `not_started`.
+- Composant : `observation`; jalon : `J7`; état : `verified`.
 - Prérequis fonctionnels : F-L2-001, F-IP4-004.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/schichtensicht/LayerPathDialog.java](../../_archive/filius-master/src/main/java/filius/gui/schichtensicht/LayerPathDialog.java#L18), ligne 18, `public class LayerPathDialog`.
 
@@ -1592,7 +1606,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Fournir des vues actualisées des tables MAC et NAT.
 - Recette : Une nouvelle communication actualise les tables sans rouvrir le panneau.
-- Composant : `observation`; jalon : `J5`; état : `not_started`.
+- Composant : `observation`; jalon : `J5`; état : `verified`.
 - Prérequis fonctionnels : F-L2-003, F-NAT-005.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/anwendungssicht/NatViewer.java](../../_archive/filius-master/src/main/java/filius/gui/anwendungssicht/NatViewer.java#L49), ligne 49, `public class NatViewer`.
 
@@ -1603,7 +1617,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
 - Exigence : Filtrer par équipement, temps, protocole, adresse et corrélation; exporter JSONL et CSV.
 - Recette : Une sélection exportée contient exactement les événements filtrés et leurs identifiants stables.
-- Composant : `observation`; jalon : `J7`; état : `not_started`.
+- Composant : `observation`; jalon : `J7`; état : `verified`.
 - Prérequis fonctionnels : F-L2-001, F-IP4-004.
 
 <a id="f-obs-009"></a>
@@ -1613,7 +1627,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
 - Exigence : Relier chaque transfert/refus à sa route, règle, résolution ou expiration.
 - Recette : Cliquer un paquet abandonné affiche une cause structurée et l’équipement responsable.
-- Composant : `observation`; jalon : `J3`; état : `not_started`.
+- Composant : `observation`; jalon : `J3`; état : `verified`.
 - Prérequis fonctionnels : F-L2-001, F-IP4-004.
 
 <a id="f-obs-010"></a>
@@ -1623,7 +1637,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Exporter le tableau des échanges agrégés en texte UTF-8.
 - Recette : Le fichier texte contient les colonnes et les lignes de la vue choisie.
-- Composant : `observation`; jalon : `J2`; état : `not_started`.
+- Composant : `observation`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-L2-001, F-IP4-004.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/nachrichtensicht/AggregatedMessageTable.java](../../_archive/filius-master/src/main/java/filius/gui/nachrichtensicht/AggregatedMessageTable.java#L371), ligne 371, `public synchronized void writeToStream`.
 
@@ -1639,7 +1653,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Créer, éditer, déplacer et redimensionner des annotations.
 - Recette : Une annotation conserve son texte et ses dimensions après réouverture du projet.
-- Composant : `reporting`; jalon : `J7`; état : `not_started`.
+- Composant : `reporting`; jalon : `J7`; état : `verified`.
 - Prérequis fonctionnels : F-TOP-001, F-OBS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JDocuElement.java](../../_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JDocuElement.java#L68), ligne 68, `public class JDocuElement`.
 
@@ -1650,7 +1664,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Créer des zones structurelles; régler couleurs, taille et style des textes.
 - Recette : Une zone colorée reste derrière les équipements; les styles persistent.
-- Composant : `reporting`; jalon : `J7`; état : `not_started`.
+- Composant : `reporting`; jalon : `J7`; état : `verified`.
 - Prérequis fonctionnels : F-TOP-001, F-OBS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JDocuElement.java](../../_archive/filius-master/src/main/java/filius/gui/netzwerksicht/JDocuElement.java#L68), ligne 68, `public class JDocuElement`.
 
@@ -1661,7 +1675,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Exporter une image cadrée du réseau et des annotations avec fond transparent.
 - Recette : L’export inclut tous les nœuds et annotations sans les panneaux de l’interface.
-- Composant : `reporting`; jalon : `J7`; état : `not_started`.
+- Composant : `reporting`; jalon : `J7`; état : `verified`.
 - Prérequis fonctionnels : F-TOP-001, F-OBS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/GUIContainer.java](../../_archive/filius-master/src/main/java/filius/gui/GUIContainer.java#L472), ligne 472, `public void exportAsImage`.
 
@@ -1672,7 +1686,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Exporter schéma, configuration, interfaces, logiciels, DNS, routes et échanges par MAC.
 - Recette : Un rapport d’un scénario avec DNS et routeur contient ces sections et les paquets émis/reçus.
-- Composant : `reporting`; jalon : `J7`; état : `not_started`.
+- Composant : `reporting`; jalon : `J7`; état : `verified`.
 - Prérequis fonctionnels : F-TOP-001, F-OBS-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/documentation/ReportGenerator.java](../../_archive/filius-master/src/main/java/filius/gui/documentation/ReportGenerator.java#L97), ligne 97, `public void generateReport`.
 
@@ -1743,7 +1757,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Configurer endpoint réel et port, attendre une connexion, connecter et déconnecter un tunnel de trames.
 - Recette : Une paire d’instances transmet un ping simulé; interrompre le tunnel produit un état déconnecté clair.
-- Composant : `extensions`; jalon : `J6`; état : `not_started`.
+- Composant : `extensions`; jalon : `J6`; état : `verified`.
 - Prérequis fonctionnels : F-EQU-005, F-L2-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/software/system/ModemFirmware.java](../../_archive/filius-master/src/main/java/filius/software/system/ModemFirmware.java#L108), ligne 108, `public synchronized void starteServer`.
 
@@ -1769,7 +1783,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Gérer un projet complet avec nom de fichier et protection des modifications.
 - Recette : Après enregistrer/rouvrir, topologie, paramètres, logiciels, fichiers et annotations sont équivalents.
-- Composant : `projects`; jalon : `J1`; état : `not_started`.
+- Composant : `projects`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : F-TOP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/rahmenprogramm/SzenarioVerwaltung.java](../../_archive/filius-master/src/main/java/filius/rahmenprogramm/SzenarioVerwaltung.java#L108), ligne 108, `public boolean speichern`.
 
@@ -1780,7 +1794,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Inventorier le ZIP .fls, sa configuration XML et ses fichiers/extensions embarqués.
 - Recette : Les 18 exemples peuvent être analysés en lecture seule et leurs classes inconnues sont signalées.
-- Composant : `projects`; jalon : `J1`; état : `not_started`.
+- Composant : `projects`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : F-TOP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/rahmenprogramm/SzenarioVerwaltung.java](../../_archive/filius-master/src/main/java/filius/rahmenprogramm/SzenarioVerwaltung.java#L108), ligne 108, `public boolean speichern`.
 
@@ -1791,7 +1805,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Séparer préférences utilisateur et projet et proposer une récupération de la dernière session.
 - Recette : Un redémarrage restitue les réglages et la dernière session sans écraser un fichier projet explicite.
-- Composant : `projects`; jalon : `J7`; état : `not_started`.
+- Composant : `projects`; jalon : `J7`; état : `verified`.
 - Prérequis fonctionnels : F-TOP-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/Main.java](../../_archive/filius-master/src/main/java/filius/Main.java#L67), ligne 67, `public class Main`.
 
@@ -1812,7 +1826,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
 - Exigence : Convertir les données Filius connues sans exécuter XML, bytecode ou sources embarquées.
 - Recette : Chaque exemple produit un rapport listant champs convertis, pertes et extensions non exécutées.
-- Composant : `projects`; jalon : `J7`; état : `not_started`.
+- Composant : `projects`; jalon : `J7`; état : `verified`.
 - Prérequis fonctionnels : F-TOP-001.
 
 <a id="f-proj-006"></a>
@@ -1822,7 +1836,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
 - Exigence : Conserver une récupération atomique distincte du fichier utilisateur.
 - Recette : Une fermeture forcée permet de récupérer les dernières modifications en gardant la version enregistrée.
-- Composant : `projects`; jalon : `J7`; état : `not_started`.
+- Composant : `projects`; jalon : `J7`; état : `verified`.
 - Prérequis fonctionnels : F-TOP-001.
 
 
@@ -1832,12 +1846,12 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 
 <a id="f-cfg-001"></a>
 
-### F-CFG-001 — Français, anglais et allemand
+### F-CFG-001 — Français, anglais, espagnol, italien, portugais et allemand
 
 - Origine : `filius`; état du référentiel : `present`.
-- Exigence : Localiser l’interface et l’aide et persister la langue préférée.
-- Recette : Chaque écran essentiel possède des libellés FR/EN/DE; un projet reste identique après changement de langue.
-- Composant : `platform`; jalon : `J7`; état : `not_started`.
+- Exigence : Localiser l’interface, les diagnostics et l’aide en FR/EN/ES/IT/PT/DE et persister la langue préférée hors du projet.
+- Recette : Chaque écran essentiel et l’aide possèdent des traductions FR/EN/ES/IT/PT/DE sans clé manquante; changer puis relancer conserve la préférence et laisse le projet identique.
+- Composant : `platform`; jalon : `J2`; état : `verified`.
 - Prérequis fonctionnels : F-PROJ-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/LanguageSelectionDialog.java](../../_archive/filius-master/src/main/java/filius/gui/LanguageSelectionDialog.java#L95), ligne 95, `private void initializeText`.
 
@@ -1848,7 +1862,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Fournir une aide par mode, exemples pédagogiques, version et crédits.
 - Recette : L’aide pertinente s’ouvre depuis chaque mode; la version de format et la version du produit sont consultables.
-- Composant : `platform`; jalon : `J7`; état : `not_started`.
+- Composant : `platform`; jalon : `J7`; état : `verified`.
 - Prérequis fonctionnels : F-PROJ-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/HelpPanel.java](../../_archive/filius-master/src/main/java/filius/gui/HelpPanel.java#L47), ligne 47, `public class HelpPanel`.
 
@@ -1859,7 +1873,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `experimental`.
 - Exigence : Préserver le choix de jeux d’icônes et améliorer dimensions, police et disposition des fenêtres.
 - Recette : Une police agrandie reste lisible et la préférence persiste sans changement de réseau.
-- Composant : `platform`; jalon : `J7`; état : `not_started`.
+- Composant : `platform`; jalon : `J7`; état : `verified`.
 - Prérequis fonctionnels : F-PROJ-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/gui/LanguageSelectionDialog.java](../../_archive/filius-master/src/main/java/filius/gui/LanguageSelectionDialog.java#L83), ligne 83, `private void initializeSettings`.
 
@@ -1870,7 +1884,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Documenter priorité des valeurs CLI, profil utilisateur et configuration administrateur; gérer les fichiers invalides.
 - Recette : Une valeur invalide est diagnostiquée et remplacée par une valeur sûre sans empêcher le lancement.
-- Composant : `platform`; jalon : `J7`; état : `not_started`.
+- Composant : `platform`; jalon : `J7`; état : `verified`.
 - Prérequis fonctionnels : F-PROJ-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/rahmenprogramm/Information.java](../../_archive/filius-master/src/main/java/filius/rahmenprogramm/Information.java#L617), ligne 617, `public void loadIni`.
 
@@ -1881,7 +1895,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Préserver les intentions de h/v/w/l/r/n/s et le chemin de projet en argument, avec interface moderne documentée.
 - Recette : L’aide liste les options; ouvrir un fichier en argument charge le bon projet; les logs vont au chemin annoncé.
-- Composant : `platform`; jalon : `J7`; état : `not_started`.
+- Composant : `platform`; jalon : `J7`; état : `verified`.
 - Prérequis fonctionnels : F-PROJ-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/rahmenprogramm/FiliusArgs.java](../../_archive/filius-master/src/main/java/filius/rahmenprogramm/FiliusArgs.java#L28), ligne 28, `options.addOption`.
 
@@ -1892,7 +1906,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Séparer journal technique, trace réseau et données pédagogiques; permettre un export de diagnostic.
 - Recette : Le journal situe une erreur sans inclure par défaut les mots de passe et contenus mail.
-- Composant : `platform`; jalon : `J7`; état : `not_started`.
+- Composant : `platform`; jalon : `J7`; état : `verified`.
 - Prérequis fonctionnels : F-PROJ-001.
 - Preuve : [_archive/filius-master/src/main/java/filius/rahmenprogramm/TeeOutputStream.java](../../_archive/filius-master/src/main/java/filius/rahmenprogramm/TeeOutputStream.java#L39), ligne 39, `public class TeeOutputStream`.
 
@@ -1903,7 +1917,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Distribuer une application desktop autonome et associer le format projet sur les plateformes ciblées.
 - Recette : Un utilisateur ouvre un projet depuis le gestionnaire de fichiers et désinstalle sans supprimer ses projets.
-- Composant : `platform`; jalon : `J7`; état : `not_started`.
+- Composant : `platform`; jalon : `J7`; état : `implemented`.
 - Prérequis fonctionnels : F-PROJ-001.
 - Preuve : [_archive/filius-master/Readme.md](../../_archive/filius-master/Readme.md#L23), ligne 23, `## Installation`.
 
@@ -1914,7 +1928,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `filius`; état du référentiel : `present`.
 - Exigence : Recréer les exemples de connexion directe, LAN, routage, DHCP, DNS, web, mail, NAT, pare-feu, ARP, P2P et modem.
 - Recette : Chaque famille possède un exemple documenté et une recette reproductible.
-- Composant : `platform`; jalon : `J7`; état : `not_started`.
+- Composant : `platform`; jalon : `J7`; état : `verified`.
 - Prérequis fonctionnels : F-PROJ-001.
 - Preuve : [_archive/filius-master/src/info/Introduction_Filius.md](../../_archive/filius-master/src/info/Introduction_Filius.md#L349), ligne 349, `## Exercises: Design and Simulate Networks`.
 
@@ -1960,7 +1974,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
 - Exigence : Borner files, traces, tailles de projet et traitements; mesurer les coûts du moteur et de l’UI.
 - Recette : Le benchmark de référence publie machine, charge, latence UI et mémoire; dépasser une limite produit une erreur lisible.
-- Composant : `quality`; jalon : `J1`; état : `not_started`.
+- Composant : `quality`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : aucun.
 
 <a id="f-nfr-005"></a>
@@ -1970,7 +1984,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
 - Exigence : Prévoir clavier, focus visible, contrastes, zoom texte et alternative aux seules couleurs.
 - Recette : Le parcours créer/configurer/relier/lancer/inspecter s’effectue au clavier; les états restent compréhensibles sans couleur.
-- Composant : `quality`; jalon : `J1`; état : `not_started`.
+- Composant : `quality`; jalon : `J1`; état : `verified`.
 - Prérequis fonctionnels : aucun.
 
 <a id="f-nfr-006"></a>
@@ -1990,7 +2004,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
 - Exigence : Cibler Windows, Linux et macOS avec recettes de packaging et de rendu par plateforme.
 - Recette : Le parcours réseau minimal et la sauvegarde fonctionnent sur les trois systèmes via une matrice de validation.
-- Composant : `quality`; jalon : `J7`; état : `not_started`.
+- Composant : `quality`; jalon : `J7`; état : `in_progress`.
 - Prérequis fonctionnels : aucun.
 
 <a id="f-nfr-008"></a>
@@ -2055,7 +2069,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `extension_optionnelle`; état du référentiel : `absent_du_referentiel`.
 - Exigence : Décrire objectifs, états attendus, feedback et corrections exportables.
 - Recette : Un exercice valide automatiquement une panne DNS réparée et explique un échec.
-- Composant : `future`; jalon : `J9`; état : `not_started`.
+- Composant : `future`; jalon : `J9`; état : `implemented`.
 - Prérequis fonctionnels : aucun.
 
 <a id="f-adv-005"></a>
@@ -2076,4 +2090,69 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Exigence : Étudier un adaptateur web du moteur et ses restrictions.
 - Recette : Un scénario de référence donne la même trace que l’adaptateur desktop.
 - Composant : `future`; jalon : `J9`; état : `not_started`.
+- Prérequis fonctionnels : aucun.
+
+
+<a id="ux"></a>
+
+## UX — Expérience élève
+
+<a id="f-ux-001"></a>
+
+### F-UX-001 — Niveaux Élève et Expert
+
+- Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
+- Exigence : Proposer un niveau d’affichage Élève par défaut et un niveau Expert, persistés comme préférence, sans changer projet, simulation ni transactions.
+- Recette : R-UX-001 : au premier lancement les commandes Expert sont absentes; passer en Expert les révèle sans changer le projet ni sa révision. R-UX-002 : le niveau est relu au démarrage; un profil sans niveau vaut Élève.
+- Composant : `presentation`; jalon : `J8`; état : `implemented`.
+- Prérequis fonctionnels : aucun.
+
+<a id="f-ux-002"></a>
+
+### F-UX-002 — Trois espaces illustrés avec consignes
+
+- Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
+- Exigence : Nommer les espaces par l’action de l’élève (Construire, Tester, Annoter), garder F2/F3/F4 et afficher une consigne visible traduite.
+- Recette : R-UX-003 : les trois espaces correspondent aux modes existants au clic et au clavier, avec consigne dans les six langues. R-UX-004 : références graphiques six langues × Icônes/Schéma.
+- Composant : `presentation`; jalon : `J8`; état : `implemented`.
+- Prérequis fonctionnels : F-UX-001.
+
+<a id="f-ux-003"></a>
+
+### F-UX-003 — Palette illustrée et câble guidé
+
+- Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
+- Exigence : Ajouter les équipements depuis une palette illustrée et guider la pose d’un câble en deux clics avec message d’étape.
+- Recette : Ajouter un ordinateur depuis la palette puis le relier au commutateur en suivant les messages.
+- Composant : `presentation`; jalon : `J8`; état : `implemented`.
+- Prérequis fonctionnels : aucun.
+
+<a id="f-ux-004"></a>
+
+### F-UX-004 — Paquets animés et récit du trajet
+
+- Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
+- Exigence : Animer les paquets sur les câbles à partir de la trace et raconter chaque étape en langage courant, détail technique au niveau Expert.
+- Recette : Un ping routé montre l’aller, le retour et un récit cohérent avec la trace; un échec sans passerelle est expliqué.
+- Composant : `presentation`; jalon : `J8`; état : `implemented`.
+- Prérequis fonctionnels : aucun.
+
+<a id="f-ux-005"></a>
+
+### F-UX-005 — Terminal lisible
+
+- Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
+- Exigence : Présenter les résultats des commandes du terminal simulé sous forme lisible, la sortie structurée restant disponible au niveau Expert.
+- Recette : ipconfig et ping affichent des lignes compréhensibles au niveau Élève.
+- Composant : `presentation`; jalon : `J8`; état : `implemented`.
+- Prérequis fonctionnels : aucun.
+
+<a id="f-ux-006"></a>
+
+### F-UX-006 — Fiche pédagogique de l’équipement
+
+- Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
+- Exigence : Expliquer les champs de configuration (adresse, réseau, passerelle) avec aide contextuelle et signalement d’une valeur incohérente.
+- Recette : Une passerelle absente ou hors réseau est signalée avec une explication.
+- Composant : `presentation`; jalon : `J8`; état : `implemented`.
 - Prérequis fonctionnels : aucun.

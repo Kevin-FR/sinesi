@@ -1,0 +1,88 @@
+{
+  "schema_version": 7,
+  "semantic_profile": "sns-educational-applications-v1",
+  "project_id": "local-network",
+  "name": "Modem — connexion",
+  "devices": [
+    {
+      "id": "host-a",
+      "kind": "workstation",
+      "label": "Poste A",
+      "interfaces": [
+        {
+          "id": "host-a-p0",
+          "mac": "02:00:00:00:00:01",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.1.2",
+            "prefix_length": 24
+          }
+        }
+      ],
+      "network": {
+        "default_gateway": null,
+        "dns_server": null
+      },
+      "applications": [],
+      "files": []
+    },
+    {
+      "id": "modem",
+      "kind": "modem",
+      "label": "Modem pont",
+      "interfaces": [
+        {
+          "id": "modem-port",
+          "mac": "02:00:00:00:01:01",
+          "medium": "ethernet",
+          "ipv4": null
+        }
+      ],
+      "network": {
+        "default_gateway": null,
+        "dns_server": null,
+        "modem": {
+          "role": "connect",
+          "endpoint": "127.0.0.1:50555"
+        }
+      },
+      "applications": [],
+      "files": []
+    }
+  ],
+  "links": [
+    {
+      "id": "modem-cable",
+      "endpoints": [
+        "host-a-p0",
+        "modem-port"
+      ],
+      "latency_us": "1000",
+      "jitter_us": "0"
+    }
+  ],
+  "layout": {
+    "devices": [
+      {
+        "device_id": "host-a",
+        "x": 120,
+        "y": 100
+      },
+      {
+        "device_id": "modem",
+        "x": 420,
+        "y": 100
+      }
+    ]
+  },
+  "annotations": [],
+  "resources": [],
+  "extensions": [],
+  "lan": {
+    "host-a": {
+      "display": "name",
+      "sat_retention_us": "300000000"
+    }
+  }
+}

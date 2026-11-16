@@ -1,0 +1,14 @@
+aarch64
+Expected a Linux arm64 ELF binary: /src/target/release/sns-desktop
+dpkg-deb: building package 'sinesi' in '/out/final-arm64/sinesi-eyryb2hg/package/sinesi_0.1.0_arm64.deb'.
+/out/final-arm64/sinesi_0.1.0_arm64.deb
+x86_64
+Expected a Linux amd64 ELF binary: /src/target/release/sns-desktop
+dpkg-deb: building package 'sinesi' in '/out/final-amd64/sinesi-cl_u_m81/package/sinesi_0.1.0_amd64.deb'.
+/out/final-amd64/sinesi_0.1.0_amd64.deb
+Expected a Linux arm64 ELF binary: /wrong-target/release/sns-desktop
+OK — amd64 Linux binaries were rejected by the arm64 Debian builder
+$ python3 -m py_compile packaging/build.py packaging/smoke-linux-accessibility.py
+$ sh -n packaging/smoke-deb.sh
+$ ruby -ryaml -e ...
+["linux", "macos", "windows"]

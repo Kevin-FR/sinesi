@@ -1,0 +1,10 @@
+    Checking sns-protocols v0.1.0 (/Users/kevin/Web/SNS/crates/sns-protocols)
+    Checking sns-i18n v0.1.0 (/Users/kevin/Web/SNS/crates/sns-i18n)
+    Checking sns-settings v0.1.0 (/Users/kevin/Web/SNS/crates/sns-settings)
+    Checking sns-apps v0.1.0 (/Users/kevin/Web/SNS/crates/sns-apps)
+    Checking sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+    Checking sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+    Checking sns-project v0.1.0 (/Users/kevin/Web/SNS/crates/sns-project)
+    Checking sns-cli v0.1.0 (/Users/kevin/Web/SNS/crates/sns-cli)
+    Checking sns-desktop v0.1.0 (/Users/kevin/Web/SNS/apps/sns-desktop)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 4.14s

@@ -1,0 +1,196 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "User preferences, independent of project and execution",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "settings_version",
+        "language"
+      ],
+      "properties": {
+        "settings_version": {
+          "const": 1
+        },
+        "language": {
+          "enum": [
+            "fr",
+            "en",
+            "es",
+            "it",
+            "pt",
+            "de"
+          ]
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "settings_version",
+        "language",
+        "display"
+      ],
+      "properties": {
+        "settings_version": {
+          "const": 2
+        },
+        "language": {
+          "enum": [
+            "fr",
+            "en",
+            "es",
+            "it",
+            "pt",
+            "de"
+          ]
+        },
+        "display": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "scale_percent": {
+              "type": "integer",
+              "minimum": 80,
+              "maximum": 200
+            },
+            "palette_width": {
+              "type": "integer",
+              "minimum": 160,
+              "maximum": 360
+            },
+            "inspector_width": {
+              "type": "integer",
+              "minimum": 240,
+              "maximum": 480
+            },
+            "window_width": {
+              "type": "integer",
+              "minimum": 840,
+              "maximum": 3840
+            },
+            "window_height": {
+              "type": "integer",
+              "minimum": 600,
+              "maximum": 2160
+            },
+            "application_scale_percent": {
+              "type": "integer",
+              "minimum": 75,
+              "maximum": 150
+            },
+            "font": {
+              "enum": [
+                "default",
+                "noto_sans"
+              ]
+            },
+            "representation": {
+              "enum": [
+                "icons",
+                "diagram"
+              ]
+            },
+            "layout": {
+              "enum": [
+                "inspector_right",
+                "inspector_left",
+                "tabs"
+              ]
+            },
+            "center_application_windows": {
+              "type": "boolean"
+            },
+            "level": {
+              "enum": [
+                "student",
+                "expert"
+              ]
+            },
+            "windows": {
+              "type": "object",
+              "maxProperties": 16,
+              "propertyNames": {
+                "enum": [
+                  "help",
+                  "terminal",
+                  "file_explorer",
+                  "text_editor",
+                  "image_viewer",
+                  "firewall",
+                  "dns_server",
+                  "tcp_server",
+                  "tcp_client",
+                  "web_server",
+                  "web_browser",
+                  "mail_server",
+                  "mail_client",
+                  "p2p"
+                ]
+              },
+              "additionalProperties": {
+                "type": "object",
+                "additionalProperties": false,
+                "required": [
+                  "x",
+                  "y",
+                  "width",
+                  "height"
+                ],
+                "properties": {
+                  "x": {
+                    "type": "integer",
+                    "minimum": -16384,
+                    "maximum": 16384
+                  },
+                  "y": {
+                    "type": "integer",
+                    "minimum": -16384,
+                    "maximum": 16384
+                  },
+                  "width": {
+                    "type": "integer",
+                    "minimum": 100,
+                    "maximum": 7680
+                  },
+                  "height": {
+                    "type": "integer",
+                    "minimum": 60,
+                    "maximum": 4320
+                  }
+                }
+              }
+            }
+          },
+          "required": [
+            "scale_percent",
+            "palette_width",
+            "inspector_width",
+            "window_width",
+            "window_height",
+            "application_scale_percent",
+            "font",
+            "representation",
+            "layout",
+            "center_application_windows",
+            "windows"
+          ]
+        },
+        "missions": {
+          "type": "object",
+          "maxProperties": 64,
+          "propertyNames": {
+            "pattern": "^[a-z0-9-]{1,64}$"
+          },
+          "additionalProperties": {
+            "type": "integer",
+            "minimum": 1,
+            "maximum": 3
+          }
+        }
+      }
+    }
+  ]
+}

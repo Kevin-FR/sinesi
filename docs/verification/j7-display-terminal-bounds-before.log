@@ -1,0 +1,22 @@
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.62s
+     Running tests/preferences.rs (target/debug/deps/preferences-16432fd4077f3d23)
+
+running 1 test
+test terminal_remains_usable_at_200_percent_in_all_languages_without_advancing_protocols ... FAILED
+
+failures:
+
+---- terminal_remains_usable_at_200_percent_in_all_languages_without_advancing_protocols stdout ----
+
+thread 'terminal_remains_usable_at_200_percent_in_all_languages_without_advancing_protocols' (39035488) panicked at crates/sns-ui-egui/tests/preferences.rs:281:9:
+The terminal actions must remain inside the window
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    terminal_remains_usable_at_200_percent_in_all_languages_without_advancing_protocols
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 5 filtered out; finished in 0.04s
+
+error: test failed, to rerun pass `-p sns-ui-egui --test preferences`

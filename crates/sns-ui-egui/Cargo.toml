@@ -7,17 +7,34 @@ license.workspace = true
 repository.workspace = true
 
 [dependencies]
+sns-report.workspace = true
+sns-render.workspace = true
+pollster.workspace = true
+sns-fonts.workspace = true
+serde.workspace = true
+sns-trace.workspace = true
+sns-filius-import.workspace = true
+sns-bridge.workspace = true
+sns-apps.workspace = true
+sns-vfs.workspace = true
+sns-i18n.workspace = true
+sns-settings.workspace = true
+sns-topology.workspace = true
+sns-protocols.workspace = true
+rfd.workspace = true
 sns-model.workspace = true
 sns-engine.workspace = true
+sns-missions.workspace = true
 sns-project.workspace = true
 sns-html.workspace = true
-egui.workspace = true
-egui_extras.workspace = true
+egui = { workspace = true, features = ["default_fonts", "monochrome_emoji_fonts"] }
+egui_extras = { workspace = true, features = ["svg"] }
 image.workspace = true
 base64.workspace = true
 serde_json.workspace = true
 
 [dev-dependencies]
+tempfile.workspace = true
 egui_kittest.workspace = true
 
 [features]

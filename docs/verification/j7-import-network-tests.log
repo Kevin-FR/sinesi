@@ -1,0 +1,44 @@
+   Compiling sns-filius-import v0.1.0 (/Users/kevin/Web/SNS/crates/sns-filius-import)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.27s
+     Running tests/import.rs (target/debug/deps/import-2a3cc3a7ca8521b6)
+
+running 10 tests
+test corpus_imports_as_data_preserving_every_byte_and_reports_all_losses ... ignored, requires the local read-only Filius corpus; run explicitly with --ignored
+test imported_historical_dhcp_and_manual_routes_drive_the_engine ... ignored, requires the local read-only Filius corpus; run explicitly with --ignored
+test imported_historical_lan_uses_production_arp_and_icmp ... ignored, requires the local read-only Filius LAN example; run explicitly with --ignored
+test duplicate_names_bad_crc_and_unsafe_virtual_tree_are_rejected ... ok
+test arbitrary_embedded_code_is_preserved_and_disabled ... ok
+test unsafe_archives_and_entity_xml_and_dangling_aliases_are_rejected ... ok
+test import_is_deterministic_and_mac_repairs_are_unique ... ok
+test gateway_dhcp_keeps_the_lan_static_and_reports_rejected_reservations ... ok
+test cloud_flag_imports_as_presentation_data_without_changing_ports_or_wires ... ok
+test portable_synthetic_import_roundtrips_and_exchanges_real_simulated_frames ... ok
+
+test result: ok. 7 passed; 0 failed; 3 ignored; 0 measured; 0 filtered out; finished in 0.03s
+
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/import.rs (target/debug/deps/import-2a3cc3a7ca8521b6)
+
+running 3 tests
+test imported_historical_dhcp_and_manual_routes_drive_the_engine ... ok
+test imported_historical_lan_uses_production_arp_and_icmp ... ok
+test corpus_imports_as_data_preserving_every_byte_and_reports_all_losses ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 7 filtered out; finished in 0.41s
+
+    Checking sns-model v0.1.0 (/Users/kevin/Web/SNS/crates/sns-model)
+    Checking parking_lot_core v0.9.12
+    Checking ahash v0.8.12
+    Checking sns-i18n v0.1.0 (/Users/kevin/Web/SNS/crates/sns-i18n)
+    Checking zip v9.4.1
+    Checking parking_lot v0.12.5
+    Checking referencing v0.46.10
+    Checking sns-vfs v0.1.0 (/Users/kevin/Web/SNS/crates/sns-vfs)
+    Checking sns-html v0.1.0 (/Users/kevin/Web/SNS/crates/sns-html)
+    Checking sns-protocols v0.1.0 (/Users/kevin/Web/SNS/crates/sns-protocols)
+    Checking sns-project v0.1.0 (/Users/kevin/Web/SNS/crates/sns-project)
+    Checking jsonschema v0.46.10
+    Checking sns-filius-import v0.1.0 (/Users/kevin/Web/SNS/crates/sns-filius-import)
+    Checking sns-apps v0.1.0 (/Users/kevin/Web/SNS/crates/sns-apps)
+    Checking sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 13.55s

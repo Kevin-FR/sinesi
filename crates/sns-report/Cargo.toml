@@ -1,0 +1,26 @@
+[package]
+name = "sns-report"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+
+[dependencies]
+krilla.workspace = true
+resvg.workspace = true
+sns-engine.workspace = true
+sns-fonts.workspace = true
+sns-i18n.workspace = true
+sns-model.workspace = true
+sns-protocols.workspace = true
+sns-render.workspace = true
+sns-topology.workspace = true
+serde_json.workspace = true
+
+[dev-dependencies]
+sns-project.workspace = true
+sha2.workspace = true
+
+[lints]
+workspace = true

@@ -1,0 +1,1 @@
+d19b46d1b3abf2dca5c26d63e1830bd8e47898508b4b838c2fa93543932dbb88  artifacts/packages/j7-macos-launchservices/Sinesi-0.1.0-macos-arm64.zip

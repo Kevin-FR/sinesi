@@ -1,0 +1,13 @@
+{
+  "format_version": 1,
+  "base_reconstruction": "docs/verification/j7-diagnostic-source-patch.json",
+  "base_revision": "72eaec6602cecd73da604d6d77c519fb30c838dfa8d225be8308dcbf080908bb",
+  "patch_archive": "docs/verification/j7-launch-examples-source-patch.tar.gz",
+  "patch_sha256": "88267aad4d568631e7942ce416336af3a2e0bcd4ab9ef388416333c5bc9ba438",
+  "patch_bytes": 884807,
+  "patch_files": 51,
+  "deleted_paths": [],
+  "source_revision": "dbec2070218bce118ba0d0cb90410a77775e1911d581f340e567a20471bcf59b",
+  "overlay_verified": true,
+  "reconstruction": "Reconstruct j7-diagnostic using its metadata, verify its code manifest, then overlay this patch and apply deleted_paths. Run scripts/check_manifest.py check with the j7-launch-examples manifest."
+}

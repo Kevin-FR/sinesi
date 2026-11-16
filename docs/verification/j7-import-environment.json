@@ -1,0 +1,8 @@
+{
+  "timestamp": "2026-11-07T20:37:09.036535+00:00",
+  "platform": "macOS-27.2-arm64-arm-64bit-Mach-O",
+  "rustc": "rustc 1.95.0 (59807616e 2026-04-14)\nbinary: rustc\ncommit-hash: 59807616e1fa2540724bfbac14d7976d7e4a3860\ncommit-date: 2026-04-14\nhost: aarch64-apple-darwin\nrelease: 1.95.0\nLLVM version: 22.1.2\n",
+  "base_commit": "f5852fa92d737e1668d51a142cfef0196169f63f",
+  "reference": "20 local .fls files; read-only; not redistributed",
+  "scope": "Initial import tranche only; J7 remains in progress"
+}

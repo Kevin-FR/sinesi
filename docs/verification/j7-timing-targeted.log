@@ -1,0 +1,70 @@
+   Compiling sns-desktop v0.1.0 (/Users/kevin/Web/SNS/apps/sns-desktop)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.15s
+     Running tests/runner.rs (target/debug/deps/runner-0a3bdab44debdc09)
+
+running 5 tests
+test filius_import_cli_emits_report_and_keeps_source_unchanged ... ok
+test independent_processes_emit_identical_traces_and_honor_bounds ... ok
+test independent_lan_processes_ping_and_reuse_arp_cache ... ok
+test network_scenario_checkpoint_continuation_and_offline_replay_match_across_processes ... ok
+test response_wait_factor_changes_slow_network_outcome_and_survives_offline_replay_and_resume ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.70s
+
+     Running tests/startup.rs (target/debug/deps/startup-6ccc00b221c737c9)
+
+running 5 tests
+test non_utf8_path_metadata_does_not_prevent_a_startup_report_on_apfs ... ok
+test real_binary_resolves_layers_and_checks_the_explicit_project_without_writing_files ... ok
+test working_directory_and_invalid_project_are_explicit_and_preserve_the_source ... ok
+test help_version_and_safe_fallback_work_in_all_six_languages_without_a_window ... ok
+test response_wait_factor_is_applied_to_the_worker_and_help_is_available_in_six_languages ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.42s
+
+     Running tests/timing.rs (target/debug/deps/timing-ce29d87ace4b56da)
+
+running 5 tests
+test factor_is_bounded_and_default_keeps_the_previous_checkpoint_encoding ... ok
+test stop_restart_and_replacement_keep_policy_and_reject_incompatible_headers ... ok
+test tcp_dns_and_dhcp_waits_scale_but_ping_cadence_and_dhcp_leases_do_not ... ok
+test tcp_time_wait_and_rip_cadence_remain_protocol_lifetimes ... ok
+test extended_wait_succeeds_on_a_slow_lan_and_checkpoint_replay_preserve_its_suffix ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+     Running tests/contracts.rs (target/debug/deps/contracts-b6fa90685d2a771f)
+
+running 16 tests
+test recovery_session_contract_is_versioned_bounded_and_validates_project_and_selection ... ok
+test actual_tcp_udp_commands_and_transport_frames_validate_as_portable_contracts ... ok
+test schemas_reject_unknown_properties_versions_and_invalid_counters ... ok
+test neutral_schemas_accept_actual_serialized_contracts ... ok
+test semantic_reference_checks_complement_the_structural_schema ... ok
+test j7_cloud_project_live_commands_events_and_checkpoint_match_presentation_contracts ... ok
+test lan_v2_round_trip_commands_and_actual_frames_match_neutral_contracts ... ok
+test documentation_project_round_trips_styles_and_remains_valid_in_session_and_checkpoint ... ok
+test j7_scheduled_network_checkpoint_and_recording_follow_portable_contracts ... ok
+test response_wait_recording_and_checkpoint_versions_agree_and_old_data_remains_readable ... ok
+test j7_link_conditions_commands_events_scenarios_and_random_state_match_contracts ... ok
+test private_network_profiles_commands_nat_and_quoted_icmp_match_neutral_contracts ... ok
+test hosts_v3_app_commands_and_events_are_portable_and_strict ... ok
+test j6_projects_commands_durable_mail_and_advanced_events_match_contracts ... ok
+test routed_projects_and_actual_rip_forwarding_events_match_versioned_contracts ... ok
+test service_profiles_commands_and_actual_trace_roundtrip_with_neutral_schemas ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.71s
+
+     Running tests/configuration.rs (target/debug/deps/configuration-a3e9fa394a107e14)
+
+running 7 tests
+test public_startup_boundary_refuses_invalid_typed_display_data ... ok
+test ordinary_help_clicks_do_not_persist_geometry_derived_from_temporary_display_options ... ok
+test administrator_and_project_destinations_are_protected_even_through_missing_parent_traversal ... ok
+test explicit_defaults_reset_hidden_persistent_values_and_cancel_remains_non_mutating ... ok
+test editing_one_preference_does_not_persist_other_command_line_overrides ... ok
+test invalid_startup_values_are_localized_in_six_languages_both_views_and_leave_network_and_files_intact ... ok
+test restored_policy_wins_for_the_run_and_new_simulation_uses_launch_policy_in_all_languages_and_views ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.62s
+

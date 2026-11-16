@@ -1,0 +1,19 @@
+{
+  "bytes": 186682,
+  "diagram": false,
+  "forbidden_text": [
+    "secret-password-sentinel"
+  ],
+  "interface_groups": 1,
+  "language": "fr",
+  "packet_rows": 1200,
+  "pages": 72,
+  "required_text": [
+    "Échanges par interface MAC",
+    "Historique partiel : des événements antérieurs ne sont plus disponibles.",
+    "#50",
+    "#1249"
+  ],
+  "sha256": "abe6f5780895b3b5b7a10af59a9628f111b3e2d491b9758bfd9e4329f8c24d16",
+  "trace_partial": true
+}

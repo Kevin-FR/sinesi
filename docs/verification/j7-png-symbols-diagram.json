@@ -1,0 +1,32 @@
+{
+  "annotations": 4,
+  "bounds": [
+    -84.0,
+    -65.0,
+    798.0,
+    704.0
+  ],
+  "clipped_texts": 0,
+  "devices": 10,
+  "glyphs": 301,
+  "height": 1415,
+  "links": 0,
+  "object_ids": [
+    "device-1",
+    "device-11",
+    "device-13",
+    "device-15",
+    "device-17",
+    "device-19",
+    "device-3",
+    "device-5",
+    "device-7",
+    "device-9",
+    "font-proof-0",
+    "font-proof-1",
+    "font-proof-2",
+    "font-proof-3"
+  ],
+  "sha256": "334937bfff0f330d0640eb83c819441e0bb11f6299408887d28832b21db8eec2",
+  "width": 1600
+}

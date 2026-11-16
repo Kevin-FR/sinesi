@@ -1,0 +1,27 @@
+{
+  "bytes": 60657,
+  "diagram": false,
+  "forbidden_text": [
+    "secret-password-sentinel"
+  ],
+  "interface_groups": 6,
+  "language": "pt",
+  "packet_rows": 34,
+  "pages": 8,
+  "required_text": [
+    "Visão da rede",
+    "Configuração dos equipamentos",
+    "Interfaces de rede",
+    "Programas",
+    "Registos DNS",
+    "Tabela de rotas",
+    "Tráfego por interface MAC",
+    "ecole.test",
+    "192.168.30.2",
+    "report-ping",
+    "DHCP",
+    "192.168.10.20/24"
+  ],
+  "sha256": "b457f6ee6939b9f74f68d465f21255ce4217cbe357b48732f6a412efd2e579e5",
+  "trace_partial": false
+}

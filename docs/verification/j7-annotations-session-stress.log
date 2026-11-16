@@ -1,0 +1,480 @@
+Iteration 1/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.12s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+Iteration 2/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.09s
+
+Iteration 3/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.14s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+Iteration 4/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.12s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+Iteration 5/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.14s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+Iteration 6/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+Iteration 7/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.14s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+Iteration 8/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.13s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+Iteration 9/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.12s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+Iteration 10/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+Iteration 11/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.16s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+Iteration 12/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+Iteration 13/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.12s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+Iteration 14/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.13s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+Iteration 15/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.12s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+Iteration 16/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.13s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+Iteration 17/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.12s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+Iteration 18/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.13s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+Iteration 19/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.12s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+Iteration 20/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.14s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+Iteration 21/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.12s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+Iteration 22/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.13s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+Iteration 23/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.13s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+Iteration 24/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.14s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+Iteration 25/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.12s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+Iteration 26/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.14s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+Iteration 27/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.12s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+Iteration 28/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.12s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.07s
+
+Iteration 29/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+Iteration 30/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.10s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+Iteration 31/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+Iteration 32/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.12s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+Iteration 33/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.04s
+
+Iteration 34/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+Iteration 35/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+Iteration 36/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.06s
+
+Iteration 37/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+Iteration 38/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+Iteration 39/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.10s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+Iteration 40/40
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.11s
+     Running tests/session.rs (target/debug/deps/session-1df35639b4cedfb2)
+
+running 4 tests
+test crash_writer_child ... ignored, helper invoked only by the forced-exit parent test
+test unpublished_slots_are_cleaned_but_live_writers_and_nonempty_corruption_are_preserved ... ok
+test leases_isolate_live_instances_and_invalid_snapshots_preserve_previous_bytes ... ok
+test forced_child_exit_releases_lease_and_recovers_latest_document_without_touching_saved_project ... ok
+
+test result: ok. 3 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.05s
+

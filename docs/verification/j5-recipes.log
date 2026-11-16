@@ -1,0 +1,23 @@
+   Compiling sns-engine v0.1.0 (/Users/kevin/Web/SNS/crates/sns-engine)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.84s
+     Running tests/private.rs (target/debug/deps/private-92bb9cbdba43e725)
+
+running 15 tests
+test wan_arp_failure_quotes_the_original_private_probe ... ok
+test static_udp_forward_and_wan_private_scope_guard ... ok
+test idle_udp_mapping_expires_then_port_can_be_reused_and_invalid_edits_are_atomic ... ok
+test nat_udp_same_ports_isolate_reply_endpoints ... ok
+test wan_dhcp_rejects_an_overlapping_lan_assignment_instead_of_swapping_roles ... ok
+test firewall_order_policy_icmp_and_udp_reverse_matching ... ok
+test mapping_purge_expiry_and_port_exhaustion_are_observable ... ok
+test filter_udp_reverse_rule_icmp_switch_and_syn_only_are_explicit ... ok
+test host_filter_blocks_one_service_and_preserves_http_when_icmp_is_blocked ... ok
+test nat_tcp_same_ports_restore_to_correct_hosts_and_keep_original_trace ... ok
+test static_forward_and_icmp_traceroute_quotes_traverse_nat ... ok
+test wan_dhcp_and_lan_distribution_are_independent_and_expiry_keeps_lan_administration ... ok
+test private_network_workflows_have_identical_canonical_traces ... ok
+test web_rule_changes_are_applied_and_the_journal_reports_the_rule_and_packet ... ok
+test administration_over_real_http_updates_shared_configuration_and_rejects_stale_or_wan_forms ... ok
+
+test result: ok. 15 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.28s
+

@@ -1,0 +1,33 @@
+Usage: sns-desktop [options] [--] [project.json]
+Priority: built-in defaults < administrator < user profile < command line.
+
+  -h, --help 
+      Show this help without opening a window.
+  --version 
+      Show the version.
+  --check-config 
+      Check configuration and project, then print a JSON report without a window.
+  --config PATH
+      Select the administrator configuration.
+  --settings PATH
+      Select the user profile.
+  --session-dir PATH
+      Select the local recovery folder.
+  -w, --workdir PATH
+      Resolve relative paths from this directory without moving files.
+  --language fr|en|es|it|pt|de
+      Temporarily select the language.
+  --ui-scale 80..200
+      Temporarily select the interface size in percent.
+  --font default|noto_sans
+      Temporarily select the font.
+  --view icons|diagram
+      Temporarily select Icons or Diagram view.
+  --layout inspector_right|inspector_left|tabs
+      Temporarily select the panel layout.
+  --window-width 840..3840
+      Temporarily select the window width.
+  --window-height 600..2160
+      Temporarily select the window height.
+
+Launch display options are temporary. Later changes in the interface are saved to the user profile.

@@ -1,0 +1,447 @@
+{
+  "schema_version": 4,
+  "semantic_profile": "sns-educational-routing-v1",
+  "project_id": "project-lan",
+  "name": "Salle de classe — réseau pédagogique",
+  "devices": [
+    {
+      "id": "router",
+      "kind": "router",
+      "label": "R1",
+      "interfaces": [
+        {
+          "id": "router-p0",
+          "mac": "02:ed:00:00:01:00",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.10.1",
+            "prefix_length": 24
+          }
+        },
+        {
+          "id": "router-p1",
+          "mac": "02:ed:00:00:01:01",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "10.0.0.1",
+            "prefix_length": 24
+          }
+        }
+      ],
+      "network": {
+        "default_gateway": null,
+        "dns_server": null
+      },
+      "applications": [
+        {
+          "id": "router-terminal",
+          "kind": "terminal",
+          "config": {}
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": "switch",
+      "kind": "switch",
+      "label": "COM1",
+      "interfaces": [
+        {
+          "id": "switch-p0",
+          "mac": "02:ed:00:00:02:00",
+          "medium": "ethernet",
+          "ipv4": null
+        },
+        {
+          "id": "switch-p1",
+          "mac": "02:ed:00:00:02:01",
+          "medium": "ethernet",
+          "ipv4": null
+        },
+        {
+          "id": "switch-p2",
+          "mac": "02:ed:00:00:02:02",
+          "medium": "ethernet",
+          "ipv4": null
+        },
+        {
+          "id": "switch-p3",
+          "mac": "02:ed:00:00:02:03",
+          "medium": "ethernet",
+          "ipv4": null
+        },
+        {
+          "id": "switch-p4",
+          "mac": "02:ed:00:00:02:04",
+          "medium": "ethernet",
+          "ipv4": null
+        },
+        {
+          "id": "switch-p5",
+          "mac": "02:ed:00:00:02:05",
+          "medium": "ethernet",
+          "ipv4": null
+        },
+        {
+          "id": "switch-p6",
+          "mac": "02:ed:00:00:02:06",
+          "medium": "ethernet",
+          "ipv4": null
+        },
+        {
+          "id": "switch-p7",
+          "mac": "02:ed:00:00:02:07",
+          "medium": "ethernet",
+          "ipv4": null
+        }
+      ],
+      "network": {
+        "default_gateway": null,
+        "dns_server": null
+      },
+      "applications": [],
+      "files": []
+    },
+    {
+      "id": "pc1",
+      "kind": "workstation",
+      "label": "Poste 1",
+      "interfaces": [
+        {
+          "id": "pc1-p0",
+          "mac": "02:ed:00:00:03:00",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.10.11",
+            "prefix_length": 24
+          }
+        }
+      ],
+      "network": {
+        "default_gateway": "192.168.10.1",
+        "dns_server": null
+      },
+      "applications": [
+        {
+          "id": "pc1-terminal",
+          "kind": "terminal",
+          "config": {}
+        },
+        {
+          "id": "pc1-tcp_client",
+          "kind": "tcp_client",
+          "config": {}
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": "pc2",
+      "kind": "workstation",
+      "label": "Poste 2",
+      "interfaces": [
+        {
+          "id": "pc2-p0",
+          "mac": "02:ed:00:00:04:00",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.10.12",
+            "prefix_length": 24
+          }
+        }
+      ],
+      "network": {
+        "default_gateway": "192.168.10.1",
+        "dns_server": null
+      },
+      "applications": [
+        {
+          "id": "pc2-terminal",
+          "kind": "terminal",
+          "config": {}
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": "laptop",
+      "kind": "notebook",
+      "label": "Portable",
+      "interfaces": [
+        {
+          "id": "laptop-p0",
+          "mac": "02:ed:00:00:05:00",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.10.13",
+            "prefix_length": 24
+          }
+        }
+      ],
+      "network": {
+        "default_gateway": "192.168.10.1",
+        "dns_server": null
+      },
+      "applications": [
+        {
+          "id": "laptop-terminal",
+          "kind": "terminal",
+          "config": {}
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": "tablet",
+      "kind": "workstation",
+      "label": "Tablette",
+      "interfaces": [
+        {
+          "id": "tablet-p0",
+          "mac": "02:ed:00:00:06:00",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.10.21",
+            "prefix_length": 24
+          }
+        }
+      ],
+      "network": {
+        "default_gateway": "192.168.10.1",
+        "dns_server": null
+      },
+      "applications": [
+        {
+          "id": "tablet-terminal",
+          "kind": "terminal",
+          "config": {}
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": "server",
+      "kind": "workstation",
+      "label": "Serveur",
+      "interfaces": [
+        {
+          "id": "server-p0",
+          "mac": "02:ed:00:00:07:00",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.10.2",
+            "prefix_length": 24
+          }
+        }
+      ],
+      "network": {
+        "default_gateway": "192.168.10.1",
+        "dns_server": null
+      },
+      "applications": [
+        {
+          "id": "server-terminal",
+          "kind": "terminal",
+          "config": {}
+        },
+        {
+          "id": "server-tcp_server",
+          "kind": "tcp_server",
+          "config": {}
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": "printer",
+      "kind": "workstation",
+      "label": "Imprimante",
+      "interfaces": [
+        {
+          "id": "printer-p0",
+          "mac": "02:ed:00:00:08:00",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.10.20",
+            "prefix_length": 24
+          }
+        }
+      ],
+      "network": {
+        "default_gateway": "192.168.10.1",
+        "dns_server": null
+      },
+      "applications": [],
+      "files": []
+    }
+  ],
+  "links": [
+    {
+      "id": "link-router",
+      "endpoints": [
+        "router-p0",
+        "switch-p0"
+      ],
+      "latency_us": "1000",
+      "jitter_us": "0"
+    },
+    {
+      "id": "link-pc1",
+      "endpoints": [
+        "pc1-p0",
+        "switch-p1"
+      ],
+      "latency_us": "1000",
+      "jitter_us": "0"
+    },
+    {
+      "id": "link-pc2",
+      "endpoints": [
+        "pc2-p0",
+        "switch-p2"
+      ],
+      "latency_us": "1000",
+      "jitter_us": "0"
+    },
+    {
+      "id": "link-laptop",
+      "endpoints": [
+        "laptop-p0",
+        "switch-p3"
+      ],
+      "latency_us": "1000",
+      "jitter_us": "0"
+    },
+    {
+      "id": "link-tablet",
+      "endpoints": [
+        "tablet-p0",
+        "switch-p4"
+      ],
+      "latency_us": "1000",
+      "jitter_us": "0"
+    },
+    {
+      "id": "link-server",
+      "endpoints": [
+        "server-p0",
+        "switch-p5"
+      ],
+      "latency_us": "1000",
+      "jitter_us": "0"
+    },
+    {
+      "id": "link-printer",
+      "endpoints": [
+        "printer-p0",
+        "switch-p6"
+      ],
+      "latency_us": "1000",
+      "jitter_us": "0"
+    }
+  ],
+  "layout": {
+    "devices": [
+      {
+        "device_id": "router",
+        "x": 400,
+        "y": 80
+      },
+      {
+        "device_id": "switch",
+        "x": 400,
+        "y": 250
+      },
+      {
+        "device_id": "pc1",
+        "x": 120,
+        "y": 430
+      },
+      {
+        "device_id": "pc2",
+        "x": 300,
+        "y": 430
+      },
+      {
+        "device_id": "laptop",
+        "x": 490,
+        "y": 430
+      },
+      {
+        "device_id": "tablet",
+        "x": 680,
+        "y": 430
+      },
+      {
+        "device_id": "server",
+        "x": 120,
+        "y": 80
+      },
+      {
+        "device_id": "printer",
+        "x": 680,
+        "y": 80
+      }
+    ]
+  },
+  "annotations": [
+    {
+      "id": "school-note",
+      "text": "Ethernet · 192.168.10.0/24",
+      "x": 270,
+      "y": 530
+    }
+  ],
+  "resources": [],
+  "extensions": [],
+  "lan": {
+    "router": {
+      "display": "name",
+      "sat_retention_us": "300000000",
+      "symbol": "router"
+    },
+    "switch": {
+      "display": "name",
+      "sat_retention_us": "300000000",
+      "symbol": "switch"
+    },
+    "pc1": {
+      "display": "name",
+      "sat_retention_us": "300000000",
+      "symbol": "desktop"
+    },
+    "pc2": {
+      "display": "name",
+      "sat_retention_us": "300000000",
+      "symbol": "desktop"
+    },
+    "laptop": {
+      "display": "name",
+      "sat_retention_us": "300000000",
+      "symbol": "laptop"
+    },
+    "tablet": {
+      "display": "name",
+      "sat_retention_us": "300000000",
+      "symbol": "tablet"
+    },
+    "server": {
+      "display": "name",
+      "sat_retention_us": "300000000",
+      "symbol": "server"
+    },
+    "printer": {
+      "display": "name",
+      "sat_retention_us": "300000000",
+      "symbol": "printer"
+    }
+  }
+}

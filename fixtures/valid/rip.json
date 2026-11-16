@@ -1,0 +1,286 @@
+{
+  "schema_version": 4,
+  "semantic_profile": "sns-educational-routing-v1",
+  "project_id": "project-lan",
+  "name": "J3 — RIP",
+  "devices": [
+    {
+      "id": "a",
+      "kind": "workstation",
+      "label": "A",
+      "interfaces": [
+        {
+          "id": "a-p0",
+          "mac": "02:01:00:00:00:01",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.10.2",
+            "prefix_length": 24
+          }
+        }
+      ],
+      "network": {
+        "default_gateway": "192.168.10.1",
+        "dns_server": null
+      },
+      "applications": [
+        {
+          "id": "a-terminal",
+          "kind": "terminal",
+          "config": {}
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": "r1",
+      "kind": "router",
+      "label": "R1",
+      "interfaces": [
+        {
+          "id": "r1-p0",
+          "mac": "02:01:00:00:00:02",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.10.1",
+            "prefix_length": 24
+          }
+        },
+        {
+          "id": "r1-p1",
+          "mac": "02:01:00:00:00:03",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.20.1",
+            "prefix_length": 24
+          }
+        },
+        {
+          "id": "r1-p2",
+          "mac": "02:01:00:00:00:04",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.50.1",
+            "prefix_length": 24
+          }
+        }
+      ],
+      "network": {
+        "default_gateway": null,
+        "dns_server": null,
+        "rip": true
+      },
+      "applications": [
+        {
+          "id": "r1-terminal",
+          "kind": "terminal",
+          "config": {}
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": "r2",
+      "kind": "router",
+      "label": "R2",
+      "interfaces": [
+        {
+          "id": "r2-p0",
+          "mac": "02:01:00:00:00:05",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.20.2",
+            "prefix_length": 24
+          }
+        },
+        {
+          "id": "r2-p1",
+          "mac": "02:01:00:00:00:06",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.40.1",
+            "prefix_length": 24
+          }
+        }
+      ],
+      "network": {
+        "default_gateway": null,
+        "dns_server": null,
+        "rip": true
+      },
+      "applications": [
+        {
+          "id": "r2-terminal",
+          "kind": "terminal",
+          "config": {}
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": "r3",
+      "kind": "router",
+      "label": "R3",
+      "interfaces": [
+        {
+          "id": "r3-p0",
+          "mac": "02:01:00:00:00:07",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.40.2",
+            "prefix_length": 24
+          }
+        },
+        {
+          "id": "r3-p1",
+          "mac": "02:01:00:00:00:08",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.30.1",
+            "prefix_length": 24
+          }
+        },
+        {
+          "id": "r3-p2",
+          "mac": "02:01:00:00:00:09",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.50.2",
+            "prefix_length": 24
+          }
+        }
+      ],
+      "network": {
+        "default_gateway": null,
+        "dns_server": null,
+        "rip": true
+      },
+      "applications": [
+        {
+          "id": "r3-terminal",
+          "kind": "terminal",
+          "config": {}
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": "b",
+      "kind": "notebook",
+      "label": "B",
+      "interfaces": [
+        {
+          "id": "b-p0",
+          "mac": "02:01:00:00:00:0a",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.30.2",
+            "prefix_length": 24
+          }
+        }
+      ],
+      "network": {
+        "default_gateway": "192.168.30.1",
+        "dns_server": null
+      },
+      "applications": [
+        {
+          "id": "b-terminal",
+          "kind": "terminal",
+          "config": {}
+        }
+      ],
+      "files": []
+    }
+  ],
+  "links": [
+    {
+      "id": "link-0",
+      "endpoints": [
+        "a-p0",
+        "r1-p0"
+      ],
+      "latency_us": "1000",
+      "jitter_us": "0"
+    },
+    {
+      "id": "link-1",
+      "endpoints": [
+        "r1-p1",
+        "r2-p0"
+      ],
+      "latency_us": "1000",
+      "jitter_us": "0"
+    },
+    {
+      "id": "link-2",
+      "endpoints": [
+        "r2-p1",
+        "r3-p0"
+      ],
+      "latency_us": "1000",
+      "jitter_us": "0"
+    },
+    {
+      "id": "link-3",
+      "endpoints": [
+        "r3-p1",
+        "b-p0"
+      ],
+      "latency_us": "1000",
+      "jitter_us": "0"
+    },
+    {
+      "id": "link-4",
+      "endpoints": [
+        "r1-p2",
+        "r3-p2"
+      ],
+      "latency_us": "1000",
+      "jitter_us": "0"
+    }
+  ],
+  "layout": {
+    "devices": [
+      {
+        "device_id": "a",
+        "x": 100,
+        "y": 150
+      },
+      {
+        "device_id": "r1",
+        "x": 270,
+        "y": 250
+      },
+      {
+        "device_id": "r2",
+        "x": 440,
+        "y": 150
+      },
+      {
+        "device_id": "r3",
+        "x": 610,
+        "y": 250
+      },
+      {
+        "device_id": "b",
+        "x": 780,
+        "y": 150
+      }
+    ]
+  },
+  "annotations": [],
+  "resources": [],
+  "extensions": [],
+  "lan": {}
+}

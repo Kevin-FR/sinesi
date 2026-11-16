@@ -1,0 +1,13 @@
+   Compiling sns-topology v0.1.0 (/Users/kevin/Web/SNS/crates/sns-topology)
+   Compiling sns-render v0.1.0 (/Users/kevin/Web/SNS/crates/sns-render)
+   Compiling sns-ui-egui v0.1.0 (/Users/kevin/Web/SNS/crates/sns-ui-egui)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.20s
+     Running tests/png.rs (target/debug/deps/png-abd8d934b437388c)
+
+running 3 tests
+test simulation_png_freezes_effective_dhcp_labels_without_advancing_or_stopping_the_network ... ok
+test png_export_freezes_applied_document_and_protects_project_preferences_and_session_storage ... ok
+test png_controls_and_background_exports_preserve_six_languages_two_views_and_document ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 6.74s
+

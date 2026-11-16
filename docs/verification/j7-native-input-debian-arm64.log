@@ -1,0 +1,147 @@
+(Reading database ... 11312 files and directories currently installed.)
+Removing sinesi (0.1.0) ...
+Processing triggers for shared-mime-info (2.2-1) ...
+Processing triggers for desktop-file-utils (0.26-1) ...
+Reading package lists...
+Building dependency tree...
+Reading state information...
+Recommended packages:
+  xdg-desktop-portal
+The following NEW packages will be installed:
+  sinesi
+0 upgraded, 1 newly installed, 0 to remove and 0 not upgraded.
+Need to get 0 B/14.5 MB of archives.
+After this operation, 0 B of additional disk space will be used.
+Get:1 /out/final-arm64/sinesi_0.1.0_arm64.deb sinesi arm64 0.1.0 [14.5 MB]
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package sinesi.
+
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 11299 files and directories currently installed.)
+
+Preparing to unpack .../sinesi_0.1.0_arm64.deb ...
+
+Unpacking sinesi (0.1.0) ...
+
+Setting up sinesi (0.1.0) ...
+
+Processing triggers for shared-mime-info (2.2-1) ...
+
+Processing triggers for desktop-file-utils (0.26-1) ...
+
+OK — 12 startup combinations, portable save, ping, checkpoint, replay and PNG in /out/verified-arm64
+  standard::content-type: application/vnd.sinesi.project+json
+Default application for ?application/vnd.sinesi.project+json?: fr.sinesi.Sinesi.desktop
+Registered applications:
+	fr.sinesi.Sinesi.desktop
+Recommended applications:
+	fr.sinesi.Sinesi.desktop
+Default application for ?application/vnd.sinesi.project+json?: fr.sinesi.Sinesi.desktop
+	fr.sinesi.Sinesi.desktop
+	fr.sinesi.Sinesi.desktop
+Set fr.sinesi.Sinesi.desktop as the default for application/vnd.sinesi.project+json
+dbus-daemon[4038]: [session uid=0 pid=4038] Activating service name='org.a11y.Bus' requested by ':1.0' (uid=0 pid=4068 comm="gdbus call --session --dest org.a11y.Bus --object-")
+dbus-daemon[4038]: [session uid=0 pid=4038] Successfully activated service 'org.a11y.Bus'
+dbus-daemon[4038]: [session uid=0 pid=4038] Activating service name='ca.desrt.dconf' requested by ':1.1' (uid=0 pid=4072 comm="/usr/libexec/at-spi-bus-launcher")
+dbus-daemon[4038]: [session uid=0 pid=4038] Successfully activated service 'ca.desrt.dconf'
+()
+dbus-daemon[4081]: Activating service name='org.a11y.atspi.Registry' requested by ':1.0' (uid=0 pid=4052 comm="python3 -u packaging/smoke-linux-accessibility.py")
+dbus-daemon[4081]: Successfully activated service 'org.a11y.atspi.Registry'
+SpiRegistry daemon is running with well-known name - org.a11y.atspi.Registry
+OK — fr/icons at 150%: associated window, AT-SPI focus, Ctrl+S, ICMP reply
+OK — fr/diagram at 150%: associated window, AT-SPI focus, Ctrl+S, ICMP reply
+OK — en/icons at 150%: associated window, AT-SPI focus, Ctrl+S, ICMP reply
+OK — en/diagram at 150%: associated window, AT-SPI focus, Ctrl+S, ICMP reply
+OK — es/icons at 150%: associated window, AT-SPI focus, Ctrl+S, ICMP reply
+OK — es/diagram at 150%: associated window, AT-SPI focus, Ctrl+S, ICMP reply
+OK — it/icons at 150%: associated window, AT-SPI focus, Ctrl+S, ICMP reply
+OK — it/diagram at 150%: associated window, AT-SPI focus, Ctrl+S, ICMP reply
+OK — pt/icons at 150%: associated window, AT-SPI focus, Ctrl+S, ICMP reply
+OK — pt/diagram at 150%: associated window, AT-SPI focus, Ctrl+S, ICMP reply
+OK — de/icons at 150%: associated window, AT-SPI focus, Ctrl+S, ICMP reply
+OK — de/diagram at 150%: associated window, AT-SPI focus, Ctrl+S, ICMP reply
+(Reading database ... 11312 files and directories currently installed.)
+Removing sinesi (0.1.0) ...
+Processing triggers for shared-mime-info (2.2-1) ...
+Processing triggers for desktop-file-utils (0.26-1) ...
+/out/verified-arm64/- réseau de classe.sinesi: OK
+/out/verified-arm64/interactive/it/diagram/settings.json: OK
+/out/verified-arm64/interactive/it/diagram/sessions/.allocation.lock: OK
+/out/verified-arm64/interactive/it/diagram/sessions/session-5458-1794188636276345092-0.json: OK
+/out/verified-arm64/interactive/it/diagram/sessions/session-5458-1794188636276345092-0.lock: OK
+/out/verified-arm64/interactive/it/diagram/- réseau de classe.sinesi: OK
+/out/verified-arm64/interactive/it/icons/settings.json: OK
+/out/verified-arm64/interactive/it/icons/sessions/.allocation.lock: OK
+/out/verified-arm64/interactive/it/icons/sessions/session-5264-1794188618756807209-0.json: OK
+/out/verified-arm64/interactive/it/icons/sessions/session-5264-1794188618756807209-0.lock: OK
+/out/verified-arm64/interactive/it/icons/- réseau de classe.sinesi: OK
+/out/verified-arm64/interactive/pt/diagram/settings.json: OK
+/out/verified-arm64/interactive/pt/diagram/sessions/.allocation.lock: OK
+/out/verified-arm64/interactive/pt/diagram/sessions/session-5846-1794188670507313427-0.json: OK
+/out/verified-arm64/interactive/pt/diagram/sessions/session-5846-1794188670507313427-0.lock: OK
+/out/verified-arm64/interactive/pt/diagram/- réseau de classe.sinesi: OK
+/out/verified-arm64/interactive/pt/icons/settings.json: OK
+/out/verified-arm64/interactive/pt/icons/sessions/.allocation.lock: OK
+/out/verified-arm64/interactive/pt/icons/sessions/session-5652-1794188653735949294-0.lock: OK
+/out/verified-arm64/interactive/pt/icons/sessions/session-5652-1794188653735949294-0.json: OK
+/out/verified-arm64/interactive/pt/icons/- réseau de classe.sinesi: OK
+/out/verified-arm64/interactive/de/diagram/settings.json: OK
+/out/verified-arm64/interactive/de/diagram/sessions/.allocation.lock: OK
+/out/verified-arm64/interactive/de/diagram/sessions/session-6236-1794188703997453054-0.json: OK
+/out/verified-arm64/interactive/de/diagram/sessions/session-6236-1794188703997453054-0.lock: OK
+/out/verified-arm64/interactive/de/diagram/- réseau de classe.sinesi: OK
+/out/verified-arm64/interactive/de/icons/settings.json: OK
+/out/verified-arm64/interactive/de/icons/sessions/session-6041-1794188687082351921-0.lock: OK
+/out/verified-arm64/interactive/de/icons/sessions/.allocation.lock: OK
+/out/verified-arm64/interactive/de/icons/sessions/session-6041-1794188687082351921-0.json: OK
+/out/verified-arm64/interactive/de/icons/- réseau de classe.sinesi: OK
+/out/verified-arm64/interactive/fr/diagram/settings.json: OK
+/out/verified-arm64/interactive/fr/diagram/sessions/.allocation.lock: OK
+/out/verified-arm64/interactive/fr/diagram/sessions/session-4288-1794188533709300378-0.lock: OK
+/out/verified-arm64/interactive/fr/diagram/sessions/session-4288-1794188533709300378-0.json: OK
+/out/verified-arm64/interactive/fr/diagram/- réseau de classe.sinesi: OK
+/out/verified-arm64/interactive/fr/icons/settings.json: OK
+/out/verified-arm64/interactive/fr/icons/sessions/session-4093-1794188516805063217-0.json: OK
+/out/verified-arm64/interactive/fr/icons/sessions/.allocation.lock: OK
+/out/verified-arm64/interactive/fr/icons/sessions/session-4093-1794188516805063217-0.lock: OK
+/out/verified-arm64/interactive/fr/icons/- réseau de classe.sinesi: OK
+/out/verified-arm64/interactive/es/diagram/settings.json: OK
+/out/verified-arm64/interactive/es/diagram/sessions/session-5069-1794188601777040798-0.json: OK
+/out/verified-arm64/interactive/es/diagram/sessions/.allocation.lock: OK
+/out/verified-arm64/interactive/es/diagram/sessions/session-5069-1794188601777040798-0.lock: OK
+/out/verified-arm64/interactive/es/diagram/- réseau de classe.sinesi: OK
+/out/verified-arm64/interactive/es/icons/settings.json: OK
+/out/verified-arm64/interactive/es/icons/sessions/.allocation.lock: OK
+/out/verified-arm64/interactive/es/icons/sessions/session-4873-1794188584652521763-0.lock: OK
+/out/verified-arm64/interactive/es/icons/sessions/session-4873-1794188584652521763-0.json: OK
+/out/verified-arm64/interactive/es/icons/- réseau de classe.sinesi: OK
+/out/verified-arm64/interactive/en/diagram/settings.json: OK
+/out/verified-arm64/interactive/en/diagram/sessions/session-4678-1794188567511329713-0.lock: OK
+/out/verified-arm64/interactive/en/diagram/sessions/.allocation.lock: OK
+/out/verified-arm64/interactive/en/diagram/sessions/session-4678-1794188567511329713-0.json: OK
+/out/verified-arm64/interactive/en/diagram/- réseau de classe.sinesi: OK
+/out/verified-arm64/interactive/en/icons/settings.json: OK
+/out/verified-arm64/interactive/en/icons/sessions/.allocation.lock: OK
+/out/verified-arm64/interactive/en/icons/sessions/session-4482-1794188550439581302-0.json: OK
+/out/verified-arm64/interactive/en/icons/sessions/session-4482-1794188550439581302-0.lock: OK
+/out/verified-arm64/interactive/en/icons/- réseau de classe.sinesi: OK

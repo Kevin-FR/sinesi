@@ -1,0 +1,293 @@
+{
+  "mission_version": 1,
+  "id": "forgotten-cable",
+  "chapter": 1,
+  "order": 1,
+  "title": {
+    "fr": "Le câble oublié",
+    "en": "The forgotten cable",
+    "es": "El cable olvidado",
+    "it": "Il cavo dimenticato",
+    "pt": "O cabo esquecido",
+    "de": "Das vergessene Kabel"
+  },
+  "brief": {
+    "fr": "Poste C ne répond plus du tout. Trouve pourquoi, répare le réseau, puis vérifie avec un ping depuis Poste A.",
+    "en": "Poste C no longer answers at all. Find out why, repair the network, then check with a ping from Poste A.",
+    "es": "Poste C ya no responde. Descubre por qué, repara la red y compruébalo con un ping desde Poste A.",
+    "it": "Poste C non risponde più. Scopri perché, ripara la rete e verifica con un ping da Poste A.",
+    "pt": "O Poste C já não responde. Descobre porquê, repara a rede e verifica com um ping a partir do Poste A.",
+    "de": "Poste C antwortet gar nicht mehr. Finde den Grund, repariere das Netz und prüfe es mit einem Ping von Poste A."
+  },
+  "project": {
+    "schema_version": 2,
+    "semantic_profile": "sns-educational-lan-v1",
+    "project_id": "project-lan",
+    "name": "Trois hôtes Ethernet",
+    "devices": [
+      {
+        "id": "host-a",
+        "kind": "workstation",
+        "label": "Poste A",
+        "interfaces": [
+          {
+            "id": "host-a-p0",
+            "mac": "02:00:00:00:00:01",
+            "medium": "ethernet",
+            "ipv4": {
+              "mode": "static",
+              "address": "192.168.1.2",
+              "prefix_length": 24
+            }
+          }
+        ],
+        "network": {
+          "default_gateway": null,
+          "dns_server": null
+        },
+        "applications": [],
+        "files": []
+      },
+      {
+        "id": "host-b",
+        "kind": "notebook",
+        "label": "Portable B",
+        "interfaces": [
+          {
+            "id": "host-b-p0",
+            "mac": "02:00:00:00:01:01",
+            "medium": "ethernet",
+            "ipv4": {
+              "mode": "static",
+              "address": "192.168.1.3",
+              "prefix_length": 24
+            }
+          }
+        ],
+        "network": {
+          "default_gateway": null,
+          "dns_server": null
+        },
+        "applications": [],
+        "files": []
+      },
+      {
+        "id": "host-c",
+        "kind": "workstation",
+        "label": "Poste C",
+        "interfaces": [
+          {
+            "id": "host-c-p0",
+            "mac": "02:00:00:00:02:01",
+            "medium": "ethernet",
+            "ipv4": {
+              "mode": "static",
+              "address": "192.168.1.4",
+              "prefix_length": 24
+            }
+          }
+        ],
+        "network": {
+          "default_gateway": null,
+          "dns_server": null
+        },
+        "applications": [],
+        "files": []
+      },
+      {
+        "id": "switch",
+        "kind": "switch",
+        "label": "Commutateur",
+        "interfaces": [
+          {
+            "id": "switch-p0",
+            "mac": "02:00:00:00:03:01",
+            "medium": "ethernet",
+            "ipv4": null
+          },
+          {
+            "id": "switch-p1",
+            "mac": "02:00:00:00:03:02",
+            "medium": "ethernet",
+            "ipv4": null
+          },
+          {
+            "id": "switch-p2",
+            "mac": "02:00:00:00:03:03",
+            "medium": "ethernet",
+            "ipv4": null
+          },
+          {
+            "id": "switch-p3",
+            "mac": "02:00:00:00:03:04",
+            "medium": "ethernet",
+            "ipv4": null
+          },
+          {
+            "id": "switch-p4",
+            "mac": "02:00:00:00:03:05",
+            "medium": "ethernet",
+            "ipv4": null
+          },
+          {
+            "id": "switch-p5",
+            "mac": "02:00:00:00:03:06",
+            "medium": "ethernet",
+            "ipv4": null
+          },
+          {
+            "id": "switch-p6",
+            "mac": "02:00:00:00:03:07",
+            "medium": "ethernet",
+            "ipv4": null
+          },
+          {
+            "id": "switch-p7",
+            "mac": "02:00:00:00:03:08",
+            "medium": "ethernet",
+            "ipv4": null
+          }
+        ],
+        "network": {
+          "default_gateway": null,
+          "dns_server": null
+        },
+        "applications": [],
+        "files": []
+      }
+    ],
+    "links": [
+      {
+        "id": "cable-host-a",
+        "endpoints": [
+          "host-a-p0",
+          "switch-p0"
+        ],
+        "latency_us": "1000",
+        "jitter_us": "0"
+      },
+      {
+        "id": "cable-host-b",
+        "endpoints": [
+          "host-b-p0",
+          "switch-p1"
+        ],
+        "latency_us": "1000",
+        "jitter_us": "0"
+      }
+    ],
+    "layout": {
+      "devices": [
+        {
+          "device_id": "host-a",
+          "x": 120,
+          "y": 100
+        },
+        {
+          "device_id": "host-b",
+          "x": 420,
+          "y": 100
+        },
+        {
+          "device_id": "host-c",
+          "x": 420,
+          "y": 320
+        },
+        {
+          "device_id": "switch",
+          "x": 230,
+          "y": 220
+        }
+      ]
+    },
+    "annotations": [],
+    "resources": [],
+    "extensions": [],
+    "lan": {
+      "host-a": {
+        "display": "name",
+        "sat_retention_us": "300000000"
+      },
+      "host-b": {
+        "display": "name",
+        "sat_retention_us": "300000000"
+      },
+      "host-c": {
+        "display": "name",
+        "sat_retention_us": "300000000"
+      },
+      "switch": {
+        "display": "name",
+        "sat_retention_us": "300000000"
+      }
+    }
+  },
+  "objectives": [
+    {
+      "id": "plug",
+      "text": {
+        "fr": "Relie Poste C au commutateur",
+        "en": "Connect Poste C to the switch",
+        "es": "Conecta Poste C al conmutador",
+        "it": "Collega Poste C allo switch",
+        "pt": "Liga o Poste C ao comutador",
+        "de": "Verbinde Poste C mit dem Switch"
+      },
+      "explain": {
+        "fr": "Poste C n’a aucun câble : aucun paquet ne peut lui parvenir.",
+        "en": "Poste C has no cable: no packet can reach it.",
+        "es": "Poste C no tiene cable: ningún paquete puede llegarle.",
+        "it": "Poste C non ha cavi: nessun pacchetto può raggiungerlo.",
+        "pt": "O Poste C não tem cabo: nenhum pacote lhe pode chegar.",
+        "de": "Poste C hat kein Kabel: Kein Paket kann es erreichen."
+      },
+      "check": {
+        "kind": "connected",
+        "a": "host-c",
+        "b": "switch"
+      }
+    },
+    {
+      "id": "ping",
+      "text": {
+        "fr": "Réussis un ping de Poste A vers Poste C (192.168.1.4)",
+        "en": "Ping Poste C (192.168.1.4) from Poste A successfully",
+        "es": "Haz un ping con éxito de Poste A a Poste C (192.168.1.4)",
+        "it": "Esegui con successo un ping da Poste A a Poste C (192.168.1.4)",
+        "pt": "Faz um ping com sucesso do Poste A para o Poste C (192.168.1.4)",
+        "de": "Pinge Poste C (192.168.1.4) erfolgreich von Poste A aus"
+      },
+      "explain": {
+        "fr": "Aucune réponse de 192.168.1.4 n’est encore arrivée sur Poste A : passe en Tester et lance le ping.",
+        "en": "No reply from 192.168.1.4 has reached Poste A yet: switch to Test and send the ping.",
+        "es": "Aún no ha llegado ninguna respuesta de 192.168.1.4 a Poste A: pasa a Probar y lanza el ping.",
+        "it": "Nessuna risposta da 192.168.1.4 è ancora arrivata a Poste A: passa a Prova e invia il ping.",
+        "pt": "Ainda não chegou nenhuma resposta de 192.168.1.4 ao Poste A: passa para Testar e envia o ping.",
+        "de": "Bei Poste A ist noch keine Antwort von 192.168.1.4 angekommen: Wechsle zu Testen und sende den Ping."
+      },
+      "check": {
+        "kind": "echo_reply",
+        "device": "host-a",
+        "from": "192.168.1.4"
+      }
+    }
+  ],
+  "hints": [
+    {
+      "fr": "Regarde les câbles : chaque poste doit être relié au commutateur.",
+      "en": "Look at the cables: each computer must be connected to the switch.",
+      "es": "Mira los cables: cada equipo debe estar conectado al conmutador.",
+      "it": "Guarda i cavi: ogni computer deve essere collegato allo switch.",
+      "pt": "Olha para os cabos: cada computador deve estar ligado ao comutador.",
+      "de": "Sieh dir die Kabel an: Jeder Rechner muss mit dem Switch verbunden sein."
+    },
+    {
+      "fr": "Dans Construire, active l’outil Câble puis clique sur Poste C et sur le commutateur.",
+      "en": "In Build, turn on the Cable tool, then click Poste C and the switch.",
+      "es": "En Construir, activa la herramienta de cable y haz clic en Poste C y en el conmutador.",
+      "it": "In Costruisci, attiva lo strumento cavo e fai clic su Poste C e sullo switch.",
+      "pt": "Em Construir, ativa a ferramenta de cabo e clica no Poste C e no comutador.",
+      "de": "Aktiviere in Bauen das Kabelwerkzeug und klicke auf Poste C und den Switch."
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+name: Sinesi packages
+on:
+  workflow_dispatch:
+    inputs:
+      macos_association:
+        description: Run the macOS LaunchServices window check in a graphical session
+        type: boolean
+        default: false
+      macos_keyboard:
+        description: Run the macOS keyboard check in a graphical session with Accessibility permission
+        type: boolean
+        default: false
+      windows_keyboard:
+        description: Run the Windows UI Automation keyboard check in an interactive test session
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  linux:
+    runs-on: ubuntu-24.04
+    container: rust:1.95-bookworm
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Native build and qualification dependencies
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends python3 python3-pyatspi libglib2.0-bin \
+            dbus-x11 xvfb xauth openbox xdotool mesa-vulkan-drivers \
+            pkg-config libxkbcommon-dev libwayland-dev libx11-dev libxi-dev libxcursor-dev libxrandr-dev
+      - run: cargo fetch --locked
+      - run: cargo build --release --locked --offline -p sns-desktop -p sns-cli
+      - run: cargo test --release -p sns-ui-egui --test lan enlarged_keyboard_only_project_roundtrip --locked --offline
+      - run: python3 packaging/build.py --output artifacts/packages
+      - run: sh packaging/smoke-deb.sh artifacts/packages/sinesi_*_amd64.deb artifacts/package-exercise
+      - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: Sinesi-linux-amd64
+          path: artifacts/packages/
+          if-no-files-found: error
+  macos:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - run: cargo fetch --locked
+      - run: cargo build --release --locked --offline -p sns-desktop -p sns-cli
+      - run: cargo test --release -p sns-ui-egui --test lan enlarged_keyboard_only_project_roundtrip --locked --offline
+      - run: python3 packaging/build.py --output artifacts/packages
+      - name: Verify the macOS bundle and preserve the project on removal
+        env:
+          SINESI_MACOS_ASSOCIATION: ${{ inputs.macos_association }}
+          SINESI_MACOS_KEYBOARD: ${{ inputs.macos_keyboard }}
+        run: |
+          set --
+          if [ "$SINESI_MACOS_KEYBOARD" = true ]; then
+            set -- --keyboard
+          elif [ "$SINESI_MACOS_ASSOCIATION" = true ]; then
+            set -- --association
+          fi
+          sh packaging/smoke-macos.sh artifacts/packages/Sinesi-*-macos-*.zip artifacts/package-exercise "$@"
+      - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: Sinesi-macos-arm64
+          path: artifacts/packages/
+          if-no-files-found: error
+  windows:
+    runs-on: windows-2025
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Install the pinned Inno Setup compiler
+        run: |
+          $installer = Join-Path $env:RUNNER_TEMP 'innosetup-6.7.4.exe'
+          $compilerDir = Join-Path $env:RUNNER_TEMP 'sinesi-inno-6.7.4'
+          $url = 'https://github.com/jrsoftware/issrc/releases/download/is-6_7_4/innosetup-6.7.4.exe'
+          Invoke-WebRequest -Uri $url -OutFile $installer
+          $expected = 'a549929319f9120716677c685535ca4671e4b937b5fdc87e2585f32d8eb30e8c'
+          if ((Get-FileHash -Algorithm SHA256 -LiteralPath $installer).Hash -ne $expected) {
+            throw 'Inno Setup installer SHA-256 mismatch'
+          }
+          $arguments = '/VERYSILENT', '/SUPPRESSMSGBOXES', '/NORESTART', ('/DIR="{0}"' -f $compilerDir)
+          $process = Start-Process -FilePath $installer -ArgumentList $arguments -Wait -PassThru
+          if ($process.ExitCode -ne 0) { throw "Inno Setup installation failed ($($process.ExitCode))" }
+          if (-not (Test-Path -LiteralPath (Join-Path $compilerDir 'ISCC.exe'))) {
+            throw 'Pinned Inno Setup compiler is missing'
+          }
+          Add-Content -LiteralPath $env:GITHUB_PATH -Value $compilerDir -Encoding utf8
+      - run: cargo fetch --locked
+      - run: cargo build --release --locked --offline -p sns-desktop -p sns-cli
+      - run: cargo test --release -p sns-ui-egui --test lan enlarged_keyboard_only_project_roundtrip --locked --offline
+      - run: python packaging/build.py --output artifacts/packages
+      - name: Verify installation, association and removal
+        shell: powershell
+        env:
+          SINESI_WINDOWS_KEYBOARD: ${{ inputs.windows_keyboard }}
+        run: |
+          $package = (Get-ChildItem artifacts/packages/Sinesi-*-windows-x64.exe).FullName
+          $keyboard = $env:SINESI_WINDOWS_KEYBOARD -eq 'true'
+          ./packaging/smoke-windows.ps1 -Package $package -WorkDirectory artifacts/package-smoke -Keyboard:$keyboard
+      - uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: Sinesi-windows-x64
+          path: artifacts/packages/
+          if-no-files-found: error

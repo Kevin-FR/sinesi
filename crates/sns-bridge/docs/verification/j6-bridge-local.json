@@ -1,0 +1,478 @@
+[
+  {
+    "event_schema_version": 8,
+    "run_id": "run-42-0",
+    "event_id": "evt-1",
+    "time_us": "0",
+    "sequence": "1",
+    "type": "bridge.connected",
+    "device_id": "modem",
+    "caused_by": null,
+    "correlation_id": "bridge-adapter-2",
+    "payload": {
+      "session": "bridge-session-1"
+    }
+  },
+  {
+    "event_schema_version": 2,
+    "run_id": "run-42-0",
+    "event_id": "evt-2",
+    "time_us": "0",
+    "sequence": "2",
+    "type": "icmp.echo.requested",
+    "device_id": "host-a",
+    "caused_by": null,
+    "correlation_id": "ping-over-real-tunnel",
+    "payload": {
+      "destination": "192.168.1.3",
+      "icmp_type": 8,
+      "sequence": 1,
+      "ttl": 64
+    }
+  },
+  {
+    "event_schema_version": 2,
+    "run_id": "run-42-0",
+    "event_id": "evt-3",
+    "time_us": "0",
+    "sequence": "3",
+    "type": "ipv4.route.selected",
+    "device_id": "host-a",
+    "caused_by": "evt-2",
+    "correlation_id": "ping-over-real-tunnel",
+    "payload": {
+      "destination": "192.168.1.3",
+      "interface": "host-a-p0",
+      "next_hop": "192.168.1.3"
+    }
+  },
+  {
+    "event_schema_version": 2,
+    "run_id": "run-42-0",
+    "event_id": "evt-4",
+    "time_us": "0",
+    "sequence": "4",
+    "type": "arp.request",
+    "device_id": "host-a",
+    "caused_by": "evt-3",
+    "correlation_id": "ping-over-real-tunnel",
+    "payload": {
+      "interface": "host-a-p0",
+      "target_ip": "192.168.1.3"
+    }
+  },
+  {
+    "event_schema_version": 2,
+    "run_id": "run-42-0",
+    "event_id": "evt-5",
+    "time_us": "0",
+    "sequence": "5",
+    "type": "ethernet.sent",
+    "device_id": "host-a",
+    "caused_by": "evt-4",
+    "correlation_id": "ping-over-real-tunnel",
+    "payload": {
+      "frame": {
+        "destination_mac": "ff:ff:ff:ff:ff:ff",
+        "ether_type": 2054,
+        "frame_id": "2",
+        "payload": {
+          "operation": 1,
+          "protocol": "arp",
+          "sender_ip": "192.168.1.2",
+          "sender_mac": "02:00:00:00:00:01",
+          "target_ip": "192.168.1.3",
+          "target_mac": "00:00:00:00:00:00"
+        },
+        "source_mac": "02:00:00:00:00:01"
+      },
+      "interface": "host-a-p0"
+    }
+  },
+  {
+    "event_schema_version": 2,
+    "run_id": "run-42-0",
+    "event_id": "evt-6",
+    "time_us": "1000",
+    "sequence": "6",
+    "type": "ethernet.received",
+    "device_id": "modem",
+    "caused_by": "evt-5",
+    "correlation_id": "ping-over-real-tunnel",
+    "payload": {
+      "frame": {
+        "destination_mac": "ff:ff:ff:ff:ff:ff",
+        "ether_type": 2054,
+        "frame_id": "2",
+        "payload": {
+          "operation": 1,
+          "protocol": "arp",
+          "sender_ip": "192.168.1.2",
+          "sender_mac": "02:00:00:00:00:01",
+          "target_ip": "192.168.1.3",
+          "target_mac": "00:00:00:00:00:00"
+        },
+        "source_mac": "02:00:00:00:00:01"
+      },
+      "interface": "modem-port",
+      "link": "modem-cable"
+    }
+  },
+  {
+    "event_schema_version": 8,
+    "run_id": "run-42-0",
+    "event_id": "evt-7",
+    "time_us": "1000",
+    "sequence": "7",
+    "type": "bridge.frame.queued",
+    "device_id": "modem",
+    "caused_by": "evt-6",
+    "correlation_id": "ping-over-real-tunnel",
+    "payload": {
+      "sequence": "1"
+    }
+  },
+  {
+    "event_schema_version": 8,
+    "run_id": "run-42-0",
+    "event_id": "evt-8",
+    "time_us": "1000",
+    "sequence": "8",
+    "type": "bridge.input",
+    "device_id": "modem",
+    "caused_by": null,
+    "correlation_id": "bridge-adapter-3",
+    "payload": {
+      "packet": {
+        "budget": 64,
+        "frame": {
+          "destination_mac": "02:00:00:00:00:01",
+          "ether_type": 2054,
+          "frame_id": "2",
+          "payload": {
+            "operation": 2,
+            "protocol": "arp",
+            "sender_ip": "192.168.1.3",
+            "sender_mac": "02:00:00:01:00:01",
+            "target_ip": "192.168.1.2",
+            "target_mac": "02:00:00:00:00:01"
+          },
+          "source_mac": "02:00:00:01:00:01"
+        },
+        "sequence": "1",
+        "version": 1
+      },
+      "session": "bridge-session-1"
+    }
+  },
+  {
+    "event_schema_version": 2,
+    "run_id": "run-42-0",
+    "event_id": "evt-9",
+    "time_us": "1000",
+    "sequence": "9",
+    "type": "ethernet.sent",
+    "device_id": "modem",
+    "caused_by": "evt-8",
+    "correlation_id": "bridge-adapter-3",
+    "payload": {
+      "frame": {
+        "destination_mac": "02:00:00:00:00:01",
+        "ether_type": 2054,
+        "frame_id": "3",
+        "payload": {
+          "operation": 2,
+          "protocol": "arp",
+          "sender_ip": "192.168.1.3",
+          "sender_mac": "02:00:00:01:00:01",
+          "target_ip": "192.168.1.2",
+          "target_mac": "02:00:00:00:00:01"
+        },
+        "source_mac": "02:00:00:01:00:01"
+      },
+      "interface": "modem-port"
+    }
+  },
+  {
+    "event_schema_version": 2,
+    "run_id": "run-42-0",
+    "event_id": "evt-10",
+    "time_us": "2000",
+    "sequence": "10",
+    "type": "ethernet.received",
+    "device_id": "host-a",
+    "caused_by": "evt-9",
+    "correlation_id": "bridge-adapter-3",
+    "payload": {
+      "frame": {
+        "destination_mac": "02:00:00:00:00:01",
+        "ether_type": 2054,
+        "frame_id": "3",
+        "payload": {
+          "operation": 2,
+          "protocol": "arp",
+          "sender_ip": "192.168.1.3",
+          "sender_mac": "02:00:00:01:00:01",
+          "target_ip": "192.168.1.2",
+          "target_mac": "02:00:00:00:00:01"
+        },
+        "source_mac": "02:00:00:01:00:01"
+      },
+      "interface": "host-a-p0",
+      "link": "modem-cable"
+    }
+  },
+  {
+    "event_schema_version": 2,
+    "run_id": "run-42-0",
+    "event_id": "evt-11",
+    "time_us": "2000",
+    "sequence": "11",
+    "type": "arp.cache.learned",
+    "device_id": "host-a",
+    "caused_by": "evt-10",
+    "correlation_id": "bridge-adapter-3",
+    "payload": {
+      "address": "192.168.1.3",
+      "expires_us": "60002000",
+      "interface": "host-a-p0",
+      "mac": "02:00:00:01:00:01"
+    }
+  },
+  {
+    "event_schema_version": 2,
+    "run_id": "run-42-0",
+    "event_id": "evt-12",
+    "time_us": "2000",
+    "sequence": "12",
+    "type": "ethernet.sent",
+    "device_id": "host-a",
+    "caused_by": "evt-11",
+    "correlation_id": "ping-over-real-tunnel",
+    "payload": {
+      "frame": {
+        "destination_mac": "02:00:00:01:00:01",
+        "ether_type": 2048,
+        "frame_id": "4",
+        "payload": {
+          "destination": "192.168.1.3",
+          "icmp": {
+            "code": 0,
+            "identifier": "ping-over-real-tunnel",
+            "message_type": 8,
+            "sequence": 1
+          },
+          "protocol": "ipv4",
+          "source": "192.168.1.2",
+          "ttl": 64
+        },
+        "source_mac": "02:00:00:00:00:01"
+      },
+      "interface": "host-a-p0"
+    }
+  },
+  {
+    "event_schema_version": 2,
+    "run_id": "run-42-0",
+    "event_id": "evt-13",
+    "time_us": "3000",
+    "sequence": "13",
+    "type": "ethernet.received",
+    "device_id": "modem",
+    "caused_by": "evt-12",
+    "correlation_id": "ping-over-real-tunnel",
+    "payload": {
+      "frame": {
+        "destination_mac": "02:00:00:01:00:01",
+        "ether_type": 2048,
+        "frame_id": "4",
+        "payload": {
+          "destination": "192.168.1.3",
+          "icmp": {
+            "code": 0,
+            "identifier": "ping-over-real-tunnel",
+            "message_type": 8,
+            "sequence": 1
+          },
+          "protocol": "ipv4",
+          "source": "192.168.1.2",
+          "ttl": 64
+        },
+        "source_mac": "02:00:00:00:00:01"
+      },
+      "interface": "modem-port",
+      "link": "modem-cable"
+    }
+  },
+  {
+    "event_schema_version": 8,
+    "run_id": "run-42-0",
+    "event_id": "evt-14",
+    "time_us": "3000",
+    "sequence": "14",
+    "type": "bridge.frame.queued",
+    "device_id": "modem",
+    "caused_by": "evt-13",
+    "correlation_id": "ping-over-real-tunnel",
+    "payload": {
+      "sequence": "2"
+    }
+  },
+  {
+    "event_schema_version": 8,
+    "run_id": "run-42-0",
+    "event_id": "evt-15",
+    "time_us": "3000",
+    "sequence": "15",
+    "type": "bridge.input",
+    "device_id": "modem",
+    "caused_by": null,
+    "correlation_id": "bridge-adapter-4",
+    "payload": {
+      "packet": {
+        "budget": 64,
+        "frame": {
+          "destination_mac": "02:00:00:00:00:01",
+          "ether_type": 2048,
+          "frame_id": "4",
+          "payload": {
+            "destination": "192.168.1.2",
+            "icmp": {
+              "code": 0,
+              "identifier": "ping-over-real-tunnel",
+              "message_type": 0,
+              "sequence": 1
+            },
+            "protocol": "ipv4",
+            "source": "192.168.1.3",
+            "ttl": 64
+          },
+          "source_mac": "02:00:00:01:00:01"
+        },
+        "sequence": "2",
+        "version": 1
+      },
+      "session": "bridge-session-1"
+    }
+  },
+  {
+    "event_schema_version": 2,
+    "run_id": "run-42-0",
+    "event_id": "evt-16",
+    "time_us": "3000",
+    "sequence": "16",
+    "type": "ethernet.sent",
+    "device_id": "modem",
+    "caused_by": "evt-15",
+    "correlation_id": "bridge-adapter-4",
+    "payload": {
+      "frame": {
+        "destination_mac": "02:00:00:00:00:01",
+        "ether_type": 2048,
+        "frame_id": "5",
+        "payload": {
+          "destination": "192.168.1.2",
+          "icmp": {
+            "code": 0,
+            "identifier": "ping-over-real-tunnel",
+            "message_type": 0,
+            "sequence": 1
+          },
+          "protocol": "ipv4",
+          "source": "192.168.1.3",
+          "ttl": 64
+        },
+        "source_mac": "02:00:00:01:00:01"
+      },
+      "interface": "modem-port"
+    }
+  },
+  {
+    "event_schema_version": 2,
+    "run_id": "run-42-0",
+    "event_id": "evt-17",
+    "time_us": "4000",
+    "sequence": "17",
+    "type": "ethernet.received",
+    "device_id": "host-a",
+    "caused_by": "evt-16",
+    "correlation_id": "bridge-adapter-4",
+    "payload": {
+      "frame": {
+        "destination_mac": "02:00:00:00:00:01",
+        "ether_type": 2048,
+        "frame_id": "5",
+        "payload": {
+          "destination": "192.168.1.2",
+          "icmp": {
+            "code": 0,
+            "identifier": "ping-over-real-tunnel",
+            "message_type": 0,
+            "sequence": 1
+          },
+          "protocol": "ipv4",
+          "source": "192.168.1.3",
+          "ttl": 64
+        },
+        "source_mac": "02:00:00:01:00:01"
+      },
+      "interface": "host-a-p0",
+      "link": "modem-cable"
+    }
+  },
+  {
+    "event_schema_version": 2,
+    "run_id": "run-42-0",
+    "event_id": "evt-18",
+    "time_us": "4000",
+    "sequence": "18",
+    "type": "ipv4.delivered",
+    "device_id": "host-a",
+    "caused_by": "evt-17",
+    "correlation_id": "bridge-adapter-4",
+    "payload": {
+      "destination": "192.168.1.2",
+      "icmp": {
+        "code": 0,
+        "identifier": "ping-over-real-tunnel",
+        "message_type": 0,
+        "sequence": 1
+      },
+      "source": "192.168.1.3",
+      "ttl": 64
+    }
+  },
+  {
+    "event_schema_version": 2,
+    "run_id": "run-42-0",
+    "event_id": "evt-19",
+    "time_us": "4000",
+    "sequence": "19",
+    "type": "icmp.echo.reply",
+    "device_id": "host-a",
+    "caused_by": "evt-18",
+    "correlation_id": "bridge-adapter-4",
+    "payload": {
+      "icmp_type": 0,
+      "probe": "ping-over-real-tunnel",
+      "rtt_us": "4000",
+      "sequence": 1,
+      "source": "192.168.1.3"
+    }
+  },
+  {
+    "event_schema_version": 8,
+    "run_id": "run-42-0",
+    "event_id": "evt-20",
+    "time_us": "4000",
+    "sequence": "20",
+    "type": "bridge.disconnected",
+    "device_id": "modem",
+    "caused_by": null,
+    "correlation_id": "bridge-adapter-5",
+    "payload": {
+      "reason": "bridge.disconnected",
+      "session": "bridge-session-1"
+    }
+  }
+]

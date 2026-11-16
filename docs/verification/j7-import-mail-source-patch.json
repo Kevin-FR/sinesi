@@ -1,0 +1,13 @@
+{
+  "format_version": 1,
+  "base_reconstruction": "docs/verification/j7-delivery-source-patch.json",
+  "base_revision": "73cbbc5b0f1c27f2a9784a22c5dc6e24b8f32b58c32c5ae32a56e81df68feee6",
+  "patch_archive": "docs/verification/j7-import-mail-source-patch.tar.gz",
+  "patch_sha256": "d709c88a86de13f0b9e405abdaa2c51c9e111084b70286f1b752428fb89e4eb2",
+  "patch_bytes": 230963,
+  "patch_files": 21,
+  "deleted_paths": [],
+  "source_revision": "af10453f80c2612c29d686ee9dfd729e040155f9cb8a35b09d5860fa6d6d0df6",
+  "overlay_verified": true,
+  "reconstruction": "Reconstruct j7-delivery using its metadata, verify its code manifest, then overlay this patch and apply deleted_paths. Run scripts/check_manifest.py check with the j7-import-mail manifest."
+}

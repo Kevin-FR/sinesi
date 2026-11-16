@@ -98,5 +98,9 @@
   "ADV": {
     "title": "Évolutions hors parité",
     "component": "future"
+  },
+  "UX": {
+    "title": "Expérience élève",
+    "component": "presentation"
   }
 }

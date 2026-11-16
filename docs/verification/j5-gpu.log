@@ -1,0 +1,47 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.14s
+     Running tests/lan.rs (target/debug/deps/lan-7a0086440fc33ab6)
+
+running 29 tests
+test inspector_rename_preserves_ids_and_shortcuts_respect_text_entry ... ok
+test documentation_and_unsaved_replacement_preserve_project_until_decision ... ok
+test failed_file_save_preserves_draft_and_close_requires_explicit_discard ... ok
+test palette_delete_and_undo_drive_transactional_editor ... ok
+test explorer_copy_move_delete_and_host_switch_use_isolated_documents ... ok
+test keyboard_equipment_ping_pause_step_and_modes_preserve_project ... ok
+test j5_home_router_roles_views_and_six_languages_are_preserved ... ok
+test preferred_language_survives_new_ui_instance_and_new_documents_use_it ... ok
+test palette_drag_drop_and_rectangle_group_move_keep_cables_attached ... ok
+test keyboard_connects_two_hosts_and_inspects_real_echo ... ok
+test j3_router_palette_and_pedagogical_views_are_localized_without_changing_topology ... ok
+test j3_terminal_traceroute_is_usable_in_each_language ... ok
+test six_language_desktops_terminal_history_and_persistent_document ... ok
+test six_languages_change_visible_controls_without_modifying_project ... ok
+test static_route_inspector_creates_edits_and_removes_a_persistent_route ... ok
+test tcp_windows_use_actual_transport_and_close_view_keeps_server_active ... ok
+test traffic_filters_export_and_clear_preserve_immutable_trace ... ok
+test virtual_editor_saves_and_image_viewer_preserves_binary_in_six_languages ... ok
+test rendered_lan_editor_reference ... ok
+test rendered_classroom_uses_the_supplied_school_symbols ... ok
+test rendered_private_topology_preserves_icons_and_diagram ... ok
+test rendered_desktop_and_terminal_six_languages ... ok
+test rendered_six_languages_reference ... ok
+test j5_nat_table_updates_and_purges_without_reopening_the_panel ... ok
+test rendered_j3_icons_diagram_and_rip_routing_table ... ok
+test j5_firewall_native_window_edits_adds_and_deletes_rules_in_all_languages ... ok
+test j4_dhcp_controls_and_service_panels_preserve_six_languages_and_views ... ok
+test j4_browser_ui_generates_http_for_page_link_image_and_form ... ok
+test j5_web_administration_changes_the_same_model_and_localizes_six_languages ... ok
+
+test result: ok. 29 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 2.58s
+
+     Running tests/workbench.rs (target/debug/deps/workbench-99118f6774742a6b)
+
+running 5 tests
+test canvas_has_a_keyboard_reachable_equipment_selection ... ok
+test controls_drive_the_real_engine_and_restart_clears_state ... ok
+test native_browser_gets_page_image_link_and_post_via_engine ... ok
+test large_trace_uses_the_virtualized_table ... ok
+test rendered_workbench_reference ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.02s
+

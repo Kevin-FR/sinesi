@@ -1,0 +1,9 @@
+{
+  "date": "2026-11-07",
+  "system": "ProductName:\t\tmacOS\nProductVersion:\t\t27.2\nBuildVersion:\t\t26B123\n",
+  "architecture": "arm64",
+  "rustc": "rustc 1.95.0 (59807616e 2026-04-14)\nbinary: rustc\ncommit-hash: 59807616e1fa2540724bfbac14d7976d7e4a3860\ncommit-date: 2026-04-14\nhost: aarch64-apple-darwin\nrelease: 1.95.0\nLLVM version: 22.1.2\n",
+  "cargo": "cargo 1.95.0 (f2d3ce0bd 2026-03-21)\n",
+  "base_commit": "f5852fa92d737e1668d51a142cfef0196169f63f",
+  "scope": "macOS local; remote CI and native Windows/Linux not executed"
+}

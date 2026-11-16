@@ -1,0 +1,452 @@
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package libwayland-bin.
+
+(Reading database ... 
+(Reading database ... 5%
+(Reading database ... 10%
+(Reading database ... 15%
+(Reading database ... 20%
+(Reading database ... 25%
+(Reading database ... 30%
+(Reading database ... 35%
+(Reading database ... 40%
+(Reading database ... 45%
+(Reading database ... 50%
+(Reading database ... 55%
+(Reading database ... 60%
+(Reading database ... 65%
+(Reading database ... 70%
+(Reading database ... 75%
+(Reading database ... 80%
+(Reading database ... 85%
+(Reading database ... 90%
+(Reading database ... 95%
+(Reading database ... 100%
+(Reading database ... 23279 files and directories currently installed.)
+
+Preparing to unpack .../00-libwayland-bin_1.21.0-1_arm64.deb ...
+
+Unpacking libwayland-bin (1.21.0-1) ...
+
+Selecting previously unselected package libwayland-client0:arm64.
+
+Preparing to unpack .../01-libwayland-client0_1.21.0-1_arm64.deb ...
+
+Unpacking libwayland-client0:arm64 (1.21.0-1) ...
+
+Selecting previously unselected package libwayland-cursor0:arm64.
+
+Preparing to unpack .../02-libwayland-cursor0_1.21.0-1_arm64.deb ...
+
+Unpacking libwayland-cursor0:arm64 (1.21.0-1) ...
+
+Selecting previously unselected package libwayland-server0:arm64.
+
+Preparing to unpack .../03-libwayland-server0_1.21.0-1_arm64.deb ...
+
+Unpacking libwayland-server0:arm64 (1.21.0-1) ...
+
+Selecting previously unselected package libwayland-egl1:arm64.
+
+Preparing to unpack .../04-libwayland-egl1_1.21.0-1_arm64.deb ...
+
+Unpacking libwayland-egl1:arm64 (1.21.0-1) ...
+
+Selecting previously unselected package libwayland-dev:arm64.
+
+Preparing to unpack .../05-libwayland-dev_1.21.0-1_arm64.deb ...
+
+Unpacking libwayland-dev:arm64 (1.21.0-1) ...
+
+Selecting previously unselected package libxfixes3:arm64.
+
+Preparing to unpack .../06-libxfixes3_1%3a6.0.0-2_arm64.deb ...
+
+Unpacking libxfixes3:arm64 (1:6.0.0-2) ...
+
+Selecting previously unselected package libxcursor1:arm64.
+
+Preparing to unpack .../07-libxcursor1_1%3a1.2.1-1_arm64.deb ...
+
+Unpacking libxcursor1:arm64 (1:1.2.1-1) ...
+
+Selecting previously unselected package libxfixes-dev:arm64.
+
+Preparing to unpack .../08-libxfixes-dev_1%3a6.0.0-2_arm64.deb ...
+
+Unpacking libxfixes-dev:arm64 (1:6.0.0-2) ...
+
+Selecting previously unselected package libxcursor-dev:arm64.
+
+Preparing to unpack .../09-libxcursor-dev_1%3a1.2.1-1_arm64.deb ...
+
+Unpacking libxcursor-dev:arm64 (1:1.2.1-1) ...
+
+Selecting previously unselected package libxi6:arm64.
+
+Preparing to unpack .../10-libxi6_2%3a1.8-1+b1_arm64.deb ...
+
+Unpacking libxi6:arm64 (2:1.8-1+b1) ...
+
+Selecting previously unselected package libxi-dev:arm64.
+
+Preparing to unpack .../11-libxi-dev_2%3a1.8-1+b1_arm64.deb ...
+
+Unpacking libxi-dev:arm64 (2:1.8-1+b1) ...
+
+Selecting previously unselected package xkb-data.
+
+Preparing to unpack .../12-xkb-data_2.35.1-1_all.deb ...
+
+Unpacking xkb-data (2.35.1-1) ...
+
+Selecting previously unselected package libxkbcommon0:arm64.
+
+Preparing to unpack .../13-libxkbcommon0_1.5.0-1_arm64.deb ...
+
+Unpacking libxkbcommon0:arm64 (1.5.0-1) ...
+
+Selecting previously unselected package libxkbcommon-dev:arm64.
+
+Preparing to unpack .../14-libxkbcommon-dev_1.5.0-1_arm64.deb ...
+
+Unpacking libxkbcommon-dev:arm64 (1.5.0-1) ...
+
+Selecting previously unselected package libxrandr2:arm64.
+
+Preparing to unpack .../15-libxrandr2_2%3a1.5.2-2+b1_arm64.deb ...
+
+Unpacking libxrandr2:arm64 (2:1.5.2-2+b1) ...
+
+Selecting previously unselected package libxrandr-dev:arm64.
+
+Preparing to unpack .../16-libxrandr-dev_2%3a1.5.2-2+b1_arm64.deb ...
+
+Unpacking libxrandr-dev:arm64 (2:1.5.2-2+b1) ...
+
+Setting up libwayland-server0:arm64 (1.21.0-1) ...
+
+Setting up libxi6:arm64 (2:1.8-1+b1) ...
+
+Setting up xkb-data (2.35.1-1) ...
+
+Setting up libwayland-bin (1.21.0-1) ...
+
+Setting up libxfixes3:arm64 (1:6.0.0-2) ...
+
+Setting up libxrandr2:arm64 (2:1.5.2-2+b1) ...
+
+Setting up libwayland-egl1:arm64 (1.21.0-1) ...
+
+Setting up libxkbcommon0:arm64 (1.5.0-1) ...
+
+Setting up libwayland-client0:arm64 (1.21.0-1) ...
+
+Setting up libxkbcommon-dev:arm64 (1.5.0-1) ...
+
+Setting up libxcursor1:arm64 (1:1.2.1-1) ...
+
+Setting up libxfixes-dev:arm64 (1:6.0.0-2) ...
+
+Setting up libxrandr-dev:arm64 (2:1.5.2-2+b1) ...
+
+Setting up libwayland-cursor0:arm64 (1.21.0-1) ...
+
+Setting up libxi-dev:arm64 (2:1.8-1+b1) ...
+
+Setting up libxcursor-dev:arm64 (1:1.2.1-1) ...
+
+Setting up libwayland-dev:arm64 (1.21.0-1) ...
+
+Processing triggers for libc-bin (2.36-9+deb12u14) ...
+
+info: syncing channel updates for 1.95.0-aarch64-unknown-linux-gnu
+info: latest update on 2026-04-16 for version 1.95.0 (59807616e 2026-04-14)
+info: downloading component clippy
+ Downloading crates ...
+  Downloaded windows-link v0.2.1
+  Downloaded wasm-bindgen-shared v0.2.130
+  Downloaded wasm-bindgen-macro v0.2.130
+  Downloaded ref-cast-impl v1.0.27
+  Downloaded uuid-simd v0.8.0
+  Downloaded outref v0.5.2
+  Downloaded num-cmp v0.1.0
+  Downloaded android_system_properties v0.1.6
+  Downloaded jsonschema-regex v0.46.10
+  Downloaded clipboard-win v5.4.3
+  Downloaded idna_adapter v1.2.2
+  Downloaded ref-cast v1.0.27
+  Downloaded serde_spanned v1.1.3
+  Downloaded crunchy v0.2.4
+  Downloaded windows-interface v0.59.3
+  Downloaded bit-set v0.8.0
+  Downloaded lazy_static v1.5.1
+  Downloaded num-iter v0.1.46
+  Downloaded num v0.4.3
+  Downloaded windows-targets v0.52.6
+  Downloaded raw-window-metal v1.1.0
+  Downloaded jni-sys v0.4.1
+  Downloaded plain v0.2.3
+  Downloaded glutin_wgl_sys v0.6.1
+  Downloaded wasm-bindgen-futures v0.4.80
+  Downloaded wgpu-core-deps-wasm v30.0.1
+  Downloaded range-alloc v0.1.5
+  Downloaded jni-sys-macros v0.4.1
+  Downloaded windows-threading v0.2.1
+  Downloaded windows-implement v0.60.2
+  Downloaded objc2-io-surface v0.3.2
+  Downloaded open v5.4.5
+  Downloaded windows-collections v0.3.2
+  Downloaded windows-result v0.4.1
+  Downloaded wasm-bindgen v0.2.130
+  Downloaded wgpu-core-deps-apple v30.0.1
+  Downloaded dispatch v0.2.0
+  Downloaded email_address v0.2.9
+  Downloaded foreign-types-macros v0.2.4
+  Downloaded foreign-types-shared v0.3.1
+  Downloaded displaydoc v0.2.7
+  Downloaded rustversion v1.0.23
+  Downloaded windows-future v0.3.2
+  Downloaded potential_utf v0.1.6
+  Downloaded utf_types v1.0.0
+  Downloaded redox_syscall v0.5.18
+  Downloaded vsimd v0.8.0
+  Downloaded wgpu-core-deps-emscripten v30.0.1
+  Downloaded jni-sys v0.3.1
+  Downloaded winapi-util v0.1.11
+  Downloaded libredox v0.1.25
+  Downloaded objc2-link-presentation v0.2.2
+  Downloaded rustc_version v0.4.1
+  Downloaded cgl v0.3.2
+  Downloaded send_wrapper v0.6.0
+  Downloaded objc2-core-location v0.2.2
+  Downloaded objc2-uniform-type-identifiers v0.2.2
+  Downloaded objc2-user-notifications v0.2.2
+  Downloaded objc2-quartz-core v0.3.2
+  Downloaded block2 v0.6.2
+  Downloaded num-rational v0.4.2
+  Downloaded is-docker v0.2.0
+  Downloaded referencing v0.46.10
+  Downloaded portable-atomic-util v0.2.8
+  Downloaded core-graphics-types v0.1.3
+  Downloaded dispatch2 v0.3.1
+  Downloaded toml v1.2.1+spec-1.1.0
+  Downloaded icu_normalizer_data v2.4.0
+  Downloaded micromap v0.3.0
+  Downloaded memoffset v0.9.1
+  Downloaded objc2-core-graphics v0.3.2
+  Downloaded error-code v3.4.0
+  Downloaded getopts v0.2.24
+  Downloaded objc2-contacts v0.2.2
+  Downloaded accesskit_ios v0.2.2
+  Downloaded num_enum v0.7.6
+  Downloaded zerovec v0.11.9
+  Downloaded js-sys v0.3.107
+  Downloaded wasm-bindgen-macro-support v0.2.130
+  Downloaded simdutf8 v0.1.5
+  Downloaded fancy-regex v0.18.0
+  Downloaded dify v0.8.0
+  Downloaded crossbeam-deque v0.8.8
+  Downloaded semver v1.0.28
+  Downloaded objc2-cloud-kit v0.2.2
+  Downloaded colored v2.2.0
+  Downloaded objc2-core-foundation v0.3.2
+  Downloaded pin-project-internal v1.1.13
+  Downloaded portable-atomic v1.15.0
+  Downloaded crossbeam-epoch v0.9.21
+  Downloaded anyhow v1.0.104
+  Downloaded objc2 v0.6.5
+  Downloaded pin-project v1.1.13
+  Downloaded rayon-core v1.13.0
+  Downloaded ndk-sys v0.6.0+11769913
+  Downloaded objc2-foundation v0.3.2
+  Downloaded ndk v0.9.0
+  Downloaded nix v0.31.3
+  Downloaded regex-syntax v0.8.11
+  Downloaded accesskit_windows v0.35.2
+  Downloaded bytes v1.12.1
+  Downloaded jni-macros v0.22.4
+  Downloaded objc2-metal v0.2.2
+  Downloaded combine v4.6.9
+  Downloaded jsonschema v0.46.10
+  Downloaded objc2-app-kit v0.3.2
+  Downloaded icu_normalizer v2.4.0
+  Downloaded rayon v1.12.0
+  Downloaded jni v0.22.4
+  Downloaded objc2 v0.5.3
+  Downloaded regex-automata v0.4.18
+  Downloaded objc2-metal v0.3.2
+  Downloaded objc2-foundation v0.2.2
+  Downloaded core-foundation-sys v0.8.7
+  Downloaded web-sys v0.3.107
+  Downloaded icu_properties_data v2.4.0
+  Downloaded aho-corasick v1.1.5
+  Downloaded regex v1.13.1
+  Downloaded simd_cesu8 v1.2.0
+  Downloaded android-activity v0.6.1
+  Downloaded objc2-app-kit v0.2.2
+  Downloaded objc2-ui-kit v0.2.2
+  Downloaded uds_windows v1.2.1
+  Downloaded core-graphics v0.23.2
+  Downloaded windows_aarch64_gnullvm v0.52.6
+  Downloaded windows_x86_64_gnullvm v0.52.6
+  Downloaded objc2-quartz-core v0.2.2
+  Downloaded redox_syscall v0.4.1
+  Downloaded windows_i686_gnullvm v0.52.6
+  Downloaded tokio v1.54.1
+  Downloaded hermit-abi v0.5.3
+  Downloaded icu_properties v2.4.0
+  Downloaded objc2-core-image v0.2.2
+  Downloaded objc2-ui-kit v0.3.2
+  Downloaded idna v1.1.0
+  Downloaded wasip2 v1.0.4+wasi-0.2.12
+  Downloaded objc2-core-data v0.2.2
+  Downloaded objc2-symbols v0.2.2
+  Downloaded num-bigint v0.4.8
+  Downloaded block2 v0.5.1
+  Downloaded accesskit_macos v0.27.2
+  Downloaded redox_syscall v0.9.5
+  Downloaded walkdir v2.5.0
+  Downloaded core-foundation v0.9.4
+  Downloaded foreign-types v0.5.0
+  Downloaded windows_x86_64_gnu v0.52.6
+  Downloaded windows_x86_64_msvc v0.52.6
+  Downloaded num_enum_derive v0.7.6
+  Downloaded windows_aarch64_msvc v0.52.6
+  Downloaded objc-sys v0.3.5
+  Downloaded fraction v0.15.4
+  Downloaded icu_collections v2.4.0
+  Downloaded windows_i686_gnu v0.52.6
+  Downloaded windows_i686_msvc v0.52.6
+  Downloaded android-properties v0.2.2
+  Downloaded egui_kittest v0.37.0
+  Downloaded zerotrie v0.2.5
+  Downloaded icu_locale_core v2.4.0
+  Downloaded icu_provider v2.4.0
+  Downloaded r-efi v5.3.0
+  Downloaded wit-bindgen v0.57.1
+  Downloaded slotmap v1.1.1
+  Downloaded r-efi v6.0.0
+  Downloaded fluent-uri v0.4.1
+  Downloaded kittest v0.5.0
+  Downloaded ndk-context v0.1.1
+  Downloaded windows-core v0.62.2
+  Downloaded litemap v0.8.3
+  Downloaded zerovec-derive v0.11.7
+  Downloaded same-file v1.0.6
+  Downloaded orbclient v0.3.55
+  Downloaded objc2-encode v4.1.0
+  Downloaded bytecount v0.6.9
+  Downloaded data-encoding v2.11.1
+  Downloaded num-integer v0.1.47
+  Downloaded tinystr v0.8.5
+  Downloaded writeable v0.6.4
+  Downloaded num-complex v0.4.6
+  Downloaded windows-numerics v0.3.1
+  Downloaded windows-strings v0.5.1
+  Downloaded bit-vec v0.8.0
+  Downloaded is-wsl v0.4.0
+  Downloaded utf8_iter v1.1.0
+  Downloaded borrow-or-share v0.2.4
+  Downloaded windows-sys v0.61.2
+  Downloaded windows-sys v0.59.0
+  Downloaded windows-sys v0.52.0
+  Downloaded windows v0.62.2
+   Compiling syn v3.0.9
+   Compiling serde_core v1.0.229
+   Compiling num-traits v0.2.19
+   Compiling hashbrown v0.17.1
+   Compiling once_cell v1.21.4
+   Compiling float-cmp v0.9.0
+   Compiling strict-num v0.1.1
+   Compiling rustix v1.1.6
+   Compiling serde_json v1.0.154
+   Compiling linux-raw-sys v0.12.1
+   Compiling bytemuck_derive v1.12.1
+   Compiling thiserror-impl v2.0.21
+   Compiling bytemuck v1.25.2
+   Compiling serde_derive v1.0.229
+   Compiling thiserror v2.0.21
+   Compiling font-types v0.12.7
+   Compiling color v0.3.3
+   Compiling read-fonts v0.41.0
+   Compiling serde v1.0.229
+   Compiling sns-model v0.1.0 (/src/crates/sns-model)
+   Compiling skrifa v0.44.0
+   Compiling harfrust v0.12.0
+   Compiling euclid v0.22.14
+   Compiling zerocopy v0.8.63
+   Compiling indexmap v2.14.2
+   Compiling wayland-sys v0.31.11
+   Compiling peniko v0.6.1
+   Compiling guillotiere v0.7.0
+   Compiling sns-vfs v0.1.0 (/src/crates/sns-vfs)
+   Compiling sns-i18n v0.1.0 (/src/crates/sns-i18n)
+   Compiling tiny-skia-path v0.11.4
+   Compiling font-types v0.11.3
+   Compiling synstructure v0.14.0
+   Compiling ahash v0.8.12
+   Compiling uuid v1.29.1
+   Compiling vello_common v0.2.0
+   Compiling accesskit v0.25.2
+   Compiling read-fonts v0.39.2
+   Compiling wayland-backend v0.3.17
+   Compiling sns-protocols v0.1.0 (/src/crates/sns-protocols)
+   Compiling sns-html v0.1.0 (/src/crates/sns-html)
+   Compiling emath v0.37.0
+   Compiling usvg v0.45.1
+   Compiling ecolor v0.37.0
+   Compiling sns-apps v0.1.0 (/src/crates/sns-apps)
+   Compiling vello_cpu v0.2.0
+   Compiling tiny-skia v0.11.4
+   Compiling zerofrom-derive v0.1.8
+   Compiling rgb v0.8.53
+   Compiling epaint v0.37.0
+   Compiling resvg v0.45.1
+   Compiling zerofrom v0.1.8
+   Compiling sns-engine v0.1.0 (/src/crates/sns-engine)
+   Compiling write-fonts v0.48.1
+   Compiling skrifa v0.42.1
+   Compiling yoke-derive v0.8.4
+   Compiling tempfile v3.27.0
+   Compiling subsetter v0.2.6
+   Compiling yoke v0.8.4
+   Compiling wayland-client v0.31.15
+   Compiling egui v0.37.0
+   Compiling sns-fonts v0.1.0 (/src/crates/sns-fonts)
+   Compiling sns-topology v0.1.0 (/src/crates/sns-topology)
+   Compiling tiny-skia-path v0.12.0
+   Compiling enum-map-derive v1.0.1
+   Compiling winnow v1.0.5
+   Compiling toml_parser v1.1.5+spec-1.1.0
+   Compiling zip v9.4.1
+   Compiling krilla v0.8.2
+   Compiling moxcms v0.8.1
+   Compiling enum-map v3.1.0
+   Compiling sns-render v0.1.0 (/src/crates/sns-render)
+   Compiling wayland-protocols v0.32.13
+   Compiling sns-project v0.1.0 (/src/crates/sns-project)
+   Compiling accesskit_consumer v0.39.2
+   Compiling serde_spanned v1.1.3
+   Compiling toml_datetime v1.1.3+spec-1.1.0
+   Compiling raw-window-handle v0.6.2
+   Compiling rfd v0.17.2
+   Compiling toml v1.2.1+spec-1.1.0
+   Compiling kittest v0.5.0
+   Compiling sns-settings v0.1.0 (/src/crates/sns-settings)
+   Compiling sns-report v0.1.0 (/src/crates/sns-report)
+   Compiling egui_extras v0.37.0
+   Compiling image v0.25.10
+   Compiling sns-filius-import v0.1.0 (/src/crates/sns-filius-import)
+   Compiling sns-bridge v0.1.0 (/src/crates/sns-bridge)
+   Compiling sns-trace v0.1.0 (/src/crates/sns-trace)
+   Compiling sns-ui-egui v0.1.0 (/src/crates/sns-ui-egui)
+   Compiling egui_kittest v0.37.0
+    Finished `release` profile [optimized] target(s) in 1m 49s
+     Running tests/lan.rs (/target/release/deps/lan-c2fd40b562c976a2)
+
+running 1 test
+test enlarged_keyboard_only_project_roundtrip_and_ping_match_in_all_views ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 33 filtered out; finished in 1.53s
+

@@ -1,0 +1,19 @@
+OK - parsed packaging/smoke-windows.ps1
+OK - compiled ShellExecuteEx and foreground declarations
+OK - parsed packaging/windows/KeyboardSmoke.ps1
+OK - fr/icons resolved at 150%, Unicode path and no BOM
+OK - fr/diagram resolved at 150%, Unicode path and no BOM
+OK - en/icons resolved at 150%, Unicode path and no BOM
+OK - en/diagram resolved at 150%, Unicode path and no BOM
+OK - es/icons resolved at 150%, Unicode path and no BOM
+OK - es/diagram resolved at 150%, Unicode path and no BOM
+OK - it/icons resolved at 150%, Unicode path and no BOM
+OK - it/diagram resolved at 150%, Unicode path and no BOM
+OK - pt/icons resolved at 150%, Unicode path and no BOM
+OK - pt/diagram resolved at 150%, Unicode path and no BOM
+OK - de/icons resolved at 150%, Unicode path and no BOM
+OK - de/diagram resolved at 150%, Unicode path and no BOM
+OK - fingerprinted all 24 fixture files
+OK - synthetic UIA and SendKeys test followed the expected key sequence
+OK - synthetic foreground switch stopped the sequence before sending Enter
+OK - optional Windows keyboard input parsed

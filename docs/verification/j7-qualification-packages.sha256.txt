@@ -1,0 +1,1 @@
+de64fb1727f5735925a9c8a5ba8836dca649818367e52b91dbdf4108e02f6a90  artifacts/packages/j7-qualification/sinesi_0.1.0_amd64.deb

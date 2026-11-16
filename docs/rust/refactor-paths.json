@@ -1,0 +1,37 @@
+{
+  "format_version": 1,
+  "date": "2026-11-08",
+  "baseline_manifest": "docs/verification/j7-png-code-manifest.json",
+  "api_changes": {
+    "sns_ui_egui::LanUi": "sns_ui_egui::Workbench",
+    "sns_ui_egui::SinesiUi": "sns_ui_egui::prototype::SinesiUi",
+    "sns_ui_egui::Tab": "sns_ui_egui::prototype::Tab"
+  },
+  "moved_paths": {
+    "crates/sns-ui-egui/src/annotations.rs": "crates/sns-ui-egui/src/workbench/annotations.rs",
+    "crates/sns-ui-egui/src/export_ui.rs": "crates/sns-ui-egui/src/workbench/export_ui.rs",
+    "crates/sns-ui-egui/src/import_ui.rs": "crates/sns-ui-egui/src/workbench/import_ui.rs",
+    "crates/sns-ui-egui/src/link_conditions_ui.rs": "crates/sns-ui-egui/src/workbench/link_conditions_ui.rs",
+    "crates/sns-ui-egui/src/presentation_ui.rs": "crates/sns-ui-egui/src/workbench/presentation_ui.rs",
+    "crates/sns-ui-egui/src/routing_ui.rs": "crates/sns-ui-egui/src/workbench/routing_ui.rs",
+    "crates/sns-ui-egui/src/runtime_ui.rs": "crates/sns-ui-egui/src/workbench/runtime_ui.rs",
+    "crates/sns-ui-egui/src/security_ui.rs": "crates/sns-ui-egui/src/workbench/security_ui.rs",
+    "crates/sns-ui-egui/src/session_ui.rs": "crates/sns-ui-egui/src/workbench/session_ui.rs",
+    "crates/sns-ui-egui/src/topology_ui.rs": "crates/sns-ui-egui/src/workbench/topology_ui.rs",
+    "crates/sns-ui-egui/src/trace_ui.rs": "crates/sns-ui-egui/src/workbench/trace_ui.rs",
+    "crates/sns-ui-egui/src/mail_ui.rs": "crates/sns-ui-egui/src/workbench/desktop/mail_ui.rs",
+    "crates/sns-ui-egui/src/p2p_ui.rs": "crates/sns-ui-egui/src/workbench/desktop/p2p_ui.rs",
+    "crates/sns-ui-egui/src/services_ui.rs": "crates/sns-ui-egui/src/workbench/desktop/services_ui.rs",
+    "crates/sns-ui-egui/src/lan.rs": "crates/sns-ui-egui/src/workbench",
+    "crates/sns-ui-egui/src/lan_worker.rs": "crates/sns-ui-egui/src/workbench/worker.rs",
+    "crates/sns-ui-egui/src/desktop.rs": "crates/sns-ui-egui/src/workbench/desktop/mod.rs",
+    "crates/sns-ui-egui/src/controller.rs": "crates/sns-ui-egui/src/prototype/controller.rs"
+  },
+  "split_root": {
+    "source": "crates/sns-ui-egui/src/lib.rs",
+    "targets": [
+      "crates/sns-ui-egui/src/lib.rs",
+      "crates/sns-ui-egui/src/prototype/mod.rs"
+    ]
+  }
+}

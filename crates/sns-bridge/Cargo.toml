@@ -1,0 +1,17 @@
+[package]
+name = "sns-bridge"
+version.workspace = true
+edition.workspace = true
+rust-version.workspace = true
+license.workspace = true
+repository.workspace = true
+[dependencies]
+sns-model.workspace = true
+serde_json.workspace = true
+sns-engine.workspace = true
+serde.workspace = true
+[dev-dependencies]
+sns-protocols.workspace = true
+tempfile.workspace = true
+[lints]
+workspace = true

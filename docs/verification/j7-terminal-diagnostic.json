@@ -1,0 +1,16 @@
+{
+  "diagnostic": {
+    "content": "blaaa",
+    "isolated_clone": true,
+    "path": "/test.txt"
+  },
+  "network_unchanged": true,
+  "rejected": [
+    "test",
+    "test ignored",
+    "help test"
+  ],
+  "student_commands": "help · cd · pwd · ls / dir · touch · mkdir · cat / type · cp / copy · mv / move · rm / del · ipconfig · netstat · route · arp · arpsend · ping · traceroute · host · nslookup · dnscache · tcpdump · exit · cls / reset",
+  "student_file_created": false,
+  "unknown_command_errors": 3
+}

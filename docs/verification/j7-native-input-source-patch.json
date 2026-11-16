@@ -1,0 +1,13 @@
+{
+  "format_version": 1,
+  "base_reconstruction": "docs/verification/j7-qualification-source-patch.json",
+  "base_revision": "05253c91d082652da756302775c66271247387c432ed9ccc2f0e7b4992361d4c",
+  "patch_archive": "docs/verification/j7-native-input-source-patch.tar.gz",
+  "patch_sha256": "cf0ff86b0a9c5129f29b373da34b37a50d999fd12a7d6ae82a3de98fef6bde9a",
+  "patch_bytes": 161602,
+  "patch_files": 24,
+  "deleted_paths": [],
+  "source_revision": "3d1c1565bd42830cd0919ac0847b9fe515d0ebdf7613ce9944d88d400388f311",
+  "overlay_verified": true,
+  "reconstruction": "Reconstruct j7-qualification using its metadata, verify its code manifest, then overlay this patch and apply deleted_paths. Run scripts/check_manifest.py check with the j7-native-input manifest."
+}

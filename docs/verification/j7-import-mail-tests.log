@@ -1,0 +1,42 @@
+    Blocking waiting for file lock on artifact directory
+   Compiling sns-filius-import v0.1.0 (/Users/kevin/Web/SNS/crates/sns-filius-import)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.93s
+     Running tests/import.rs (target/debug/deps/import-2a3cc3a7ca8521b6)
+
+running 17 tests
+test corpus_imports_as_data_preserving_every_byte_and_reports_all_losses ... ignored, requires the local read-only Filius corpus; run explicitly with --ignored
+test historical_mailbox_is_retrieved_over_simulated_pop3_and_replays ... ignored, requires the local read-only Filius corpus; run explicitly with --ignored
+test imported_historical_dhcp_and_manual_routes_drive_the_engine ... ignored, requires the local read-only Filius corpus; run explicitly with --ignored
+test imported_historical_lan_uses_production_arp_and_icmp ... ignored, requires the local read-only Filius LAN example; run explicitly with --ignored
+test imported_historical_nat_and_firewall_handle_real_packets ... ignored, requires the local read-only Filius corpus; run explicitly with --ignored
+test imported_historical_rip_converges_forwards_and_replays ... ignored, requires the local read-only Filius corpus; run explicitly with --ignored
+test duplicate_names_bad_crc_and_unsafe_virtual_tree_are_rejected ... ok
+test arbitrary_embedded_code_is_preserved_and_disabled ... ok
+test explicit_rip_keeps_legacy_static_choices_inactive ... ok
+test unsafe_archives_and_entity_xml_and_dangling_aliases_are_rejected ... ok
+test import_is_deterministic_and_mac_repairs_are_unique ... ok
+test unsafe_or_unrepresentable_security_rows_remain_visible ... ok
+test imports_mail_folders_and_contacts_with_private_bcc ... ok
+test gateway_dhcp_keeps_the_lan_static_and_reports_rejected_reservations ... ok
+test documentation_layers_colors_and_font_flags_are_portable ... ok
+test cloud_flag_imports_as_presentation_data_without_changing_ports_or_wires ... ok
+test portable_synthetic_import_roundtrips_and_exchanges_real_simulated_frames ... ok
+
+test result: ok. 11 passed; 0 failed; 6 ignored; 0 measured; 0 filtered out; finished in 0.02s
+
+    Blocking waiting for file lock on artifact directory
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.73s
+     Running tests/import.rs (target/debug/deps/import-2a3cc3a7ca8521b6)
+
+running 6 tests
+test imported_historical_dhcp_and_manual_routes_drive_the_engine ... ok
+test imported_historical_lan_uses_production_arp_and_icmp ... ok
+test historical_mailbox_is_retrieved_over_simulated_pop3_and_replays ... ok
+test corpus_imports_as_data_preserving_every_byte_and_reports_all_losses ... ok
+test imported_historical_rip_converges_forwards_and_replays ... ok
+test imported_historical_nat_and_firewall_handle_real_packets ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 11 filtered out; finished in 2.70s
+
+    Checking sns-filius-import v0.1.0 (/Users/kevin/Web/SNS/crates/sns-filius-import)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 5.24s

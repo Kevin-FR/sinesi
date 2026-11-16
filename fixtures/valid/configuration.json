@@ -1,0 +1,9 @@
+{
+  "configuration_version": 1,
+  "language": "en",
+  "display": {
+    "scale_percent": 125,
+    "font": "noto_sans",
+    "inspector_width": 360
+  }
+}

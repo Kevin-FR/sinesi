@@ -1,0 +1,426 @@
+{
+  "schema_version": 6,
+  "semantic_profile": "sns-educational-private-v1",
+  "project_id": "project-private",
+  "name": "Réseau privé · NAT · Pare-feu",
+  "devices": [
+    {
+      "id": "host-a",
+      "kind": "workstation",
+      "label": "Poste A",
+      "interfaces": [
+        {
+          "id": "host-a-p0",
+          "mac": "02:00:00:00:00:01",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.10.2",
+            "prefix_length": 24
+          }
+        }
+      ],
+      "network": {
+        "default_gateway": "192.168.10.1",
+        "dns_server": "198.51.100.10"
+      },
+      "applications": [
+        {
+          "id": "term-0",
+          "kind": "terminal",
+          "config": {}
+        },
+        {
+          "id": "browser-0",
+          "kind": "web_browser",
+          "config": {}
+        },
+        {
+          "service": {
+            "service": "http",
+            "settings": {
+              "port": 80,
+              "root": "/www",
+              "virtual_hosts": {},
+              "form_path": "/submit"
+            }
+          },
+          "id": "lan-web",
+          "kind": "web_server",
+          "config": {
+            "port": "80"
+          }
+        }
+      ],
+      "files": [
+        {
+          "path": "/www/index.html",
+          "media_type": "text/html",
+          "data_base64": "PGgxPlNlcnZldXIgTEFOPC9oMT4="
+        }
+      ]
+    },
+    {
+      "id": "host-b",
+      "kind": "notebook",
+      "label": "Portable B",
+      "interfaces": [
+        {
+          "id": "host-b-p0",
+          "mac": "02:00:00:00:01:01",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.10.3",
+            "prefix_length": 24
+          }
+        }
+      ],
+      "network": {
+        "default_gateway": "192.168.10.1",
+        "dns_server": "198.51.100.10"
+      },
+      "applications": [
+        {
+          "id": "term-1",
+          "kind": "terminal",
+          "config": {}
+        },
+        {
+          "id": "browser-1",
+          "kind": "web_browser",
+          "config": {}
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": "switch",
+      "kind": "switch",
+      "label": "Commutateur",
+      "interfaces": [
+        {
+          "id": "switch-p0",
+          "mac": "02:00:00:00:03:01",
+          "medium": "ethernet",
+          "ipv4": null
+        },
+        {
+          "id": "switch-p1",
+          "mac": "02:00:00:00:03:02",
+          "medium": "ethernet",
+          "ipv4": null
+        },
+        {
+          "id": "switch-p2",
+          "mac": "02:00:00:00:03:03",
+          "medium": "ethernet",
+          "ipv4": null
+        },
+        {
+          "id": "switch-p3",
+          "mac": "02:00:00:00:03:04",
+          "medium": "ethernet",
+          "ipv4": null
+        },
+        {
+          "id": "switch-p4",
+          "mac": "02:00:00:00:03:05",
+          "medium": "ethernet",
+          "ipv4": null
+        },
+        {
+          "id": "switch-p5",
+          "mac": "02:00:00:00:03:06",
+          "medium": "ethernet",
+          "ipv4": null
+        },
+        {
+          "id": "switch-p6",
+          "mac": "02:00:00:00:03:07",
+          "medium": "ethernet",
+          "ipv4": null
+        },
+        {
+          "id": "switch-p7",
+          "mac": "02:00:00:00:03:08",
+          "medium": "ethernet",
+          "ipv4": null
+        }
+      ],
+      "network": {
+        "default_gateway": null,
+        "dns_server": null
+      },
+      "applications": [],
+      "files": []
+    },
+    {
+      "id": "gateway",
+      "kind": "gateway",
+      "label": "Routeur domestique",
+      "interfaces": [
+        {
+          "id": "gateway-lan",
+          "mac": "02:00:00:00:04:01",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "192.168.10.1",
+            "prefix_length": 24
+          }
+        },
+        {
+          "id": "gateway-wan",
+          "mac": "02:00:00:00:04:02",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "203.0.113.2",
+            "prefix_length": 24
+          }
+        }
+      ],
+      "network": {
+        "gateway": {
+          "lan": "gateway-lan",
+          "wan": "gateway-wan",
+          "nat_enabled": true,
+          "port_start": 40000,
+          "port_end": 40010,
+          "idle_timeout_us": "60000000",
+          "forwards": [
+            {
+              "protocol": "tcp",
+              "external_port": 8080,
+              "internal_address": "192.168.10.2",
+              "internal_port": 80
+            }
+          ]
+        },
+        "default_gateway": "203.0.113.1",
+        "dns_server": "198.51.100.10"
+      },
+      "applications": [
+        {
+          "service": {
+            "service": "http",
+            "settings": {
+              "administration": true,
+              "port": 80,
+              "root": "/www",
+              "virtual_hosts": {},
+              "form_path": null
+            }
+          },
+          "id": "admin",
+          "kind": "web_server",
+          "config": {}
+        },
+        {
+          "id": "firewall",
+          "kind": "firewall",
+          "config": {}
+        }
+      ],
+      "files": []
+    },
+    {
+      "id": "uplink",
+      "kind": "router",
+      "label": "Routeur WAN",
+      "interfaces": [
+        {
+          "id": "uplink-a",
+          "mac": "02:00:00:00:05:01",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "203.0.113.1",
+            "prefix_length": 24
+          }
+        },
+        {
+          "id": "uplink-b",
+          "mac": "02:00:00:00:05:02",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "198.51.100.1",
+            "prefix_length": 24
+          }
+        }
+      ],
+      "network": {
+        "default_gateway": null,
+        "dns_server": null
+      },
+      "applications": [],
+      "files": []
+    },
+    {
+      "id": "host-c",
+      "kind": "workstation",
+      "label": "Serveur WAN",
+      "interfaces": [
+        {
+          "id": "host-c-p0",
+          "mac": "02:00:00:00:02:01",
+          "medium": "ethernet",
+          "ipv4": {
+            "mode": "static",
+            "address": "198.51.100.10",
+            "prefix_length": 24
+          }
+        }
+      ],
+      "network": {
+        "default_gateway": "198.51.100.1",
+        "dns_server": null
+      },
+      "applications": [
+        {
+          "id": "echo",
+          "kind": "tcp_server",
+          "config": {}
+        },
+        {
+          "service": {
+            "service": "http",
+            "settings": {
+              "port": 80,
+              "root": "/www",
+              "virtual_hosts": {},
+              "form_path": null
+            }
+          },
+          "id": "wan-web",
+          "kind": "web_server",
+          "config": {}
+        },
+        {
+          "id": "wan-browser",
+          "kind": "web_browser",
+          "config": {}
+        }
+      ],
+      "files": [
+        {
+          "path": "/www/index.html",
+          "media_type": "text/html",
+          "data_base64": "PGgxPlNlcnZldXIgV0FOPC9oMT4="
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "id": "cable-host-a",
+      "endpoints": [
+        "host-a-p0",
+        "switch-p0"
+      ],
+      "latency_us": "1000",
+      "jitter_us": "0"
+    },
+    {
+      "id": "cable-host-b",
+      "endpoints": [
+        "host-b-p0",
+        "switch-p1"
+      ],
+      "latency_us": "1000",
+      "jitter_us": "0"
+    },
+    {
+      "id": "lan",
+      "endpoints": [
+        "switch-p2",
+        "gateway-lan"
+      ],
+      "latency_us": "1000",
+      "jitter_us": "0"
+    },
+    {
+      "id": "wan",
+      "endpoints": [
+        "gateway-wan",
+        "uplink-a"
+      ],
+      "latency_us": "1000",
+      "jitter_us": "0"
+    },
+    {
+      "id": "server",
+      "endpoints": [
+        "uplink-b",
+        "host-c-p0"
+      ],
+      "latency_us": "1000",
+      "jitter_us": "0"
+    }
+  ],
+  "layout": {
+    "devices": [
+      {
+        "device_id": "host-a",
+        "x": 80.0,
+        "y": 80.0
+      },
+      {
+        "device_id": "host-b",
+        "x": 80.0,
+        "y": 320.0
+      },
+      {
+        "device_id": "switch",
+        "x": 240.0,
+        "y": 200.0
+      },
+      {
+        "device_id": "gateway",
+        "x": 440.0,
+        "y": 200.0
+      },
+      {
+        "device_id": "uplink",
+        "x": 650.0,
+        "y": 200.0
+      },
+      {
+        "device_id": "host-c",
+        "x": 850.0,
+        "y": 200.0
+      }
+    ]
+  },
+  "annotations": [],
+  "resources": [],
+  "extensions": [],
+  "lan": {
+    "gateway": {
+      "display": "name",
+      "sat_retention_us": "300000000"
+    },
+    "host-a": {
+      "display": "name",
+      "sat_retention_us": "300000000"
+    },
+    "host-b": {
+      "display": "name",
+      "sat_retention_us": "300000000"
+    },
+    "host-c": {
+      "display": "name",
+      "sat_retention_us": "300000000"
+    },
+    "switch": {
+      "display": "name",
+      "sat_retention_us": "300000000"
+    },
+    "uplink": {
+      "display": "name",
+      "sat_retention_us": "300000000"
+    }
+  }
+}
