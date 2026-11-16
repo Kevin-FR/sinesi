@@ -1,0 +1,67 @@
+aarch64
+info: syncing channel updates for 1.95.0-aarch64-unknown-linux-gnu
+info: latest update on 2026-04-16 for version 1.95.0 (59807616e 2026-04-14)
+info: downloading component clippy
+rustc 1.95.0 (59807616e 2026-04-14)
+debian 12.14
+     Running unittests src/main.rs (/target/debug/deps/sinesi-8b042597f75b74c2)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/missions.rs (/target/debug/deps/missions-511772e20118bd35)
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.24s
+     Running tests/png.rs (/target/debug/deps/png-3dea2d1b853b3fab)
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+     Running tests/report.rs (/target/debug/deps/report-6acbef3a1b4f0409)
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.15s
+     Running tests/runner.rs (/target/debug/deps/runner-441dc153646152fc)
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.06s
+     Running unittests src/lib.rs (/target/debug/deps/sns_missions-1992dfcee2a2e9d2)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/contracts.rs (/target/debug/deps/contracts-8431adc04921eb9d)
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/missions.rs (/target/debug/deps/missions-2f2852668fb4020e)
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.04s
+     Running unittests src/lib.rs (/target/debug/deps/sns_settings-616f1c2c5fbf532b)
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+     Running tests/configuration.rs (/target/debug/deps/configuration-6d98db292134e820)
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.01s
+     Running tests/display.rs (/target/debug/deps/display-2d634e4ac734236d)
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.03s
+     Running unittests src/lib.rs (/target/debug/deps/sns_topology-cbc5b0f63653647f)
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/advice.rs (/target/debug/deps/advice-2037ef28d3cf3f3d)
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/annotations.rs (/target/debug/deps/annotations-eaa8f598b9ddafd8)
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running tests/duplication.rs (/target/debug/deps/duplication-dd2866b18db40ebd)
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.50s
+     Running tests/editor.rs (/target/debug/deps/editor-ecb22b16c65213fc)
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+     Running unittests src/lib.rs (/target/debug/deps/sns_ui_egui-583911cf7d57fc3f)
+test result: ok. 10 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 0.01s
+     Running tests/annotations.rs (/target/debug/deps/annotations-36d80ddadb44d358)
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.67s
+     Running tests/configuration.rs (/target/debug/deps/configuration-ae49324afa0d60c1)
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.37s
+     Running tests/help.rs (/target/debug/deps/help-0483d0b944fcdd29)
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.26s
+     Running tests/lan.rs (/target/debug/deps/lan-2c48adb868d716fe)
+test result: ok. 34 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 3.10s
+     Running tests/png.rs (/target/debug/deps/png-8c0ac7b7ff9e899d)
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.30s
+     Running tests/preferences.rs (/target/debug/deps/preferences-ba961587ab642e40)
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.49s
+     Running tests/report.rs (/target/debug/deps/report-2428c146dead2361)
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.87s
+     Running tests/service_images.rs (/target/debug/deps/service_images-c88c9a093bde68c6)
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+     Running tests/session.rs (/target/debug/deps/session-2f7e264511dcaf93)
+test result: ok. 6 passed; 0 failed; 1 ignored; 0 measured; 0 filtered out; finished in 2.09s
+     Running tests/student.rs (/target/debug/deps/student-730fd46b235979a2)
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.31s
+     Running tests/workbench.rs (/target/debug/deps/workbench-2e7e9b0b0667fdd5)
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.70s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+exit=0

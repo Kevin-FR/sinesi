@@ -3,8 +3,8 @@
 ## Situation courante — 16 novembre 2026
 
 **J1 à J6 sont qualifiés localement. J7 reste ouvert. La refonte élève (J8, RS-UX-J8)
-est terminée et qualifiée localement : F-UX-001 à F-UX-006 et F-ADV-004 sont vérifiées
-(harnais et recette native macOS). La couverture Windows/Linux relève de F-NFR-007.** FR EN ES IT PT DE et les vues Icônes/Schéma sont conservés.
+est terminée : F-UX-001 à F-UX-006 et F-ADV-004 sont vérifiées sur macOS (harnais,
+captures et fenêtre native), Debian 12 arm64 et Windows x64 sous CrossOver (harnais).** FR EN ES IT PT DE et les vues Icônes/Schéma sont conservés.
 
 | Registre de référence | État |
 | --- | --- |
@@ -23,8 +23,9 @@ pilotée par l’accessibilité : carte des missions, mission « Le câble oubli
 explication, câble guidé, ping réussi raconté, trois étoiles, passage Expert et
 profil relu (`level = expert`, étoiles enregistrées). Les missions d’enseignant
 s’ouvrent par le chargement de document asynchrone (section « De la classe »).
-Les procédures Windows et Linux restent à exécuter au titre de F-NFR-007.
-[Recette native](../verification/J8-NATIF-MACOS.md)
+Les suites élève et missions passent aussi sous Debian 12 arm64 (138 tests) et
+Windows x64 sous CrossOver (15 tests). [Recette native](../verification/J8-NATIF-MACOS.md) ·
+[Trois systèmes](../verification/J8-TROIS-OS.md)
 
 ## Tranche J8 — missions évaluables et finitions
 

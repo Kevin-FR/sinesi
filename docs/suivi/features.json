@@ -8700,6 +8700,18 @@
             "docs/verification/J8-NATIF-MACOS.md",
             "docs/verification/j8-native-macos-mission.png"
           ]
+        },
+        {
+          "recipe": "Parcours élève et missions sur Linux et Windows",
+          "command": "Debian 12 arm64 : cargo test -p sns-missions -p sns-settings -p sns-topology -p sns-ui-egui -p sns-cli --locked --offline; Windows x64 : cargo test --target x86_64-pc-windows-gnu --no-run puis exécution sous CrossOver",
+          "result": "pass",
+          "environment": "Debian 12.14 arm64 (Docker rust:1.95-bookworm); Windows x64 PE32+ sous CrossOver win10_64 sur macOS arm64",
+          "revision": "9ab6f35",
+          "artifacts": [
+            "docs/verification/J8-TROIS-OS.md",
+            "docs/verification/j8-linux-debian-arm64-tests.log",
+            "docs/verification/j8-windows-crossover-tests.log"
+          ]
         }
       ]
     },
@@ -9053,6 +9065,18 @@
             "docs/verification/J8-NATIF-MACOS.md",
             "docs/verification/j8-native-macos-mission.png"
           ]
+        },
+        {
+          "recipe": "Parcours élève et missions sur Linux et Windows",
+          "command": "Debian 12 arm64 : cargo test -p sns-missions -p sns-settings -p sns-topology -p sns-ui-egui -p sns-cli --locked --offline; Windows x64 : cargo test --target x86_64-pc-windows-gnu --no-run puis exécution sous CrossOver",
+          "result": "pass",
+          "environment": "Debian 12.14 arm64 (Docker rust:1.95-bookworm); Windows x64 PE32+ sous CrossOver win10_64 sur macOS arm64",
+          "revision": "9ab6f35",
+          "artifacts": [
+            "docs/verification/J8-TROIS-OS.md",
+            "docs/verification/j8-linux-debian-arm64-tests.log",
+            "docs/verification/j8-windows-crossover-tests.log"
+          ]
         }
       ]
     },
@@ -9098,6 +9122,18 @@
             "docs/verification/J8-NATIF-MACOS.md",
             "docs/verification/j8-native-macos-mission.png"
           ]
+        },
+        {
+          "recipe": "Parcours élève et missions sur Linux et Windows",
+          "command": "Debian 12 arm64 : cargo test -p sns-missions -p sns-settings -p sns-topology -p sns-ui-egui -p sns-cli --locked --offline; Windows x64 : cargo test --target x86_64-pc-windows-gnu --no-run puis exécution sous CrossOver",
+          "result": "pass",
+          "environment": "Debian 12.14 arm64 (Docker rust:1.95-bookworm); Windows x64 PE32+ sous CrossOver win10_64 sur macOS arm64",
+          "revision": "9ab6f35",
+          "artifacts": [
+            "docs/verification/J8-TROIS-OS.md",
+            "docs/verification/j8-linux-debian-arm64-tests.log",
+            "docs/verification/j8-windows-crossover-tests.log"
+          ]
         }
       ]
     },
@@ -9137,6 +9173,18 @@
           "artifacts": [
             "docs/verification/J8-NATIF-MACOS.md",
             "docs/verification/j8-native-macos-mission.png"
+          ]
+        },
+        {
+          "recipe": "Parcours élève et missions sur Linux et Windows",
+          "command": "Debian 12 arm64 : cargo test -p sns-missions -p sns-settings -p sns-topology -p sns-ui-egui -p sns-cli --locked --offline; Windows x64 : cargo test --target x86_64-pc-windows-gnu --no-run puis exécution sous CrossOver",
+          "result": "pass",
+          "environment": "Debian 12.14 arm64 (Docker rust:1.95-bookworm); Windows x64 PE32+ sous CrossOver win10_64 sur macOS arm64",
+          "revision": "9ab6f35",
+          "artifacts": [
+            "docs/verification/J8-TROIS-OS.md",
+            "docs/verification/j8-linux-debian-arm64-tests.log",
+            "docs/verification/j8-windows-crossover-tests.log"
           ]
         }
       ]
@@ -9179,6 +9227,18 @@
             "docs/verification/J8-NATIF-MACOS.md",
             "docs/verification/j8-native-macos-mission.png"
           ]
+        },
+        {
+          "recipe": "Parcours élève et missions sur Linux et Windows",
+          "command": "Debian 12 arm64 : cargo test -p sns-missions -p sns-settings -p sns-topology -p sns-ui-egui -p sns-cli --locked --offline; Windows x64 : cargo test --target x86_64-pc-windows-gnu --no-run puis exécution sous CrossOver",
+          "result": "pass",
+          "environment": "Debian 12.14 arm64 (Docker rust:1.95-bookworm); Windows x64 PE32+ sous CrossOver win10_64 sur macOS arm64",
+          "revision": "9ab6f35",
+          "artifacts": [
+            "docs/verification/J8-TROIS-OS.md",
+            "docs/verification/j8-linux-debian-arm64-tests.log",
+            "docs/verification/j8-windows-crossover-tests.log"
+          ]
         }
       ]
     },
@@ -9220,6 +9280,18 @@
             "docs/verification/J8-NATIF-MACOS.md",
             "docs/verification/j8-native-macos-mission.png"
           ]
+        },
+        {
+          "recipe": "Parcours élève et missions sur Linux et Windows",
+          "command": "Debian 12 arm64 : cargo test -p sns-missions -p sns-settings -p sns-topology -p sns-ui-egui -p sns-cli --locked --offline; Windows x64 : cargo test --target x86_64-pc-windows-gnu --no-run puis exécution sous CrossOver",
+          "result": "pass",
+          "environment": "Debian 12.14 arm64 (Docker rust:1.95-bookworm); Windows x64 PE32+ sous CrossOver win10_64 sur macOS arm64",
+          "revision": "9ab6f35",
+          "artifacts": [
+            "docs/verification/J8-TROIS-OS.md",
+            "docs/verification/j8-linux-debian-arm64-tests.log",
+            "docs/verification/j8-windows-crossover-tests.log"
+          ]
         }
       ]
     },
@@ -9260,6 +9332,18 @@
           "artifacts": [
             "docs/verification/J8-NATIF-MACOS.md",
             "docs/verification/j8-native-macos-mission.png"
+          ]
+        },
+        {
+          "recipe": "Parcours élève et missions sur Linux et Windows",
+          "command": "Debian 12 arm64 : cargo test -p sns-missions -p sns-settings -p sns-topology -p sns-ui-egui -p sns-cli --locked --offline; Windows x64 : cargo test --target x86_64-pc-windows-gnu --no-run puis exécution sous CrossOver",
+          "result": "pass",
+          "environment": "Debian 12.14 arm64 (Docker rust:1.95-bookworm); Windows x64 PE32+ sous CrossOver win10_64 sur macOS arm64",
+          "revision": "9ab6f35",
+          "artifacts": [
+            "docs/verification/J8-TROIS-OS.md",
+            "docs/verification/j8-linux-debian-arm64-tests.log",
+            "docs/verification/j8-windows-crossover-tests.log"
           ]
         }
       ]

@@ -1,0 +1,18 @@
+test gateway_advice_explains_missing_invalid_outside_and_reachable_values ... ok
+test free_position_never_covers_an_existing_device ... ok
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.02s
+test chosen_level_is_read_back_and_a_profile_without_level_means_student ... ok
+test student_level_is_default_and_expert_reveals_the_same_commands_without_touching_the_project ... ok
+test equipment_sheet_explains_fields_and_judges_the_gateway_while_typing ... ok
+test three_workspaces_follow_clicks_and_function_keys_with_an_instruction_in_six_languages ... ok
+test illustrated_palette_and_guided_cable_connect_a_new_computer_in_six_languages ... ok
+test terminal_results_read_as_sentences_for_students_and_stay_structured_for_experts ... ok
+test a_mission_is_started_explained_repaired_scored_and_unlocks_the_next ... ok
+test packet_journey_is_animated_and_told_from_the_trace_including_a_missing_gateway ... ok
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.72s
+test builtin_missions_are_valid_ordered_and_translated ... ok
+test invalid_missions_are_refused ... ok
+test missing_gateway_is_explained_then_repaired_with_a_real_ping ... ok
+test forgotten_cable_needs_the_link_and_a_reply ... ok
+test repaired_dns_fault_is_validated_and_the_failure_is_explained ... ok
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.10s

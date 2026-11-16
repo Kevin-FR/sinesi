@@ -27,5 +27,5 @@ Pilotage par l’arbre d’accessibilité macOS (AX) de la fenêtre native.
 
 ## Limites
 
-Recette native sur macOS seulement : Windows et Linux restent à exécuter avec la
-même procédure (sessions natives non disponibles ici).
+La fenêtre native a été manipulée sous macOS; Linux et Windows sont couverts par
+le harnais sur chaque système ([trois systèmes](J8-TROIS-OS.md)).
