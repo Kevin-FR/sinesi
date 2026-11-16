@@ -74,4 +74,5 @@ et `invalid_or_stale_teacher_missions_preserve_the_current_work` (R-MIS-006).
 ## Limites
 
 Preuves locales macOS par harnais; pas de recette native ni
-trois OS. F-ADV-004 est implémentée, pas vérifiée.
+trois OS. F-ADV-004 est vérifiée localement; la [recette native macOS](J8-NATIF-MACOS.md)
+complète le harnais.

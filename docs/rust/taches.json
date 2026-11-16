@@ -4398,7 +4398,7 @@
       "id": "RS-UX-J8",
       "title": "Interface élève — niveaux, espaces, palette, animation",
       "milestone": "J8",
-      "status": "in_progress",
+      "status": "verified",
       "size": "L",
       "features": [
         "F-UX-001",
@@ -4487,6 +4487,17 @@
             "docs/verification/J8-MISSIONS.md",
             "docs/verification/J8-UX-NIVEAUX.md"
           ]
+        },
+        {
+          "recipe": "Recette native macOS — parcours élève complet",
+          "command": "cargo build -p sns-desktop --locked --offline; SINESI_SETTINGS_PATH=<tmp>/settings.json target/debug/sns-desktop --session-dir <tmp>/session; pilotage AX de la fenêtre native",
+          "result": "pass",
+          "environment": "macOS 27.2 arm64, Apple M2 Max, Rust 1.95.0; fenêtre native, accessibilité macOS",
+          "revision": "d4e70cd + chargement des missions d’enseignant",
+          "artifacts": [
+            "docs/verification/J8-NATIF-MACOS.md",
+            "docs/verification/j8-native-macos-mission.png"
+          ]
         }
       ],
       "actual_paths": [
@@ -4545,7 +4556,9 @@
         "docs/rust/decisions/D-016-missions.md",
         "docs/rust/layers.json",
         "docs/rust/ARCHITECTURE.md",
-        "Cargo.toml"
+        "Cargo.toml",
+        "docs/verification/J8-NATIF-MACOS.md",
+        "docs/verification/J8-MISSIONS.md"
       ]
     }
   ]

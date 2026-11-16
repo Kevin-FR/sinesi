@@ -3,17 +3,28 @@
 ## Situation courante — 16 novembre 2026
 
 **J1 à J6 sont qualifiés localement. J7 reste ouvert. La refonte élève (J8, RS-UX-J8)
-est réalisée : F-UX-001 à F-UX-006 et F-ADV-004 sont implémentées, à qualifier sur trois OS.** FR EN ES IT PT DE et les vues Icônes/Schéma sont conservés.
+est terminée et qualifiée localement : F-UX-001 à F-UX-006 et F-ADV-004 sont vérifiées
+(harnais et recette native macOS). La couverture Windows/Linux relève de F-NFR-007.** FR EN ES IT PT DE et les vues Icônes/Schéma sont conservés.
 
 | Registre de référence | État |
 | --- | --- |
-| [184 exigences](features.json) | **162 verified**, 7 implemented, 3 in_progress, 12 not_started |
-| [51 lots Rust](../rust/taches.json) | **44 verified**, 4 in_progress, 1 not_started, 2 deferred |
+| [184 exigences](features.json) | **169 verified**, 1 implemented, 3 in_progress, 11 not_started |
+| [51 lots Rust](../rust/taches.json) | **45 verified**, 3 in_progress, 1 not_started, 2 deferred |
 | J7 | **20 exigences vérifiées sur 22**, 1 implémentée à qualifier, 1 en cours |
-| Lots en cours | RS-QUALITY-J0, RS-PLATFORM-J7, RS-QUALITY-J7, RS-UX-J8 |
+| Lots en cours | RS-QUALITY-J0, RS-PLATFORM-J7, RS-QUALITY-J7 |
 
 Les registres et leurs preuves sont l’autorité. Les résumés historiques ne ferment
 pas une exigence; [leur chronologie antérieure](ETAT-HISTORIQUE-2026-11-08.md) est conservée.
+
+## Tranche J8 — recette native macOS et clôture
+
+RS-UX-J8 vérifié. Le parcours élève a été exécuté dans la fenêtre native macOS
+pilotée par l’accessibilité : carte des missions, mission « Le câble oublié »,
+explication, câble guidé, ping réussi raconté, trois étoiles, passage Expert et
+profil relu (`level = expert`, étoiles enregistrées). Les missions d’enseignant
+s’ouvrent par le chargement de document asynchrone (section « De la classe »).
+Les procédures Windows et Linux restent à exécuter au titre de F-NFR-007.
+[Recette native](../verification/J8-NATIF-MACOS.md)
 
 ## Tranche J8 — missions évaluables et finitions
 

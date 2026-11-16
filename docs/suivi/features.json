@@ -8673,7 +8673,7 @@
       "component": "future",
       "milestone": "J9",
       "depends_on": [],
-      "status": "implemented",
+      "status": "verified",
       "evidence": [],
       "verification": [
         {
@@ -8688,6 +8688,17 @@
             "crates/sns-missions/tests/contracts.rs",
             "crates/sns-cli/tests/missions.rs",
             "crates/sns-ui-egui/tests/student.rs"
+          ]
+        },
+        {
+          "recipe": "Recette native macOS — parcours élève complet",
+          "command": "cargo build -p sns-desktop --locked --offline; SINESI_SETTINGS_PATH=<tmp>/settings.json target/debug/sns-desktop --session-dir <tmp>/session; pilotage AX de la fenêtre native",
+          "result": "pass",
+          "environment": "macOS 27.2 arm64, Apple M2 Max, Rust 1.95.0; fenêtre native, accessibilité macOS",
+          "revision": "d4e70cd + chargement des missions d’enseignant",
+          "artifacts": [
+            "docs/verification/J8-NATIF-MACOS.md",
+            "docs/verification/j8-native-macos-mission.png"
           ]
         }
       ]
@@ -9016,7 +9027,7 @@
       "component": "presentation",
       "milestone": "J8",
       "depends_on": [],
-      "status": "implemented",
+      "status": "verified",
       "evidence": [],
       "verification": [
         {
@@ -9030,6 +9041,17 @@
             "crates/sns-ui-egui/tests/student.rs",
             "crates/sns-settings/tests/display.rs",
             "crates/sns-ui-egui/tests/snapshots-historique/atelier-j7/MANIFEST.sha256"
+          ]
+        },
+        {
+          "recipe": "Recette native macOS — parcours élève complet",
+          "command": "cargo build -p sns-desktop --locked --offline; SINESI_SETTINGS_PATH=<tmp>/settings.json target/debug/sns-desktop --session-dir <tmp>/session; pilotage AX de la fenêtre native",
+          "result": "pass",
+          "environment": "macOS 27.2 arm64, Apple M2 Max, Rust 1.95.0; fenêtre native, accessibilité macOS",
+          "revision": "d4e70cd + chargement des missions d’enseignant",
+          "artifacts": [
+            "docs/verification/J8-NATIF-MACOS.md",
+            "docs/verification/j8-native-macos-mission.png"
           ]
         }
       ]
@@ -9050,7 +9072,7 @@
       "depends_on": [
         "F-UX-001"
       ],
-      "status": "implemented",
+      "status": "verified",
       "evidence": [],
       "verification": [
         {
@@ -9064,6 +9086,17 @@
             "crates/sns-ui-egui/tests/student.rs",
             "crates/sns-settings/tests/display.rs",
             "crates/sns-ui-egui/tests/snapshots-historique/atelier-j7/MANIFEST.sha256"
+          ]
+        },
+        {
+          "recipe": "Recette native macOS — parcours élève complet",
+          "command": "cargo build -p sns-desktop --locked --offline; SINESI_SETTINGS_PATH=<tmp>/settings.json target/debug/sns-desktop --session-dir <tmp>/session; pilotage AX de la fenêtre native",
+          "result": "pass",
+          "environment": "macOS 27.2 arm64, Apple M2 Max, Rust 1.95.0; fenêtre native, accessibilité macOS",
+          "revision": "d4e70cd + chargement des missions d’enseignant",
+          "artifacts": [
+            "docs/verification/J8-NATIF-MACOS.md",
+            "docs/verification/j8-native-macos-mission.png"
           ]
         }
       ]
@@ -9081,7 +9114,7 @@
       "component": "presentation",
       "milestone": "J8",
       "depends_on": [],
-      "status": "implemented",
+      "status": "verified",
       "evidence": [],
       "verification": [
         {
@@ -9093,6 +9126,17 @@
           "artifacts": [
             "docs/verification/J8-UX-NIVEAUX.md",
             "crates/sns-ui-egui/tests/student.rs"
+          ]
+        },
+        {
+          "recipe": "Recette native macOS — parcours élève complet",
+          "command": "cargo build -p sns-desktop --locked --offline; SINESI_SETTINGS_PATH=<tmp>/settings.json target/debug/sns-desktop --session-dir <tmp>/session; pilotage AX de la fenêtre native",
+          "result": "pass",
+          "environment": "macOS 27.2 arm64, Apple M2 Max, Rust 1.95.0; fenêtre native, accessibilité macOS",
+          "revision": "d4e70cd + chargement des missions d’enseignant",
+          "artifacts": [
+            "docs/verification/J8-NATIF-MACOS.md",
+            "docs/verification/j8-native-macos-mission.png"
           ]
         }
       ]
@@ -9110,7 +9154,7 @@
       "component": "presentation",
       "milestone": "J8",
       "depends_on": [],
-      "status": "implemented",
+      "status": "verified",
       "evidence": [],
       "verification": [
         {
@@ -9123,6 +9167,17 @@
             "docs/verification/J8-UX-NIVEAUX.md",
             "crates/sns-ui-egui/tests/student.rs",
             "crates/sns-ui-egui/src/story.rs"
+          ]
+        },
+        {
+          "recipe": "Recette native macOS — parcours élève complet",
+          "command": "cargo build -p sns-desktop --locked --offline; SINESI_SETTINGS_PATH=<tmp>/settings.json target/debug/sns-desktop --session-dir <tmp>/session; pilotage AX de la fenêtre native",
+          "result": "pass",
+          "environment": "macOS 27.2 arm64, Apple M2 Max, Rust 1.95.0; fenêtre native, accessibilité macOS",
+          "revision": "d4e70cd + chargement des missions d’enseignant",
+          "artifacts": [
+            "docs/verification/J8-NATIF-MACOS.md",
+            "docs/verification/j8-native-macos-mission.png"
           ]
         }
       ]
@@ -9140,7 +9195,7 @@
       "component": "presentation",
       "milestone": "J8",
       "depends_on": [],
-      "status": "implemented",
+      "status": "verified",
       "evidence": [],
       "verification": [
         {
@@ -9153,6 +9208,17 @@
             "docs/verification/J8-UX-NIVEAUX.md",
             "crates/sns-ui-egui/tests/student.rs",
             "crates/sns-ui-egui/src/workbench/desktop/terminal_text.rs"
+          ]
+        },
+        {
+          "recipe": "Recette native macOS — parcours élève complet",
+          "command": "cargo build -p sns-desktop --locked --offline; SINESI_SETTINGS_PATH=<tmp>/settings.json target/debug/sns-desktop --session-dir <tmp>/session; pilotage AX de la fenêtre native",
+          "result": "pass",
+          "environment": "macOS 27.2 arm64, Apple M2 Max, Rust 1.95.0; fenêtre native, accessibilité macOS",
+          "revision": "d4e70cd + chargement des missions d’enseignant",
+          "artifacts": [
+            "docs/verification/J8-NATIF-MACOS.md",
+            "docs/verification/j8-native-macos-mission.png"
           ]
         }
       ]
@@ -9170,7 +9236,7 @@
       "component": "presentation",
       "milestone": "J8",
       "depends_on": [],
-      "status": "implemented",
+      "status": "verified",
       "evidence": [],
       "verification": [
         {
@@ -9183,6 +9249,17 @@
             "docs/verification/J8-UX-NIVEAUX.md",
             "crates/sns-topology/tests/advice.rs",
             "crates/sns-ui-egui/tests/student.rs"
+          ]
+        },
+        {
+          "recipe": "Recette native macOS — parcours élève complet",
+          "command": "cargo build -p sns-desktop --locked --offline; SINESI_SETTINGS_PATH=<tmp>/settings.json target/debug/sns-desktop --session-dir <tmp>/session; pilotage AX de la fenêtre native",
+          "result": "pass",
+          "environment": "macOS 27.2 arm64, Apple M2 Max, Rust 1.95.0; fenêtre native, accessibilité macOS",
+          "revision": "d4e70cd + chargement des missions d’enseignant",
+          "artifacts": [
+            "docs/verification/J8-NATIF-MACOS.md",
+            "docs/verification/j8-native-macos-mission.png"
           ]
         }
       ]

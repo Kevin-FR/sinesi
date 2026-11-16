@@ -2069,7 +2069,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `extension_optionnelle`; état du référentiel : `absent_du_referentiel`.
 - Exigence : Décrire objectifs, états attendus, feedback et corrections exportables.
 - Recette : Un exercice valide automatiquement une panne DNS réparée et explique un échec.
-- Composant : `future`; jalon : `J9`; état : `implemented`.
+- Composant : `future`; jalon : `J9`; état : `verified`.
 - Prérequis fonctionnels : aucun.
 
 <a id="f-adv-005"></a>
@@ -2104,7 +2104,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
 - Exigence : Proposer un niveau d’affichage Élève par défaut et un niveau Expert, persistés comme préférence, sans changer projet, simulation ni transactions.
 - Recette : R-UX-001 : au premier lancement les commandes Expert sont absentes; passer en Expert les révèle sans changer le projet ni sa révision. R-UX-002 : le niveau est relu au démarrage; un profil sans niveau vaut Élève.
-- Composant : `presentation`; jalon : `J8`; état : `implemented`.
+- Composant : `presentation`; jalon : `J8`; état : `verified`.
 - Prérequis fonctionnels : aucun.
 
 <a id="f-ux-002"></a>
@@ -2114,7 +2114,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
 - Exigence : Nommer les espaces par l’action de l’élève (Construire, Tester, Annoter), garder F2/F3/F4 et afficher une consigne visible traduite.
 - Recette : R-UX-003 : les trois espaces correspondent aux modes existants au clic et au clavier, avec consigne dans les six langues. R-UX-004 : références graphiques six langues × Icônes/Schéma.
-- Composant : `presentation`; jalon : `J8`; état : `implemented`.
+- Composant : `presentation`; jalon : `J8`; état : `verified`.
 - Prérequis fonctionnels : F-UX-001.
 
 <a id="f-ux-003"></a>
@@ -2124,7 +2124,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
 - Exigence : Ajouter les équipements depuis une palette illustrée et guider la pose d’un câble en deux clics avec message d’étape.
 - Recette : Ajouter un ordinateur depuis la palette puis le relier au commutateur en suivant les messages.
-- Composant : `presentation`; jalon : `J8`; état : `implemented`.
+- Composant : `presentation`; jalon : `J8`; état : `verified`.
 - Prérequis fonctionnels : aucun.
 
 <a id="f-ux-004"></a>
@@ -2134,7 +2134,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
 - Exigence : Animer les paquets sur les câbles à partir de la trace et raconter chaque étape en langage courant, détail technique au niveau Expert.
 - Recette : Un ping routé montre l’aller, le retour et un récit cohérent avec la trace; un échec sans passerelle est expliqué.
-- Composant : `presentation`; jalon : `J8`; état : `implemented`.
+- Composant : `presentation`; jalon : `J8`; état : `verified`.
 - Prérequis fonctionnels : aucun.
 
 <a id="f-ux-005"></a>
@@ -2144,7 +2144,7 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
 - Exigence : Présenter les résultats des commandes du terminal simulé sous forme lisible, la sortie structurée restant disponible au niveau Expert.
 - Recette : ipconfig et ping affichent des lignes compréhensibles au niveau Élève.
-- Composant : `presentation`; jalon : `J8`; état : `implemented`.
+- Composant : `presentation`; jalon : `J8`; état : `verified`.
 - Prérequis fonctionnels : aucun.
 
 <a id="f-ux-006"></a>
@@ -2154,5 +2154,5 @@ Une preuve de code établit une présence statique; elle ne prouve ni conformit�
 - Origine : `modernisation`; état du référentiel : `absent_du_referentiel`.
 - Exigence : Expliquer les champs de configuration (adresse, réseau, passerelle) avec aide contextuelle et signalement d’une valeur incohérente.
 - Recette : Une passerelle absente ou hors réseau est signalée avec une explication.
-- Composant : `presentation`; jalon : `J8`; état : `implemented`.
+- Composant : `presentation`; jalon : `J8`; état : `verified`.
 - Prérequis fonctionnels : aucun.

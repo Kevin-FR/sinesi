@@ -118,5 +118,5 @@ suite graphique complète sans régénération et `cargo xtask ui` — toutes en
 ## Limites
 
 Preuves locales macOS uniquement, par le harnais egui; aucune manipulation native
-au clavier ni qualification Windows/Linux. F-UX-001 à F-UX-006 sont
-implémentées, pas vérifiées sur trois OS.
+au clavier ni qualification Windows/Linux. F-UX-001 à F-UX-006 sont vérifiées localement;
+la [recette native macOS](J8-NATIF-MACOS.md) complète le harnais. Windows et Linux relèvent de F-NFR-007.

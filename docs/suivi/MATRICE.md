@@ -173,7 +173,7 @@ Vue générée. Autorité fonctionnelle : [features.json](features.json). Autori
 | [F-ADV-001](../agnostique/CATALOGUE.md#f-adv-001) | J9 | not_started | [RS-FUTURE-J9](../rust/PLAN.md#rs-future-j9) | deferred |
 | [F-ADV-002](../agnostique/CATALOGUE.md#f-adv-002) | J9 | not_started | [RS-FUTURE-J9](../rust/PLAN.md#rs-future-j9) | deferred |
 | [F-ADV-003](../agnostique/CATALOGUE.md#f-adv-003) | J9 | not_started | [RS-FUTURE-J9](../rust/PLAN.md#rs-future-j9) | deferred |
-| [F-ADV-004](../agnostique/CATALOGUE.md#f-adv-004) | J9 | implemented | [RS-FUTURE-J9](../rust/PLAN.md#rs-future-j9), [RS-UX-J8](../rust/PLAN.md#rs-ux-j8) | deferred, in_progress |
+| [F-ADV-004](../agnostique/CATALOGUE.md#f-adv-004) | J9 | verified | [RS-FUTURE-J9](../rust/PLAN.md#rs-future-j9), [RS-UX-J8](../rust/PLAN.md#rs-ux-j8) | deferred, verified |
 | [F-ADV-005](../agnostique/CATALOGUE.md#f-adv-005) | J9 | not_started | [RS-FUTURE-J9](../rust/PLAN.md#rs-future-j9) | deferred |
 | [F-ADV-006](../agnostique/CATALOGUE.md#f-adv-006) | J9 | not_started | [RS-FUTURE-J9](../rust/PLAN.md#rs-future-j9) | deferred |
 | [F-CLI-020](../agnostique/CATALOGUE.md#f-cli-020) | J2 | verified | [RS-TERMINAL-J2](../rust/PLAN.md#rs-terminal-j2) | verified |
@@ -182,9 +182,9 @@ Vue générée. Autorité fonctionnelle : [features.json](features.json). Autori
 | [F-TOP-010](../agnostique/CATALOGUE.md#f-top-010) | J1 | verified | [RS-TOPOLOGY-J1](../rust/PLAN.md#rs-topology-j1) | verified |
 | [F-DNS-006](../agnostique/CATALOGUE.md#f-dns-006) | J4 | verified | [RS-DNS-J4](../rust/PLAN.md#rs-dns-j4) | verified |
 | [F-TOP-011](../agnostique/CATALOGUE.md#f-top-011) | J3 | verified | [RS-TOPOLOGY-J3](../rust/PLAN.md#rs-topology-j3) | verified |
-| [F-UX-001](../agnostique/CATALOGUE.md#f-ux-001) | J8 | implemented | [RS-UX-J8](../rust/PLAN.md#rs-ux-j8) | in_progress |
-| [F-UX-002](../agnostique/CATALOGUE.md#f-ux-002) | J8 | implemented | [RS-UX-J8](../rust/PLAN.md#rs-ux-j8) | in_progress |
-| [F-UX-003](../agnostique/CATALOGUE.md#f-ux-003) | J8 | implemented | [RS-UX-J8](../rust/PLAN.md#rs-ux-j8) | in_progress |
-| [F-UX-004](../agnostique/CATALOGUE.md#f-ux-004) | J8 | implemented | [RS-UX-J8](../rust/PLAN.md#rs-ux-j8) | in_progress |
-| [F-UX-005](../agnostique/CATALOGUE.md#f-ux-005) | J8 | implemented | [RS-UX-J8](../rust/PLAN.md#rs-ux-j8) | in_progress |
-| [F-UX-006](../agnostique/CATALOGUE.md#f-ux-006) | J8 | implemented | [RS-UX-J8](../rust/PLAN.md#rs-ux-j8) | in_progress |
+| [F-UX-001](../agnostique/CATALOGUE.md#f-ux-001) | J8 | verified | [RS-UX-J8](../rust/PLAN.md#rs-ux-j8) | verified |
+| [F-UX-002](../agnostique/CATALOGUE.md#f-ux-002) | J8 | verified | [RS-UX-J8](../rust/PLAN.md#rs-ux-j8) | verified |
+| [F-UX-003](../agnostique/CATALOGUE.md#f-ux-003) | J8 | verified | [RS-UX-J8](../rust/PLAN.md#rs-ux-j8) | verified |
+| [F-UX-004](../agnostique/CATALOGUE.md#f-ux-004) | J8 | verified | [RS-UX-J8](../rust/PLAN.md#rs-ux-j8) | verified |
+| [F-UX-005](../agnostique/CATALOGUE.md#f-ux-005) | J8 | verified | [RS-UX-J8](../rust/PLAN.md#rs-ux-j8) | verified |
+| [F-UX-006](../agnostique/CATALOGUE.md#f-ux-006) | J8 | verified | [RS-UX-J8](../rust/PLAN.md#rs-ux-j8) | verified |
